@@ -3,26 +3,28 @@ package rent.app.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
+
 
 @Data
 @Entity
-@Table(name="DriveReport")
-public class Report {
+@Table
+public class DriveReport implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column
+    @Column(name="CarTraveledDistance")
     private float traveledDistance;
 
-    @Column(name="Describe")
+    @Column(name="CarDescribe")
     private String describe;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="DateOfReport")
+    @Column(name="CarDateOfReport")
     private Date dateOfReport;
 
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private Car car;
+    private Car carReport;
 }
