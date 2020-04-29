@@ -1,6 +1,6 @@
 export interface AdvertMiniModel {
-    
-    id: number;
+
+    advertId: number;
     profileImage: string;
     price: number;
     grade: number;
@@ -9,5 +9,5 @@ export interface AdvertMiniModel {
     distanceUnit: string;
     carBrand: string;
     carModel: string;
-    
+
 }

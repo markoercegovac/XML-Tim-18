@@ -1,6 +1,8 @@
+import { Car } from './car.model';
+
 export interface AdvertFullModel {
-    
-    id: number;
+
+    advertId: number;
     profileImage: string;
     galeryImages: string[];
     price: number;
@@ -9,14 +11,7 @@ export interface AdvertFullModel {
     firmName: string;
     description: string;
 
-    //car specifik
-    traveledDistance: number;
-    distanceUnit: string;
-    carBrand: string;
-    carModel: string;
-    carClass: string;
-    CarFuelType: string;
-    CarTransmissionType: string;
-    isInsurance: boolean;
+    car: Car
+
 
 }

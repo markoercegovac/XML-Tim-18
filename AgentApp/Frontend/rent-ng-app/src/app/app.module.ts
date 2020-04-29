@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { RegisterComponent } from './register/register.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -18,6 +18,14 @@ import { SearchComponent } from './home/search/search.component';
 import { FooterComponent } from './home/footer/footer.component';
 import { CommentComponent } from './home/full-advert/comments/comment/comment.component';
 import { CommentsComponent } from './home/full-advert/comments/comments.component';
+import { AddCommentComponent } from './home/full-advert/comments/add-comment/add-comment.component';
+import { FormsModule } from '@angular/forms';
+import { AdminComponent } from './admin/admin.component';
+import { AdminHeaderComponent } from './admin/admin-header/admin-header.component';
+import { AdminCommentsComponent } from './admin/admin-comments/admin-comments.component';
+import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
+import { AdminCommentComponent } from './admin/admin-comments/admin-comment/admin-comment.component';
+import { AddAdvertComponent } from './home/adverts/add-advert/add-advert.component';
 
 @NgModule({
   declarations: [
@@ -35,12 +43,20 @@ import { CommentsComponent } from './home/full-advert/comments/comments.componen
     AdvanceSearchComponent,
     FooterComponent,
     CommentComponent,
-    CommentsComponent
+    CommentsComponent,
+    AddCommentComponent,
+    AdminComponent,
+    AdminHeaderComponent,
+    AdminCommentsComponent,
+    AdminHomeComponent,
+    AdminCommentComponent,
+    AddAdvertComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

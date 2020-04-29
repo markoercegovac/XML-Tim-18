@@ -1,5 +1,9 @@
-<h1>list of adverts</h1>
+<div>
+    <h1>list of adverts</h1>
+    <button (click)="onAddAdvert()">add</button>
+    <hr>
+    <div *ngFor="let advert of adverts">
+        <app-advert-mini [ad]="advert"></app-advert-mini>
+    </div>
 
-<div *ngFor="let advert of adverts">
-    <app-advert-mini [ad]="advert"></app-advert-mini>
 </div>

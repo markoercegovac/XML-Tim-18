@@ -10,24 +10,26 @@ import { CommentModel } from 'src/app/model/comment.model';
 export class CommentsComponent implements OnInit {
 
   @Input('ad-id') adId: number;
+  showAddCommentModal: boolean;
   comments: CommentModel[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
-    if(this.adId===2) {
+    this.showAddCommentModal = false;
+    if (this.adId === 1) {
       this.mock();
     }
   }
 
   onAddComment() {
-    alert('ADDING NEW COMMENT');
+    this.showAddCommentModal = !this.showAddCommentModal;
   }
 
   mock() {
-    this.comments.push({author: 'mika', content: 'super je!'});
-    this.comments.push({author: 'pera', content: 'odlicno!'});
-    this.comments.push({author: 'djura', content: 'pali iz prve'});
+    this.comments.push({ commentId: 1, author: 'mika', content: 'super je!', advertId: 1 });
+    this.comments.push({ commentId: 2, author: 'pera', content: 'odlicno!', advertId: 1 });
+    this.comments.push({ commentId: 3, author: 'djura', content: 'pali iz prve', advertId: 1 });
   }
 
 }

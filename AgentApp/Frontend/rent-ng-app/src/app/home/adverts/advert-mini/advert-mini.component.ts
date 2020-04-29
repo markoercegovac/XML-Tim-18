@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AdvertMiniComponent implements OnInit {
 
-  @Input("ad") advert:AdvertMiniModel;
+  @Input("ad") advert: AdvertMiniModel;
 
 
   constructor(private router: Router) { }
@@ -19,7 +19,7 @@ export class AdvertMiniComponent implements OnInit {
   }
 
   showFullAdvert() {
-    this.router.navigate(['/home/ad', this.advert.id ]);
+    this.router.navigate(['/home/ad', this.advert.advertId]);
   }
 
 }

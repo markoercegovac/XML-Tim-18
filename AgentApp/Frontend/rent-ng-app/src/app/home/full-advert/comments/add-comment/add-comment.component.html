@@ -1,0 +1,10 @@
+<div>
+    <form (ngSubmit)="onAddComment(f)" #f="ngForm">
+        <label for="contentInput">content</label>
+        <br>
+        <textarea name="contentInput" id="contentInput" cols="30" rows="10" ngModel required></textarea>
+        <br>
+        <button type="submit">add</button>
+        <hr>
+    </form>
+</div>
