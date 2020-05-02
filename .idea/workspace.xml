@@ -2,26 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81ed47dc-c4e2-4c72-adaf-6d171d464c67" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/AgentApp/Backend/src/main/java/rent/app/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/src/app/navigation/navigation.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/src/app/navigation/navigation.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/src/app/navigation/navigation.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/src/app/user/user.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/src/app/user/user.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/src/app/user/user.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AgentApp/Backend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/AgentApp/Backend/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AgentApp/Backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AgentApp/Backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AgentApp/Backend/src/main/java/rent/car/BackendApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AgentApp/Backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/AgentApp/Backend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AgentApp/Backend/src/test/java/rent/car/BackendApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/RentACar.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RentACar.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/angular.json" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,20 +16,52 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1asDQQqETzHKLDsfQ27s04N8HDO" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/AgentApp/Backend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Bezbednost/git bezbednost/bsep-Tim8" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
+  <component name="RunManager" selected="JavaScript Debug.Angular Application">
+    <configuration name="E2E Tests (rent-ng-app)" type="JavaScriptTestRunnerProtractor">
+      <config-file value="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/e2e/protractor.conf.js" />
+      <node-interpreter value="project" />
+      <protractor-package value="" />
+      <protractor-options value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular CLI Server" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
       <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
       </list>
     </option>
   </component>
@@ -59,6 +76,7 @@
       <option name="presentableId" value="Default" />
       <updated>1587515391115</updated>
       <workItem from="1587515393442" duration="35000" />
+      <workItem from="1587983056159" duration="2984000" />
     </task>
     <servers />
   </component>
@@ -70,10 +88,50 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="137" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587985188165">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="137" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1587985188165" />
+    <state x="483" y="145" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1587985154790">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="483" y="145" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1366.728@0.0.1366.728" timestamp="1587985154790" />
+    <state x="534" y="257" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1587984819123">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="534" y="257" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1366.728@0.0.1366.728" timestamp="1587984819123" />
+    <state x="263" y="23" key="#com.intellij.openapi.projectRoots.ui.ProjectJdksEditor" timestamp="1587984817563">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="263" y="23" key="#com.intellij.openapi.projectRoots.ui.ProjectJdksEditor/0.0.1366.728@0.0.1366.728" timestamp="1587984817563" />
+    <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1587983934213">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587983934213" />
+    <state width="885" height="144" key="GridCell.Tab.0.bottom" timestamp="1587985608130">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="885" height="144" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587985608130" />
+    <state width="885" height="144" key="GridCell.Tab.0.center" timestamp="1587985608130">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="885" height="144" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1587985608130" />
+    <state width="885" height="144" key="GridCell.Tab.0.left" timestamp="1587985608129">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="885" height="144" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1587985608129" />
+    <state width="885" height="144" key="GridCell.Tab.0.right" timestamp="1587985608130">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="885" height="144" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1587985608130" />
   </component>
 </project>

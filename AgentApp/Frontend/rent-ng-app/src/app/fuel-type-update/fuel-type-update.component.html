@@ -1,0 +1,29 @@
+<html>
+<title>Car Fuel Type</title>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<body>
+<div class="testbox">
+  <form name="cttForm" #f="ngForm" (ngSubmit)="updateC()" >
+    <div class="banner">
+      <h1>Car Fuel Type</h1>
+    </div>
+    <br/>
+    <fieldset>
+      <legend>Information</legend>
+      <div class="item">
+        <label for="fname">Name<span>*</span></label>
+        <input id="fname" type="text" name="fname" required [(ngModel)]="model.fuelType" />
+      </div>
+    </fieldset>
+    <br/>
+
+    <div class="btn-block">
+      <button type="submit" >Update</button>
+    </div>
+  </form>
+</div>
+</body>
+</html>
+
+

@@ -1,12 +1,15 @@
 package rent.app.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 @Entity
 @Table
@@ -15,16 +18,16 @@ public class DriveReport implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name="CarTraveledDistance")
+    @Column
     private float traveledDistance;
 
-    @Column(name="CarDescribe")
+    @Column
     private String describe;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="CarDateOfReport")
+    @Column
     private Date dateOfReport;
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private Car carReport;
+ //   @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+ //   private Car carReport;
 }

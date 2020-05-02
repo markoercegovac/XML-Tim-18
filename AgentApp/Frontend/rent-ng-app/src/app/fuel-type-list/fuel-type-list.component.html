@@ -1,0 +1,43 @@
+<html>
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <style>
+    body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+  </style>
+</head>
+
+<body>
+<div class="w3-main" >
+  <h1 class="text-danger text-center"><b> {{ title }} </b></h1>
+  <hr/>
+
+  <div *ngIf="typeC">
+    <table class="table table-bordered table-hover">
+      <thead>
+      <th>Id: </th>
+      <th>Car Fuel Type Name: </th>
+      </thead>
+
+      <tbody>
+      <tr *ngFor=" let ft of typeC ">
+        <td>{{ft.id }}</td>
+        <td>{{ft.fuelType }}</td>
+
+        <td><button (click)="deleteC(ft.id, ft)">Delete</button></td>
+        <td><button (click)="updateC(ft, ft.id)">Update</button></td>
+
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+
+</div>
+
+</body>
+
+</html>
+

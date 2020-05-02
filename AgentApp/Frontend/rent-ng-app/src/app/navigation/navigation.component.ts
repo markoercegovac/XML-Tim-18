@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+
 
 @Component({
   selector: 'app-navigation',
@@ -10,13 +10,13 @@ export class NavigationComponent implements OnInit {
 
   private URL: string;
 
-  constructor(private http: HttpClient) {
-    this.URL = 'http://localhost:9090/home';
+  constructor() {
+
   }
 
 
   ngOnInit(): void {
-    this.http.get(this.URL).subscribe();
+
   }
 
 }
