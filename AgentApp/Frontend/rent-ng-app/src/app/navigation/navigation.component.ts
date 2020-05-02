@@ -8,15 +8,12 @@ import {HttpClient} from '@angular/common/http';
 })
 export class NavigationComponent implements OnInit {
 
-  private URL: string;
+  constructor() {
 
-  constructor(private http: HttpClient) {
-    this.URL = 'http://localhost:9090/home';
   }
 
-
   ngOnInit(): void {
-    this.http.get(this.URL).subscribe();
+
   }
 
 }

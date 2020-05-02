@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import {HttpClientModule} from '@angular/common/http';
 import { UserComponent } from './user/user.component';
+import { RegisterCarComponent } from './register-car/register-car.component';
+import { DefinePriceComponent } from './define-price/define-price.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    UserComponent
+    UserComponent,
+    RegisterCarComponent,
+    DefinePriceComponent
   ],
   imports: [
     BrowserModule,
