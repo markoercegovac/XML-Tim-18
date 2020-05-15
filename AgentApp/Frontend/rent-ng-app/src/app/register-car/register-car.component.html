@@ -6,58 +6,66 @@
   <div class="row">
     <div class="offset-3"></div>
     <div class="col-md-6">
-      <form name="certificateForm"   novalidate class="feedback-form">
+      <form name="registerCarForm" #f="ngForm" (ngSubmit)="createCar()"  novalidate class="feedback-form">
         <div>
           <h4><b>Car specification </b>
             <i class="fa fa-cog"></i></h4>
         </div>
         <div class="form-group" style="margin-top:20px;">
           <label>Car Brand</label>
-          <select class="form-control" >
+          <select class="form-control" ([ngModel])="model.carBrand">
+            <option *ngFor="let carBrand of allCarBrand" value="{{carBrand.id}}">{{carBrand.name}}</option>
           </select>
         </div>
 
         <div class="form-group" style="margin-top:20px;">
           <label>Car Model</label>
-          <select class="form-control" >
+          <select class="form-control" ([ngModel])="model.carModel" >
+            <option *ngFor="let carModel of allCarModel" value="{{carModel.id}}">{{carModel.modelName}}</option>
           </select>
         </div>
 
         <div class="form-group" style="margin-top:20px;">
           <label>Car Class</label>
-          <select class="form-control" >
+          <select class="form-control" ([ngModel])="model.carClass">
+            <option *ngFor="let carClass of allCarClass" value="{{carClass.id}}">{{carClass.className}}</option>
           </select>
         </div>
 
         <div class="form-group" style="margin-top:20px;">
           <label>Car Transmission Type</label>
-          <select class="form-control custom-select" >
-            <option value="Manual">Manual</option>
-            <option value="Automatic">Automatic</option>
+          <select class="form-control custom-select" ([ngModel])="model.carTransmissionType">
+            <option *ngFor="let carTransmission of allCarTransmission" value="{{carTransmission.id}}">{{carTransmission.transmissionType}}</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label>Traveled Distance in km</label>
+          <label for="travelDistance">Traveled Distance in km</label>
           <input type="number" pattern="^\d*(\.\d{0,2})?$"
                  placeholder="Traveled Distance in km"
                  class="form-control"
                  min="0"
+                 name="travelDistance"
+                 id="travelDistance"
+                 ([ngModel])="model.travelDistance"
           />
         </div>
 
         <div class="form-group" style="margin-top:20px;">
           <label>Car Fuel Type</label>
-          <select class="form-control custom-select" >
+          <select class="form-control custom-select" ([ngModel])="model.carFuelType">
+            <option *ngFor="let carFuel of allCarFuelType" value="{{carFuel.id}}">{{carFuel.fuelType}}</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label>Children Sit Number</label>
+          <label for="childrenSitNumber">Children Sit Number</label>
           <input type="number" pattern="^\d*(\.\d{0,2})?$"
                  placeholder="Children Sit Number"
                  class="form-control"
                  min="0" max="5"
+                 id="childrenSitNumber"
+                 ([ngModel])="model.childrenSitNumber"
           />
         </div>
         <div class="forum-group btn-group btn-group-toggle">

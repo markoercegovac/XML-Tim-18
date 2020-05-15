@@ -24,5 +24,25 @@ export class CarService {
     return this.http.get<CarModel[]>(this.URL + '/allModels');
   }
 
+  public getAllCarBrands(): Observable<CarBrand[]>{
+    return this.http.get<CarBrand[]>(this.URL+'/allBrands');
+  }
+
+  public getAllCarTransmissionType(): Observable<CarTransmission[]>{
+    return this.http.get<CarTransmission[]>(this.URL+'/allTransmissionType');
+  }
+
+  public getAllCarClass():Observable<CarClass[]>{
+    return this.http.get<CarClass[]>(this.URL+'/allCarClass');
+  }
+
+  public getAllFuelType():Observable<CarFuelType[]>{
+    return this.http.get<CarFuelType[]>(this.URL+'/allFuelType');
+  }
+
+  public registerCar(car:Car){
+    return this.http.post(this.URL+'/registerCar',car);
+  }
+
 }
 

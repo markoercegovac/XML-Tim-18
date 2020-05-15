@@ -8,6 +8,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { UserComponent } from './user/user.component';
 import { RegisterCarComponent } from './register-car/register-car.component';
 import { DefinePriceComponent } from './define-price/define-price.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DefinePriceComponent } from './define-price/define-price.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

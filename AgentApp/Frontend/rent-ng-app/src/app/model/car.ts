@@ -5,12 +5,13 @@ export class Car {
   isInsurance: boolean;
   travelDistance: number;
   carBrand: number;
+  carClass: number;
   carFuelType: number;
   carModel: number;
   carTransmissionType: number;
 
 
-  constructor(id: number, children: number, isInsurance: boolean, travelDistance: number, carBrand: number, carModel: number, carTransmission: number) {
+  constructor(id: number, children: number, isInsurance: boolean, travelDistance: number, carBrand: number, carClass: number, carModel: number, carTransmission: number) {
     this.id = id;
     this.childrenSitNumber = children;
     this.carBrand = carBrand;
@@ -18,6 +19,7 @@ export class Car {
     this.isInsurance = isInsurance;
     this.travelDistance = travelDistance;
     this.carTransmissionType = carTransmission;
+    this.carClass=carClass;
   }
 
 }
