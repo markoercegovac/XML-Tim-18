@@ -2,26 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81ed47dc-c4e2-4c72-adaf-6d171d464c67" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/AgentApp/Backend/src/main/java/rent/app/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/src/app/navigation/navigation.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/src/app/navigation/navigation.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/src/app/navigation/navigation.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/src/app/user/user.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/src/app/user/user.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/src/app/user/user.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AgentApp/Backend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/AgentApp/Backend/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AgentApp/Backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AgentApp/Backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AgentApp/Backend/src/main/java/rent/car/BackendApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AgentApp/Backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/AgentApp/Backend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AgentApp/Backend/src/test/java/rent/car/BackendApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/AgentApp/Frontend/rent-ng-app/src/styles.css" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,20 +14,26 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1asDQQqETzHKLDsfQ27s04N8HDO" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/AgentApp/Backend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
+  <component name="ServiceViewManager">
+    <option name="viewStates">
       <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
       </list>
     </option>
   </component>
@@ -59,6 +48,7 @@
       <option name="presentableId" value="Default" />
       <updated>1587515391115</updated>
       <workItem from="1587515393442" duration="35000" />
+      <workItem from="1588180769265" duration="1090000" />
     </task>
     <servers />
   </component>
@@ -70,10 +60,18 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="137" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588181613241">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="137" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1588181613241" />
   </component>
 </project>
