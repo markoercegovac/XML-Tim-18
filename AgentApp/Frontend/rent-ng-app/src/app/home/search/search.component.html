@@ -1,0 +1,13 @@
+<div class="container-fluid border">
+    <span>
+        <label>search</label>&nbsp;
+        <button class="btn btn-primary" (click)="onChangeSearch()">change</button>
+    </span>
+    <div *ngIf="toggleAdvanceSearch===false">
+        <app-basic-search></app-basic-search>
+    </div>
+    <div *ngIf="toggleAdvanceSearch===true">
+        <app-advance-search></app-advance-search>
+    </div>
+</div>
+

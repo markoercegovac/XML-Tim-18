@@ -1,0 +1,97 @@
+<div class="container justify-content-center">
+    <br>
+    <h3>Create a new advert</h3>
+    <br>
+    <br>
+    <form (ngSubmit)="onAddAd(f)" #f="ngForm">
+
+        <!--CAR INFO-->
+        <p>form for add car</p>
+        <button class="btn btn-success">add car specifik data</button>
+        <hr>
+        <br>
+        
+        <!--PROFILE IMAGE-->
+        <label>
+            <span>Profile Image&nbsp;
+                <label for="profileImageInput" class="badge badge-success p-2">add</label>
+            </span>
+            <input #profileImageInput type="file" accept="image/*" (change)="onInputProfileImage(profileImageInput)" id="profileImageInput" name="profileImageInput" hidden/>
+        </label>
+
+        <div *ngIf="profileImage" class="img-preview-container">
+            <img [src]="profileImage.src" height="200" *ngIf="profileImage">&nbsp;
+            <button class="btn btn-warning" (click)="onRemoveProfileImage()">remove</button>
+        </div>
+
+        <!--IMAGE GALERY-->
+        <hr>
+        <label>
+            <span>Galery Images&nbsp;
+                <label for="galeryImageInput" class="badge badge-success p-2">add</label>
+            </span>
+            <input #galeryImageInput type="file" accept="image/*" (change)="onInputGaleryImage(galeryImageInput)" hidden id="galeryImageInput" name="galeryImageInput">
+        </label>
+
+        <div *ngFor="let img of imageGalery;let i = index" class="img-preview-container">
+            <img [src]="img.src" height="200" *ngIf="img">&nbsp;
+            <button class="btn btn-warning" (click)="onClearImage(i)">remove</button>
+        </div>
+
+        <br>
+        <button class="btn btn-warning" (click)="onRemoveAll()">clear all</button>
+
+        <!--DESCRIPTOIN-->
+        <hr>
+        <div class="form-group">
+            <label for="inputDescription" class="col-form-label">
+                Advert description
+            </label>
+            <div class="container-fluid p-3">
+               <textarea name="inputDescription" id="inputDescription" cols="30" rows="10" ngModel required #inputDescription="ngModel"></textarea>
+            </div>
+        </div>
+
+        <!--PRICE-->
+        <hr>
+        <div class="form-group row">
+            <label class="col-4 col-form-label" for="inputPrice">Select price</label>
+            <div class="col-8">
+              
+                <select class="browser-default custom-select" name="inputPrice" id="inputPrice" >
+                    <option value="0" disabled selected>select price</option>
+                    <option value="1">125 with 10% disscount</option>
+                    <option value="2">250</option>
+                    <option value="3">500 with 25%disscount</option>
+                </select>
+
+            </div>
+        </div>
+
+        <!--DISSCOUNT-->
+        <hr>
+        <div class="form-group row">
+            <label class="col-4 col-form-label" for="inputDisscount">Select discount</label>
+            <div class="col-8">
+              
+                <select class="browser-default custom-select" name="inputDisscount" id="inputDisscount">
+                    <option value="0" disabled selected>no disscount</option>
+                    <option value="1">diss 10% for 25km</option>
+                    <option value="2">diss 10% for 3 days</option>
+                    <option value="3">diss 5% for senior citizens</option>
+                </select>
+
+            </div>
+        </div>
+
+        <!--ADVERT EXPIRE DATE-->
+        <hr>
+        <div class="form-group row">
+            <label for="inputDate">Ending date of adverting</label>
+            <input type="date" id="inputDate" name="inputDate"/>
+        </div>
+
+        <br>
+        <button class="btn btn-primary" type="submit">create</button>
+    </form>
+</div>

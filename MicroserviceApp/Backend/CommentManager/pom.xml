@@ -14,8 +14,10 @@
     <name>manager</name>
     <description>Comment manager microservice</description>
 
+    <!-- sluzi za definisanje const -->
     <properties>
         <java.version>11</java.version>
+        <name>comment-manager</name>
     </properties>
 
     <dependencies>
@@ -71,6 +73,8 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+        <!-- red ispod je namenjen za docker tj za jar -->
+        <finalName>${name}</finalName>
     </build>
 
 </project>

@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "rent-ng-app"
+    }
+  },
+  "defaultProject": "rent-ng-app",
+  "cli": {
+    "analytics": false
+  }
 }

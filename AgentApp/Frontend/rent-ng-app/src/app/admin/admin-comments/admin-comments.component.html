@@ -1,0 +1,7 @@
+<div>
+    <p>list of unapproved comments</p>
+
+    <div *ngFor='let comment of comments'>
+        <app-admin-comment [comment]="comment"></app-admin-comment>
+    </div>
+</div>
