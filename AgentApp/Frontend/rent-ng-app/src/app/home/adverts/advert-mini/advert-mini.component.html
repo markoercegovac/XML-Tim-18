@@ -1,5 +1,25 @@
-<div (click)="showFullAdvert()">
-    <p>profileImage: {{advert.profileImage}}</p>
-    <p>traveled distance: {{advert.traveledDistance}}</p>
-    <hr>
+<div class="container-fluid border p-1 m-3">
+    
+    <div class="row align-items-center">
+
+        <div class="col-4 border-right">
+            <div class="bg-secondary" style="height: 200px;">
+                <p>profileImage: {{advert.profileImage}}</p>
+            </div>
+        </div>
+
+        <div class="col-4 border-right">
+            <p>traveled distance: {{advert.traveledDistance}}&nbsp;{{advert.distanceUnit}}</p>
+            <p>brand: {{advert.carBrand}}</p>
+            <p>model: {{advert.carModel}}</p>
+        </div>
+
+        <div class="col-4">
+            <h3>grade: {{advert.grade}}</h3>
+            <h2>price: {{advert.price}}</h2>
+            <button class="btn btn-primary" (click)="showFullAdvert()">show more</button>
+
+        </div>
+
+    </div>
 </div>

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 import javax.persistence.*;
 
 @Data
-@Getter
 @Entity
 @Table(name="Comment")
 public class Comment {

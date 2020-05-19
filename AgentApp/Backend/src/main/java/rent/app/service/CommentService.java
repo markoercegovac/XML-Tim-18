@@ -9,4 +9,6 @@ import java.util.List;
 public interface CommentService {
 
     List<CommentDTO> getAllCommentsOfAd(Long adId);
+
+    boolean addNewComment(CommentDTO newComment);
 }

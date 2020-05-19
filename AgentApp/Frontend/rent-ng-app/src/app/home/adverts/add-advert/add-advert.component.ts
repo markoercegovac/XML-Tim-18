@@ -57,7 +57,7 @@ export class AddAdvertComponent implements OnInit {
   }
 
   public onAddAd(form: NgForm) {
-
+    console.log(form.value.inputDescription);
   }
 
 }

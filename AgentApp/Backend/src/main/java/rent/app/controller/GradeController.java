@@ -12,16 +12,12 @@ import rent.app.service.GradeService;
 import java.util.List;
 
 @Controller
+@RequiredArgsConstructor
 @RequestMapping("/grades")
-@CrossOrigin(origins = "4200")
+@CrossOrigin(origins = "http://localhost:4200")
 public class GradeController {
 
-    private GradeService gradeService;
-
-    @Autowired
-    public GradeController(GradeService gradeService) {
-        this.gradeService = gradeService;
-    }
+    private final GradeService gradeService;
 
     @GetMapping("/all/{ad_id}")
     public ResponseEntity<List<Grade>> getAllGradesForAd(@PathVariable("ad_id") Long adId) {
