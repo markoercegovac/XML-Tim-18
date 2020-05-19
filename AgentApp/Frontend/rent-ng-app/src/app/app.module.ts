@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+<<<<<<< HEAD
 import { HttpClientModule } from '@angular/common/http';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { RegisterComponent } from './register/register.component';
@@ -26,10 +27,19 @@ import { AdminCommentsComponent } from './admin/admin-comments/admin-comments.co
 import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
 import { AdminCommentComponent } from './admin/admin-comments/admin-comment/admin-comment.component';
 import { AddAdvertComponent } from './home/adverts/add-advert/add-advert.component';
+=======
+import { NavigationComponent } from './navigation/navigation.component';
+import {HttpClientModule} from '@angular/common/http';
+import { UserComponent } from './user/user.component';
+import { RegisterCarComponent } from './register-car/register-car.component';
+import { DefinePriceComponent } from './define-price/define-price.component';
+import {FormsModule} from "@angular/forms";
+>>>>>>> 8b7f608bf6ac3fa9633afcea4a5fe3b32a4f68a7
 
 @NgModule({
   declarations: [
     AppComponent,
+<<<<<<< HEAD
     SignInComponent,
     RegisterComponent,
     NotFoundComponent,
@@ -51,6 +61,12 @@ import { AddAdvertComponent } from './home/adverts/add-advert/add-advert.compone
     AdminHomeComponent,
     AdminCommentComponent,
     AddAdvertComponent
+=======
+    NavigationComponent,
+    UserComponent,
+    RegisterCarComponent,
+    DefinePriceComponent
+>>>>>>> 8b7f608bf6ac3fa9633afcea4a5fe3b32a4f68a7
   ],
   imports: [
     BrowserModule,

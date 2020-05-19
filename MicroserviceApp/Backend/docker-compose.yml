@@ -1,0 +1,41 @@
+version: "3.7"
+services:
+
+  comment-manager:
+    build: ./CommentManager
+    image: comment-manager
+    container_name: comment-manager
+    restart: on-failure
+    networks:
+      - demo
+    ports:
+      - 8081:8081
+    environment:
+      DATABASE_USERNAME: sa
+      DATABASE_PASSWORD: password
+      DATABASE_DOMAIN: mysql-comment
+      DATABASE_SCHEMA: comment
+    depends_on: 
+      - mysql-comment
+
+  mysql-comment:
+    image: mysql:8.0.19
+    container_name: mysql-comment
+    restart: always
+    networks:
+      - demo
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: sa
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: comment
+    volumes:
+      - mysql-comment-data:/var/lib/mysql-comment
+
+volumes:
+  mysql-comment-data:
+
+networks:
+  demo:
+    name: demo
+    driver: bridge
