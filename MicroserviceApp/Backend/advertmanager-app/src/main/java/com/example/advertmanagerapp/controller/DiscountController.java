@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.websocket.server.PathParam;
 
 @RequiredArgsConstructor
-@RequestMapping("/discount")
+@RequestMapping("/advert-manager/discount")
 @RestController
 @CrossOrigin
 public class DiscountController {

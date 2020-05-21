@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
-@RequestMapping("/car-report")
+@RequestMapping("/advert-manager/car-report")
 @RestController
 @CrossOrigin
 public class DriveReportController {

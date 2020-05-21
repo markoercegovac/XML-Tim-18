@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RequiredArgsConstructor
-@RequestMapping("/car-class")
+@RequestMapping("advert-manager/car-class")
 @RestController
 @CrossOrigin
 public class CarClassController {

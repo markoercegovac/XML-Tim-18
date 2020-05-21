@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 @RequiredArgsConstructor
-@RequestMapping("/advert")
+@RequestMapping("/advert-manager/advert")
 @RestController
 @CrossOrigin
 public class AdvertController {

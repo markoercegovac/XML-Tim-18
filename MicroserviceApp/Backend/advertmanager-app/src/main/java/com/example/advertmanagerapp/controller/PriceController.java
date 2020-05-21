@@ -12,7 +12,7 @@ import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RequiredArgsConstructor
-@RequestMapping("/price")
+@RequestMapping("/advert-manager/price")
 @RestController
 @CrossOrigin
 public class PriceController {
