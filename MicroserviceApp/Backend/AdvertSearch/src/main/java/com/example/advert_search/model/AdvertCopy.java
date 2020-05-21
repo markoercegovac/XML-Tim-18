@@ -11,7 +11,7 @@ import java.util.Date;
 public class AdvertCopy {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long advertCopyId;
 
     @Column
     private String city;
@@ -56,7 +56,7 @@ public class AdvertCopy {
     private int numberOfSeats;
 
     @Column
-    private String picture;
+    private String profilePicture;
 
     @Column
     private float mark;
