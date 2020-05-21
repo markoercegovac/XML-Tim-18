@@ -1,6 +1,27 @@
 version: "3.7"
 services:
 
+  eureka:
+    build: ./Eureka
+    image: eureka
+    ports:
+      - "8761:8761"
+    tty: true
+   
+
+
+  zuul:
+    build: ./GatewayService
+    ports:
+      - "8083:8083"
+    environment:
+      REGISTRY_HOST: eureka
+    tty: true
+    depends_on:
+      - eureka
+      - comment-manager
+   
+
   comment-manager:
     build: ./CommentManager
     image: comment-manager
@@ -9,14 +30,21 @@ services:
     networks:
       - demo
     ports:
-      - 8081:8081
+      - "8081:8081"
+    tty: true
     environment:
+      REGISTRY_HOST: eureka 
       DATABASE_USERNAME: sa
       DATABASE_PASSWORD: password
       DATABASE_DOMAIN: mysql-comment
       DATABASE_SCHEMA: comment
-    depends_on: 
+    
+    links:
+      - eureka
+    depends_on:
+      - eureka 
       - mysql-comment
+
 
   mysql-comment:
     image: mysql:8.0.19
