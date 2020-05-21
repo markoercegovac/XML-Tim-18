@@ -1,0 +1,7 @@
+chat/dto/LongMessageDTO.class
+chat/dto/ShortMessageDTO.class
+chat/repository/MessageRepository.class
+chat/ChatApplication.class
+chat/model/Message.class
+chat/service/MessageService.class
+chat/controller/MessageController.class

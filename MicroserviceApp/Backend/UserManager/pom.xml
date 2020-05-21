@@ -15,6 +15,7 @@
     <description>User-manager service</description>
 
     <properties>
+        <name>user-manager</name>
         <java.version>11</java.version>
         <spring-cloud.version>Hoxton.SR4</spring-cloud.version>
     </properties>
@@ -103,6 +104,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
+        <finalName>${name}</finalName>
     </build>
 
 </project>
