@@ -1,0 +1,7 @@
+/home/tiberius/Templates/microservices/chat/src/main/java/chat/model/Message.java
+/home/tiberius/Templates/microservices/chat/src/main/java/chat/service/MessageService.java
+/home/tiberius/Templates/microservices/chat/src/main/java/chat/controller/MessageController.java
+/home/tiberius/Templates/microservices/chat/src/main/java/chat/repository/MessageRepository.java
+/home/tiberius/Templates/microservices/chat/src/main/java/chat/dto/LongMessageDTO.java
+/home/tiberius/Templates/microservices/chat/src/main/java/chat/ChatApplication.java
+/home/tiberius/Templates/microservices/chat/src/main/java/chat/dto/ShortMessageDTO.java

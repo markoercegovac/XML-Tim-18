@@ -1,6 +1,6 @@
 package com.example.advertmanagerapp.dto;
 
-import com.example.advertmanagerapp.model.Car;
+import com.example.advertmanagerapp.model.OwnersCar;
 import lombok.Data;
 
 
@@ -14,5 +14,5 @@ public class DriveReportDto {
     private float traveledDistance;
     private String describe;
     private Date dateOfReport;
-    private Car carReport;
+    private OwnersCar ownersCarReport;
 }

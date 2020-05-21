@@ -16,7 +16,7 @@ public class Advert {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private Car car;
+    private OwnersCar ownersCar;
 
     @Column(name="profilePicture")
     private String profilePicture;

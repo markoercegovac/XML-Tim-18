@@ -26,5 +26,5 @@ public class DriveReport implements Serializable {
     private Date dateOfReport;
 
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private Car carReport;
+    private OwnersCar ownersCarReport;
 }
