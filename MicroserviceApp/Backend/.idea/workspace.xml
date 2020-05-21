@@ -2,17 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="556900c4-fcc5-4511-9e58-11f25edf7381" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/UserManager/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserManager/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserManager/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserManager/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserManager/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserManager/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserManager/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserManager/src/main/java/com/user/manager/ManagerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserManager/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/UserManager/src/test/java/com/user/manager/ManagerApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/New Text Document.txt" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/CommentManager/src/main/java/com/comment/manager/manager/controller/CommentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CommentManager/src/main/java/com/comment/manager/manager/controller/GradeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CommentManager/src/main/java/com/comment/manager/manager/dto/CommentDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CommentManager/src/main/java/com/comment/manager/manager/dto/GradeDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CommentManager/src/main/java/com/comment/manager/manager/model/Comment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CommentManager/src/main/java/com/comment/manager/manager/model/Grade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CommentManager/src/main/java/com/comment/manager/manager/model/enums/CommentState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CommentManager/src/main/java/com/comment/manager/manager/repository/CommentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CommentManager/src/main/java/com/comment/manager/manager/repository/GradeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Eureka/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserManager/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UserManager/src/main/resources/aplication-prod.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommentManager/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CommentManager/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommentManager/src/main/java/com/comment/manager/manager/controller/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/CommentManager/src/main/java/com/comment/manager/manager/controller/ManagerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommentManager/src/main/resources/application-prod.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CommentManager/src/main/resources/application-prod.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CommentManager/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/CommentManager/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Eureka/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Eureka/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserManager/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/UserManager/pom.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,7 +36,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/UserManager" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/GatewayService" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -62,6 +70,7 @@
       <option name="presentableId" value="Default" />
       <updated>1589644192807</updated>
       <workItem from="1589644207417" duration="334000" />
+      <workItem from="1589965909254" duration="98000" />
     </task>
     <servers />
   </component>
@@ -73,7 +82,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

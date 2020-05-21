@@ -2,7 +2,6 @@
 CREATE DATABASE IF NOT EXISTS chat_db;
 CREATE DATABASE IF NOT EXISTS request_db;
 CREATE DATABASE IF NOT EXISTS comment_db;
-CREATE DATABASE IF NOT EXISTS user_db;
 CREATE DATABASE IF NOT EXISTS advert_db;
 CREATE DATABASE IF NOT EXISTS search_db;
 CREATE DATABASE IF NOT EXISTS user_db;
@@ -17,8 +16,8 @@ CREATE USER IF NOT EXISTS 'us_user'@'%' IDENTIFIED WITH mysql_native_password BY
 GRANT ALL PRIVILEGES ON chat_db.* TO 'us_chat'@'%';
 GRANT ALL PRIVILEGES ON request_db.* TO 'us_request'@'%';
 GRANT ALL PRIVILEGES ON comment_db.* TO 'us_comment'@'%';
-GRANT ALL PRIVILEGES ON comment_db.* TO 'us_advert'@'%';
-GRANT ALL PRIVILEGES ON comment_db.* TO 'us_search'@'%';
+GRANT ALL PRIVILEGES ON advert_db.* TO 'us_advert'@'%';
+GRANT ALL PRIVILEGES ON search_db.* TO 'us_search'@'%';
 GRANT ALL PRIVILEGES ON user_db.* TO 'us_user'@'%';
 
 FLUSH PRIVILEGES;

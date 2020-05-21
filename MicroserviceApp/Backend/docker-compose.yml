@@ -1,15 +1,35 @@
 version: "3.7"
 services:
 
+  eureka:
+    build: ./Eureka
+    image: eureka
+    container_name: eureka
+    ports:
+      - 8761:8761
+    tty: true
+
+  zuul:
+    build: ./GatewayService
+    container_name: zuul
+    ports:
+      - 8081:8083
+    environment:
+      REGISTRY_HOST: eureka
+    tty: true
+    depends_on:
+      - eureka
+      - comment-manager
+
   chat-manager:
     build: ./ChatManager
-    image: chat
-    container_name: chat
+    image: chat-manager
+    container_name: chat-manager
     restart: on-failure
     networks:
       - demo
     ports:
-      - 8083:8080
+      - 8082:8080
     environment:
       DATABASE_USERNAME: us_chat
       DATABASE_PASSWORD: password-chat
@@ -18,15 +38,15 @@ services:
     depends_on: 
       - mysql-db
 
-  request_manager:
+  request-manager:
     build: ./AdRequestManager
-    image: request
-    container_name: request
+    image: request-manager
+    container_name: request-manager
     restart: on-failure
     networks:
       - demo
     ports:
-      - 8082:8080
+      - 8083:8080
     environment:
       DATABASE_USERNAME: us_request
       DATABASE_PASSWORD: password-request
@@ -43,14 +63,70 @@ services:
     networks:
       - demo
     ports:
-      - 8081:8081
+      - 8084:8081
+    tty: true
     environment:
+      REGISTRY_HOST: eureka
       DATABASE_USERNAME: us_comment
       DATABASE_PASSWORD: password-comment
       DATABASE_DOMAIN: mysql-db
       DATABASE_SCHEMA: comment_db
-    depends_on: 
+    links:
+      - eureka
+    depends_on:
+      - eureka
       - mysql-db
+
+  search-manager:
+    build: ./AdvertSearch
+    image: search-manager
+    container_name: search-manager
+    restart: on-failure
+    networks:
+        - demo
+    ports:
+      - 8085:8080
+    environment:
+      DATABASE_USERNAME: us_search
+      DATABASE_PASSWORD: password-search
+      DATABASE_DOMAIN: mysql-db
+      DATABASE_SCHEMA: search_db
+      depends_on:
+        - mysql-db
+
+  advert-manager:
+    build: ./AdvertManager
+    image: advert-manager
+    container_name: advert-manager
+    restart: on-failure
+    networks:
+        - demo
+    ports:
+      - 8086:8080
+    environment:
+      DATABASE_USERNAME: us_advert
+      DATABASE_PASSWORD: password-advert
+      DATABASE_DOMAIN: mysql-db
+      DATABASE_SCHEMA: advert_db
+      depends_on:
+        - mysql-db
+
+  user-manager:
+    build: ./UserManager
+    image: user-manager
+    container_name: user-manager
+    restart: on-failure
+    networks:
+        - demo
+    ports:
+      - 8087:8080
+    environment:
+      DATABASE_USERNAME: us_user
+      DATABASE_PASSWORD: password-user
+      DATABASE_DOMAIN: mysql-db
+      DATABASE_SCHEMA: user_db
+      depends_on:
+        - mysql-db
 
   mysql-db:
     image: mysql:8.0.19
