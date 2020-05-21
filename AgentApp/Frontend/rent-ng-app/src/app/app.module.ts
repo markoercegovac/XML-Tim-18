@@ -3,20 +3,70 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+<<<<<<< HEAD
+import { HttpClientModule } from '@angular/common/http';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { RegisterComponent } from './register/register.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { HomeComponent } from './home/home.component';
+import { HomeHeaderComponent } from './home/home-header/home-header.component';
+import { AdvertsComponent } from './home/adverts/adverts.component';
+import { AdvertMiniComponent } from './home/adverts/advert-mini/advert-mini.component';
+import { FullAdvertComponent } from './home/full-advert/full-advert.component';
+import { BasicSearchComponent } from './home/search/basic-search/basic-search.component';
+import { AdvanceSearchComponent } from './home/search/advance-search/advance-search.component';
+import { SearchComponent } from './home/search/search.component';
+import { FooterComponent } from './home/footer/footer.component';
+import { CommentComponent } from './home/full-advert/comments/comment/comment.component';
+import { CommentsComponent } from './home/full-advert/comments/comments.component';
+import { AddCommentComponent } from './home/full-advert/comments/add-comment/add-comment.component';
+import { FormsModule } from '@angular/forms';
+import { AdminComponent } from './admin/admin.component';
+import { AdminHeaderComponent } from './admin/admin-header/admin-header.component';
+import { AdminCommentsComponent } from './admin/admin-comments/admin-comments.component';
+import { AdminHomeComponent } from './admin/admin-home/admin-home.component';
+import { AdminCommentComponent } from './admin/admin-comments/admin-comment/admin-comment.component';
+import { AddAdvertComponent } from './home/adverts/add-advert/add-advert.component';
+=======
 import { NavigationComponent } from './navigation/navigation.component';
 import {HttpClientModule} from '@angular/common/http';
 import { UserComponent } from './user/user.component';
 import { RegisterCarComponent } from './register-car/register-car.component';
 import { DefinePriceComponent } from './define-price/define-price.component';
 import {FormsModule} from "@angular/forms";
+>>>>>>> 8b7f608bf6ac3fa9633afcea4a5fe3b32a4f68a7
 
 @NgModule({
   declarations: [
     AppComponent,
+<<<<<<< HEAD
+    SignInComponent,
+    RegisterComponent,
+    NotFoundComponent,
+    HomeComponent,
+    HomeHeaderComponent,
+    AdvertsComponent,
+    AdvertMiniComponent,
+    FullAdvertComponent,
+    SearchComponent,
+    BasicSearchComponent,
+    AdvanceSearchComponent,
+    FooterComponent,
+    CommentComponent,
+    CommentsComponent,
+    AddCommentComponent,
+    AdminComponent,
+    AdminHeaderComponent,
+    AdminCommentsComponent,
+    AdminHomeComponent,
+    AdminCommentComponent,
+    AddAdvertComponent
+=======
     NavigationComponent,
     UserComponent,
     RegisterCarComponent,
     DefinePriceComponent
+>>>>>>> 8b7f608bf6ac3fa9633afcea4a5fe3b32a4f68a7
   ],
   imports: [
     BrowserModule,

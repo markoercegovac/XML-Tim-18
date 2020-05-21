@@ -1,6 +1,7 @@
 package rent.app.model;
 
 import lombok.Data;
+import lombok.Getter;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -23,6 +24,6 @@ public class Comment {
     private Advert advert;
 
     @Column
-    private boolean isApproved;
+    private boolean isApproved; //verovatno enum{NOV, ODOBREN, ODBIJEN}
 
 }
