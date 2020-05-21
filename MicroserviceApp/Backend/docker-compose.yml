@@ -4,23 +4,56 @@ services:
   eureka:
     build: ./Eureka
     image: eureka
+    container_name: eureka
     ports:
-      - "8761:8761"
+      - 8761:8761
     tty: true
-   
-
 
   zuul:
     build: ./GatewayService
+    container_name: zuul
     ports:
-      - "8083:8083"
+      - 8081:8083
     environment:
       REGISTRY_HOST: eureka
     tty: true
     depends_on:
       - eureka
       - comment-manager
-   
+
+  chat-manager:
+    build: ./ChatManager
+    image: chat-manager
+    container_name: chat-manager
+    restart: on-failure
+    networks:
+      - demo
+    ports:
+      - 8082:8080
+    environment:
+      DATABASE_USERNAME: us_chat
+      DATABASE_PASSWORD: password-chat
+      DATABASE_DOMAIN: mysql-db
+      DATABASE_SCHEMA: chat_db
+    depends_on: 
+      - mysql-db
+
+  request-manager:
+    build: ./AdRequestManager
+    image: request-manager
+    container_name: request-manager
+    restart: on-failure
+    networks:
+      - demo
+    ports:
+      - 8083:8080
+    environment:
+      DATABASE_USERNAME: us_request
+      DATABASE_PASSWORD: password-request
+      DATABASE_DOMAIN: mysql-db
+      DATABASE_SCHEMA: request_db
+    depends_on: 
+      - mysql-db
 
   comment-manager:
     build: ./CommentManager
@@ -30,21 +63,19 @@ services:
     networks:
       - demo
     ports:
-      - "8081:8081"
+      - 8084:8081
     tty: true
     environment:
-      REGISTRY_HOST: eureka 
-      DATABASE_USERNAME: sa
-      DATABASE_PASSWORD: password
-      DATABASE_DOMAIN: mysql-comment
-      DATABASE_SCHEMA: comment
-    
+      REGISTRY_HOST: eureka
+      DATABASE_USERNAME: us_comment
+      DATABASE_PASSWORD: password-comment
+      DATABASE_DOMAIN: mysql-db
+      DATABASE_SCHEMA: comment_db
     links:
       - eureka
     depends_on:
-      - eureka 
-      - mysql-comment
-
+      - eureka
+      - mysql-db
 
   search-manager:
     build: ./AdvertSearch
@@ -54,7 +85,7 @@ services:
     networks:
         - demo
     ports:
-      -8084:8080
+      - 8085:8080
     environment:
       DATABASE_USERNAME: us_search
       DATABASE_PASSWORD: password-search
@@ -63,23 +94,61 @@ services:
       depends_on:
         - mysql-db
 
+  advert-manager:
+    build: ./AdvertManager
+    image: advert-manager
+    container_name: advert-manager
+    restart: on-failure
+    networks:
+        - demo
+    ports:
+      - 8086:8080
+    environment:
+      DATABASE_USERNAME: us_advert
+      DATABASE_PASSWORD: password-advert
+      DATABASE_DOMAIN: mysql-db
+      DATABASE_SCHEMA: advert_db
+      depends_on:
+        - mysql-db
 
-  mysql-comment:
+  user-manager:
+    build: ./UserManager
+    image: user-manager
+    container_name: user-manager
+    restart: on-failure
+    networks:
+        - demo
+    ports:
+      - 8087:8080
+    environment:
+      DATABASE_USERNAME: us_user
+      DATABASE_PASSWORD: password-user
+      DATABASE_DOMAIN: mysql-db
+      DATABASE_SCHEMA: user_db
+      depends_on:
+        - mysql-db
+
+  mysql-db:
     image: mysql:8.0.19
-    container_name: mysql-comment
+    command: --default-authentication-plugin=mysql_native_password
+    container_name: mysql-db
     restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: SuperRootPassword1
+      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+      MYSQL_DATABASE: main
+      MYSQL_USER: admin
+      MYSQL_PASSWOR: AdminPassword1
+    ports:
+      - 3307:3306
     networks:
       - demo
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_USER: sa
-      MYSQL_PASSWORD: password
-      MYSQL_DATABASE: comment
     volumes:
-      - mysql-comment-data:/var/lib/mysql-comment
+      - ./dockerScript/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - mysql-db-data:/var/lib/mysql-db
 
 volumes:
-  mysql-comment-data:
+  mysql-db-data:
 
 networks:
   demo:
