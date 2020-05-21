@@ -16,8 +16,10 @@ import java.util.List;
 public class AdvertController {
 
 
-    @GetMapping ("/{advert_id}?details=more")
-    public ResponseEntity<AdvertDto> getAdvertInfo(@PathVariable(value="advert_id") Long advert_id ){
+    @GetMapping ("/{advert_id}")
+    public ResponseEntity<AdvertDto> getAdvertInfo(
+            @PathVariable(value="advert_id") Long advert_id,
+            @RequestParam(value = "details", required = false) String details ){
 
         return new ResponseEntity<AdvertDto>(HttpStatus.OK);
     }
@@ -30,7 +32,7 @@ public class AdvertController {
     }
 
 
-    @PutMapping ("/update")
+    @PutMapping
     public ResponseEntity updateAdvert (@RequestBody AdvertDto advertDto){
         return new ResponseEntity(HttpStatus.OK);
     }

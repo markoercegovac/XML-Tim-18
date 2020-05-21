@@ -1,7 +1,7 @@
 package com.example.advertmanagerapp.dto;
 
 import com.example.advertmanagerapp.model.Advert;
-import com.example.advertmanagerapp.model.Car;
+import com.example.advertmanagerapp.model.OwnersCar;
 import com.example.advertmanagerapp.model.enums.Role;
 import lombok.Data;
 
@@ -24,7 +24,7 @@ public class ClientCopyDto {
     private String companyName;
     private String companyRegistrationNumber;
     private Role role;
-    private Set<Car> cars;
+    private Set<OwnersCar> ownersCars;
     private Set<Advert> adverts;
 
 }
