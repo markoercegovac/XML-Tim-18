@@ -19,8 +19,5 @@ public class SearchController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    //dodatna metoda za preuzimanje podataka iz AdvertManager-a mikroservisa
-
-    
 
 }
