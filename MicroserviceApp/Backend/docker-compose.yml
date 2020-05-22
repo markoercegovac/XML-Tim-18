@@ -39,12 +39,11 @@ services:
       DATABASE_DOMAIN: mysql-comment
       DATABASE_SCHEMA: comment
     
-    links:
-      - eureka
+
     depends_on:
       - eureka 
       - mysql-comment
-
+  
 
   mysql-comment:
     image: mysql:8.0.19
