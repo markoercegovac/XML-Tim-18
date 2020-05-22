@@ -6,6 +6,7 @@ import lombok.Data;
 
 import java.util.Set;
 
+//Nije finalan moguce da fali neko polje
 @Data
 public class CarDto {
 
@@ -16,7 +17,6 @@ public class CarDto {
     private CarFuelType carFuelType;
     private CarModel carModel;
     private CarTransmissionType carTransmissionType;
-    private Mileage mileage;
     private Long travelDistanceConstraint;
     private boolean isInsurance;
     private int childrenSitNumber;
