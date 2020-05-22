@@ -91,7 +91,7 @@ services:
       DATABASE_PASSWORD: password-search
       DATABASE_DOMAIN: mysql-db
       DATABASE_SCHEMA: search_db
-      depends_on:
+    depends_on:
         - mysql-db
 
   advert-manager:
@@ -108,7 +108,7 @@ services:
       DATABASE_PASSWORD: password-advert
       DATABASE_DOMAIN: mysql-db
       DATABASE_SCHEMA: advert_db
-      depends_on:
+    depends_on:
         - mysql-db
 
   user-manager:
@@ -125,7 +125,7 @@ services:
       DATABASE_PASSWORD: password-user
       DATABASE_DOMAIN: mysql-db
       DATABASE_SCHEMA: user_db
-      depends_on:
+    depends_on:
         - mysql-db
 
   mysql-db:
