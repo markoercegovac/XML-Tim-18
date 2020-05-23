@@ -32,7 +32,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/user-manager/login").permitAll()
                 .antMatchers("/user-manager/register").authenticated()
-                .and()
+                .and().formLogin().loginPage("/user-manager/login").and()
                 .httpBasic();
 
     }
