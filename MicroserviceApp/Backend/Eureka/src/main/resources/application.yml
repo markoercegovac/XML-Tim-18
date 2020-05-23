@@ -8,7 +8,7 @@ server:
 
 eureka:
   instance:
-    hostname: localhost
+    hostname: ${springboot.app.name:eureka}
     prefer-ip-address: true
   client:
     registerWithEureka: true
