@@ -35,7 +35,7 @@ public class DbInit implements CommandLineRunner {
         Role role2=new Role();
 
         //TEST PERMISSION
-        p1.setName("PERMISSION_TEST");
+        p1.setName("TEST");
         permissionRepository.save(p1);
 
         List<Permission> testList=new ArrayList<Permission>();

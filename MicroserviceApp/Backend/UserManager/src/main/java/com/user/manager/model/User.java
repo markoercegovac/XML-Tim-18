@@ -49,7 +49,7 @@ public class User {
     @Column(nullable = true)
     private String companyRegistrationNumber;
 
-    @ManyToMany
+    @ManyToMany(fetch=FetchType.EAGER)
     @JoinTable(
             name = "users_roles",
             joinColumns = @JoinColumn(
