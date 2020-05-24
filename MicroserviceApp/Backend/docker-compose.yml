@@ -5,18 +5,20 @@ services:
     build: ./Eureka
     image: eureka
     container_name: eureka
+    networks:
+      - demo
     ports:
       - 8761:8761
-    tty: true
 
   zuul:
     build: ./GatewayService
     container_name: zuul
+    networks:
+      - demo
     ports:
       - 8091:8083
     environment:
       REGISTRY_HOST: eureka
-    tty: true
     depends_on:
       - eureka
       - comment-manager
@@ -31,6 +33,7 @@ services:
     ports:
       - 8092:8080
     environment:
+      REGISTRY_HOST: eureka
       DATABASE_USERNAME: us_chat
       DATABASE_PASSWORD: password-chat
       DATABASE_DOMAIN: mysql-db
@@ -48,6 +51,7 @@ services:
     ports:
       - 8093:8080
     environment:
+      REGISTRY_HOST: eureka
       DATABASE_USERNAME: us_request
       DATABASE_PASSWORD: password-request
       DATABASE_DOMAIN: mysql-db
@@ -64,7 +68,6 @@ services:
       - demo
     ports:
       - 8094:8081
-    tty: true
     environment:
       REGISTRY_HOST: eureka
       DATABASE_USERNAME: us_comment
@@ -85,6 +88,7 @@ services:
     ports:
       - 8095:8080
     environment:
+      REGISTRY_HOST: eureka
       DATABASE_USERNAME: us_search
       DATABASE_PASSWORD: password-search
       DATABASE_DOMAIN: mysql-db
@@ -102,6 +106,7 @@ services:
     ports:
       - 8096:8080
     environment:
+      REGISTRY_HOST: eureka
       DATABASE_USERNAME: us_advert
       DATABASE_PASSWORD: password-advert
       DATABASE_DOMAIN: mysql-db
@@ -118,7 +123,6 @@ services:
         - demo
     ports:
       - 8097:8080
-    tty: true
     environment:
       REGISTRY_HOST: eureka
       DATABASE_USERNAME: us_user
