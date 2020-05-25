@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {CarService} from "../service/car-service";
-import {CarModel} from "../model/carModel";
-import {CarBrand} from "../model/carBrand";
-import {CarClass} from "../model/carClass";
-import {CarFuelType} from "../model/carFuelType";
-import {CarTransmission} from "../model/carTransmission";
+import {HttpClient} from '@angular/common/http';
+import {CarService} from '../service/car-service';
+import {CarModel} from '../model/carModel';
+import {CarBrand} from '../model/carBrand';
+import {CarClass} from '../model/carClass';
+import {CarFuelType} from '../model/carFuelType';
+import {CarTransmission} from '../model/carTransmission';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
-import {Car} from "../model/car";
+import {Car} from '../model/car';
 
 @Component({
   selector: 'app-register-car',
@@ -24,16 +24,16 @@ export class RegisterCarComponent implements OnInit {
   allCarTransmission: CarTransmission[];
   model: Car;
 
-  constructor(private http:HttpClient,private carService:CarService) {}
+  constructor(private http: HttpClient, private carService: CarService) {}
 
 
   ngOnInit(): void {
 
-    this.createForm=new FormGroup({''})
+
 
     this.carService.getAllCarModels().subscribe(
-      data=>{
-        this.allCarModel=data;
+      data => {
+        this.allCarModel = data;
       },
       error => {
         console.log('Error occurred', error);
@@ -41,8 +41,8 @@ export class RegisterCarComponent implements OnInit {
     );
 
     this.carService.getAllCarBrands().subscribe(
-      data=>{
-        this.allCarBrand=data;
+      data => {
+        this.allCarBrand = data;
       },
       error => {
         console.log('Error occurred', error);
@@ -50,17 +50,17 @@ export class RegisterCarComponent implements OnInit {
     );
 
     this.carService.getAllCarClass().subscribe(
-      data=>{
-        this.allCarClass=data;
+      data => {
+        this.allCarClass = data;
       },
       error => {
-        console.log('Error occurred',error);
+        console.log('Error occurred', error);
       }
     );
 
     this.carService.getAllCarTransmissionType().subscribe(
-      data=>{
-        this.allCarTransmission=data;
+      data => {
+        this.allCarTransmission = data;
       },
       error => {
         console.log('Error occurred', error);
@@ -68,8 +68,8 @@ export class RegisterCarComponent implements OnInit {
     );
 
     this.carService.getAllFuelType().subscribe(
-      data=>{
-        this.allCarFuelType=data;
+      data => {
+        this.allCarFuelType = data;
       },
       error => {
         console.log('Error occurred', error);
@@ -78,17 +78,17 @@ export class RegisterCarComponent implements OnInit {
 
   }
 
-    createCar():void{
+    createCar(): void{
     this.carService.registerCar(this.model).subscribe(
 
-      res=>{
+      res => {
         location.reload();
         console.log(this.model);
-        alert("Car created");
+        alert('Car created');
       },
       error => {
         console.log(this.model);
-        alert("Error");
+        alert('Error');
       }
     );
   }
