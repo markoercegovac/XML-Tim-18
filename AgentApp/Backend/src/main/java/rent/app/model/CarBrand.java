@@ -10,7 +10,7 @@ import javax.validation.constraints.Min;
 
 @Data
 @Entity
-@Table(name="CarBrand")
+@Table
 public class CarBrand {
 
     @Id

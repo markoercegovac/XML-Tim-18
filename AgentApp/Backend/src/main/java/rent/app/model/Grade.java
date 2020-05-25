@@ -8,7 +8,7 @@ import javax.validation.constraints.Min;
 
 @Data
 @Entity
-@Table(name="Grade")
+@Table
 public class Grade {
 
     @Id

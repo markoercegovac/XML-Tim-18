@@ -1,14 +1,10 @@
 package rent.app.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import rent.app.dto.CommentDTO;
-import rent.app.model.Comment;
 import rent.app.service.CommentService;
 
 import java.util.List;

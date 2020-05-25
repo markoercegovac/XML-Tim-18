@@ -10,7 +10,7 @@ import java.util.Set;
 
 @Data
 @Entity
-@Table(name="Advert")
+@Table
 public class Advert {
 
     @Id
@@ -20,7 +20,7 @@ public class Advert {
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Car car;
 
-    @Column(name="profilePicture")
+    @Column
     private String profilePicture;
 
     @OneToMany(mappedBy = "advert",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
@@ -30,17 +30,17 @@ public class Advert {
     private Client client;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="startOfAdvert")
+    @Column
     private Date startOfAdvert;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="endOfAdvert")
+    @Column
     private Date endOfAdvert;
 
-    @Column(name="description")
+    @Column
     private String description;
 
-    @Column(name="isActive")
+    @Column
     private boolean isActive;
 
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
@@ -50,7 +50,7 @@ public class Advert {
     @JoinColumn(name = "client_id", referencedColumnName = "email")
     private Client currentDriver;
 
-    @OneToMany(mappedBy = "advert",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "advert", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<Comment> comments;
 
 }

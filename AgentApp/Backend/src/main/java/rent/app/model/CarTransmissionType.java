@@ -8,7 +8,7 @@ import javax.validation.constraints.Min;
 
 @Data
 @Entity
-@Table(name="CarTransmissionType")
+@Table
 public class CarTransmissionType {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

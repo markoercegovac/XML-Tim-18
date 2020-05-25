@@ -12,7 +12,7 @@ import java.util.Set;
 
 @Data
 @Entity
-@Table(name="Client")
+@Table
 public class Client implements Serializable {
 
     @Id
