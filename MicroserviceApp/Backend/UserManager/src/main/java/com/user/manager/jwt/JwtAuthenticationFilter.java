@@ -10,6 +10,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.header.Header;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -69,6 +70,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                 .sign(HMAC512(JwtProperties.SECRET.getBytes()));
 
         // Add token in response
+        response.addHeader("Access-Control-Expose-Headers", "Authorization"); //da angular moze da procita JWT
         response.addHeader(JwtProperties.HEADER_STRING, JwtProperties.TOKEN_PREFIX +  token);
     }
 }
