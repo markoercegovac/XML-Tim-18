@@ -33,7 +33,7 @@ public class OwnersCar {
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private ClientCopy client;
 
-    @OneToMany(mappedBy = "car",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "ownersCar",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<Advert> adverts;
 
     @OneToMany(mappedBy = "carReport",fetch = FetchType.LAZY,cascade = CascadeType.ALL)

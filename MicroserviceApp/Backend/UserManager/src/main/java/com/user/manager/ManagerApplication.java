@@ -7,8 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
+
 //@EnableEurekaClient
 //@EnableDiscoveryClient
+
 public class ManagerApplication {
 
     public static void main(String[] args) {
