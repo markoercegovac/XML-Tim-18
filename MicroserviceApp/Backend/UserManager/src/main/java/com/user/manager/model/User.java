@@ -2,10 +2,8 @@ package com.user.manager.model;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.Collection;
 
 @Data
 @Table
@@ -14,6 +12,9 @@ public class User {
 
     @Id
     private String email;
+
+    @Column(nullable=false)
+    private String username;
 
     @Column(nullable = true)
     private String name;
@@ -48,4 +49,12 @@ public class User {
     @Column(nullable = true)
     private String companyRegistrationNumber;
 
+    @ManyToMany(fetch=FetchType.EAGER)
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(
+                    name = "user_id", referencedColumnName = "email"),
+            inverseJoinColumns = @JoinColumn(
+                    name = "role_id", referencedColumnName = "id"))
+    private Collection<Role> roles;
 }

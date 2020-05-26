@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "microservice-ng-app"
+    }
+  },
+  "defaultProject": "microservice-ng-app",
+  "cli": {
+    "analytics": "9c1808e1-502d-4e2e-a5a2-6826565caa52"
+  }
 }

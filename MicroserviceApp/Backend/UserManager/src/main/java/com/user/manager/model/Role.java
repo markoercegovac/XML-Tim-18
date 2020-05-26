@@ -16,10 +16,11 @@ public class Role {
     @Column
     private String name;
 
-    @ManyToMany
+
+    @ManyToMany(mappedBy = "roles")
     private Collection<User> users;
 
-    @ManyToMany
+    @ManyToMany(fetch=FetchType.EAGER)
     @JoinTable(
             name = "roles_permissions",
             joinColumns = @JoinColumn(
