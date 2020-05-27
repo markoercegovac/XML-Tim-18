@@ -2,6 +2,8 @@ package com.example.request.controller;
 
 import com.example.request.dto.AdRequestForClientDTO;
 import com.example.request.dto.CreateAdBundleRequestDTO;
+import com.example.request.service.ClientRequestService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,8 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping(value = "/advert-request/client")
 public class ClientController {
+
+    private final ClientRequestService clientRequestService;
 
     /**
      * client creates a new advert request
@@ -19,9 +24,15 @@ public class ClientController {
      * @output: 201 if created or 406
      * */
     @PostMapping(value = "", consumes = "application/json")
-    public ResponseEntity postNewAdvertRequest(@RequestBody CreateAdBundleRequestDTO createBundle) {
+    public ResponseEntity<String> postNewAdvertRequest(@RequestBody CreateAdBundleRequestDTO createBundle) {
 
-        return new ResponseEntity(HttpStatus.CREATED);
+        try {
+            clientRequestService.createNewRequestBundle(createBundle);
+            return new ResponseEntity(HttpStatus.CREATED);
+        } catch(Exception e) {
+            //e.printStackTrace();
+            return  new ResponseEntity(e.getLocalizedMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
 
     /**

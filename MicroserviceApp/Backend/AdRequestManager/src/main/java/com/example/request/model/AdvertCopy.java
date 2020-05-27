@@ -23,9 +23,9 @@ public class AdvertCopy {
     @Column(name = "owner_email", nullable = false)
     private String ownerEmail;
 
-    @OneToOne(mappedBy = "advertCopy")
+    @OneToOne(mappedBy = "advertCopy", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private Request request;
 
-    @OneToOne(mappedBy = "advertCopy")
+    @OneToOne(mappedBy = "advertCopy", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private CarReservedDate carReservedDate;
 }

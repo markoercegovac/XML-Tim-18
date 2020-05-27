@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CarReservedDaterepository extends JpaRepository<CarReservedDate, Long> {
+public interface CarReservedDateRepository extends JpaRepository<CarReservedDate, Long> {
 }
