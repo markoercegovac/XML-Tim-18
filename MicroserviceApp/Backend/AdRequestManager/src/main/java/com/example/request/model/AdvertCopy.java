@@ -1,10 +1,12 @@
 package com.example.request.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.util.Date;
+import java.util.Set;
 
 @Data
 @Entity
@@ -23,9 +25,9 @@ public class AdvertCopy {
     @Column(name = "owner_email", nullable = false)
     private String ownerEmail;
 
-    @OneToOne(mappedBy = "advertCopy", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-    private Request request;
+    @OneToMany(mappedBy = "advertCopy", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Request> request;
 
-    @OneToOne(mappedBy = "advertCopy", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-    private CarReservedDate carReservedDate;
+    @OneToMany(mappedBy = "advertCopy", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<CarReservedDate> carReservedDate;
 }

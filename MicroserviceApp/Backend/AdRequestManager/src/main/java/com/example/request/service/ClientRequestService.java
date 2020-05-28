@@ -1,5 +1,8 @@
 package com.example.request.service;
 
+import com.example.request.convertor.FromRequestBundleToAdRequestForClient;
+import com.example.request.dto.AdRequestDTO;
+import com.example.request.dto.AdRequestForClientDTO;
 import com.example.request.dto.CreateAdBundleRequestDTO;
 import com.example.request.model.AdvertCopy;
 import com.example.request.model.AdvertStateEnum;
@@ -12,9 +15,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -35,10 +36,9 @@ public class ClientRequestService {
         wishedBundle.setPriceWithDiscount(createBundle.getPriceWithDiscount());
         requestBundleRepository.save(wishedBundle);
 
-        Set<Request> wishedAdverts = new HashSet<>();
         createBundle.getRequestedAdverts().forEach(advert -> {
 
-            AdvertCopy foundAdvert = advertCopyRepository.getOne(advert.getAdvertId());
+            AdvertCopy foundAdvert = advertCopyRepository.findById(advert.getAdvertId()).orElse(null);
             if(foundAdvert.equals(null)) {
                 //oglas ne postoji u bazi
                 throw new RuntimeException("ADVERT DOSE NOT EXIST");
@@ -61,10 +61,56 @@ public class ClientRequestService {
                 validRequest.setEndReservationDate(advert.getEndDate());
                 validRequest.setRequestBundle(wishedBundle);
 
-                wishedAdverts.add(validRequest);
                 requestRepository.save(validRequest);
             }
-        });
+        }
+        );
+    }
+
+    public List<AdRequestForClientDTO> findAllBunlesByStatus(String clientEmail, String status) {
+        List<AdRequestForClientDTO> retBundles = new ArrayList<>();
+        List<RequestBundle> foundBundles;
+
+        if(status == null) {
+            foundBundles = requestBundleRepository.findAllByRequestingUserEmail(clientEmail).orElse(null);
+        } else {
+            switch(status) {
+                case "PENDING":
+                    foundBundles = requestBundleRepository.findAllByRequestingUserEmailAndAdvertState(clientEmail, AdvertStateEnum.PENDING).orElse(null);
+                    break;
+                case "APPROVED":
+                    foundBundles = requestBundleRepository.findAllByRequestingUserEmailAndAdvertState(clientEmail, AdvertStateEnum.APPROVED).orElse(null);
+                    break;
+                case "PAID":
+                    foundBundles = requestBundleRepository.findAllByRequestingUserEmailAndAdvertState(clientEmail, AdvertStateEnum.PAID).orElse(null);
+                    break;
+                case "CANCEL":
+                    foundBundles = requestBundleRepository.findAllByRequestingUserEmailAndAdvertState(clientEmail, AdvertStateEnum.CANCEL).orElse(null);
+                    break;
+                default:
+                    foundBundles = requestBundleRepository.findAllByRequestingUserEmail(clientEmail).orElse(null);
+            }
+        }
+
+        if(foundBundles != null) {
+            foundBundles.forEach(bundle -> {
+                retBundles.add(FromRequestBundleToAdRequestForClient.convert(bundle));
+            });
+        }
+
+        return retBundles;
+    }
+
+    public void clientPaid(Long bundleId) throws Exception, NullPointerException{
+        //verovatno ce trebati i client da se proveri
+
+        RequestBundle forPaying = requestBundleRepository.getOne(bundleId);
+        if(forPaying.getAdvertState().equals(AdvertStateEnum.APPROVED)) {
+            forPaying.setAdvertState(AdvertStateEnum.PAID);
+            requestBundleRepository.save(forPaying);
+        } else {
+            throw new Exception("REQUEST IS NOT APPROVED");
+        }
     }
 
 }
