@@ -10,13 +10,19 @@ import { RegistrationComponent } from './registration/registration.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { LoginComponent } from './login/login.component';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
+import { CreateUserAdvertComponent } from './create-user-advert/create-user-advert.component';
+import { MyAdvertsComponent } from './my-adverts/my-adverts.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrationComponent,
     NavigationComponent,
-    LoginComponent
+    LoginComponent,
+    CreateUserAdvertComponent,
+    MyAdvertsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
