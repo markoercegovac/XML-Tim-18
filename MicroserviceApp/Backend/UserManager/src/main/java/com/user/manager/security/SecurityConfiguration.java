@@ -5,6 +5,7 @@ import com.user.manager.jwt.JwtAuthorizationFilter;
 import com.user.manager.principal.UserPrincipalDetailsService;
 import com.user.manager.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -34,11 +35,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private final UserRepository userRepository;
 
 
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.authenticationProvider(authenticationProvider());
 
     }
+
+    //SSO configuratio
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {

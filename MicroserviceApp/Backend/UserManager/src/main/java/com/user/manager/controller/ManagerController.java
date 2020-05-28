@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RequiredArgsConstructor
-@RequestMapping("/user-manager")
+@RequestMapping()
 @RestController
 @CrossOrigin
 public class ManagerController {

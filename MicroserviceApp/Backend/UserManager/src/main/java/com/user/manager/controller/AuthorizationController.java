@@ -9,16 +9,12 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("/user-manager")
+@RequestMapping()
 @RequiredArgsConstructor
 @RestController
 @CrossOrigin
 public class AuthorizationController {
 
-    @PostMapping("/login")
-    public ResponseEntity<LoginDto> login(@RequestBody LoginDto loginDto, Authentication authentication){
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
 
     @PostMapping("/register")
     public ResponseEntity<RegistrationDto> register(@RequestBody RegistrationDto registerDto){
