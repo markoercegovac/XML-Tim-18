@@ -2,15 +2,55 @@ import { Injectable } from '@angular/core';
 import { BundleModel } from '../model/bundle.model';
 import { CartService } from './cart.service';
 import { AdvertInCartModel } from '../model/advert-in-cart.model';
+import { HttpClient } from '@angular/common/http';
+import { request_manager } from 'src/environments/environment';
+
+const BASE_URL = request_manager.apiUrl;
 
 @Injectable({providedIn: 'root'})
 export class BundleSerivce {
 
     private bundles: BundleModel[] = [];
 
-    constructor(private cart: CartService) {}
+    constructor(private cart: CartService, private http: HttpClient) {}
+
+    public createBundleRequest() {
+        //sends http request and creates advert request on backend
+        if(this.bundles.length <= 0) {
+            return;
+        }
+
+        for(let b of this.bundles) {
+
+            let dto = {
+                advertOwnerEmail: b.ownerEmail,
+                requestingUserEmail: 'test@mail',
+                priceWithDiscount: 0,
+                requestedAdverts: []
+            };
+            for(let ad of b.adverts)  {
+                dto.priceWithDiscount += ad.price;
+                dto.requestedAdverts.push({
+                    advertId: ad.advertId,
+                    startDate: ad.startDate,
+                    endDate: ad.endDate
+                });
+            }
+            
+            this.http.post(BASE_URL+'/client', dto, { responseType: 'text' }).subscribe(
+                data => {
+                    alert('SECCESFULLY CREATED REQUEST');
+                },
+                error => {
+                    alert('SOMETHING WENT WRONG\n' + error.error);
+                }
+            );
+        }
+
+    }
 
     public bundleInit() {
+        //when user goes to bundle page use adverts from cart to create bundles
         this.bundles = [];
 
         for(let ad of this.cart.getAllAdverts()) {
@@ -28,14 +68,46 @@ export class BundleSerivce {
     }
 
     public getBundles(): BundleModel[] {
+        //for displaying bundle
         return this.bundles;
     }
 
-    public addToBundle() {
+    public ValidBundleNumbers(bundleIndex: number): number[] {
+        //returns array of bundle indexes that ad can be movet to
+        let owner = this.bundles[bundleIndex].ownerEmail;
 
+        if(owner != null) {
+            let validBundles: number[] = [];
+
+            for(let b of this.bundles) {
+                if(b.index != bundleIndex && b.ownerEmail == owner) {
+                    validBundles.push(b.index);
+                }
+            }
+
+            if(validBundles.length > 0) {
+                return validBundles;
+            }
+        }
+
+        return null;
+    }
+
+    public addToBundle(fromBundleIndex: number, toBundleIndex: number, adId: number) {
+        //move ad from one bundle to a nother(valid)
+        let i = this.checkIfAdvertIsInValidBundle(fromBundleIndex, adId);
+        if(i != -1) {
+            let ad: AdvertInCartModel = this.RemoveAdFromBundle(fromBundleIndex, i);
+
+            //moves ad to bundle
+            this.bundles[toBundleIndex].adverts.push(ad);
+
+            this.removeBundleIfEmpty(fromBundleIndex);
+        }
     }
 
     public removeFromBundle(bundleIndex: number, adId: number) {
+        //removes ad from bundle;
         let i = this.checkIfAdvertIsInValidBundle(bundleIndex, adId);
         if(i != -1) {
             //last ad in bundle cannot be removed
@@ -43,9 +115,7 @@ export class BundleSerivce {
                 return;
             }
 
-            //removes ad from bundle
-            let ad: AdvertInCartModel = this.bundles[bundleIndex].adverts[i];
-            this.bundles[bundleIndex].adverts.splice(i, 1);
+            let ad: AdvertInCartModel = this.RemoveAdFromBundle(bundleIndex, i);
     
             //creates a new bundle with the removed ad
             let lastIndex = this.bundles.length;
@@ -56,22 +126,12 @@ export class BundleSerivce {
     public deleteAdFromBundle(bundleIndex: number, adId: number) {
         let i = this.checkIfAdvertIsInValidBundle(bundleIndex, adId);
         if(i != -1) {
-            //removes ad from bundle
-            let ad: AdvertInCartModel = this.bundles[bundleIndex].adverts[i];
-            this.bundles[bundleIndex].adverts.splice(i, 1);
+            let ad: AdvertInCartModel = this.RemoveAdFromBundle(bundleIndex, i);
     
             //remove ad from cart
             this.cart.removeAdvertFromCart(ad.advertId);
 
-            //if the bundle is empty remove it and calculate bundle indexes
-            if(this.bundles[bundleIndex].adverts.length <= 0) {
-                this.bundles.splice(bundleIndex, 1);
-
-                let i = 0;
-                for(let b of this.bundles) {
-                    b.index = i++;
-                }
-            }
+            this.removeBundleIfEmpty(bundleIndex);
 
         }
     }
@@ -88,6 +148,25 @@ export class BundleSerivce {
             }
         }
         return -1;
+    }
+
+    private removeBundleIfEmpty(bundleIndex: number) {
+        //if the bundle is empty remove it and calculate bundle indexes
+        if(this.bundles[bundleIndex].adverts.length <= 0) {
+            this.bundles.splice(bundleIndex, 1);
+
+            let i = 0;
+            for(let b of this.bundles) {
+                b.index = i++;
+            }
+        }
+    }
+
+    private RemoveAdFromBundle(bundleIndex: number, adIndex: number): AdvertInCartModel {
+        //removes ad from bundle
+        let ad: AdvertInCartModel = this.bundles[bundleIndex].adverts[adIndex];
+        this.bundles[bundleIndex].adverts.splice(adIndex, 1);
+        return ad;
     }
 
 }

@@ -14,4 +14,7 @@ export class BundleComponent implements OnInit {
     this.bundles.bundleInit();
   }
 
+  onConfirm() {
+    this.bundles.createBundleRequest();
+  }
 }

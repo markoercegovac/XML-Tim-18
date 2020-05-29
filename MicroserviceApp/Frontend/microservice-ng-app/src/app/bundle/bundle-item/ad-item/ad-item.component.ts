@@ -11,6 +11,7 @@ export class AdItemComponent implements OnInit {
 
   @Input('ad') ad: AdvertInCartModel;
   @Input('bundle-index') bundleIndex: number;
+  validBundleNumbers: number[];
 
   constructor(private bundles: BundleSerivce) { }
 
@@ -18,7 +19,15 @@ export class AdItemComponent implements OnInit {
   }
 
   onAddInBundle() {
+    if(this.validBundleNumbers == null) {
+      this.validBundleNumbers = this.bundles.ValidBundleNumbers(this.bundleIndex);
+    } else {
+      this.validBundleNumbers = null;
+    }
+  }
 
+  onChangeBundle(toBundle: number) {
+    this.bundles.addToBundle(this.bundleIndex, toBundle, this.ad.advertId);
   }
 
   onRemoveFromBundle() {

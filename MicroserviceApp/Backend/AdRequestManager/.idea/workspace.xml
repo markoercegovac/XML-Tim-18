@@ -2,38 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dbfa62de-626e-4726-a318-9f7320a66449" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/repositorium/AdvertRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../UserManager/src/main/java/com/user/manager/configuration/AuthServerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/interceptor/auth.interceptor.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/services/auth.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/services/test.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AdvertManager/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AdvertManager/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/AdvertmanagerAppApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/AdvertmanagerAppApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/model/OwnersCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/model/OwnersCar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AdvertManager/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../AdvertManager/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UserManager/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UserManager/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UserManager/src/main/java/com/user/manager/ManagerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserManager/src/main/java/com/user/manager/ManagerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UserManager/src/main/java/com/user/manager/controller/AuthorizationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserManager/src/main/java/com/user/manager/controller/AuthorizationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UserManager/src/main/java/com/user/manager/controller/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserManager/src/main/java/com/user/manager/controller/ManagerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UserManager/src/main/java/com/user/manager/controller/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserManager/src/main/java/com/user/manager/controller/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UserManager/src/main/java/com/user/manager/jwt/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserManager/src/main/java/com/user/manager/jwt/JwtAuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UserManager/src/main/java/com/user/manager/jwt/JwtProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserManager/src/main/java/com/user/manager/jwt/JwtProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UserManager/src/main/java/com/user/manager/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserManager/src/main/java/com/user/manager/security/SecurityConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UserManager/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../UserManager/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/request/controller/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/request/controller/ClientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/app-routing.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/login/login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/navigation/navigation.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/navigation/navigation.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/product-checkout/product-checkout.component.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/product-checkout/product-checkout.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/product-checkout/product-checkout.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/product-checkout/product-checkout.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/registration/registration.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/registration/registration.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/bundle/bundle-item/ad-item/ad-item.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/bundle/bundle-item/ad-item/ad-item.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/bundle/bundle-item/ad-item/ad-item.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/bundle/bundle-item/ad-item/ad-item.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/bundle/bundle-item/ad-item/ad-item.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/bundle/bundle-item/ad-item/ad-item.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/bundle/bundle.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/bundle/bundle.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/bundle/bundle.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/bundle/bundle.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/cart/cart-item/cart-item.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/cart/cart-item/cart-item.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/cart/cart-item/cart-item.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/cart/cart-item/cart-item.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/services/bundle.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/services/bundle.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/environments/environment.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +62,7 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ClientRequestTest">
+  <component name="RunManager" selected="Application.RequestApplication">
     <configuration name="RequestApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.request.RequestApplication" />
       <module name="request" />
@@ -145,10 +125,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.RequestApplication" />
         <item itemvalue="JUnit.ClientRequestTest" />
         <item itemvalue="JUnit.ClientRequestTest.TwoAdPass" />
         <item itemvalue="JUnit.ClientRequestTest.dateIncorrectFall" />
-        <item itemvalue="Application.RequestApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -175,30 +155,34 @@
     </state>
     <state x="1767" y="277" width="424" height="479" key="FileChooserDialogImpl/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1589901010069" />
     <state x="1767" y="294" key="FileChooserDialogImpl/1024.17.1920.1080/0.0.1024.768@1024.17.1920.1080" timestamp="1590060089691" />
-    <state width="1494" height="917" key="GridCell.Tab.0.bottom" timestamp="1590659785649">
+    <state width="649" height="917" key="GridCell.Tab.0.bottom" timestamp="1590779046045">
       <screen x="1024" y="0" width="1920" height="1080" />
     </state>
     <state width="1920" height="987" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589880534726" />
     <state width="1494" height="917" key="GridCell.Tab.0.bottom/0.0.2944.1040@0.0.2944.1040" timestamp="1590608051421" />
-    <state width="1494" height="917" key="GridCell.Tab.0.bottom/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1590659785649" />
-    <state width="1494" height="917" key="GridCell.Tab.0.center" timestamp="1590659785649">
+    <state width="701" height="645" key="GridCell.Tab.0.bottom/1024.0.1920.1080/0.0.1024.768@0.0.1024.768" timestamp="1590778364687" />
+    <state width="649" height="917" key="GridCell.Tab.0.bottom/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1590779046045" />
+    <state width="649" height="917" key="GridCell.Tab.0.center" timestamp="1590779046045">
       <screen x="1024" y="0" width="1920" height="1080" />
     </state>
     <state width="1920" height="987" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589880534725" />
     <state width="1494" height="917" key="GridCell.Tab.0.center/0.0.2944.1040@0.0.2944.1040" timestamp="1590608051420" />
-    <state width="1494" height="917" key="GridCell.Tab.0.center/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1590659785649" />
-    <state width="1494" height="917" key="GridCell.Tab.0.left" timestamp="1590659785649">
+    <state width="701" height="645" key="GridCell.Tab.0.center/1024.0.1920.1080/0.0.1024.768@0.0.1024.768" timestamp="1590778364687" />
+    <state width="649" height="917" key="GridCell.Tab.0.center/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1590779046045" />
+    <state width="649" height="917" key="GridCell.Tab.0.left" timestamp="1590779046045">
       <screen x="1024" y="0" width="1920" height="1080" />
     </state>
     <state width="1920" height="987" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589880534725" />
     <state width="1494" height="917" key="GridCell.Tab.0.left/0.0.2944.1040@0.0.2944.1040" timestamp="1590608051420" />
-    <state width="1494" height="917" key="GridCell.Tab.0.left/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1590659785649" />
-    <state width="1494" height="917" key="GridCell.Tab.0.right" timestamp="1590659785649">
+    <state width="701" height="645" key="GridCell.Tab.0.left/1024.0.1920.1080/0.0.1024.768@0.0.1024.768" timestamp="1590778364687" />
+    <state width="649" height="917" key="GridCell.Tab.0.left/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1590779046045" />
+    <state width="649" height="917" key="GridCell.Tab.0.right" timestamp="1590779046045">
       <screen x="1024" y="0" width="1920" height="1080" />
     </state>
     <state width="1920" height="987" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589880534725" />
     <state width="1494" height="917" key="GridCell.Tab.0.right/0.0.2944.1040@0.0.2944.1040" timestamp="1590608051421" />
-    <state width="1494" height="917" key="GridCell.Tab.0.right/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1590659785649" />
+    <state width="701" height="645" key="GridCell.Tab.0.right/1024.0.1920.1080/0.0.1024.768@0.0.1024.768" timestamp="1590778364687" />
+    <state width="649" height="917" key="GridCell.Tab.0.right/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1590779046045" />
     <state width="1878" height="341" key="GridCell.Tab.1.bottom" timestamp="1590597249479">
       <screen x="1024" y="0" width="1920" height="1080" />
     </state>
@@ -215,11 +199,11 @@
       <screen x="1024" y="0" width="1920" height="1080" />
     </state>
     <state width="1878" height="341" key="GridCell.Tab.1.right/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1590597249479" />
-    <state x="1667" y="346" key="com.intellij.ide.util.TipDialog" timestamp="1590653269688">
+    <state x="1667" y="346" key="com.intellij.ide.util.TipDialog" timestamp="1590777610094">
       <screen x="1024" y="0" width="1920" height="1080" />
     </state>
     <state x="1024" y="333" key="com.intellij.ide.util.TipDialog/0.0.2944.1040@0.0.2944.1040" timestamp="1590604773454" />
-    <state x="1667" y="346" key="com.intellij.ide.util.TipDialog/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1590653269688" />
+    <state x="1667" y="346" key="com.intellij.ide.util.TipDialog/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1590777610094" />
     <state x="1667" y="363" key="com.intellij.ide.util.TipDialog/1024.17.1920.1080/0.0.1024.768@1024.17.1920.1080" timestamp="1590059949924" />
     <state x="1744" y="264" width="469" height="504" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1590655845473">
       <screen x="1024" y="0" width="1920" height="1080" />
