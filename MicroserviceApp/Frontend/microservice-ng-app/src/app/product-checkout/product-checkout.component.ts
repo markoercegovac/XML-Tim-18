@@ -12,4 +12,8 @@ export class ProductCheckoutComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  private mock() {
+
+  }
+
 }
