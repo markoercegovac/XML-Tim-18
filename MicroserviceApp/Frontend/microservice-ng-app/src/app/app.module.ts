@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { LoginComponent } from './login/login.component';
+import { ProductCheckoutComponent } from './product-checkout/product-checkout.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { LoginComponent } from './login/login.component';
     RegistrationComponent,
     NavigationComponent,
     LoginComponent,
+    ProductCheckoutComponent,
 
   ],
   imports: [

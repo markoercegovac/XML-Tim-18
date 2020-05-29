@@ -2,16 +2,21 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {RegistrationComponent} from './registration/registration.component';
 import {LoginComponent} from './login/login.component';
+import { ProductCheckoutComponent } from './product-checkout/product-checkout.component';
 
 
 const routes: Routes = [
   {
-    path: 'user-manager/register',
+    path: 'register',
    component: RegistrationComponent
   },
   {
-    path: 'user-manager/login',
+    path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'cart',
+    component: ProductCheckoutComponent
   }
 ];
 
