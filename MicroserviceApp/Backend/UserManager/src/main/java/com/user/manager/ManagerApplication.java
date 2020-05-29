@@ -6,12 +6,14 @@ import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
 
 @SpringBootApplication
 @EnableEurekaClient
 @EnableDiscoveryClient
 @EnableAuthorizationServer
+@EnableResourceServer
 public class ManagerApplication {
 
     public static void main(String[] args) {
