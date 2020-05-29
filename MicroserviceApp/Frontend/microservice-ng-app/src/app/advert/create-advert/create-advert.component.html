@@ -1,0 +1,69 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<br>
+<div class="w3-main" >
+  <div class="row">
+    <div class="offset-3"></div>
+    <div class="col-md-6">
+      <form>
+        <div class="form-group">
+          <label>Select Car</label>
+          <select class="form-control" >
+            <option></option>
+          </select>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary" [routerLink]="['/register/car']">Register Car
+          <i class="fa fa-car"></i>
+          </button>
+        </div>
+
+        <hr>
+
+        <div class="form-group">
+          Picture
+
+        </div>
+        <div class="form-group">
+          <label>Start Date</label>
+          <input type="date" class="form-control">
+
+        </div>
+        <div class="form-group">
+          <label>End Date</label>
+          <input type="date" class="form-control">
+
+        </div>
+
+        <div class="form-group">
+          <label>Description</label>
+          <textarea class="form-control"  rows="7"></textarea>
+
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="form-group">
+          <label>Select Price</label>
+          <select class="form-control" >
+            <option></option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-primary" [routerLink]="['/define/price']">Create New Price
+            <i class="fa fa-dollar"></i>
+          </button>
+        </div>
+
+        <br>
+        <br>
+        <div class="form-group">
+          <button class="btn btn-danger float-right">Create Advert</button>
+        </div>
+      </form>
+
+
+    </div>
+  </div>
+</div>
+<br>

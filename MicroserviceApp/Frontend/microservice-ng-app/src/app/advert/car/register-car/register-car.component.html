@@ -1,0 +1,84 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<div class="image">
+</div>
+<br>
+<div class="w3-main" >
+  <div class="row">
+    <div class="offset-3"></div>
+    <div class="col-md-6">
+      <form name="registerCarForm"  novalidate class="feedback-form">
+        <div>
+          <h4><b>Car specification </b>
+            <i class="fa fa-cog"></i></h4>
+        </div>
+        <div class="form-group" style="margin-top:20px;">
+          <label>Car Brand</label>
+          <select class="form-control" >
+            <option ></option>
+          </select>
+        </div>
+
+        <div class="form-group" style="margin-top:20px;">
+          <label>Car Model</label>
+          <select class="form-control"  >
+            <option ></option>
+          </select>
+        </div>
+
+        <div class="form-group" style="margin-top:20px;">
+          <label>Car Class</label>
+          <select class="form-control">
+            <option ></option>
+          </select>
+        </div>
+
+        <div class="form-group" style="margin-top:20px;">
+          <label>Car Transmission Type</label>
+          <select class="form-control custom-select" >
+            <option ></option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="travelDistance">Traveled Distance in km</label>
+          <input type="number" pattern="^\d*(\.\d{0,2})?$"
+                 placeholder="Traveled Distance in km"
+                 class="form-control"
+                 min="0"
+                 name="travelDistance"
+                 id="travelDistance"
+
+          />
+        </div>
+
+        <div class="form-group" style="margin-top:20px;">
+          <label>Car Fuel Type</label>
+          <select class="form-control custom-select">
+            <option  ></option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="childrenSitNumber">Children Sit Number</label>
+          <input type="number" pattern="^\d*(\.\d{0,2})?$"
+                 placeholder="Children Sit Number"
+                 class="form-control"
+                 min="0" max="5"
+                 id="childrenSitNumber"
+
+          />
+        </div>
+
+
+        <hr>
+
+
+        <div class="form-group" style="margin-top:20px;">
+          <input type="submit" class="btn btn-info float-right" value="Create Car" />
+          <input type="submit" class="btn btn-primary float-left" [routerLink]="['/create/advert']" value="Back" />
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

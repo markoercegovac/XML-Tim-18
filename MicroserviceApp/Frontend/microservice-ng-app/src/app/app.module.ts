@@ -10,9 +10,13 @@ import { RegistrationComponent } from './registration/registration.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { LoginComponent } from './login/login.component';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
-import { CreateAdvertComponent } from './create-advert/create-advert.component';
-import { MyAdvertsComponent } from './my-adverts/my-adverts.component';
-import { AllAdvertsComponent } from './all-adverts/all-adverts.component';
+import { CreateAdvertComponent } from './advert/create-advert/create-advert.component';
+import { MyAdvertsComponent } from './advert/my-adverts/my-adverts.component';
+import { AllAdvertsComponent } from './advert/all-adverts/all-adverts.component';
+import { RegisterCarComponent } from './advert/car/register-car/register-car.component';
+import { DefinePriceComponent } from './advert/price/define-price/define-price.component';
+import { MyPriceListComponent } from './advert/price/my-price-list/my-price-list.component';
+import { MyCarsComponent } from './advert/car/my-cars/my-cars.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import { AllAdvertsComponent } from './all-adverts/all-adverts.component';
     LoginComponent,
     CreateAdvertComponent,
     MyAdvertsComponent,
-    AllAdvertsComponent
+    AllAdvertsComponent,
+    RegisterCarComponent,
+    DefinePriceComponent,
+    MyPriceListComponent,
+    MyCarsComponent
   ],
   imports: [
     BrowserModule,
