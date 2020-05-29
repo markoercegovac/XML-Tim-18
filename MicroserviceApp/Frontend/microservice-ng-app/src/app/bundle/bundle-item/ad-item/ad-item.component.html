@@ -1,0 +1,45 @@
+<div class="card ml-1 mr-1" style="width: 18rem;">
+    <div class="card-header">
+        <div class="row justify-content-end">
+            Price: {{ad.price}}
+            &nbsp;&nbsp;&nbsp;
+
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+                <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><a href="#">HTML</a></li>
+                  <li><a href="#">CSS</a></li>
+                  <li><a href="#">JavaScript</a></li>
+                </ul>
+              </div>
+
+            <div class="dropdown">
+                <span data-toggle="dropdown">
+                    <span (click)="onAddInBundle()" data-toggle="tooltip" data-placement="top" title="add in existing bundle">
+                        <i class="fa fa-plus-circle text-success"></i>
+                    </span>
+                </span>
+                <ul class="dropdown-menu">
+                    <li><a href="#">HTML</a></li>
+                    <li><a href="#">CSS</a></li>
+                    <li><a href="#">JavaScript</a></li>
+                </ul>
+            </div>
+            &nbsp;&nbsp;
+            <span (click)="onRemoveFromBundle()" data-toggle="tooltip" data-placement="top" title="add in new bundle">
+                <i class="fa fa-minus-circle text-warning"></i>
+            </span>
+            &nbsp;&nbsp;
+            <span (click)="onDelete()" data-toggle="tooltip" data-placement="top" title="remove advert">
+                <i class="fa fa-times-circle text-danger"></i>
+            </span>
+        </div>
+    </div>
+    <img class="card-img-top" src="..." alt={{ad.profileImage}}>
+    <div class="card-body">
+      <p class="card-text">
+          {{ad.startDate | date: 'shortDate'}}-{{ad.endDate | date: 'shortDate'}}
+      </p>
+    </div>
+  </div>

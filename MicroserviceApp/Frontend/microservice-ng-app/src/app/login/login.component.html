@@ -1,50 +1,42 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 
-<body>
+
 <div class="w3-main centered"  >
   <div class="row">
     <div class="offset-3"></div>
     <div class="col-md-6">
-
-
-      <form name="formLogin" [formGroup]="formLogin" (ngSubmit)="formLogin.valid && onSubmit()">
-
-
-        <div class="form-group">
-          <label class="label-control" for="email">Email</label>
-          <input sanitaze type="text"
-                 id="email"
-                 class="form-control"
-                 formControlName="email"
-                 [ngClass]="{'is-invalid':formLogin.get('email').touched && formLogin.get('email').invalid}"  />
-          <div *ngIf="formLogin.get('email').touched && formLogin.get('email').invalid"  class="invalid-feedback">
-            <div *ngIf="formLogin.get('email').errors.required">Email Name is required</div>
-            <div *ngIf="formLogin.get('email').errors.email">Email must be a valid email Address</div>
+        <form (ngSubmit)="onLogin(f)" #f="ngForm">
+          <div class="form-group">
+            <label for="email" >Email</label>
+            <input type="text"
+                  placeholder="Email"
+                  class="form-control"
+                  name="email"
+				  id="email"
+				  ngModel
+				  required
+            />
           </div>
-        </div>
 
-        <div class="form-group">
-          <label class="label-control" for="password">Password</label>
-          <input sanitaze type="password"
-                 formControlName="password"
-                 class="form-control"
-                 id="password"
-                 [ngClass]="{'is-invalid':formLogin.get('password').touched && formLogin.get('password').invalid}" />
-             <div *ngIf="formLogin.get('password').touched && formLogin.get('password').invalid"  class="invalid-feedback">
-            <div *ngIf="formLogin.get('password').errors.required">Password is required</div>
-            <div *ngIf="formLogin.get('password').errors.minlength">Password  must be a letaset 6 charector</div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password"
+                  placeholder="Password"
+                  class="form-control"
+                  id="password"
+				  name="password"
+				  ngModel
+				  required
+          />
           </div>
-      </div>
+          <hr>
 
-        <div class="form-group">
-          <button class="btn btn-primary"  [disabled]="!formLogin.valid">Login</button>
-  </div>
-  </form>
+          <div class="form-group">
+            <input type="submit" class="btn btn-info " value="Login" [disabled]="f.invalid"/>
+          </div>
+    </form>
 
-
-    </div>
+    <button (click)="onTest()" class="btn">TEST</button>
   </div>
 </div>
-
-</body>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators, FormGroup } from '@angular/forms';
-import {UserModel} from '../model/UserModel';
+import { FormControl, Validators, FormGroup, NgForm } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
+import { TestService } from '../services/test.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,35 +9,22 @@ import {UserModel} from '../model/UserModel';
 })
 export class LoginComponent implements OnInit {
 
-
-  formLogin = new FormGroup({
-    email: new FormControl('', [
-      Validators.required,
-      Validators.email
-    ]),
-    password: new FormControl('', [
-      Validators.required,
-      Validators.minLength(6)
-    ])
-
-  });
-
-  constructor() { }
+  constructor(private auth: AuthService, private test: TestService) { }
 
   ngOnInit(): void {
-
   }
 
-  get email(){
-    return this.formLogin.get('email');
-  }
-  get password() {
-    return this.formLogin.get('password');
+  onLogin(form: NgForm) {
+
+    //username je na backendu
+    let username = form.value.email;
+    let password = form.value.password;
+
+
+    this.auth.login(username, password);
   }
 
-  onSubmit() { alert(JSON.stringify(this.formLogin.value));
-   }
+  onTest() {
+    this.test.test().subscribe();
+  }
 }
-
-
-

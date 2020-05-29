@@ -1,0 +1,31 @@
+import { Component, OnInit, Input } from '@angular/core';
+import { AdvertInCartModel } from 'src/app/model/advert-in-cart.model';
+import { BundleSerivce } from 'src/app/services/bundle.service';
+
+@Component({
+  selector: 'app-ad-item',
+  templateUrl: './ad-item.component.html',
+  styleUrls: ['./ad-item.component.css']
+})
+export class AdItemComponent implements OnInit {
+
+  @Input('ad') ad: AdvertInCartModel;
+  @Input('bundle-index') bundleIndex: number;
+
+  constructor(private bundles: BundleSerivce) { }
+
+  ngOnInit(): void {
+  }
+
+  onAddInBundle() {
+
+  }
+
+  onRemoveFromBundle() {
+    this.bundles.removeFromBundle(this.bundleIndex, this.ad.advertId);
+  }
+
+  onDelete() {
+    this.bundles.deleteAdFromBundle(this.bundleIndex, this.ad.advertId);
+  }
+}

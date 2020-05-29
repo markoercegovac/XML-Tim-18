@@ -2,14 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dbfa62de-626e-4726-a318-9f7320a66449" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/request.iml" beforeDir="false" afterPath="$PROJECT_DIR$/request.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/request/dto/AdRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/request/dto/AdRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/request/model/AdvertCopy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/request/model/AdvertCopy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/request/controller/ClientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/request/controller/ClientController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/request/dto/AdRequestDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/request/dto/AdRequestDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/request/model/AdvertCopy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/request/model/AdvertCopy.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/repositorium/AdvertRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UserManager/src/main/java/com/user/manager/configuration/AuthServerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/interceptor/auth.interceptor.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/services/auth.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/services/test.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdvertManager/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AdvertManager/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/AdvertmanagerAppApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/AdvertmanagerAppApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/model/OwnersCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/model/OwnersCar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdvertManager/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../AdvertManager/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserManager/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UserManager/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserManager/src/main/java/com/user/manager/ManagerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserManager/src/main/java/com/user/manager/ManagerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserManager/src/main/java/com/user/manager/controller/AuthorizationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserManager/src/main/java/com/user/manager/controller/AuthorizationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserManager/src/main/java/com/user/manager/controller/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserManager/src/main/java/com/user/manager/controller/ManagerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserManager/src/main/java/com/user/manager/controller/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserManager/src/main/java/com/user/manager/controller/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserManager/src/main/java/com/user/manager/jwt/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserManager/src/main/java/com/user/manager/jwt/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserManager/src/main/java/com/user/manager/jwt/JwtProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserManager/src/main/java/com/user/manager/jwt/JwtProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserManager/src/main/java/com/user/manager/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserManager/src/main/java/com/user/manager/security/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserManager/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../UserManager/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/navigation/navigation.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/navigation/navigation.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/product-checkout/product-checkout.component.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/product-checkout/product-checkout.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/product-checkout/product-checkout.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/product-checkout/product-checkout.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/registration/registration.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/registration/registration.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
