@@ -37,4 +37,8 @@ export class AdItemComponent implements OnInit {
   onDelete() {
     this.bundles.deleteAdFromBundle(this.bundleIndex, this.ad.advertId);
   }
+
+  onClick() {
+    this.bundles.setLastTuchedAd(this.ad.advertId);
+  }
 }

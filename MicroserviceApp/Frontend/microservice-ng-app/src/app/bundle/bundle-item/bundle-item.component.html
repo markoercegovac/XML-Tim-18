@@ -1,4 +1,9 @@
-<div class="container-fluid bg-secondary mt-3 pb-2">
+<div class="container bg-secondary mt-3 pb-2" 
+    cdkDropList
+    id={{bundle.index}}
+    [cdkDropListConnectedTo]="bundleService.getBundleList()"
+    (cdkDropListDropped)="onDrop($event)"
+    >
     
     <div class="row content-justofy-around">
         <div class="col">

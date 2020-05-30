@@ -4,6 +4,8 @@ import { CartService } from './cart.service';
 import { AdvertInCartModel } from '../model/advert-in-cart.model';
 import { HttpClient } from '@angular/common/http';
 import { request_manager } from 'src/environments/environment';
+import { ResolvedStaticSymbol } from '@angular/compiler';
+import { stringify } from 'querystring';
 
 const BASE_URL = request_manager.apiUrl;
 
@@ -11,6 +13,7 @@ const BASE_URL = request_manager.apiUrl;
 export class BundleSerivce {
 
     private bundles: BundleModel[] = [];
+    private lastTouchedAdId: number = 0;
 
     constructor(private cart: CartService, private http: HttpClient) {}
 
@@ -104,6 +107,27 @@ export class BundleSerivce {
 
             this.removeBundleIfEmpty(fromBundleIndex);
         }
+    }
+
+    public dragAndDrop(fromBundleIndex: number, toBundleIndex: number) {
+        //alert('from '+fromBundleIndex+' to '+toBundleIndex+' ad '+this.lastTouchedAdId)
+        
+        if(this.bundles[fromBundleIndex].ownerEmail == this.bundles[toBundleIndex].ownerEmail) {
+            alert('in');
+            this.addToBundle(fromBundleIndex, toBundleIndex, this.lastTouchedAdId);
+        }
+    }
+
+    public setLastTuchedAd(adId: number) {
+        this.lastTouchedAdId = adId;
+    }
+
+    public getBundleList(): string[] {
+        let bundleList: string[] = []
+        for(let b of this.bundles) {
+            bundleList.push(b.index.toString());
+        }
+        return bundleList;
     }
 
     public removeFromBundle(bundleIndex: number, adId: number) {
