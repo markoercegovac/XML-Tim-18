@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {NgForm} from '@angular/forms';
+import {ImageModel} from '../../model/image';
 
 @Component({
   selector: 'app-create-advert',
@@ -7,9 +9,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateAdvertComponent implements OnInit {
 
+  profileImage: ImageModel;
+  imageGalery: ImageModel[] = [];
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  public onInputProfileImage(profileImageInput: any) {
+    this.onLoadImage(profileImageInput, true);
+
+  }
+
+  public onRemoveProfileImage() {
+    this.profileImage = null;
+  }
+  private onLoadImage(img: any, isProfile: boolean){
+    const file: File = img.files[0];
+    const reader = new FileReader();
+
+    reader.addEventListener('load', (event: any) => {
+      if (isProfile === true){
+        this.profileImage = new ImageModel(0, event.target.result, file);
+
+      } else{
+        const id = this.imageGalery.length;
+        this.imageGalery.push(new ImageModel(id, event.target.result, file));
+      }
+    });
+    reader.readAsDataURL(file);
+  }
+
+  public createAdvert(f: NgForm) {
+    alert('Advert Created');
+  }
 }
