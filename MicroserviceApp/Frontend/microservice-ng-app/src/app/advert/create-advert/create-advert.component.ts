@@ -10,7 +10,7 @@ import {ImageModel} from '../../model/image';
 export class CreateAdvertComponent implements OnInit {
 
   profileImage: ImageModel;
-  imageGalery: ImageModel[] = [];
+  imageGallery: ImageModel[] = [];
 
   constructor() { }
 
@@ -19,7 +19,9 @@ export class CreateAdvertComponent implements OnInit {
 
   public onInputProfileImage(profileImageInput: any) {
     this.onLoadImage(profileImageInput, true);
-
+  }
+  public onInputGalleryImage(galleryImageInput: any){
+    this.onLoadImage(galleryImageInput, false);
   }
 
   public onRemoveProfileImage() {
@@ -33,9 +35,10 @@ export class CreateAdvertComponent implements OnInit {
       if (isProfile === true){
         this.profileImage = new ImageModel(0, event.target.result, file);
 
-      } else{
-        const id = this.imageGalery.length;
-        this.imageGalery.push(new ImageModel(id, event.target.result, file));
+      }
+      else{
+        const id = this.imageGallery.length;
+        this.imageGallery.push(new ImageModel(id, event.target.result, file));
       }
     });
     reader.readAsDataURL(file);
@@ -43,5 +46,9 @@ export class CreateAdvertComponent implements OnInit {
 
   public createAdvert(f: NgForm) {
     alert('Advert Created');
+  }
+
+  public onClearImage(i: number) {
+    this.imageGallery.splice(i, 1);
   }
 }
