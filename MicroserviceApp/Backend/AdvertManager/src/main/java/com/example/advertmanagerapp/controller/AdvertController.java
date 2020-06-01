@@ -62,7 +62,7 @@ public class AdvertController {
     }
 
 
-    @GetMapping("/{user_id}")
+    @GetMapping("/all/{user_id}")//!!! DODAO /all spojiti sa prvim GET REQUESTOM
     public ResponseEntity<List<AdvertDto>> getAllAdverts (@PathVariable(value="user_id") Long user_id) {
 
         return new ResponseEntity<List<AdvertDto>>(HttpStatus.OK);

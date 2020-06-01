@@ -46,6 +46,7 @@ public class AdRepoTest {
         OwnersCar car = new OwnersCar(
                 2l,
                 null,
+                1800000.0f,
                 TraveledUnit.KM,
                 false,
                 0,

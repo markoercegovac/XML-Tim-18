@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AdvertDetailViewModel } from '../model/advert-detail-view.model';
+import { AdvertService } from '../services/advert.service';
 
 @Component({
   selector: 'app-advert-detail-view',
@@ -12,11 +13,23 @@ export class AdvertDetailViewComponent implements OnInit {
   adId: number = 0;
   ad: AdvertDetailViewModel;
 
-  constructor(private activeUrl: ActivatedRoute) { }
+  constructor(
+    private activeUrl: ActivatedRoute, 
+    private adService: AdvertService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.adId = +this.activeUrl.snapshot.params['id'];
-    //poziv servera za ad
+    
+    this.adService.getAdvertDetail(this.adId).subscribe(
+      (data: AdvertDetailViewModel) => {
+        if(data != null) {
+          this.ad = data;
+        } else {
+          this.router.navigate(['/not-found']);
+        }
+      }
+    );
   }
 
 }

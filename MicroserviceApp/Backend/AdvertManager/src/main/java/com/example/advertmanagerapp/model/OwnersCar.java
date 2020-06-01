@@ -23,6 +23,9 @@ public class OwnersCar {
     private Long travelDistanceConstraint;
 
     @Column(nullable = false)
+    private float mileage; //koliko je presao
+
+    @Column(nullable = false)
     private TraveledUnit traveledUnit;
 
     @Column(nullable = false)

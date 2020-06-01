@@ -12,6 +12,7 @@ import {MyCarsComponent} from "./advert/car/my-cars/my-cars.component";
 import {DefinePriceComponent} from "./advert/price/define-price/define-price.component";
 import {MyPriceListComponent} from "./advert/price/my-price-list/my-price-list.component";
 import { AdvertDetailViewComponent } from './advert-detail-view/advert-detail-view.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 const routes: Routes = [
@@ -47,7 +48,8 @@ const routes: Routes = [
   {
     path: 'my/price/list',
     component: MyPriceListComponent
-  }
+  },
+  { path: 'not-found', component: NotFoundComponent}
 ];
 
 @NgModule({

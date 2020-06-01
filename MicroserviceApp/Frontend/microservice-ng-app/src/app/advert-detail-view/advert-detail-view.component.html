@@ -2,7 +2,7 @@
     <br>
     
     <!--Carousel Wrapper-->
-<mdb-carousel [isControls]="true" class="carousel slide carousel-fade" [animation]="'fade'">
+    <mdb-carousel [isControls]="true" class="carousel slide carousel-fade" [animation]="'fade'">
     <!--First slide-->
     <mdb-carousel-item>
       <div class="view w-100">
@@ -53,28 +53,32 @@
 
         <div class="col-sm-12 col-md-6 border-right border-success">
                 <div class="row">
-                    <h3>Price per day: </h3>
+                    <h3>Price per day: {{ad.pricePerDay}}</h3>
                     &nbsp;&nbsp;
-                    <h2 class="text text-danger">20% OFF</h2>
+                    <h2 class="text text-danger" *ngIf="ad.discount != null">{{ad.discount}}% OFF</h2>
                 </div>
-                <h4>Mileage:</h4>
+                <h4>Crossed distance: {{ad.mileage}} {{ad.mileageUnit}}</h4>
                 <br>
-                <h4>Insurance price: (this is optional)</h4>
-                <p>Every added km, after crossing NUM km, cost's NUM $</p>
+                <h4 *ngIf="ad.insurancePrice != null">Insurance price: {{ad.insurancePrice}}</h4>
+                <p *ngIf="ad.distanceOverflowPrice != null">Every added km, after crossing {{ad.carAvailableDistanceWithoutOverflowPrice}} km, cost's {{ad.distanceOverflowPrice}} $</p>
         </div>
 
         <div class="col-sm-12 col-md-6">
             <h2>Car information</h2>
             <br/>
-            <h4>Brand: </h4>
-            <h4>Model: </h4>
-            <h4>Class: </h4>
-            <h4>Fuel Type: </h4>
-            <h4>Transmission: </h4>
+            <h4>Brand: {{ad.carBrand}}</h4>
+            <h4>Model: {{ad.carModel}}</h4>
+            <h4>Class: {{ad.carClass}}</h4>
+            <h4>Fuel Type: {{ad.carFuelType}}</h4>
+            <h4>Transmission: {{ad.carTransmissionType}}</h4>
             <br>
-            <h4>Number of children seats: </h4>
+            <h4>Number of children seats: {{ad.carChildSeatNumber}}</h4>
         </div>
 
+    </div>
+    <div>
+      <h3>Advert description</h3>
+      <p>{{ad.description}}</p>
     </div>
 
     <br>

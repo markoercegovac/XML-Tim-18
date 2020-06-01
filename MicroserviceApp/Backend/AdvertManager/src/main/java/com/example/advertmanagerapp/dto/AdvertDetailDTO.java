@@ -17,6 +17,8 @@ public class AdvertDetailDTO {
     private String[] gallery;
     private String description;
     private float pricePerDay;
+    private float mileage;
+    private String mileageUnit;
     private Float insurancePrice;
     private Float distanceOverflowPrice;
     private Float discount;

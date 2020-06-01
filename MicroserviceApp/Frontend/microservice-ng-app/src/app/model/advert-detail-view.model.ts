@@ -8,11 +8,13 @@ export interface AdvertDetailViewModel {
     insurancePrice: number;
     distanceOverflowPrice: number;
     discount: number;
+    mileage: number;
+    mileageUnit: string;
     carBrand: string;
     carClass: string;
     carFuelType: string;
     carModel: string;
     carTransmissionType: string;
-    carChildSeats: number;
+    carChildSeatNumber: number;
     carAvailableDistanceWithoutOverflowPrice: number; //broj km koje moze da predje dok se ne aktivira distanceOverflow
 }

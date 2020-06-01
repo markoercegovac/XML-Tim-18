@@ -45,6 +45,7 @@ class AdvertServiceTest {
         OwnersCar car = new OwnersCar(
                 2l,
                 null,
+                20000.00f,
                 TraveledUnit.KM,
                 false,
                 0,

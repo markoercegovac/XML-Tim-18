@@ -22,6 +22,8 @@ public abstract class AdvertConverter {
         }
         ret.setGallery(galleryPic.toArray(new String[galleryPic.size()]));
 
+        ret.setMileage(ad.getOwnersCar().getMileage());
+        ret.setMileageUnit(ad.getOwnersCar().getTraveledUnit().toString());
         ret.setDescription(ad.getDescription());
         ret.setPricePerDay(ad.getPrice().getPricePerDay());
         ret.setInsurancePrice(ad.getPrice().getInsurancePrice());
