@@ -13,28 +13,28 @@
         </div>
         <div class="form-group" style="margin-top:20px;">
           <label>Car Brand</label>
-          <select class="form-control" ([ngModel])="model.carBrand">
+          <select class="form-control" [(ngModel)]="model.carBrand">
             <option *ngFor="let carBrand of allCarBrand" value="{{carBrand.id}}">{{carBrand.name}}</option>
           </select>
         </div>
 
         <div class="form-group" style="margin-top:20px;">
           <label>Car Model</label>
-          <select class="form-control" ([ngModel])="model.carModel" >
+          <select class="form-control" [(ngModel)]="model.carModel" >
             <option *ngFor="let carModel of allCarModel" value="{{carModel.id}}">{{carModel.modelName}}</option>
           </select>
         </div>
 
         <div class="form-group" style="margin-top:20px;">
           <label>Car Class</label>
-          <select class="form-control" ([ngModel])="model.carClass">
+          <select class="form-control" [(ngModel)]="model.carClass">
             <option *ngFor="let carClass of allCarClass" value="{{carClass.id}}">{{carClass.className}}</option>
           </select>
         </div>
 
         <div class="form-group" style="margin-top:20px;">
           <label>Car Transmission Type</label>
-          <select class="form-control custom-select" ([ngModel])="model.carTransmissionType">
+          <select class="form-control custom-select" [(ngModel)]="model.carTransmissionType">
             <option *ngFor="let carTransmission of allCarTransmission" value="{{carTransmission.id}}">{{carTransmission.transmissionType}}</option>
           </select>
         </div>
@@ -47,13 +47,13 @@
                  min="0"
                  name="travelDistance"
                  id="travelDistance"
-                 ([ngModel])="model.travelDistance"
+                 [(ngModel)]="model.travelDistance"
           />
         </div>
 
         <div class="form-group" style="margin-top:20px;">
           <label>Car Fuel Type</label>
-          <select class="form-control custom-select" ([ngModel])="model.carFuelType">
+          <select class="form-control custom-select" [(ngModel)]="model.carFuelType">
             <option *ngFor="let carFuel of allCarFuelType" value="{{carFuel.id}}">{{carFuel.fuelType}}</option>
           </select>
         </div>
@@ -65,7 +65,7 @@
                  class="form-control"
                  min="0" max="5"
                  id="childrenSitNumber"
-                 ([ngModel])="model.childrenSitNumber"
+                 [(ngModel)]="model.childrenSitNumber"
           />
         </div>
         <div class="forum-group btn-group btn-group-toggle">
