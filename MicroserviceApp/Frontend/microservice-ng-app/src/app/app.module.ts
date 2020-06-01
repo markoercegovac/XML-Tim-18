@@ -5,6 +5,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 
+import { CarouselModule, ModalModule, WavesModule } from 'angular-bootstrap-md';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
@@ -23,6 +25,7 @@ import { RegisterCarComponent } from './advert/car/register-car/register-car.com
 import { DefinePriceComponent } from './advert/price/define-price/define-price.component';
 import { MyPriceListComponent } from './advert/price/my-price-list/my-price-list.component';
 import { MyCarsComponent } from './advert/car/my-cars/my-cars.component';
+import { AdvertDetailViewComponent } from './advert-detail-view/advert-detail-view.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,8 @@ import { MyCarsComponent } from './advert/car/my-cars/my-cars.component';
     RegisterCarComponent,
     DefinePriceComponent,
     MyPriceListComponent,
-    MyCarsComponent
+    MyCarsComponent,
+    AdvertDetailViewComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +55,8 @@ import { MyCarsComponent } from './advert/car/my-cars/my-cars.component';
     HttpClientModule,
     BrowserAnimationsModule,
     DragDropModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CarouselModule, ModalModule, WavesModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

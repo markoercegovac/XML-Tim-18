@@ -1,6 +1,8 @@
 package com.example.advertmanagerapp.controller;
 
+import com.example.advertmanagerapp.dto.AdvertDetailDTO;
 import com.example.advertmanagerapp.dto.AdvertDto;
+import com.example.advertmanagerapp.service.AdvertService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,13 +17,22 @@ import java.util.List;
 @CrossOrigin
 public class AdvertController {
 
+    private final AdvertService advertService;
 
     @GetMapping ("/{advert_id}")
-    public ResponseEntity<AdvertDto> getAdvertInfo(
+    public ResponseEntity<?> getAdvertInfo(
             @PathVariable(value="advert_id") Long advert_id,
             @RequestParam(value = "details", required = false) String details ){
 
-        return new ResponseEntity<AdvertDto>(HttpStatus.OK);
+        if(details!=null && details.equals("client")) {
+
+            AdvertDetailDTO ret = advertService.detailAdForClient(advert_id);
+
+            return new ResponseEntity<AdvertDetailDTO>(ret, HttpStatus.OK);
+        } else {
+
+            return new ResponseEntity<AdvertDto>(HttpStatus.OK);
+        }
     }
 
 
