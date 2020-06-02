@@ -4,16 +4,11 @@
     <list default="true" id="dbfa62de-626e-4726-a318-9f7320a66449" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/request/controller/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/request/controller/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/bundle/bundle-item/ad-item/ad-item.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/bundle/bundle-item/ad-item/ad-item.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/bundle/bundle-item/ad-item/ad-item.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/bundle/bundle-item/ad-item/ad-item.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/bundle/bundle-item/ad-item/ad-item.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/bundle/bundle-item/ad-item/ad-item.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/bundle/bundle.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/bundle/bundle.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/bundle/bundle.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/bundle/bundle.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/cart/cart-item/cart-item.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/cart/cart-item/cart-item.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/cart/cart-item/cart-item.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/cart/cart-item/cart-item.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/services/bundle.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/services/bundle.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/environments/environment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/request/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/request/controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/request/service/ClientRequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/request/service/impl/ClientRequestServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/request/service/TestService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/request/services/ClientRequestTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/request/services/ClientRequestTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,9 +22,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -62,7 +57,7 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.RequestApplication">
+  <component name="RunManager" selected="JUnit.ClientRequestTest">
     <configuration name="RequestApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.request.RequestApplication" />
       <module name="request" />
@@ -125,8 +120,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.RequestApplication" />
         <item itemvalue="JUnit.ClientRequestTest" />
+        <item itemvalue="Application.RequestApplication" />
         <item itemvalue="JUnit.ClientRequestTest.TwoAdPass" />
         <item itemvalue="JUnit.ClientRequestTest.dateIncorrectFall" />
       </list>
@@ -150,39 +145,51 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="418" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589876699371" />
-    <state x="1767" y="294" width="424" height="479" key="FileChooserDialogImpl" timestamp="1590060089691">
-      <screen x="1024" y="17" width="1920" height="1080" />
+    <state x="1734" y="391" width="490" height="250" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1591127821803">
+      <screen x="1024" y="0" width="1920" height="1080" />
     </state>
-    <state x="1767" y="277" width="424" height="479" key="FileChooserDialogImpl/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1589901010069" />
+    <state x="1734" y="391" width="490" height="250" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591127821803" />
+    <state x="1401" y="0" width="1146" height="1040" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1591127935586">
+      <screen x="1024" y="0" width="1920" height="1080" />
+    </state>
+    <state x="1401" y="0" width="1146" height="1040" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591127935586" />
+    <state x="1717" y="269" width="524" height="495" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591128071870">
+      <screen x="1024" y="0" width="1920" height="1080" />
+    </state>
+    <state x="1717" y="269" width="524" height="495" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591128071870" />
+    <state x="1767" y="277" width="438" height="479" key="FileChooserDialogImpl" timestamp="1591127819800">
+      <screen x="1024" y="0" width="1920" height="1080" />
+    </state>
+    <state x="1767" y="277" width="438" height="479" key="FileChooserDialogImpl/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591127819800" />
     <state x="1767" y="294" key="FileChooserDialogImpl/1024.17.1920.1080/0.0.1024.768@1024.17.1920.1080" timestamp="1590060089691" />
-    <state width="649" height="917" key="GridCell.Tab.0.bottom" timestamp="1590779046045">
+    <state width="1417" height="917" key="GridCell.Tab.0.bottom" timestamp="1591128207182">
       <screen x="1024" y="0" width="1920" height="1080" />
     </state>
     <state width="1920" height="987" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589880534726" />
     <state width="1494" height="917" key="GridCell.Tab.0.bottom/0.0.2944.1040@0.0.2944.1040" timestamp="1590608051421" />
     <state width="701" height="645" key="GridCell.Tab.0.bottom/1024.0.1920.1080/0.0.1024.768@0.0.1024.768" timestamp="1590778364687" />
-    <state width="649" height="917" key="GridCell.Tab.0.bottom/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1590779046045" />
-    <state width="649" height="917" key="GridCell.Tab.0.center" timestamp="1590779046045">
+    <state width="1417" height="917" key="GridCell.Tab.0.bottom/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591128207182" />
+    <state width="1417" height="917" key="GridCell.Tab.0.center" timestamp="1591128207182">
       <screen x="1024" y="0" width="1920" height="1080" />
     </state>
     <state width="1920" height="987" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589880534725" />
     <state width="1494" height="917" key="GridCell.Tab.0.center/0.0.2944.1040@0.0.2944.1040" timestamp="1590608051420" />
     <state width="701" height="645" key="GridCell.Tab.0.center/1024.0.1920.1080/0.0.1024.768@0.0.1024.768" timestamp="1590778364687" />
-    <state width="649" height="917" key="GridCell.Tab.0.center/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1590779046045" />
-    <state width="649" height="917" key="GridCell.Tab.0.left" timestamp="1590779046045">
+    <state width="1417" height="917" key="GridCell.Tab.0.center/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591128207182" />
+    <state width="1417" height="917" key="GridCell.Tab.0.left" timestamp="1591128207182">
       <screen x="1024" y="0" width="1920" height="1080" />
     </state>
     <state width="1920" height="987" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589880534725" />
     <state width="1494" height="917" key="GridCell.Tab.0.left/0.0.2944.1040@0.0.2944.1040" timestamp="1590608051420" />
     <state width="701" height="645" key="GridCell.Tab.0.left/1024.0.1920.1080/0.0.1024.768@0.0.1024.768" timestamp="1590778364687" />
-    <state width="649" height="917" key="GridCell.Tab.0.left/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1590779046045" />
-    <state width="649" height="917" key="GridCell.Tab.0.right" timestamp="1590779046045">
+    <state width="1417" height="917" key="GridCell.Tab.0.left/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591128207182" />
+    <state width="1417" height="917" key="GridCell.Tab.0.right" timestamp="1591128207182">
       <screen x="1024" y="0" width="1920" height="1080" />
     </state>
     <state width="1920" height="987" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589880534725" />
     <state width="1494" height="917" key="GridCell.Tab.0.right/0.0.2944.1040@0.0.2944.1040" timestamp="1590608051421" />
     <state width="701" height="645" key="GridCell.Tab.0.right/1024.0.1920.1080/0.0.1024.768@0.0.1024.768" timestamp="1590778364687" />
-    <state width="649" height="917" key="GridCell.Tab.0.right/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1590779046045" />
+    <state width="1417" height="917" key="GridCell.Tab.0.right/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591128207182" />
     <state width="1878" height="341" key="GridCell.Tab.1.bottom" timestamp="1590597249479">
       <screen x="1024" y="0" width="1920" height="1080" />
     </state>
@@ -199,11 +206,11 @@
       <screen x="1024" y="0" width="1920" height="1080" />
     </state>
     <state width="1878" height="341" key="GridCell.Tab.1.right/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1590597249479" />
-    <state x="1667" y="346" key="com.intellij.ide.util.TipDialog" timestamp="1590777610094">
+    <state x="1667" y="346" key="com.intellij.ide.util.TipDialog" timestamp="1591127842227">
       <screen x="1024" y="0" width="1920" height="1080" />
     </state>
     <state x="1024" y="333" key="com.intellij.ide.util.TipDialog/0.0.2944.1040@0.0.2944.1040" timestamp="1590604773454" />
-    <state x="1667" y="346" key="com.intellij.ide.util.TipDialog/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1590777610094" />
+    <state x="1667" y="346" key="com.intellij.ide.util.TipDialog/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591127842227" />
     <state x="1667" y="363" key="com.intellij.ide.util.TipDialog/1024.17.1920.1080/0.0.1024.768@1024.17.1920.1080" timestamp="1590059949924" />
     <state x="1744" y="264" width="469" height="504" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1590655845473">
       <screen x="1024" y="0" width="1920" height="1080" />

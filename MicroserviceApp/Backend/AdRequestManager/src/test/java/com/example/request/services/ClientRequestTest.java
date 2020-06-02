@@ -7,7 +7,6 @@ import com.example.request.model.AdvertCopy;
 import com.example.request.repository.AdvertCopyRepository;
 import com.example.request.repository.RequestBundleRepository;
 import com.example.request.service.ClientRequestService;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
