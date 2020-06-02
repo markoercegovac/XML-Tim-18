@@ -16,7 +16,7 @@ public class Price {
     private Long id;
 
     @Column
-    private String name;
+    private String priceName;
 
     @Column
     private float pricePerDay;

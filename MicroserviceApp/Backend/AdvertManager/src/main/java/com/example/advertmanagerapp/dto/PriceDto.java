@@ -1,5 +1,6 @@
 package com.example.advertmanagerapp.dto;
 
+import com.example.advertmanagerapp.dto.mapper.DtoEntity;
 import com.example.advertmanagerapp.model.Advert;
 import lombok.Data;
 
@@ -7,7 +8,7 @@ import lombok.Data;
 import java.util.Set;
 
 @Data
-public class PriceDto {
+public class PriceDto implements DtoEntity {
 
 
     private Long id;

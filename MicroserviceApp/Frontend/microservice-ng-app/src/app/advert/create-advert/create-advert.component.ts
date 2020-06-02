@@ -12,6 +12,7 @@ export class CreateAdvertComponent implements OnInit {
   profileImage: ImageModel;
   imageGallery: ImageModel[] = [];
 
+
   constructor() { }
 
   ngOnInit(): void {

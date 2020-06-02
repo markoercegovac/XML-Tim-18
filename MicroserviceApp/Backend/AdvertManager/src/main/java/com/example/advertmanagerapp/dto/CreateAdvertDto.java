@@ -1,4 +1,6 @@
 package com.example.advertmanagerapp.dto;
 
-public class CreateAdvertDto {
+import com.example.advertmanagerapp.dto.mapper.DtoEntity;
+
+public class CreateAdvertDto implements DtoEntity {
 }

@@ -1,4 +1,7 @@
 package com.example.advertmanagerapp.service;
 
-public interface PriceService {
+import com.example.advertmanagerapp.dto.PriceDto;
+
+public interface PriceService  {
+    void savePrice(PriceDto priceDto);
 }

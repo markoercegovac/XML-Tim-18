@@ -3,6 +3,7 @@ package com.example.advertmanagerapp.controller;
 
 import com.example.advertmanagerapp.dto.CarDto;
 import com.example.advertmanagerapp.dto.PriceDto;
+import com.example.advertmanagerapp.service.PriceService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,10 +19,11 @@ import java.util.List;
 public class PriceController {
 
 
-    @PostMapping
-    public ResponseEntity createPrice (@RequestBody PriceDto priceDto) {
+    private final PriceService priceService;
 
-        return new ResponseEntity(HttpStatus.OK);
+    @PostMapping
+    public void createPrice (@RequestBody PriceDto price) {
+        priceService.savePrice(price);
     }
 
 
