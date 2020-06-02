@@ -1,35 +1,32 @@
-package com.example.advertmanagerapp.repository;
+package com.example.advertmanagerapp.service;
 
+import com.example.advertmanagerapp.dto.AdvertDetailDTO;
 import com.example.advertmanagerapp.model.*;
 import com.example.advertmanagerapp.model.enums.TraveledUnit;
-import org.aspectj.lang.annotation.Before;
+import com.example.advertmanagerapp.repository.AdvertRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Optional;
 
 @SpringBootTest
-public class AdRepoTest {
-
-    /**
-     * TESTS ARE FALLING BECOUSE AN ERROR IN INIT
-     * */
+class AdvertServiceImplTest {
 
     @Autowired
-    private TestEntityManager entityManager;
+    private AdvertService adService;
 
-    @Autowired
+    @MockBean
     private AdvertRepository adRepository;
 
     private Optional<Advert> ad1;
     private Optional<Advert> ad2;
+    private Optional<Advert> ad3;
 
     @BeforeEach
     void setUp() {
@@ -46,7 +43,7 @@ public class AdRepoTest {
         OwnersCar car = new OwnersCar(
                 2l,
                 null,
-                1800000.0f,
+                20000.00f,
                 TraveledUnit.KM,
                 false,
                 0,
@@ -54,13 +51,13 @@ public class AdRepoTest {
                 null,
                 null,
                 null
-        );
+         );
 
         ad1 = Optional.of(new Advert(
-                101l,
-                car,
-                null,
-                new HashSet<Picture>(),
+                        101l,
+                        car,
+                        null,
+                        new HashSet<Picture>(),
                 null,
                 new Date(),
                 new Date(),
@@ -68,7 +65,7 @@ public class AdRepoTest {
                 true,
                 p,
                 null
-        ));
+         ));
 
         ad2 = Optional.of(new Advert(
                 102l,
@@ -84,24 +81,55 @@ public class AdRepoTest {
                 null
         ));
 
-        //this.entityManager.persist(ad1);
-        //this.entityManager.persist(ad2);
-        this.adRepository.save(ad1.orElse(null));
-        this.adRepository.save(ad2.orElse(null));
-        this.adRepository.flush();
+        ad3 = Optional.of(new Advert(
+                103l,
+                null,
+                null,
+                new HashSet<Picture>(),
+                null,
+                new Date(),
+                new Date(),
+                "IS DELETED",
+                false,
+                p,
+                null
+        ));
+    }
+
+
+    @Test
+    public void shouldPass() {
+        Mockito.when(adRepository.findByIdAndIsActiveTrue(101l)).thenReturn(ad1);
+
+        AdvertDetailDTO ret = adService.detailAdForClient(101l);
+
+        assert(ret!=null &&
+                ret.getAdvertId().equals(101l) &&
+                ret.getCarBrand().equals("FORD")
+        );
     }
 
     @Test
-    public void adActive() {
-        Advert a = adRepository.findByIdAndIsActiveTrue(101l).orElse(null);
+    public void emptyDB() {
+        AdvertDetailDTO ret = adService.detailAdForClient(105l);
 
-        assert(a.getOwnersCar().getConcreteCar().getCarModel().equals("MUSTANG"));
+        assert(ret==null);
     }
 
     @Test
-    public void adNotActive() {
-        Advert a = adRepository.findByIdAndIsActiveTrue(102l).orElse(null);
+    public void adIsNotActive() {
+        Mockito.when(adRepository.findByIdAndIsActiveTrue(102l)).thenReturn(null);
+        AdvertDetailDTO ret = adService.detailAdForClient(102l);
 
-        assert(a == null);
+        assert(ret==null);
+    }
+
+    @Test
+    public void noCar() {
+        Mockito.when(adRepository.findByIdAndIsActiveTrue(103l)).thenReturn(ad3);
+
+        AdvertDetailDTO ret = adService.detailAdForClient(103l);
+
+        assert(ret==null);
     }
 }
