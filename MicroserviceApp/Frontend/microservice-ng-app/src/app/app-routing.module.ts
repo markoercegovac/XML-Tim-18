@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {RegistrationComponent} from './registration/registration.component';
 import {LoginComponent} from './login/login.component';
+import { CartComponent } from './cart/cart.component';
+import { BundleComponent } from './bundle/bundle.component';
 import {CreateAdvertComponent} from "./advert/create-advert/create-advert.component";
 import {MyAdvertsComponent} from "./advert/my-adverts/my-adverts.component";
 import {AllAdvertsComponent} from "./advert/all-adverts/all-adverts.component";
@@ -12,14 +14,10 @@ import {MyPriceListComponent} from "./advert/price/my-price-list/my-price-list.c
 
 
 const routes: Routes = [
-  {
-    path: 'user-manager/register',
-   component: RegistrationComponent
-  },
-  {
-    path: 'user-manager/login',
-    component: LoginComponent
-  },
+  { path: 'register', component: RegistrationComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'cart',component: CartComponent },
+  { path: 'bundle', component: BundleComponent},
   {
     path: 'create/advert',
     component: CreateAdvertComponent
@@ -48,7 +46,6 @@ const routes: Routes = [
     path: 'my/price/list',
     component: MyPriceListComponent
   }
-
 ];
 
 @NgModule({

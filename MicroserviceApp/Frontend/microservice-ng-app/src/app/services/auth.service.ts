@@ -10,7 +10,7 @@ export class AuthService {
     constructor(private http: HttpClient) {}
 
     login(username:string, password:string ) {
-        this.http.post(BASE_URL+'/login', {username: username, password: password}, {observe: 'response'})
+        this.http.post(BASE_URL+'/login', {username: username, password: password}, {observe: 'response', responseType: 'text'})
             .subscribe((res: HttpResponse<any>) => {
                 console.log('JWT ADDED', res);
                 console.log(res.headers)

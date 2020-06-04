@@ -1,0 +1,15 @@
+<div class="container-fluid">
+    <h2>CART CHECKPOINT</h2>
+    <p>You can remove adverts from this stage.</p>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let advert of cart.getAllAdverts()">
+            <app-cart-item [advert]="advert"></app-cart-item>
+        </div>
+    </div>
+
+    <br>
+    <div class="row justify-content-end">
+        <button (click)="onCheck()" class="btn btn-outline-primary mr-3">CHECK</button>
+    </div>
+</div>
