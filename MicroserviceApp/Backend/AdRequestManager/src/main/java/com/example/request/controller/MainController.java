@@ -1,7 +1,6 @@
 package com.example.request.controller;
 
 import com.example.request.dto.AdRequestDetailedDTO;
-import com.example.request.service.TestService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,8 +14,6 @@ public class MainController {
      * END POINT FOR CLIENT AND FOR OWNER
      * */
 
-    private final TestService service;
-
     /**
      * shows detailed view of a requested user advert request
      * @input: in URL request's id
@@ -26,9 +23,7 @@ public class MainController {
     public ResponseEntity<AdRequestDetailedDTO> getDetailedRequestView(
             @PathVariable("request_id") Long requestId) {
 
-        AdRequestDetailedDTO finedAd = service.getSpecificBundleWithoutRequests(requestId);
-
-        return new ResponseEntity<AdRequestDetailedDTO>(finedAd, HttpStatus.OK);
+        return new ResponseEntity<AdRequestDetailedDTO>( HttpStatus.OK);
     }
 
     /**

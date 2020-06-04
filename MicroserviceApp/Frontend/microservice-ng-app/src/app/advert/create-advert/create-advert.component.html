@@ -4,9 +4,9 @@
   <div class="row">
     <div class="offset-3"></div>
     <div class="col-md-6">
-      <form>
+      <form (ngSubmit)="createAdvert(f)" #f="ngForm">
         <div class="form-group">
-          <label>Select Car</label>
+          <label>Select Your Car</label>
           <select class="form-control" >
             <option></option>
           </select>
@@ -18,11 +18,46 @@
         </div>
 
         <hr>
-
         <div class="form-group">
-          Picture
+          <label>Cover Picture </label>
+        </div>
+        <div class="custom-file form-group" id="customFile" lang="es">
+          <input #profileImageInput accept="image/*" (change)="onInputProfileImage(profileImageInput)" id="profileImageInput"
+                 type="file" class="custom-file-input"  aria-describedby="fileHelp">
+          <label class="custom-file-label" for="profileImageInput">
+            Select Profile Picture... <i class="fa fa-image"></i>
+          </label>
+        </div>
+
+        <div *ngIf="profileImage" class="form-control-file">
+
+            <br>
+            <img id="profile" [src]="profileImage.src" height="300"  *ngIf="profileImage">
+            <hr>
 
         </div>
+
+        <br>
+        <br>
+
+        <div class="form-group">
+          <label>Other Pictures</label>
+        </div>
+        <div class="custom-file"  lang="es">
+          <input #galleryImageInput type="file" accept="image/**" (change)="onInputGalleryImage(galleryImageInput)" hidden id="galleryImageInput" name="galleryImageInput"
+                 class="custom-file-input"  aria-describedby="fileHelp">
+          <label class="custom-file-label" for="galleryImageInput">
+            Select Others Pictures... <i class="fa fa-image"></i> <i class="fa fa-image"></i> <i class="fa fa-image"></i>
+          </label>
+        </div>
+        <div *ngFor="let img of imageGallery; let i = index"class="form-control-file">
+          <br>
+          <img id="imageGallery" [src]="img.src" height="200"  *ngIf="imageGallery">
+          <hr>
+          <button class="btn btn-primary float-right " (click)="onClearImage(i)">Remove Gallery Picture <i class="fa fa-trash"></i></button>
+        </div>
+        <hr>
+        <br>
         <div class="form-group">
           <label>Start Date</label>
           <input type="date" class="form-control">
@@ -58,7 +93,7 @@
         <br>
         <br>
         <div class="form-group">
-          <button class="btn btn-danger float-right">Create Advert</button>
+          <button class="btn btn-danger float-right" type="ngSubmit">Create Advert</button>
         </div>
       </form>
 

@@ -10,4 +10,5 @@ import java.util.Optional;
 public interface AdvertRepository extends JpaRepository<Advert, Long> {
 
     Optional<Advert> findByIdAndIsActiveTrue(Long aLong);
+
 }

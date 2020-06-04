@@ -16,7 +16,7 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:4200")
 public class ClientController {
 
-    private final ClientRequestService clientRequestService;
+    private final ClientRequestService clientRequestServiceImpl;
 
     /**
      * client creates a new advert request
@@ -27,7 +27,7 @@ public class ClientController {
     public ResponseEntity<String> postNewAdvertRequest(@RequestBody CreateAdBundleRequestDTO createBundle) {
 
         try {
-            clientRequestService.createNewRequestBundle(createBundle);
+            clientRequestServiceImpl.createNewRequestBundle(createBundle);
             return new ResponseEntity("SUCCESSFULLY CREATED REQUEST BUNDLE", HttpStatus.CREATED);
         } catch(Exception e) {
             String errorMessage = e.getMessage();
@@ -50,7 +50,7 @@ public class ClientController {
             @RequestParam(value = "status", required = false) String status) {
 
         return new ResponseEntity<List<AdRequestForClientDTO>>(
-                clientRequestService.findAllBunlesByStatus(clientEmail, status),
+                clientRequestServiceImpl.findAllBunlesByStatus(clientEmail, status),
                 HttpStatus.OK);
     }
 
@@ -64,7 +64,7 @@ public class ClientController {
             @PathVariable("request_id") Long requestId) {
 
         try {
-            clientRequestService.clientPaid(requestId);
+            clientRequestServiceImpl.clientPaid(requestId);
             return new ResponseEntity(HttpStatus.OK);
         } catch(NullPointerException e) {
             return new ResponseEntity("COULD NOT FIND ADVERT REQUEST", HttpStatus.BAD_REQUEST);
