@@ -4,43 +4,43 @@
   <a class="navbar-brand" href="/all/adverts">
     <h2><i class="fa fa-car" aria-hidden="true"></i>RENT IT</h2>
   </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler navbar-toggler-right" type="button" (click)="navbarCollapsed = !navbarCollapsed" [attr.aria-expanded]="!navbarCollapsed" 
+  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
+  <div class="navbar-collapse" id="navbarSupportedContent" [ngClass]="{'collapse': navbarCollapsed === false}">
+      <ul class="navbar-nav ml-auto">
+        <li>
+          <a class="nav-link" href="/create/advert">Create Advert</a>
+        </li>
+        <li>
+          <a class="nav-link" href="/my/adverts">My Adverts</a>
+        </li>
+        <li>
+          <a class="nav-link" href="/all/adverts">Home</a>
+        </li>
+        <li>
+          <a class="nav-link" href="/my/cars">My Cars</a>
+        </li>
+        <li>
+          <a class="nav-link" href="/my/price/list">My Price List</a>
+        </li>
 
-      <li>
-        <a class="nav-link" href="/create/advert">Create Advert</a>
-      </li>
-      <li>
-        <a class="nav-link" href="/my/adverts">My Adverts</a>
-      </li>
-      <li>
-        <a class="nav-link" href="/all/adverts">Home</a>
-      </li>
-      <li>
-        <a class="nav-link" href="/my/cars">My Cars</a>
-      </li>
-      <li>
-        <a class="nav-link" href="/my/price/list">My Price List</a>
-      </li>
-
-      <li class="nav-item active">
-        <a class="nav-link" href="/login">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="register">Register</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="cart">
-          <span class="badge badge-success" >
-            <i class="fa fa-shopping-cart"></i>
-          </span>
-        </a>
-      </li>
-      </ul>
+        <li class="nav-item active">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="register">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="cart">
+            <span class="badge badge-success" >
+              <i class="fa fa-shopping-cart"></i>
+            </span>
+          </a>
+        </li>
+    </ul>
   </div>
 </div>
 </nav>

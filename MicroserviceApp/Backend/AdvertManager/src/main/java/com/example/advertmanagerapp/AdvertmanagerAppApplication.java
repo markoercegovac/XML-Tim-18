@@ -11,6 +11,7 @@ public class AdvertmanagerAppApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(AdvertmanagerAppApplication.class, args);
+        System.out.println("ADVERT MANAGER STARTED______________________________");
     }
 
 }

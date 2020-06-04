@@ -1,63 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dbfa62de-626e-4726-a318-9f7320a66449" name="Default Changelist" comment="">
+    <list default="true" id="2191588f-5b8a-4849-8728-ee8104b298f9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/request/service/impl/ClientRequestServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/repository/CarBrandRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/repository/ClientCopyRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/repository/ConcreteCarRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/repository/DriveReportRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/repository/OwnersCarRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/repository/PictureRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/repository/PriceRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/service/CarService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/service/PriceService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/model/image.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_validation_validation_api_2_0_1_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_validator_hibernate_validator_6_0_2_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/request.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/request/controller/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/request/controller/ClientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/request/controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/request/controller/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/request/service/ClientRequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/request/service/impl/ClientRequestServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/request/service/ClientRequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/request/service/ClientRequestService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/request/service/TestService.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/example/request/services/ClientRequestTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/request/services/ClientRequestTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/request/RequestApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/request/RequestApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/request/controller/ClientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/request/controller/ClientController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/request/controller/DataSyncController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/request/controller/DataSyncController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/request/controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/request/controller/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/request/controller/OwnerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/request/controller/OwnerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/request/dto/AdRequestDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/request/dto/AdRequestDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/request/dto/AdRequestDetailedDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/request/dto/AdRequestDetailedDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/request/dto/AdRequestForClientDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/request/dto/AdRequestForClientDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/request/dto/AdRequestForOwnerDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/request/dto/AdRequestForOwnerDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/request/dto/CreateAdBundleRequestDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/request/dto/CreateAdBundleRequestDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/request/dto/CreateAdvertCopyDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/request/dto/CreateAdvertCopyDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/request/dto/DatePareDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/request/dto/DatePareDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/request/dto/UpdateAdvertCopyDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/request/dto/UpdateAdvertCopyDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/request/model/AdvertCopy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/request/model/AdvertCopy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/request/model/AdvertStateEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/request/model/AdvertStateEnum.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/request/model/CarReservedDate.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/request/model/CarReservedDate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/request/model/Request.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/request/model/Request.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/request/model/RequestBundle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/request/model/RequestBundle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/request/repository/AdvertCopyRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/request/repository/AdvertCopyRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/request/repository/RequestBundleRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/request/repository/RequestBundleRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/request/repository/RequestRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/request/repository/RequestRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/request/service/TestService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/request/service/TestService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/example/request/RequestApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/example/request/RequestApplicationTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/repository/AdvertRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/repository/AdvertRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/repository/CarClassRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/repository/CarClassRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/repository/CarFuelTypeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/repository/CarFuelTypeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/repository/CarModelRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/repository/CarModelRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/repository/CarTransmissionTypeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/repository/CarTransmissionTypeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/service/AdvertService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/service/AdvertService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ChatManager/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ChatManager/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/advert/car/register-car/register-car.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/advert/car/register-car/register-car.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/advert/create-advert/create-advert.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/advert/create-advert/create-advert.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/advert/create-advert/create-advert.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/advert/create-advert/create-advert.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/navigation/navigation.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/navigation/navigation.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/services/bundle.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/src/app/services/bundle.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FavoritesManager">
-    <favorites_list name="AdRequestManager" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Enum" />
-        <option value="Class" />
-        <option value="JUnit5 Test Class" />
-        <option value="Interface" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
-  <component name="ProjectId" id="1c7MQP7YJso02FMMDlGWWe9PSND" />
+  <component name="ProjectId" id="1cr7jTt4sp9MsrAEHPJTI8HY4j2" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+    <option name="showVisibilityIcons" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../AdvertManager" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RecentsManager">
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="com.example.request.services" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/java/com/example/request/model" />
-      <recent name="$PROJECT_DIR$/src/main/resources" />
-    </key>
-  </component>
-  <component name="RunManager" selected="JUnit.ClientRequestTest">
+  <component name="RunManager">
     <configuration name="RequestApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.request.RequestApplication" />
       <module name="request" />
@@ -71,154 +104,46 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ClientRequestTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="request" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.request.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.request.services" />
-      <option name="MAIN_CLASS_NAME" value="com.example.request.services.ClientRequestTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ClientRequestTest.TwoAdPass" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="request" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.request.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.request.services" />
-      <option name="MAIN_CLASS_NAME" value="com.example.request.services.ClientRequestTest" />
-      <option name="METHOD_NAME" value="TwoAdPass" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ClientRequestTest.dateIncorrectFall" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="request" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.request.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.request.services" />
-      <option name="MAIN_CLASS_NAME" value="com.example.request.services.ClientRequestTest" />
-      <option name="METHOD_NAME" value="dateIncorrectFall" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ClientRequestTest" />
         <item itemvalue="Application.RequestApplication" />
-        <item itemvalue="JUnit.ClientRequestTest.TwoAdPass" />
-        <item itemvalue="JUnit.ClientRequestTest.dateIncorrectFall" />
       </list>
     </recent_temporary>
   </component>
-  <component name="StructureViewFactory">
-    <option name="ACTIVE_ACTIONS" value=",SHOW_PROPERTIES,SHOW_LAMBDA,SHOW_ANONYMOUS,SHOW_INHERITED" />
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="dbfa62de-626e-4726-a318-9f7320a66449" name="Default Changelist" comment="" />
-      <created>1589875162003</created>
+      <changelist id="2191588f-5b8a-4849-8728-ee8104b298f9" name="Default Changelist" comment="" />
+      <created>1591274993732</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1589875162003</updated>
+      <updated>1591274993732</updated>
     </task>
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="418" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589876699371">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="418" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589876699371" />
-    <state x="1734" y="391" width="490" height="250" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1591127821803">
+    <state x="1767" y="277" width="424" height="479" key="FileChooserDialogImpl" timestamp="1591275326837">
       <screen x="1024" y="0" width="1920" height="1080" />
     </state>
-    <state x="1734" y="391" width="490" height="250" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591127821803" />
-    <state x="1401" y="0" width="1146" height="1040" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1591127935586">
+    <state x="1767" y="277" width="424" height="479" key="FileChooserDialogImpl/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591275326837" />
+    <state width="1878" height="866" key="GridCell.Tab.0.bottom" timestamp="1591275261017">
       <screen x="1024" y="0" width="1920" height="1080" />
     </state>
-    <state x="1401" y="0" width="1146" height="1040" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591127935586" />
-    <state x="1717" y="269" width="524" height="495" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591128071870">
+    <state width="1878" height="866" key="GridCell.Tab.0.bottom/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591275261017" />
+    <state width="1878" height="866" key="GridCell.Tab.0.center" timestamp="1591275261017">
       <screen x="1024" y="0" width="1920" height="1080" />
     </state>
-    <state x="1717" y="269" width="524" height="495" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591128071870" />
-    <state x="1767" y="277" width="438" height="479" key="FileChooserDialogImpl" timestamp="1591127819800">
+    <state width="1878" height="866" key="GridCell.Tab.0.center/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591275261017" />
+    <state width="1878" height="866" key="GridCell.Tab.0.left" timestamp="1591275261017">
       <screen x="1024" y="0" width="1920" height="1080" />
     </state>
-    <state x="1767" y="277" width="438" height="479" key="FileChooserDialogImpl/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591127819800" />
-    <state x="1767" y="294" key="FileChooserDialogImpl/1024.17.1920.1080/0.0.1024.768@1024.17.1920.1080" timestamp="1590060089691" />
-    <state width="1417" height="917" key="GridCell.Tab.0.bottom" timestamp="1591128207182">
+    <state width="1878" height="866" key="GridCell.Tab.0.left/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591275261017" />
+    <state width="1878" height="866" key="GridCell.Tab.0.right" timestamp="1591275261017">
       <screen x="1024" y="0" width="1920" height="1080" />
     </state>
-    <state width="1920" height="987" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589880534726" />
-    <state width="1494" height="917" key="GridCell.Tab.0.bottom/0.0.2944.1040@0.0.2944.1040" timestamp="1590608051421" />
-    <state width="701" height="645" key="GridCell.Tab.0.bottom/1024.0.1920.1080/0.0.1024.768@0.0.1024.768" timestamp="1590778364687" />
-    <state width="1417" height="917" key="GridCell.Tab.0.bottom/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591128207182" />
-    <state width="1417" height="917" key="GridCell.Tab.0.center" timestamp="1591128207182">
+    <state width="1878" height="866" key="GridCell.Tab.0.right/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591275261017" />
+    <state x="1667" y="346" key="com.intellij.ide.util.TipDialog" timestamp="1591275291543">
       <screen x="1024" y="0" width="1920" height="1080" />
     </state>
-    <state width="1920" height="987" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589880534725" />
-    <state width="1494" height="917" key="GridCell.Tab.0.center/0.0.2944.1040@0.0.2944.1040" timestamp="1590608051420" />
-    <state width="701" height="645" key="GridCell.Tab.0.center/1024.0.1920.1080/0.0.1024.768@0.0.1024.768" timestamp="1590778364687" />
-    <state width="1417" height="917" key="GridCell.Tab.0.center/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591128207182" />
-    <state width="1417" height="917" key="GridCell.Tab.0.left" timestamp="1591128207182">
-      <screen x="1024" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1920" height="987" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589880534725" />
-    <state width="1494" height="917" key="GridCell.Tab.0.left/0.0.2944.1040@0.0.2944.1040" timestamp="1590608051420" />
-    <state width="701" height="645" key="GridCell.Tab.0.left/1024.0.1920.1080/0.0.1024.768@0.0.1024.768" timestamp="1590778364687" />
-    <state width="1417" height="917" key="GridCell.Tab.0.left/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591128207182" />
-    <state width="1417" height="917" key="GridCell.Tab.0.right" timestamp="1591128207182">
-      <screen x="1024" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1920" height="987" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589880534725" />
-    <state width="1494" height="917" key="GridCell.Tab.0.right/0.0.2944.1040@0.0.2944.1040" timestamp="1590608051421" />
-    <state width="701" height="645" key="GridCell.Tab.0.right/1024.0.1920.1080/0.0.1024.768@0.0.1024.768" timestamp="1590778364687" />
-    <state width="1417" height="917" key="GridCell.Tab.0.right/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591128207182" />
-    <state width="1878" height="341" key="GridCell.Tab.1.bottom" timestamp="1590597249479">
-      <screen x="1024" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1878" height="341" key="GridCell.Tab.1.bottom/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1590597249479" />
-    <state width="1878" height="341" key="GridCell.Tab.1.center" timestamp="1590597249479">
-      <screen x="1024" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1878" height="341" key="GridCell.Tab.1.center/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1590597249479" />
-    <state width="1878" height="341" key="GridCell.Tab.1.left" timestamp="1590597249479">
-      <screen x="1024" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1878" height="341" key="GridCell.Tab.1.left/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1590597249479" />
-    <state width="1878" height="341" key="GridCell.Tab.1.right" timestamp="1590597249479">
-      <screen x="1024" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1878" height="341" key="GridCell.Tab.1.right/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1590597249479" />
-    <state x="1667" y="346" key="com.intellij.ide.util.TipDialog" timestamp="1591127842227">
-      <screen x="1024" y="0" width="1920" height="1080" />
-    </state>
-    <state x="1024" y="333" key="com.intellij.ide.util.TipDialog/0.0.2944.1040@0.0.2944.1040" timestamp="1590604773454" />
-    <state x="1667" y="346" key="com.intellij.ide.util.TipDialog/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591127842227" />
-    <state x="1667" y="363" key="com.intellij.ide.util.TipDialog/1024.17.1920.1080/0.0.1024.768@1024.17.1920.1080" timestamp="1590059949924" />
-    <state x="1744" y="264" width="469" height="504" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1590655845473">
-      <screen x="1024" y="0" width="1920" height="1080" />
-    </state>
-    <state x="1744" y="264" width="469" height="504" key="com.intellij.testIntegration.createTest.CreateTestDialog/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1590655845473" />
-    <state width="600" height="424" key="javadoc.popup" timestamp="1590654155384">
-      <screen x="1024" y="0" width="1920" height="1080" />
-    </state>
-    <state width="600" height="424" key="javadoc.popup/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1590654155384" />
+    <state x="1667" y="346" key="com.intellij.ide.util.TipDialog/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591275291543" />
   </component>
 </project>
