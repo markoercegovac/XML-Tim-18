@@ -113,7 +113,7 @@ export class BundleSerivce {
         //alert('from '+fromBundleIndex+' to '+toBundleIndex+' ad '+this.lastTouchedAdId)
         
         if(this.bundles[fromBundleIndex].ownerEmail == this.bundles[toBundleIndex].ownerEmail) {
-            alert('in');
+            //alert('in');
             this.addToBundle(fromBundleIndex, toBundleIndex, this.lastTouchedAdId);
         }
     }
