@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 
 @Data
@@ -25,5 +27,8 @@ public class CarBrand {
 
     @Column
     private boolean isRemoved;
+
+    @OneToMany
+    private List<CarModel> carModelSet;
 
 }

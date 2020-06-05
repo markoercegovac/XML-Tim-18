@@ -1,5 +1,6 @@
 package com.example.advertmanagerapp.dto;
 
+import com.example.advertmanagerapp.dto.mapper.DtoEntity;
 import com.example.advertmanagerapp.model.*;
 import lombok.Data;
 
@@ -8,19 +9,18 @@ import java.util.Set;
 
 //Nije finalan moguce da fali neko polje
 @Data
-public class CarDto {
+public class CarDto implements DtoEntity {
 
 
+    private String nameOfCar;
     private Long id;
-    private CarBrand carBrand;
-    private CarClass carClass;
-    private CarFuelType carFuelType;
-    private CarModel carModel;
-    private CarTransmissionType carTransmissionType;
+    private Long carBrandId;
+    private Long carClassId;
+    private Long carFuelTypeId;
+    private Long carModelId;
+    private Long carTransmissionTypeId;
     private Long travelDistanceConstraint;
     private boolean isInsurance;
     private int childrenSitNumber;
-    private ClientCopy client ;
-    private Set<Advert> adverts;
-    private Set<DriveReport> reports;
+    private String year;
 }

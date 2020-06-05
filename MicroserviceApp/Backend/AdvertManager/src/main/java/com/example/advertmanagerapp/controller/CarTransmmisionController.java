@@ -2,6 +2,7 @@ package com.example.advertmanagerapp.controller;
 
 
 import com.example.advertmanagerapp.dto.CarTransmissionTypeDto;
+import com.example.advertmanagerapp.dto.mapper.DtoEntity;
 import com.example.advertmanagerapp.model.CarTransmissionType;
 import com.example.advertmanagerapp.service.CarTranssmisionTypeService;
 import lombok.RequiredArgsConstructor;
@@ -10,8 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
-
 
 @RequiredArgsConstructor
 @RequestMapping("/advert-manager/car-transmission")
@@ -49,5 +48,9 @@ public class CarTransmmisionController {
     public ResponseEntity<CarTransmissionTypeDto> deleteCarTransmision(@PathVariable(value = "transmision_id") Long id){
         transsmisionTypeService.deleteCarTranssmision(id);
         return new ResponseEntity<CarTransmissionTypeDto>(HttpStatus.OK);
+    }
+    @GetMapping("/all/v2")
+    public ResponseEntity<List<DtoEntity>> getCarTransmisionV2(){
+        return new ResponseEntity<>(transsmisionTypeService.getAllTransmissionType(),HttpStatus.OK);
     }
 }

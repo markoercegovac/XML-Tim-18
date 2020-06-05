@@ -4,6 +4,9 @@ package com.example.advertmanagerapp.controller;
 import com.example.advertmanagerapp.dto.CarClassDto;
 import com.example.advertmanagerapp.model.CarClass;
 import com.example.advertmanagerapp.service.CarClassService;
+import com.example.advertmanagerapp.dto.mapper.DtoEntity;
+import com.example.advertmanagerapp.service.CarClassService;
+import com.example.advertmanagerapp.dto.mapper.DtoEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +19,8 @@ import java.util.List;
 @RestController
 @CrossOrigin
 public class CarClassController {
+
+
 
     private final CarClassService classService;
 
@@ -44,4 +49,8 @@ public class CarClassController {
         return new ResponseEntity<CarClassDto>(HttpStatus.OK);
     }
 
+    @GetMapping("/all/v2")
+    public ResponseEntity<List<DtoEntity>> getCarClassV2(){
+        return new ResponseEntity<>(classService.getAllCarClasses(),HttpStatus.OK);
+    }
 }

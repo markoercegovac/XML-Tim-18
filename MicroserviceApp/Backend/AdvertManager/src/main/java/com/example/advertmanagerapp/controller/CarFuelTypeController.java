@@ -4,6 +4,7 @@ package com.example.advertmanagerapp.controller;
 import com.example.advertmanagerapp.dto.CarFuelTypeDto;
 import com.example.advertmanagerapp.model.CarFuelType;
 import com.example.advertmanagerapp.service.CarFuelTypeService;
+import com.example.advertmanagerapp.dto.mapper.DtoEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,7 @@ import java.util.List;
 public class CarFuelTypeController {
 
     private final CarFuelTypeService fuelTypeService;
+
 
     @GetMapping("/all")
     public List<CarFuelType> getCarFuelType(){
@@ -42,6 +44,10 @@ public class CarFuelTypeController {
     public ResponseEntity<CarFuelTypeDto> deleteCarFuelType(@PathVariable(value = "fuelType_id") Long id){
        fuelTypeService.deleteFuelTypeService(id);
         return new ResponseEntity<CarFuelTypeDto>(HttpStatus.OK);
+    }
+    @GetMapping("/all/v2")
+    public ResponseEntity<List<DtoEntity>> getCarFuelTypeV2(){
+        return new ResponseEntity<>(fuelTypeService.allFuels(),HttpStatus.OK);
     }
 
 }

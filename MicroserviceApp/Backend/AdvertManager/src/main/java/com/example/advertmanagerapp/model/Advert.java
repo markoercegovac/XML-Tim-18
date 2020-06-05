@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -51,5 +52,9 @@ public class Advert {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id", referencedColumnName = "email")
     private ClientCopy currentDriver;
+
+    @OneToMany
+    private List<Capture> captures;
+
 
 }

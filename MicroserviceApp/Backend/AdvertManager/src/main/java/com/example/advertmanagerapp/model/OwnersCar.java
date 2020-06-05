@@ -40,8 +40,8 @@ public class OwnersCar {
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private ClientCopy client;
 
-    @OneToMany(mappedBy = "ownersCar",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private Set<Advert> adverts;
+//    @OneToMany(mappedBy = "ownersCar",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+//    private Set<Advert> adverts;
 
     @OneToMany(mappedBy = "ownersCarReport",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<DriveReport> reports;

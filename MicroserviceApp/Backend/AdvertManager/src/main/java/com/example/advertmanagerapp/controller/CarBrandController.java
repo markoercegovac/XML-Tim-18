@@ -2,6 +2,9 @@ package com.example.advertmanagerapp.controller;
 
 
 import com.example.advertmanagerapp.dto.CarBrandDto;
+import com.example.advertmanagerapp.dto.mapper.DtoEntity;
+import com.example.advertmanagerapp.repository.CarBrandRepository;
+import com.example.advertmanagerapp.service.CarBrandService;
 import com.example.advertmanagerapp.model.CarBrand;
 import com.example.advertmanagerapp.service.CarBrandService;
 import lombok.RequiredArgsConstructor;
@@ -17,29 +20,33 @@ import java.util.List;
 @CrossOrigin
 public class CarBrandController {
 
-    private final CarBrandService brandService;
+    private final CarBrandService carBrandService;
 
     @GetMapping("/all")
     public List<CarBrand> getCarBrand(){
 
-        return brandService.getAllCarBrand();
+        return carBrandService.getAllCarBrand();
     }
 
     @PostMapping
     public ResponseEntity createCarBrand(@RequestBody CarBrand carBrand){
-        brandService.saveCarBrand(carBrand);
+        carBrandService.saveCarBrand(carBrand);
         return new ResponseEntity(HttpStatus.OK);
     }
 
     @PutMapping
     public ResponseEntity<CarBrandDto> updateCarBrand(@RequestBody CarBrand carBrand){
-        brandService.saveCarBrand(carBrand);
+        carBrandService.saveCarBrand(carBrand);
         return new ResponseEntity<CarBrandDto>(HttpStatus.OK);
     }
 
     @DeleteMapping("/{brand_id}")
     public ResponseEntity<CarBrandDto> deleteCarBrand(@PathVariable(value = "brand_id") Long id){
-        brandService.deleteCarBrand(id);
+        carBrandService.deleteCarBrand(id);
         return new ResponseEntity<CarBrandDto>(HttpStatus.OK);
+    }
+    @GetMapping("/all/v2")
+    public ResponseEntity<List<DtoEntity>> getCarBrandV2(){
+        return new ResponseEntity<>(carBrandService.getAllBrands(),HttpStatus.OK);
     }
 }

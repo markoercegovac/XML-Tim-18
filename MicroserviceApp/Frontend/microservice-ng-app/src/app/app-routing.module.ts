@@ -22,6 +22,7 @@ import { BundleComponent } from './bundle/bundle.component';
 import { AdvertDetailViewComponent } from './advert-detail-view/advert-detail-view.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
+import {CaptureComponent} from "./advert/capture/capture/capture.component";
 
 
 const routes: Routes = [
@@ -82,8 +83,14 @@ const routes: Routes = [
     path: 'search',
     component: SearchComponent
   },
+  {
+    path: 'my/advert/:id',
+    component: CaptureComponent
+  },
   { path: 'not-found', component: NotFoundComponent},
   { path: '**', redirectTo: '/not-found'}
+
+
 
 ];
 

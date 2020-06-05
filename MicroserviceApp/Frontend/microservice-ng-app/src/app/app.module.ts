@@ -55,6 +55,7 @@ import { SearchComponent } from './search/search.component';
 import { AdvertDetailViewComponent } from './advert-detail-view/advert-detail-view.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
+import { CaptureComponent } from './advert/capture/capture/capture.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
     DefinePriceComponent,
     MyPriceListComponent,
     MyCarsComponent,
+    CaptureComponent,
+
     CarBrandComponent,
     CarClassComponent,
     CarFuelTypeComponent,

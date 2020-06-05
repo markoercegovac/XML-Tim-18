@@ -9,7 +9,7 @@ import java.util.Set;
 
 @Data
 @Entity
-@Table(name="Client")
+@Table
 public class ClientCopy implements Serializable {
 
     @Id
@@ -52,8 +52,8 @@ public class ClientCopy implements Serializable {
     @Column
     private Role role;
 
-    @OneToMany(mappedBy = "client",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private Set<OwnersCar> ownersCars;
+//    @OneToMany(mappedBy = "client",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+//    private Set<OwnersCar> ownersCars;
 
     @OneToMany(mappedBy = "client",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<Advert> adverts;

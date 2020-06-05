@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -21,6 +22,8 @@ public class Price {
 
     @Column(nullable = false)
     private String name;
+    @Column
+    private String priceName;
 
     @Column(nullable = false)
     private float pricePerDay;
@@ -39,7 +42,7 @@ public class Price {
     @Column(nullable = false)
     private boolean isRemoved;
 
-    @OneToMany(mappedBy = "price",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private Set<Advert> advertSet;
+//    @OneToMany(mappedBy = "price",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+//    private Set<Advert> advertSet;
 
 }

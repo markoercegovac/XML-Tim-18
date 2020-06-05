@@ -4,6 +4,9 @@ package com.example.advertmanagerapp.controller;
 import com.example.advertmanagerapp.dto.CarModelDto;
 import com.example.advertmanagerapp.model.CarModel;
 import com.example.advertmanagerapp.service.CarModelService;
+import com.example.advertmanagerapp.dto.mapper.DtoEntity;
+import com.example.advertmanagerapp.dto.mapper.DtoUtils;
+import com.example.advertmanagerapp.service.CarModelService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -42,6 +45,10 @@ public class CarModelController {
     public ResponseEntity<CarModelDto> deleteCarModel(@PathVariable(value = "model_id") Long id){
         modelService.deleteCarModel(id);
         return new ResponseEntity<CarModelDto>(HttpStatus.OK);
+    }
+    @GetMapping("/all/v2/{id}")
+    public ResponseEntity<List<DtoEntity>> getCarModelV2(@PathVariable("id") Long id){
+        return new ResponseEntity<>(modelService.getModelForBrand(id),HttpStatus.OK);
     }
 }
 

@@ -1,1 +1,24 @@
-<p>my-adverts works!</p>
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th scope="col">Car</th>
+    <th scope="col">Description</th>
+    <th scope="col">Start Of Advert</th>
+    <th scope="col">End Of Advert</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let advert of allAdverts">
+    <td>{{advert.carId}}</td>
+    <td>{{advert.description}}</td>
+    <td>{{advert.startOfAdvert | date: 'medium'}}</td>
+    <td>{{advert.endOfAdvert| date: 'medium'}}</td>
+    <td><button class="btn btn-danger" (click)="captureDate(advert)">Capture Date</button></td>
+  </tr>
+
+
+
+
+  </tbody>
+</table>
