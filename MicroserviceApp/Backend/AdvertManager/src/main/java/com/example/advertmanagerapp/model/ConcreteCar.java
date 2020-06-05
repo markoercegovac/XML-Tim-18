@@ -13,7 +13,7 @@ public class ConcreteCar implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long concreteCarId;
+    private Long id;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "carBrand_id", referencedColumnName = "id")
@@ -39,7 +39,18 @@ public class ConcreteCar implements Serializable {
     @JoinColumn(name = "carTransmissionType_id", referencedColumnName = "id")
     private CarTransmissionType carTransmissionType;
 
+    @Column
+    private String year;
 
-    @OneToMany(mappedBy = "concreteCar",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private Set<OwnersCar> ownersCar;
+    @Column
+    private int travelDistanceConstraint;
+
+    @Column
+    private int childrenSitNumber;
+
+
+
+
+//    @OneToMany(mappedBy = "concreteCar",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+//    private Set<OwnersCar> ownersCar;
 }

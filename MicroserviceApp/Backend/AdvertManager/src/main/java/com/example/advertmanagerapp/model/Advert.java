@@ -25,7 +25,7 @@ public class Advert {
     private Set<Picture> pictureSet;
 
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private ClientCopy client;
+    private ClientCopy clientAd;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name="startOfAdvert")
@@ -41,8 +41,8 @@ public class Advert {
     @Column(name="isActive")
     private boolean isActive;
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private Price price;
+//    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+//    private Price price;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id", referencedColumnName = "email")

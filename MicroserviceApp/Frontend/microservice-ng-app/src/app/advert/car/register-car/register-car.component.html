@@ -6,36 +6,59 @@
   <div class="row">
     <div class="offset-3"></div>
     <div class="col-md-6">
-      <form name="registerCarForm"  novalidate class="feedback-form">
+      <form name="registerCarForm"  #f="ngForm" (ngSubmit)="createCar()" novalidate class="feedback-form">
         <div>
           <h4><b>Car specification </b>
             <i class="fa fa-cog"></i></h4>
         </div>
+
         <div class="form-group" style="margin-top:20px;">
           <label>Select Car Brand</label>
-          <select class="form-control" >
-            <option ></option>
+          <select name="carBrand"  class="form-control" [(ngModel)]="model.carBrandId" (change)="changeBrand()">
+            <option *ngFor="let carBrand of allCarBrand" value="{{carBrand.id}}">{{carBrand.name}}</option>
           </select>
         </div>
 
-
         <div class="form-group" style="margin-top:20px;">
           <label>Select Car Model</label>
-          <select class="form-control" >
-            <option ></option>
+          <select name="carModel" class="form-control" [(ngModel)]="model.carModelId" >
+            <option *ngFor="let carModel of allCarModel" value="{{carModel.id}}">{{carModel.modelName}}</option>
           </select>
+        </div>
+
+        <div class="form-group" style="margin-top:20px;">
+          <label>Select Car Class</label>
+          <select name="carClass" class="form-control" [(ngModel)]="model.carClassId">
+            <option *ngFor="let class of allCarClass" value="{{class.id}}">{{class.className}}</option>
+          </select>
+
         </div>
 
         <div class="form-group" style="margin-top:20px;">
           <label>Select Car Year</label>
-          <select class="form-control" >
-            <option ></option>
+          <select name="year" class="form-control" [(ngModel)]="model.year" >
+            <option >1992</option>
+            <option >1993</option>
+            <option >1994</option>
+            <option >1995</option>
+            <option >1996</option>
+            <option >1997</option>
+            <option >1998</option>
+            <option >1999</option>
+            <option >2000</option>
+            <option >2001</option>
+            <option >2002</option>
+            <option >2003</option>
+            <option >2004</option>
+            <option >2005</option>
+            <option >2006</option>
+            <option >2007</option>
           </select>
         </div>
         <div class="form-group" style="margin-top:20px;">
           <label>Car Transmission Type</label>
-          <select class="form-control custom-select" >
-            <option ></option>
+          <select name="transmission" class="form-control custom-select" [(ngModel)]="model.carTransmissionTypeId" >
+            <option *ngFor="let transmission of allCarTransmission " value="{{transmission.id}}">{{transmission.transmissionType}}</option>
           </select>
         </div>
 
@@ -47,14 +70,15 @@
                  min="0"
                  name="travelDistance"
                  id="travelDistance"
+                 [(ngModel)]="model.travelDistance"
 
           />
         </div>
 
         <div class="form-group" style="margin-top:20px;">
           <label>Car Fuel Type</label>
-          <select class="form-control custom-select">
-            <option  ></option>
+          <select name="carFuel" class="form-control custom-select" [(ngModel)]="model.carFuelTypeId">
+            <option  *ngFor="let fuel of allCarFuelType" value="{{fuel.id}}">{{fuel.fuelType}}</option>
           </select>
         </div>
 
@@ -65,7 +89,8 @@
                  class="form-control"
                  min="0" max="5"
                  id="childrenSitNumber"
-
+                 name="childrenSitNumber"
+                 [(ngModel)]="model.childrenSitNumber"
           />
         </div>
 
@@ -75,7 +100,7 @@
 
         <div class="form-group" style="margin-top:20px;">
           <input type="submit" class="btn btn-info float-right" value="Create Car" />
-          <input type="submit" class="btn btn-primary float-left" [routerLink]="['/create/advert']" value="Back" />
+<!--          <input type="submit" class="btn btn-primary float-left" [routerLink]="['/create/advert']" value="Back" />-->
         </div>
 
       </form>

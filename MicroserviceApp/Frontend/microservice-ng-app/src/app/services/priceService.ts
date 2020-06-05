@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Price} from '../model/price';
-
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +17,10 @@ export class PriceService{
   public createPrice(price: Price) {
     return this.http.post(this.URL, price);
     alert("Radi");
+  }
+
+  public  getUserPriceList() : Observable<Price[]>{
+    return this.http.get<Price[]>(this.URL+'/all');
   }
 
 }

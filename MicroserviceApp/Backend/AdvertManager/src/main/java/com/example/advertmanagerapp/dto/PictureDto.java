@@ -8,6 +8,6 @@ public class PictureDto {
 
     private Long id;
     private String picture;
-    private Advert advert;
+    private Long advertId;
     private boolean isDeleted;
 }

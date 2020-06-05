@@ -12,7 +12,7 @@ public class PriceDto implements DtoEntity {
 
 
     private Long id;
-    private String name;
+    private String priceName;
     private float pricePerDay;
     private float insurancePrice;
     private float distanceOverflowPrice;

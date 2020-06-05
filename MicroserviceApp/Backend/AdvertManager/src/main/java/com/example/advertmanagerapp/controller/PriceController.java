@@ -46,7 +46,7 @@ public class PriceController {
 
     @GetMapping("/all")
     public ResponseEntity<List<PriceDto>> allPrices () {
-        return new ResponseEntity<List<PriceDto>>(HttpStatus.OK);
+        return new ResponseEntity<List<PriceDto>>(priceService.allPrices(),HttpStatus.OK);
     }
 
 }

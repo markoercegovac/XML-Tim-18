@@ -3,6 +3,8 @@ package com.example.advertmanagerapp.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 
 @Data
@@ -21,5 +23,8 @@ public class CarBrand {
 
     @Column
     private boolean isRemoved;
+
+    @OneToMany
+    private List<CarModel> carModelSet;
 
 }

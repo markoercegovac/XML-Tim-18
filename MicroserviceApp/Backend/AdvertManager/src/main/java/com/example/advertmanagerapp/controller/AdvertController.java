@@ -28,6 +28,7 @@ public class AdvertController {
     @PostMapping
     public ResponseEntity createAdvert (@RequestBody AdvertDto advertDto){
         //upisuje u bazu
+
         return new ResponseEntity(HttpStatus.OK);
     }
 

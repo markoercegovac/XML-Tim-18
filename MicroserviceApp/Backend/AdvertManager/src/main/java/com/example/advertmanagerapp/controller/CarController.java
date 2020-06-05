@@ -3,6 +3,8 @@ package com.example.advertmanagerapp.controller;
 
 import com.example.advertmanagerapp.dto.AdvertDto;
 import com.example.advertmanagerapp.dto.CarDto;
+import com.example.advertmanagerapp.dto.mapper.DtoEntity;
+import com.example.advertmanagerapp.service.CarService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,10 +19,11 @@ import java.util.List;
 @CrossOrigin
 public class CarController {
 
-        @PostMapping
-        public ResponseEntity createCar (@RequestBody CarDto carDto) {
+        private final CarService carService;
 
-            return new ResponseEntity(HttpStatus.OK);
+        @PostMapping
+        public void createCar (@RequestBody CarDto carDto) {
+            carService.createCar(carDto);
         }
 
 
@@ -29,10 +32,9 @@ public class CarController {
             return new ResponseEntity<CarDto>(HttpStatus.OK);
         }
 
-        @GetMapping("/{user_id}/all")
-        public ResponseEntity<List<CarDto>> getCarsFromOwner (@PathParam(value="user_id") Long user_id) {
-
-            return new ResponseEntity<List<CarDto>>(HttpStatus.OK);
+        @GetMapping("/all")
+        public ResponseEntity<List<DtoEntity>> getCarsFromOwner () {
+            return new ResponseEntity<>(carService.getAllCars(),HttpStatus.OK);
         }
 
         @PutMapping("/update")

@@ -14,15 +14,15 @@ public class AdvertDto {
 
 
     private Long id;
-    private OwnersCar ownersCar;
+    private Long carId;
     private String profilePicture;
-    private Set<Picture> pictureSet;
-    private ClientCopy client;
+    private Set<PictureDto> pictureSet;
     private Date startOfAdvert;
     private Date endOfAdvert;
     private String description;
     private boolean isActive;
-    private Price price;
-    private ClientCopy currentDriver;
+    private Long priceId;
+
+
 
 }
