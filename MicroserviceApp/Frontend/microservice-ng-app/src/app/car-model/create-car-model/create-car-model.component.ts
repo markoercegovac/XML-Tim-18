@@ -11,7 +11,7 @@ import {HttpClient} from "@angular/common/http";
 })
 export class CreateCarModelComponent implements OnInit {
 
-  carModell: CarModel = {
+  carModel: CarModel = {
     id: null,
     modelName: '',
     isRemoved: false
@@ -20,7 +20,7 @@ export class CreateCarModelComponent implements OnInit {
 
   constructor(public http: HttpClient,
     public dialogRef: MatDialogRef<CreateCarModelComponent>,
-    @Inject(MAT_DIALOG_DATA) public carModel: CarModel) {}
+    @Inject(MAT_DIALOG_DATA) public data: CarModel) {}
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -33,9 +33,9 @@ export class CreateCarModelComponent implements OnInit {
 
     const urlPost = 'http://localhost:9090/advert-manager/car-model';
 
-    console.log(this.carModell.modelName);
+    console.log(this.carModel.modelName);
 
-    this.http.post(urlPost, this.carModell).subscribe( res => {
+    this.http.post(urlPost, this.carModel).subscribe( res => {
         this.dialogRef.close();
         //location.reload();
         alert('Uspesno kreiran tip'  );

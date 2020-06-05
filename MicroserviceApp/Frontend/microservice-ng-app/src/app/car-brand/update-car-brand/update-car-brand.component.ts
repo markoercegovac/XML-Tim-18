@@ -33,7 +33,7 @@ export class UpdateCarBrandComponent implements OnInit {
 
   onYesClick() {
 
-    const urlPost = 'http://localhost:9090//advert-manager/car-brand';
+    const urlPost = 'http://localhost:9090/advert-manager/car-brand';
     console.log(this.carBrand.name);
     this.http.put(urlPost, this.carBrand).subscribe(res => {
         this.dialogRef.close();

@@ -44,7 +44,7 @@ export class CarFuelTypeComponent implements OnInit {
     const urlDelete = 'http://localhost:9090/advert-manager/car-fuel-type/' + carFuelType.id;
 
     this.http.delete(urlDelete).subscribe(res=>{
-        location.reload();
+        //location.reload();
         alert('Uspesno obrisan brend.');
       },
       error => {

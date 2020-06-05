@@ -3,12 +3,10 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {HttpClient} from '@angular/common/http';
 import {CarClass} from '../model/CarClass';
-import {CreateCarBrandComponent} from "../car-brand/create-car-brand/create-car-brand.component";
 import {MatDialog} from "@angular/material/dialog";
 import {CreateCarClassComponent} from "./create-car-class/create-car-class.component";
-import {CarBrand} from "../model/CarBrand";
-import {UpdateCarBrandComponent} from "../car-brand/update-car-brand/update-car-brand.component";
 import {CarClassService} from "../service/car-class-service";
+import { UpdateCarClassComponent } from './update-car-class/update-car-class.component';
 
 @Component({
   selector: 'app-car-class',
@@ -39,13 +37,13 @@ export class CarClassComponent implements OnInit {
 
 
   openDialogUpdate(carClass: CarClass): void {
-    const dialogRefUpdate = this.dialog.open(UpdateCarBrandComponent, {
+    const dialogRefUpdate = this.dialog.open(UpdateCarClassComponent, {
       width: '250px',
       data: {name: carClass.className , id: carClass.id , isRemoved : carClass.isRemoved}
     });
 
     dialogRefUpdate.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      console.log('The update dialog was closed');
       this.getAllCarClass();
     });
 
@@ -70,7 +68,7 @@ export class CarClassComponent implements OnInit {
     const urlDelete = 'http://localhost:9090/advert-manager/car-class/' + carClass.id;
 
     this.http.delete(urlDelete).subscribe(res=>{
-        location.reload();
+        //location.reload();
         alert('Uspesno obrisan brend.');
       },
       error => {

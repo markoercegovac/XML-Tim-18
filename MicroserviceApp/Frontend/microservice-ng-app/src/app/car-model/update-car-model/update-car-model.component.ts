@@ -10,7 +10,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 })
 export class UpdateCarModelComponent implements OnInit {
 
-  carModell: CarModel = {
+  carModel: CarModel = {
     id: null,
     modelName: '',
     isRemoved: false
@@ -19,7 +19,7 @@ export class UpdateCarModelComponent implements OnInit {
 
   constructor(public http: HttpClient,
               public dialogRef: MatDialogRef<UpdateCarModelComponent>,
-              @Inject(MAT_DIALOG_DATA) public carModel: CarModel) {}
+              @Inject(MAT_DIALOG_DATA) public data: CarModel) {}
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -27,9 +27,9 @@ export class UpdateCarModelComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.carModell.modelName = this.carModel.modelName;
-    this.carModell.id = this.carModel.id;
-    this.carModell.isRemoved = this.carModell.isRemoved;
+    this.carModel.modelName = this.data.modelName;
+    this.carModel.id = this.data.id;
+    this.carModel.isRemoved = this.data.isRemoved;
 
   }
 
@@ -37,9 +37,9 @@ export class UpdateCarModelComponent implements OnInit {
 
     const urlPost = 'http://localhost:9090/advert-manager/car-model';
 
-    console.log(this.carModell.modelName);
+    console.log(this.carModel.modelName);
 
-    this.http.post(urlPost, this.carModell).subscribe( res => {
+    this.http.put(urlPost, this.carModel).subscribe( res => {
         this.dialogRef.close();
         //location.reload();
         alert('Uspesno kreiran tip'  );

@@ -23,7 +23,6 @@ export class UpdateCarClassComponent implements OnInit {
 
 
   ngOnInit(): void {
-
   this.carClass.className = this.data.className;
   this.carClass.id = this.data.id;
   this.carClass.isRemoved = this.data.isRemoved;
@@ -34,12 +33,11 @@ export class UpdateCarClassComponent implements OnInit {
   }
 
   onYesClick() {
-
     const urlPost = 'http://localhost:9090/advert-manager/car-class';
 
     console.log(this.carClass.className);
 
-    this.http.post(urlPost, this.carClass).subscribe(res => {
+    this.http.put(urlPost, this.carClass).subscribe(res => {
         this.dialogRef.close();
         //location.reload();
         alert('Uspesno kreiran tip');

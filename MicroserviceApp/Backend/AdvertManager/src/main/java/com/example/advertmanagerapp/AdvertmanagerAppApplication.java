@@ -6,11 +6,12 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-//@EnableEurekaClient
+@EnableEurekaClient
 public class AdvertmanagerAppApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(AdvertmanagerAppApplication.class, args);
+        System.out.println("ADVERT MANAGER STARTED______________________________");
     }
 
 }

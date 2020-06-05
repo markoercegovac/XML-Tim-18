@@ -35,7 +35,7 @@ export class CreateTranssmisionTypeComponent implements OnInit {
 
       this.http.post(urlPost, this.carTranss).subscribe( res => {
           this.dialogRef.close();
-          location.reload();
+          //location.reload();
           alert('Uspesno kreiran tip'  );
         },
         error => {

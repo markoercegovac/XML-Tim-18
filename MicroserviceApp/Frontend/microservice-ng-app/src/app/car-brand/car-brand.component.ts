@@ -24,7 +24,7 @@ export class CarBrandComponent implements OnInit {
 
   listsOfCarBrands: CarBrand [] = [];
 
-  name: string;
+  name: string = "";
 
   displayColumns: string [] = ['name', 'update', 'delete'] ;
   dataSource: MatTableDataSource<CarBrand>;
@@ -36,7 +36,10 @@ export class CarBrandComponent implements OnInit {
   }
 
 
-  constructor(private http: HttpClient, public dialog: MatDialog , public service: CarBrandService) { }
+  constructor(private http: HttpClient, public dialog: MatDialog , public service: CarBrandService) { 
+    this.dataSource = new MatTableDataSource();
+    this.dataSource.data = [];
+  }
 
   ngOnInit(): void {
     this.getAllCarBrand();
@@ -47,7 +50,7 @@ export class CarBrandComponent implements OnInit {
     const urlDelete = 'http://localhost:9090/advert-manager/car-brand/' + carBrand.id;
 
     this.http.delete(urlDelete).subscribe(res => {
-      location.reload();
+      //location.reload();
       alert('Uspesno obrisan brend.');
       },
       error => {
@@ -81,14 +84,11 @@ export class CarBrandComponent implements OnInit {
 
     dialogRefUpdate.afterClosed().subscribe(result => {
       console.log("bio sam ovdje!");
-      this.rifresuj();
 
+      this.getAllCarBrand()
     });
   }
 
-  public rifresuj() {
-
-  }
   public getAllCarBrand() {
   this.service.getAllCarBrand().subscribe(
 

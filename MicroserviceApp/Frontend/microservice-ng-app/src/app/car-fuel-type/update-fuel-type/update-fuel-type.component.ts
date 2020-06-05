@@ -36,7 +36,7 @@ export class UpdateFuelTypeComponent implements OnInit {
     const urlPost = 'http://localhost:9090/advert-manager/car-fuel-type';
     console.log(this.carFuelType.id);
     console.log(this.carFuelType.fuelType);
-    this.http.post(urlPost, this.carFuelType).subscribe(res => {
+    this.http.put(urlPost, this.carFuelType).subscribe(res => {
         this.dialogRef.close();
         //location.reload();
         alert('Uspesno kreiran tip');

@@ -1,12 +1,16 @@
 package com.example.advertmanagerapp.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Set;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name="Advert")
 public class Advert {
@@ -47,7 +51,5 @@ public class Advert {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id", referencedColumnName = "email")
     private ClientCopy currentDriver;
-
-
 
 }

@@ -75,7 +75,7 @@ export class CarTranssmisionTypeComponent implements OnInit {
     const urlDelete = 'http://localhost:9090/advert-manager/car-transmission-type/' + carTrans.id;
 
     this.http.delete(urlDelete).subscribe(res => {
-        location.reload();
+        //location.reload();
         alert('Uspesno obrisan brend.');
       },
       error => {

@@ -1,0 +1,17 @@
+<div class="card" style="width: 18rem;">
+    <div class="card-header">
+        <div class="row justify-content-end">
+            Price: {{advert.price}}
+            &nbsp;&nbsp;&nbsp;
+            <span (click)="onCancel()" data-toggle="tooltip" data-placement="top" title="remove from cart">
+                <i class="fa fa-times-circle text-danger pointer"></i>
+            </span>
+        </div>
+    </div>
+    <img class="card-img-top" src="..." alt={{advert.profileImage}}>
+    <div class="card-body">
+      <p class="card-text">
+          {{advert.startDate | date: 'shortDate'}}&nbsp;-&nbsp;{{advert.endDate | date: 'shortDate'}}
+      </p>
+    </div>
+  </div>

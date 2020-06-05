@@ -1,11 +1,15 @@
 package com.example.advert_search.dto;
 
+import com.example.advert_search.dto.mapper.DtoEntity;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 import java.util.Date;
 
+@RequiredArgsConstructor
 @Data
-public class AdvertCopyDto {
+public class AdvertCopyDto implements DtoEntity {
 
     private Long id;
     private String city;
@@ -26,4 +30,9 @@ public class AdvertCopyDto {
     private float mark;
     private float price;
 
+    public AdvertCopyDto(String city, Date datep1, Date datek1) {
+        this.city=city;
+        this.startOfAdvert=datep1;
+        this.endOfAdvert=datek1;
+    }
 }
