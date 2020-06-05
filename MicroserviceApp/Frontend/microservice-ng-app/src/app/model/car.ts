@@ -10,12 +10,12 @@ export class Car {
   carModelId: number;
   carTransmissionTypeId: number;
   year: string;
-  name: string;
+  nameOfCar: string;
 
 
   constructor(id: number, children: number, isInsurance: boolean, travelDistance: number, carBrand: number, carClass: number, carModel: number, carTransmission: number, year: string, fuel: number, name: string) {
     this.id = id;
-    this.name=name;
+    this.nameOfCar=name;
     this.childrenSitNumber = children;
     this.carBrandId = carBrand;
     this.carFuelTypeId = fuel;

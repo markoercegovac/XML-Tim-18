@@ -2,6 +2,9 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Advert} from "../model/advert";
 import {templateSourceUrl} from "@angular/compiler";
+import {Observable} from "rxjs";
+import {CarFuelType} from "../model/carFuelType";
+import {Capture} from "../model/capture";
 
 const URL: string='http://localhost:9090/advert-manager/advert'
 
@@ -11,6 +14,7 @@ const URL: string='http://localhost:9090/advert-manager/advert'
 
 export class AdvertService{
   constructor(private http: HttpClient) {
+    
 
   }
 
@@ -18,6 +22,13 @@ export class AdvertService{
     return this.http.post(URL,advert,{responseType: "text"});
   }
 
+  public getAllAdverts():Observable<Advert[]>{
+    return this.http.get<Advert[]>(URL+'/all');
+  }
+
+  public getAllCaptureForAdvert(id: number):Observable<Capture[]>{
+    return this.http.get<Capture[]>(URL+'/capture/'+id);
+  }
 
 
 

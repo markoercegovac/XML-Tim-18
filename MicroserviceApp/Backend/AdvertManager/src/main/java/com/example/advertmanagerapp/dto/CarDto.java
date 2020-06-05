@@ -12,9 +12,9 @@ import java.util.Set;
 public class CarDto implements DtoEntity {
 
 
-    private String name;
+    private String nameOfCar;
     private Long id;
-    private CarBrandDto carBrand;
+    private Long carBrandId;
     private Long carClassId;
     private Long carFuelTypeId;
     private Long carModelId;

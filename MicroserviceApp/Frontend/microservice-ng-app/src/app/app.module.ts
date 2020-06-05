@@ -17,6 +17,7 @@ import { RegisterCarComponent } from './advert/car/register-car/register-car.com
 import { DefinePriceComponent } from './advert/price/define-price/define-price.component';
 import { MyPriceListComponent } from './advert/price/my-price-list/my-price-list.component';
 import { MyCarsComponent } from './advert/car/my-cars/my-cars.component';
+import { CaptureComponent } from './advert/capture/capture/capture.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MyCarsComponent } from './advert/car/my-cars/my-cars.component';
     RegisterCarComponent,
     DefinePriceComponent,
     MyPriceListComponent,
-    MyCarsComponent
+    MyCarsComponent,
+    CaptureComponent
   ],
   imports: [
     BrowserModule,

@@ -80,7 +80,7 @@ export class CreateAdvertComponent implements OnInit {
     //   return;
     // }
     let advert:Advert;
-    advert=new Advert(this.profileImage.src,gallery,this.startDate,this.endDate,this.desc,true,null,this.priceId);
+    advert=new Advert(null,this.profileImage.src,gallery,this.startDate,this.endDate,this.desc,true,this.carId,this.priceId);
     this.advertService.createAdvert(advert).subscribe();
 
   }

@@ -55,27 +55,23 @@ public class CarServiceImplement implements CarService {
 
     @Override
     public void createCar(CarDto carDto) {
-//        CarBrand carBrand=carBrandRepository.findById(carDto.getCarBrand()).get();
+        CarBrand carBrand=carBrandRepository.findById(carDto.getCarBrandId()).get();
         CarFuelType carFuelType=carFuelTypeRepository.findById(carDto.getCarFuelTypeId()).get();
         CarModel carModel=carModelRepository.findById(carDto.getCarModelId()).get();
         CarTransmissionType carTransmissionType=carTransmissionTypeRepository.findById(carDto.getCarTransmissionTypeId()).get();
         CarClass carClass=carClassRepository.findById(carDto.getCarClassId()).get();
         ConcreteCar car= (ConcreteCar) dtoUtils.convertToEntity(new ConcreteCar(),carDto);
-//        car.setCarBrand(carBrand);
+        car.setCarBrand(carBrand);
         car.setCarClass(carClass);
         car.setCarFuelType(carFuelType);
         car.setCarModel(carModel);
         car.setCarTransmissionType(carTransmissionType);
+        car.setNameOfCar(carBrand.getName()+":"+carModel.getModelName());
         concreteCarRepository.save(car);
     }
 
     @Override
     public List<DtoEntity> getAllCars() {
-
-        List<DtoEntity> cars=concreteCarRepository.findAll().stream().map(c->dtoUtils.convertToDto(c,new CarDto())).collect(Collectors.toList());
-
-        System.out.print(cars.toString());
-
-        return null;
+        return concreteCarRepository.findAll().stream().map(c->dtoUtils.convertToDto(c,new CarDto())).collect(Collectors.toList());
     }
 }

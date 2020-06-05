@@ -40,6 +40,9 @@ public class ConcreteCar implements Serializable {
     private CarTransmissionType carTransmissionType;
 
     @Column
+    private String nameOfCar;
+
+    @Column
     private String year;
 
     @Column

@@ -32,6 +32,7 @@ export class RegisterCarComponent implements OnInit {
     carModelId: 0,
     carTransmissionTypeId: 0,
     year: "",
+    nameOfCar:"",
   };
   constructor(private carService: CarService ) { }
 

@@ -7,8 +7,8 @@
       <form (ngSubmit)="createAdvert()" #f="ngForm">
         <div class="form-group">
           <label>Select Your Car</label>
-          <select class="form-control" name="car" [(ngModel)]="carId" >
-            <option *ngFor="let car of allCars" value="{{car.id}}">{{car.carBrand}}</option>
+          <select class="form-control" name="carId" [(ngModel)]="carId" >
+            <option *ngFor="let car of allCars" value="{{car.id}}">{{car.nameOfCar}}</option>
           </select>
         </div>
         <div class="form-group">

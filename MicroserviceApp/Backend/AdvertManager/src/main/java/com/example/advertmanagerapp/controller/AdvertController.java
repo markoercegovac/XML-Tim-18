@@ -1,6 +1,9 @@
 package com.example.advertmanagerapp.controller;
 
 import com.example.advertmanagerapp.dto.AdvertDto;
+import com.example.advertmanagerapp.dto.mapper.DtoEntity;
+import com.example.advertmanagerapp.service.AdvertService;
+import com.example.advertmanagerapp.service.CaptureService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +18,8 @@ import java.util.List;
 @CrossOrigin
 public class AdvertController {
 
+    private final AdvertService advertService;
+    private final CaptureService captureService;
 
     @GetMapping ("/{advert_id}")
     public ResponseEntity<AdvertDto> getAdvertInfo(
@@ -26,10 +31,8 @@ public class AdvertController {
 
 
     @PostMapping
-    public ResponseEntity createAdvert (@RequestBody AdvertDto advertDto){
-        //upisuje u bazu
-
-        return new ResponseEntity(HttpStatus.OK);
+    public void createAdvert (@RequestBody AdvertDto advertDto){
+        advertService.createAdvert(advertDto);
     }
 
 
@@ -52,18 +55,20 @@ public class AdvertController {
     }
 
 
-    @GetMapping("/{user_id}")
-    public ResponseEntity<List<AdvertDto>> getAllAdverts (@PathVariable(value="user_id") Long user_id) {
-
-        return new ResponseEntity<List<AdvertDto>>(HttpStatus.OK);
+    @GetMapping("/all")
+    public ResponseEntity<List<DtoEntity>> getAllAdverts () {
+        //izmeniti da radi sa User adverts
+        return new ResponseEntity<>(advertService.allAdverts(),HttpStatus.OK);
     }
 
     @PostMapping("/continue/{advert_id}")
     public ResponseEntity continueAdvertTime (@RequestBody Date date,@PathVariable(value="advert_id") Long advert_id ) {
-
         return new ResponseEntity(HttpStatus.OK);
     }
-
+    @GetMapping("/capture/{id}")
+    public ResponseEntity<List<DtoEntity>> getCarModel(@PathVariable("id") Long id){
+        return new ResponseEntity<>(captureService.getAdvertCaptures(id),HttpStatus.OK);
+    }
    
 
 }

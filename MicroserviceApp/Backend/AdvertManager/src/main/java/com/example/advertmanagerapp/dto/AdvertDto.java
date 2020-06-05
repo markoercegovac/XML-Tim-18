@@ -1,5 +1,6 @@
 package com.example.advertmanagerapp.dto;
 
+import com.example.advertmanagerapp.dto.mapper.DtoEntity;
 import com.example.advertmanagerapp.model.OwnersCar;
 import com.example.advertmanagerapp.model.ClientCopy;
 import com.example.advertmanagerapp.model.Picture;
@@ -10,7 +11,7 @@ import java.util.Date;
 import java.util.Set;
 
 @Data
-public class AdvertDto {
+public class AdvertDto implements DtoEntity {
 
 
     private Long id;

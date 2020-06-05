@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -17,6 +18,8 @@ public class Advert {
 
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private OwnersCar ownersCar;
+
+
 
     @Column(name="profilePicture")
     private String profilePicture;
@@ -48,6 +51,8 @@ public class Advert {
     @JoinColumn(name = "client_id", referencedColumnName = "email")
     private ClientCopy currentDriver;
 
+    @OneToMany
+    private List<Capture> captures;
 
 
 }
