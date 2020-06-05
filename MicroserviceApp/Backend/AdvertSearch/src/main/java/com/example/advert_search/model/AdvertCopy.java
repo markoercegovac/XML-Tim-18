@@ -1,26 +1,25 @@
 package com.example.advert_search.model;
 
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
+@RequiredArgsConstructor
 @Data
 @Entity
 @Table
 public class AdvertCopy {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "advert_copy_id", nullable = false)
     private Long advertCopyId;
 
     @Column
     private String city;
-
-    @Column
-    private Date startOfAdvert;
-
-    @Column
-    private Date endOfAdvert;
 
     @Column
     private String carMark;
@@ -64,11 +63,12 @@ public class AdvertCopy {
     @Column
     private float price;
 
+    @OneToMany(mappedBy = "advertCopy", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<CarReservedDate> carReservedDate;
 
 
-
-
-
-
-
+    public AdvertCopy(String sabac, List<CarReservedDate> lista1) {
+        this.city=sabac;
+        this.carReservedDate=lista1;
+    }
 }

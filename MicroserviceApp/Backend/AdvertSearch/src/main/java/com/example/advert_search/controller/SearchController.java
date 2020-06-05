@@ -1,6 +1,8 @@
 package com.example.advert_search.controller;
 
 import com.example.advert_search.dto.AdvertCopyDto;
+import com.example.advert_search.dto.CarReservedDateDto;
+import com.example.advert_search.repository.CarReservedDateRepository;
 import com.example.advert_search.service.SearchService;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.dialect.identity.HSQLIdentityColumnSupport;
@@ -14,6 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @RequiredArgsConstructor
 @RequestMapping("/search-manager")
@@ -22,6 +25,7 @@ import java.util.List;
 public class SearchController {
 
     private final SearchService searchService;
+    private final CarReservedDateRepository carReservedDateRepository;
 
     Date datumPoc = new Date();
     Date datumKraj = new Date();
@@ -65,7 +69,7 @@ public class SearchController {
             return new ResponseEntity<>(null, HttpStatus.FORBIDDEN);
         }
 
-       List<AdvertCopyDto> list = this.searchService.findFreeAdverts(datumPoc,datumKraj);
+       Set<AdvertCopyDto> list = this.searchService.findFreeAdverts(datumPoc,datumKraj);
 
         for (AdvertCopyDto a : list) {
             System.out.println(a.getCity() + a.getId());

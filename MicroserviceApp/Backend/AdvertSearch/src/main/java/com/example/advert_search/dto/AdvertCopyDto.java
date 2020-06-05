@@ -1,11 +1,14 @@
 package com.example.advert_search.dto;
 
 import com.example.advert_search.dto.mapper.DtoEntity;
+import com.example.advert_search.model.CarReservedDate;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 @RequiredArgsConstructor
 @Data
@@ -13,8 +16,6 @@ public class AdvertCopyDto implements DtoEntity {
 
     private Long id;
     private String city;
-    private Date startOfAdvert;
-    private Date endOfAdvert;
     private String carMark;
     private String modelMark;
     private String carFuelType;
@@ -29,10 +30,11 @@ public class AdvertCopyDto implements DtoEntity {
     private String picture;
     private float mark;
     private float price;
+    private List<CarReservedDate> carReservedDate;
 
-    public AdvertCopyDto(String city, Date datep1, Date datek1) {
+    public AdvertCopyDto(String city, List<CarReservedDate> listaZauzeca) {
         this.city=city;
-        this.startOfAdvert=datep1;
-        this.endOfAdvert=datek1;
+        this.carReservedDate= listaZauzeca;
+
     }
 }
