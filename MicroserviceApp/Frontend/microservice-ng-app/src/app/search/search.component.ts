@@ -30,9 +30,15 @@ ngOnInit(): void {
   }
 
 
-  onSubmit = function(pretrazi) {
+  onSubmit(pretrazi) {
+    const nextDay = this.getTwoDaysForwardDate();
     console.log(pretrazi);
     if (pretrazi.startOfAdvert < pretrazi.endOfAdvert) {
+      if (pretrazi.startOfAdvert < nextDay ){
+        alert('Start date must be in future!');
+        return;
+      }
+
       this.searchService.searchOglase(pretrazi.city, pretrazi.startOfAdvert, pretrazi.endOfAdvert)
         .subscribe(
           (response: Search[]) => {
@@ -42,7 +48,7 @@ ngOnInit(): void {
     } else {
       alert('Start date must be before end date !');
     }
-  };
+  }
 
   dateValidationStart(control) {
     const today = new Date();

@@ -10,17 +10,19 @@ import {MyCarsComponent} from './advert/car/my-cars/my-cars.component';
 import {DefinePriceComponent} from './advert/price/define-price/define-price.component';
 import {MyPriceListComponent} from './advert/price/my-price-list/my-price-list.component';
 import {SearchComponent} from './search/search.component';
+import { CartComponent } from './cart/cart.component';
+import { BundleComponent } from './bundle/bundle.component';
+import { AdvertDetailViewComponent } from './advert-detail-view/advert-detail-view.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+
 
 
 const routes: Routes = [
-  {
-    path: 'user-manager/register',
-   component: RegistrationComponent
-  },
-  {
-    path: 'user-manager/login',
-    component: LoginComponent
-  },
+  { path: 'register', component: RegistrationComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'bundle', component: BundleComponent},
+  { path: 'advert/:id', component: AdvertDetailViewComponent },
   {
     path: 'create/advert',
     component: CreateAdvertComponent
@@ -49,10 +51,14 @@ const routes: Routes = [
     path: 'my/price/list',
     component: MyPriceListComponent
   },
+
   {
     path: 'search',
     component: SearchComponent
-  }
+  },
+
+
+  { path: 'not-found', component: NotFoundComponent}
 
 ];
 

@@ -2,16 +2,21 @@ package com.example.request.controller;
 
 import com.example.request.dto.AdRequestForClientDTO;
 import com.example.request.dto.CreateAdBundleRequestDTO;
+import com.example.request.service.ClientRequestService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping(value = "/advert-request/client")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ClientController {
+
+    private final ClientRequestService clientRequestServiceImpl;
 
     /**
      * client creates a new advert request
@@ -19,9 +24,19 @@ public class ClientController {
      * @output: 201 if created or 406
      * */
     @PostMapping(value = "", consumes = "application/json")
-    public ResponseEntity postNewAdvertRequest(@RequestBody CreateAdBundleRequestDTO createBundle) {
+    public ResponseEntity<String> postNewAdvertRequest(@RequestBody CreateAdBundleRequestDTO createBundle) {
 
-        return new ResponseEntity(HttpStatus.CREATED);
+        try {
+            clientRequestServiceImpl.createNewRequestBundle(createBundle);
+            return new ResponseEntity("SUCCESSFULLY CREATED REQUEST BUNDLE", HttpStatus.CREATED);
+        } catch(Exception e) {
+            String errorMessage = e.getMessage();
+            if(errorMessage == null || errorMessage.isEmpty()) {
+                errorMessage = "TRIED TO RESERVED AN UN-EXISTING ADVERT ";
+            }
+
+            return  new ResponseEntity(errorMessage, HttpStatus.BAD_REQUEST);
+        }
     }
 
     /**
@@ -34,9 +49,9 @@ public class ClientController {
             @PathVariable("user_email") String clientEmail,
             @RequestParam(value = "status", required = false) String status) {
 
-        List<AdRequestForClientDTO> finedAds = new ArrayList<>();
-
-        return new ResponseEntity<List<AdRequestForClientDTO>>(finedAds, HttpStatus.OK);
+        return new ResponseEntity<List<AdRequestForClientDTO>>(
+                clientRequestServiceImpl.findAllBunlesByStatus(clientEmail, status),
+                HttpStatus.OK);
     }
 
     /**
@@ -48,7 +63,14 @@ public class ClientController {
     public ResponseEntity putRequestIsPaid(
             @PathVariable("request_id") Long requestId) {
 
-        return new ResponseEntity(HttpStatus.OK);
+        try {
+            clientRequestServiceImpl.clientPaid(requestId);
+            return new ResponseEntity(HttpStatus.OK);
+        } catch(NullPointerException e) {
+            return new ResponseEntity("COULD NOT FIND ADVERT REQUEST", HttpStatus.BAD_REQUEST);
+        } catch(Exception e) {
+            return new ResponseEntity(e.getLocalizedMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
 
 }
