@@ -2,6 +2,8 @@ package com.example.advertmanagerapp.controller;
 
 
 import com.example.advertmanagerapp.dto.CarFuelTypeDto;
+import com.example.advertmanagerapp.model.CarFuelType;
+import com.example.advertmanagerapp.service.CarFuelTypeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,24 +17,30 @@ import java.util.List;
 @CrossOrigin
 public class CarFuelTypeController {
 
+    private final CarFuelTypeService fuelTypeService;
 
     @GetMapping("/all")
-    public ResponseEntity<List<CarFuelTypeDto>> getCarFuelType(){
-        return new ResponseEntity<>(HttpStatus.OK);
+    public List<CarFuelType> getCarFuelType(){
+
+     return fuelTypeService.getAllCarFuelType();
     }
 
     @PostMapping
-    public ResponseEntity createCarFuelType(@RequestBody CarFuelTypeDto carFuelTypeDto){
+    public ResponseEntity createCarFuelType(@RequestBody CarFuelType carFuelType){
+
+        fuelTypeService.saveFuelType(carFuelType);
         return new ResponseEntity(HttpStatus.OK);
     }
 
     @PutMapping
-    public ResponseEntity<CarFuelTypeDto> updateCarFuelType(@RequestBody CarFuelTypeDto carFuelTypeDto){
-        return new ResponseEntity<CarFuelTypeDto>(HttpStatus.OK);
+    public ResponseEntity updateCarFuelType(@RequestBody CarFuelType carFuelType){
+        fuelTypeService.saveFuelType(carFuelType);
+        return new ResponseEntity(HttpStatus.OK);
     }
 
-    @DeleteMapping("/car-fuelType/{fuelType_id}")
-    public ResponseEntity<CarFuelTypeDto> deleteCarFuelType(@PathVariable(value = "id") Long id){
+    @DeleteMapping("/{fuelType_id}")
+    public ResponseEntity<CarFuelTypeDto> deleteCarFuelType(@PathVariable(value = "fuelType_id") Long id){
+       fuelTypeService.deleteFuelTypeService(id);
         return new ResponseEntity<CarFuelTypeDto>(HttpStatus.OK);
     }
 

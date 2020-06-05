@@ -9,7 +9,13 @@ import {RegisterCarComponent} from "./advert/car/register-car/register-car.compo
 import {MyCarsComponent} from "./advert/car/my-cars/my-cars.component";
 import {DefinePriceComponent} from "./advert/price/define-price/define-price.component";
 import {MyPriceListComponent} from "./advert/price/my-price-list/my-price-list.component";
-
+import {CarBrandComponent} from "./car-brand/car-brand.component";
+import {CarClassComponent} from "./car-class/car-class.component";
+import {CarModelComponent} from "./car-model/car-model.component";
+import {CarFuelTypeComponent} from "./car-fuel-type/car-fuel-type.component";
+import {CarTranssmisionTypeComponent} from "./car-transsmision-type/car-transsmision-type.component";
+import {NavigationAdminComponent} from "./navigation-admin/navigation-admin.component";
+import {MatInputModule} from '@angular/material/input';
 
 const routes: Routes = [
   {
@@ -47,6 +53,26 @@ const routes: Routes = [
   {
     path: 'my/price/list',
     component: MyPriceListComponent
+  },
+  {
+    path: 'advert-manager/car-brand',
+    component : CarBrandComponent
+  },
+  {
+    path: 'advert-manager/car-class',
+    component: CarClassComponent
+  },
+  {
+    path : 'advert-manager/car-model',
+    component: CarModelComponent
+  },
+  {
+    path : 'advert-manager/car-fuel-type',
+    component : CarFuelTypeComponent
+  },
+  {
+    path : 'advert-manager/car-transsmision-type',
+    component: CarTranssmisionTypeComponent
   }
 
 ];
