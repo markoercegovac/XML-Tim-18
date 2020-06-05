@@ -1,6 +1,7 @@
 package com.example.advertmanagerapp.controller;
 
 import com.example.advertmanagerapp.dto.AdvertDto;
+import com.example.advertmanagerapp.dto.CaptureDto;
 import com.example.advertmanagerapp.dto.mapper.DtoEntity;
 import com.example.advertmanagerapp.service.AdvertService;
 import com.example.advertmanagerapp.service.CaptureService;
@@ -68,6 +69,11 @@ public class AdvertController {
     @GetMapping("/capture/{id}")
     public ResponseEntity<List<DtoEntity>> getCarModel(@PathVariable("id") Long id){
         return new ResponseEntity<>(captureService.getAdvertCaptures(id),HttpStatus.OK);
+    }
+
+    @PostMapping("/capture")
+    public void createCapture(@RequestBody CaptureDto captureDto){
+        captureService.createNewCapture(captureDto);
     }
    
 

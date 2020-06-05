@@ -14,7 +14,6 @@ const URL: string='http://localhost:9090/advert-manager/advert'
 
 export class AdvertService{
   constructor(private http: HttpClient) {
-    
 
   }
 
@@ -28,6 +27,9 @@ export class AdvertService{
 
   public getAllCaptureForAdvert(id: number):Observable<Capture[]>{
     return this.http.get<Capture[]>(URL+'/capture/'+id);
+  }
+  public createCaptureForAdvert(capture:Capture){
+    return this.http.post(URL+'/capture',capture);
   }
 
 
