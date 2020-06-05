@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Frontend.iml" filepath="$PROJECT_DIR$/.idea/Frontend.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../Backend/AdvertManager/advertmanager-app.iml" filepath="$PROJECT_DIR$/../Backend/AdvertManager/advertmanager-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Backend/AdvertSearch/advert_search.iml" filepath="$PROJECT_DIR$/../Backend/AdvertSearch/advert_search.iml" />
     </modules>
   </component>
 </project>

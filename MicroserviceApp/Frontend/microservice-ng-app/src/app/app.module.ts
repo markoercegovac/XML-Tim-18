@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+// @ts-ignore
 import {DragDropModule} from '@angular/cdk/drag-drop';
-
+// @ts-ignore
 import { CarouselModule, ModalModule, WavesModule } from 'angular-bootstrap-md';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
@@ -25,8 +25,10 @@ import { RegisterCarComponent } from './advert/car/register-car/register-car.com
 import { DefinePriceComponent } from './advert/price/define-price/define-price.component';
 import { MyPriceListComponent } from './advert/price/my-price-list/my-price-list.component';
 import { MyCarsComponent } from './advert/car/my-cars/my-cars.component';
+import { SearchComponent } from './search/search.component';
 import { AdvertDetailViewComponent } from './advert-detail-view/advert-detail-view.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+
 
 @NgModule({
   declarations: [
@@ -47,8 +49,10 @@ import { NotFoundComponent } from './not-found/not-found.component';
     DefinePriceComponent,
     MyPriceListComponent,
     MyCarsComponent,
+    SearchComponent,
     AdvertDetailViewComponent,
     NotFoundComponent
+
   ],
   imports: [
     BrowserModule,
