@@ -1,0 +1,31 @@
+<div class="card ml-1 mr-1" style="width: 18rem;" cdkDrag (mousedown)="onClick()">
+    <div class="card-header">
+        <div class="row justify-content-end">
+            Price: {{ad.price}}
+            &nbsp;&nbsp;&nbsp;
+            <span (click)="onAddInBundle()" data-toggle="tooltip" data-placement="top" title="add in existing bundle">
+                <i class="fa fa-plus-circle text-success pointer"></i>
+            </span>
+            &nbsp;&nbsp;
+            <span (click)="onRemoveFromBundle()" data-toggle="tooltip" data-placement="top" title="add in new bundle">
+                <i class="fa fa-minus-circle text-warning pointer"></i>
+            </span>
+            &nbsp;&nbsp;
+            <span (click)="onDelete()" data-toggle="tooltip" data-placement="top" title="remove advert">
+                <i class="fa fa-times-circle text-danger pointer"></i>
+            </span>
+            <div *ngIf="validBundleNumbers != null" class="row">
+                <p>Move ad to bundle number:</p>
+                <div *ngFor="let num of validBundleNumbers">
+                    <span class="badge badge-primary pointer" (click)="onChangeBundle(num)">{{num}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <img class="card-img-top" src="..." alt={{ad.profileImage}}>
+    <div class="card-body">
+      <p class="card-text">
+          {{ad.startDate | date: 'shortDate'}}-{{ad.endDate | date: 'shortDate'}}
+      </p>
+    </div>
+  </div>

@@ -3,7 +3,8 @@ package com.example.advertmanagerapp.controller;
 
 import com.example.advertmanagerapp.dto.CarTransmissionTypeDto;
 import com.example.advertmanagerapp.dto.mapper.DtoEntity;
-import com.example.advertmanagerapp.service.CarTransmissionService;
+import com.example.advertmanagerapp.model.CarTransmissionType;
+import com.example.advertmanagerapp.service.CarTranssmisionTypeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,25 +18,39 @@ import java.util.List;
 @CrossOrigin
 public class CarTransmmisionController {
 
-    private final CarTransmissionService carTransmissionService;
+    private final CarTranssmisionTypeService transsmisionTypeService;
 
     @GetMapping("/all")
-    public ResponseEntity<List<DtoEntity>> getCarTransmision(){
-        return new ResponseEntity<>(carTransmissionService.getAllTransmissionType(),HttpStatus.OK);
+    public List<CarTransmissionType> getCarTransmision(){
+
+        return transsmisionTypeService.getAllCarTranssmisionType();
+
     }
 
     @PostMapping
-    public ResponseEntity createCarTransmision(@RequestBody CarTransmissionTypeDto carTransmisionDto){
+    public ResponseEntity createCarTransmision(@RequestBody CarTransmissionType carTransmision){
+
+
+        carTransmision.setRemoved(false);
+        transsmisionTypeService.saveCarTranssmisionType(carTransmision);
         return new ResponseEntity(HttpStatus.OK);
     }
 
     @PutMapping
-    public ResponseEntity<CarTransmissionTypeDto> updateCarTransmision(@RequestBody CarTransmissionTypeDto carTransmisionDto){
+    public ResponseEntity<CarTransmissionTypeDto> updateCarTransmision(@RequestBody CarTransmissionType carTransmision){
+
+
+        transsmisionTypeService.saveCarTranssmisionType(carTransmision);
         return new ResponseEntity<CarTransmissionTypeDto>(HttpStatus.OK);
     }
 
     @DeleteMapping("/{transmision_id}")
-    public ResponseEntity<CarTransmissionTypeDto> deleteCarTransmision(@PathVariable(value = "id") Long id){
+    public ResponseEntity<CarTransmissionTypeDto> deleteCarTransmision(@PathVariable(value = "transmision_id") Long id){
+        transsmisionTypeService.deleteCarTranssmision(id);
         return new ResponseEntity<CarTransmissionTypeDto>(HttpStatus.OK);
+    }
+    @GetMapping("/all/v2")
+    public ResponseEntity<List<DtoEntity>> getCarTransmisionV2(){
+        return new ResponseEntity<>(transsmisionTypeService.getAllTransmissionType(),HttpStatus.OK);
     }
 }

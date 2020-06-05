@@ -24,7 +24,7 @@ public class CarReservedDate implements Serializable {
     @Column(name = "end_date", nullable = false)
     private Date endDate;
 
-    @OneToOne
-    @JoinColumn(name = "advert_copy_id", referencedColumnName = "advert_copy_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "advert_copy_id", nullable = false)
     private AdvertCopy advertCopy;
 }

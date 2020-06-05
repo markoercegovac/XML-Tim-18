@@ -1,6 +1,8 @@
 package com.example.advertmanagerapp.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -8,6 +10,8 @@ import java.util.List;
 import java.util.Set;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name="Advert")
 public class Advert {
@@ -19,8 +23,6 @@ public class Advert {
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private OwnersCar ownersCar;
 
-
-
     @Column(name="profilePicture")
     private String profilePicture;
 
@@ -28,7 +30,7 @@ public class Advert {
     private Set<Picture> pictureSet;
 
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private ClientCopy clientAd;
+    private ClientCopy client;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name="startOfAdvert")
@@ -44,8 +46,8 @@ public class Advert {
     @Column(name="isActive")
     private boolean isActive;
 
-//    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-//    private Price price;
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    private Price price;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id", referencedColumnName = "email")

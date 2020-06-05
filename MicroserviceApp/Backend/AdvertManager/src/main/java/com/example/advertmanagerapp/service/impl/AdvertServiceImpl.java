@@ -1,13 +1,15 @@
 package com.example.advertmanagerapp.service.impl;
 
+import com.example.advertmanagerapp.converter.AdvertConverter;
+import com.example.advertmanagerapp.dto.AdvertDetailDTO;
+import com.example.advertmanagerapp.model.Advert;
+import com.example.advertmanagerapp.repository.AdvertRepository;
 import com.example.advertmanagerapp.dto.AdvertDto;
 import com.example.advertmanagerapp.dto.mapper.DtoEntity;
 import com.example.advertmanagerapp.dto.mapper.DtoUtils;
 import com.example.advertmanagerapp.model.*;
-import com.example.advertmanagerapp.repository.AdvertRepository;
-import com.example.advertmanagerapp.repository.ConcreteCarRepository;
-import com.example.advertmanagerapp.repository.OwnersCarRepository;
-import com.example.advertmanagerapp.repository.PriceRepository;
+
+
 import com.example.advertmanagerapp.service.AdvertService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,12 +22,23 @@ import java.util.stream.Collectors;
 public class AdvertServiceImpl implements AdvertService {
 
     private final AdvertRepository advertRepository;
-    private final OwnersCarRepository ownersCarRepository;
-    private final PriceRepository priceRepository;
-    private final ConcreteCarRepository concreteCarRepository;
-
     private final DtoUtils dtoUtils;
 
+    public AdvertDetailDTO detailAdForClient(Long advertId) {
+
+        try {
+            Advert foundAd = advertRepository.findByIdAndIsActiveTrue(advertId).orElse(null);
+            if (foundAd != null) {
+                return AdvertConverter.fromAdvertToAdvertDetail(foundAd);
+            } else {
+                return null;
+            }
+        } catch (NullPointerException e) {
+            return null;
+        } catch (Exception e) {
+            return null;
+        }
+    }
 
     @Override
     public void createAdvert(AdvertDto advertDto) {

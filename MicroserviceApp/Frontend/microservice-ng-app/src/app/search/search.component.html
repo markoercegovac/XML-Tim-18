@@ -1,0 +1,28 @@
+<div class="container">
+  <div>
+    <h4>Search adverts</h4>
+    <form  [formGroup] = "form" (ngSubmit) = "onSubmit(form.value)">
+      <div >
+        <label>City * </label>
+        <input class="form-control"   type="text"
+               placeholder="Enter the city name " formControlName="city" required="required">
+      </div>
+
+      <div >
+        <label>  Start Of Advert * </label>
+        <input class="form-control" required="required" formControlName="startOfAdvert" type="date" >
+      </div>
+      <div>
+        <label> End Of Advert *</label>
+        <input class="form-control" required="required" formControlName="endOfAdvert" type="date" >
+      </div>
+
+      <br/>
+      <br/>
+      <div >
+        <input class="form-control" type = "submit" [disabled]="!form.valid" value ="Search">
+      </div>
+
+    </form>
+  </div>
+  </div>

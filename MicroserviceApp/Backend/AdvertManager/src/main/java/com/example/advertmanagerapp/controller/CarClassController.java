@@ -2,8 +2,11 @@ package com.example.advertmanagerapp.controller;
 
 
 import com.example.advertmanagerapp.dto.CarClassDto;
+import com.example.advertmanagerapp.model.CarClass;
+import com.example.advertmanagerapp.service.CarClassService;
 import com.example.advertmanagerapp.dto.mapper.DtoEntity;
 import com.example.advertmanagerapp.service.CarClassService;
+import com.example.advertmanagerapp.dto.mapper.DtoEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,26 +20,37 @@ import java.util.List;
 @CrossOrigin
 public class CarClassController {
 
-    private final CarClassService carClassService;
+
+
+    private final CarClassService classService;
 
     @GetMapping("/all")
-    public ResponseEntity<List<DtoEntity>> getCarClass(){
-        return new ResponseEntity<>(carClassService.getAllCarClasses(),HttpStatus.OK);
+    public List<CarClass> getCarClass()
+
+    {
+        return classService.getAllCarClass();
     }
 
     @PostMapping
-    public ResponseEntity createCarClass(@RequestBody CarClassDto carClassDto){
+    public ResponseEntity createCarClass(@RequestBody CarClass carClass){
+        classService.saveCarClass(carClass);
         return new ResponseEntity(HttpStatus.OK);
     }
 
     @PutMapping
-    public ResponseEntity<CarClassDto> updateCarClass(@RequestBody CarClassDto carClassDto){
-        return new ResponseEntity<CarClassDto>(HttpStatus.OK);
+    public ResponseEntity updateCarClass(@RequestBody CarClass carClass){
+        classService.saveCarClass(carClass);
+        return new ResponseEntity(HttpStatus.OK);
     }
 
     @DeleteMapping("/{class_id}")
-    public ResponseEntity<CarClassDto> deleteCarClass(@PathVariable(value = "id") Long id){
+    public ResponseEntity<CarClassDto> deleteCarClass(@PathVariable(value = "class_id") Long id){
+        classService.deleteCarClass(id);
         return new ResponseEntity<CarClassDto>(HttpStatus.OK);
     }
 
+    @GetMapping("/all/v2")
+    public ResponseEntity<List<DtoEntity>> getCarClassV2(){
+        return new ResponseEntity<>(classService.getAllCarClasses(),HttpStatus.OK);
+    }
 }

@@ -55,7 +55,7 @@ public class ClientCopy implements Serializable {
 //    @OneToMany(mappedBy = "client",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 //    private Set<OwnersCar> ownersCars;
 
-    @OneToMany(mappedBy = "clientAd",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "client",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<Advert> adverts;
 
 

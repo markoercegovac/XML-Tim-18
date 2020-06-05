@@ -20,23 +20,23 @@ export class CarService {
   }
 
   public getAllCarModels(id: number): Observable<CarModel[]> {
-    return this.http.get<CarModel[]>(this.URL + '/car-model/all/'+id);
+    return this.http.get<CarModel[]>(this.URL + '/car-model/all/v2/'+id);
   }
 
   public getAllCarBrands(): Observable<CarBrand[]>{
-    return this.http.get<CarBrand[]>(this.URL+'/car-brand/all/');
+    return this.http.get<CarBrand[]>(this.URL+'/car-brand/all/v2');
   }
 
   public getAllCarTransmissionType(): Observable<CarTransmission[]>{
-    return this.http.get<CarTransmission[]>(this.URL+'/car-transmission/all');
+    return this.http.get<CarTransmission[]>(this.URL+'/car-transmission/all/v2');
   }
 
   public getAllCarClass():Observable<CarClass[]>{
-    return this.http.get<CarClass[]>(this.URL+'/car-class/all');
+    return this.http.get<CarClass[]>(this.URL+'/car-class/all/v2');
   }
 
   public getAllFuelType():Observable<CarFuelType[]>{
-    return this.http.get<CarFuelType[]>(this.URL+'/car-fuel-type/all');
+    return this.http.get<CarFuelType[]>(this.URL+'/car-fuel-type/all/v2');
   }
 
   public registerCar(car:Car){

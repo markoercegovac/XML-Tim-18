@@ -1,0 +1,12 @@
+<h1 mat-dialog-title><i class="fa fa-plus" aria-hidden="true"></i></h1>
+<div mat-dialog-content>
+  <p>New transsmision type?</p>
+  <mat-form-field>
+    <mat-label></mat-label>
+    <input matInput [(ngModel)]="carTranss.transmissionType">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Close</button>
+  <button mat-button [mat-dialog-close]="carTranss.transmissionType" (click)="onYesClick()" cdkFocusInitial>Create</button>
+</div>
