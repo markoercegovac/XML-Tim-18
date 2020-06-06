@@ -2,20 +2,20 @@ package com.example.advert_search.service.impl;
 
 import com.example.advert_search.dto.AdvertCopyDto;
 import com.example.advert_search.dto.CarReservedDateDto;
-import com.example.advert_search.dto.mapper.DtoUtils;
+import com.example.advert_search.dto.mapper.AdvertCopyMapper;
+import com.example.advert_search.dto.mapper.CarReservedDateMapper;
+import com.example.advert_search.dto.mapperGenericki.DtoUtils;
 import com.example.advert_search.model.AdvertCopy;
 import com.example.advert_search.model.CarReservedDate;
 import com.example.advert_search.repository.CarReservedDateRepository;
 import com.example.advert_search.repository.SearchRepository;
 import com.example.advert_search.service.SearchService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -25,6 +25,8 @@ public class SearchServiceImpl implements SearchService {
     private final SearchRepository searchRepository;
     private final CarReservedDateRepository carReservedDateRepository;
     private final DtoUtils dtoUtils;
+    private final AdvertCopyMapper advertCopyMapper;
+    private final CarReservedDateMapper carReservedDateMapper;
 
     Date datep1 = new Date();
     Date datek1 = new Date();
@@ -36,8 +38,6 @@ public class SearchServiceImpl implements SearchService {
     Date datek4 = new Date();
     Date datep5 = new Date();
     Date datek5 = new Date();
-
-    int i=0;
 
 
     @Override
@@ -67,32 +67,32 @@ public class SearchServiceImpl implements SearchService {
             listDto.add(advertCopyDto);
         }
 
-
         return listDto;
     }
 
     @Override
     public Set<AdvertCopyDto> findFreeAdverts(Date start, Date end) {
-        //iz baze vracam listu zauzeca koja ne uticu na zelju korisnika, pomocu Id-a, pronadjem i oglas sa tim zauzecima
-        List<CarReservedDate> list = this.carReservedDateRepository.findAllByStartOfAdvertGreaterThanAndStartOfAdvertGreaterThanOrEndOfAdvertLessThanAndEndOfAdvertLessThan(start, end, start, end);
-       //  6jun -7jun /  8 jun - 13juna/ 14jun-15jun
+        List<AdvertCopyDto> advertCopyD = this.findAll();
 
-        List<AdvertCopy> advert = new ArrayList<>();
-        Set<AdvertCopyDto> advertDto = new HashSet<>();
+        Set<AdvertCopyDto> konacna = new HashSet<>();
+        boolean prekinuto = false;
 
-        for (CarReservedDate a:list) {
-            advert.add(searchRepository.findByAdvertCopyId(a.getAdvertCopy().getAdvertCopyId()));
+        for (AdvertCopyDto aa: advertCopyD) {
+            label1:
+            for (CarReservedDate cc : aa.getCarReservedDate()) {
+                if(cc.getStartOfAdvert().compareTo(start) > 0 && cc.getStartOfAdvert().compareTo(end) < 0 ||
+                        cc.getEndOfAdvert().compareTo(start) > 0 && cc.getEndOfAdvert().compareTo(end) < 0  ){
+                    prekinuto=true;
+                    break label1;
+                }
+            }
+            if(!prekinuto){
+                konacna.add(aa);
+            }
+            prekinuto=false;
         }
-  //      List<CarReservedDateDto> listWithoutDuplicates = listDto.stream().distinct().collect(Collectors.toList());
 
-        //lista oglasa koji su slobodni(bez duplikata)
-        for (AdvertCopy aaa: advert) {
-            AdvertCopyDto advertCopyDto = (AdvertCopyDto) dtoUtils.convertToDto(aaa, new AdvertCopyDto());
-            advertDto.add(advertCopyDto);
-        }
-
-
-        return advertDto;
+        return konacna;
     }
 
     @Override
@@ -145,11 +145,11 @@ public class SearchServiceImpl implements SearchService {
         lista1.add(carReservedDate2);
         lista2.add(carReservedDate3);
         lista2.add(carReservedDate4);
-   //     lista3.add(carReservedDate5);
+        lista3.add(carReservedDate5);
 
         advertCopy1.setCarReservedDate(lista1);
         advertCopy2.setCarReservedDate(lista2);
-     //   advertCopy3.setCarReservedDate(lista3);
+        advertCopy3.setCarReservedDate(lista3);
 
         saveAdvert(advertCopy1);
         saveAdvert(advertCopy2);

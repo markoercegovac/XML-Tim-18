@@ -1,11 +1,10 @@
 package com.example.advert_search.dto;
 
-import com.example.advert_search.dto.mapper.DtoEntity;
+import com.example.advert_search.dto.mapperGenericki.DtoEntity;
 import com.example.advert_search.model.AdvertCopy;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
-import javax.persistence.*;
 import java.util.Date;
 
 @RequiredArgsConstructor

@@ -1,4 +1,4 @@
-package com.example.advert_search.dto.mapper;
+package com.example.advert_search.dto.mapperGenericki;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;

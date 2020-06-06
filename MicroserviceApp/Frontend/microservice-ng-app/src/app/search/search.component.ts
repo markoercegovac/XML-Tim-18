@@ -35,7 +35,7 @@ ngOnInit(): void {
     console.log(pretrazi);
     if (pretrazi.startOfAdvert < pretrazi.endOfAdvert) {
       if (pretrazi.startOfAdvert < nextDay ){
-        alert('Start date must be in future!');
+        alert('Start date must be 48h in future!');
         return;
       }
 
