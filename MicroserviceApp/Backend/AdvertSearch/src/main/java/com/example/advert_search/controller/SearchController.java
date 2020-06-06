@@ -72,7 +72,7 @@ public class SearchController {
        Set<AdvertCopyDto> list = this.searchService.findFreeAdverts(datumPoc,datumKraj);
 
         for (AdvertCopyDto a : list) {
-            System.out.println(a.getCity() + a.getId());
+            System.out.println(a.getCity() + a.getAdvertCopyId());
         }
 
         return new ResponseEntity<>(HttpStatus.OK);
