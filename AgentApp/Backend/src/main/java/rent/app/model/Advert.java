@@ -2,9 +2,7 @@ package rent.app.model;
 
 import lombok.Data;
 
-import javax.annotation.sql.DataSourceDefinition;
 import javax.persistence.*;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Set;
 
@@ -26,9 +24,6 @@ public class Advert {
     @OneToMany(mappedBy = "advert",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<Picture> pictureSet;
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private Client client;
-
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name="startOfAdvert")
     private Date startOfAdvert;
@@ -47,7 +42,7 @@ public class Advert {
     private Price price;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "client_id", referencedColumnName = "email")
+    @JoinColumn(name = "current_driver", referencedColumnName = "email")
     private Client currentDriver;
 
     @OneToMany(mappedBy = "advert",fetch = FetchType.LAZY,cascade = CascadeType.ALL)

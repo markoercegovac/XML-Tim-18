@@ -1,6 +1,5 @@
 package rent.app.model;
 
-import jdk.jfr.Enabled;
 import lombok.Data;
 
 import javax.persistence.*;

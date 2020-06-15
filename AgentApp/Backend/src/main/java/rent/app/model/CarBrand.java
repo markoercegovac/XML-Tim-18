@@ -1,9 +1,7 @@
 package rent.app.model;
 
 import lombok.Data;
-import org.springframework.web.bind.annotation.GetMapping;
 
-import javax.annotation.sql.DataSourceDefinitions;
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
