@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
 
 import {MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import {DialogData} from '../../model/DialogData';
-import {CarBrand} from "../../model/CarBrand";
+import {CarBrand} from "../../model/carBrand";
 import {CarBrandComponent} from "../car-brand.component";
 
 

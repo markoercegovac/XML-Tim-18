@@ -14,8 +14,6 @@ import {CarClassComponent} from "./car-class/car-class.component";
 import {CarModelComponent} from "./car-model/car-model.component";
 import {CarFuelTypeComponent} from "./car-fuel-type/car-fuel-type.component";
 import {CarTranssmisionTypeComponent} from "./car-transsmision-type/car-transsmision-type.component";
-import {NavigationAdminComponent} from "./navigation-admin/navigation-admin.component";
-import {MatInputModule} from '@angular/material/input';
 import {SearchComponent} from './search/search.component';
 import { CartComponent } from './cart/cart.component';
 import { BundleComponent } from './bundle/bundle.component';
@@ -26,6 +24,7 @@ import {CaptureComponent} from "./advert/capture/capture/capture.component";
 
 
 const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: '/login' },
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
   { path: 'cart', component: CartComponent },
@@ -89,9 +88,6 @@ const routes: Routes = [
   },
   { path: 'not-found', component: NotFoundComponent},
   { path: '**', redirectTo: '/not-found'}
-
-
-
 ];
 
 @NgModule({

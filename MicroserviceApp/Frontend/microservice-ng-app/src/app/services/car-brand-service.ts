@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {CarBrand} from "../model/CarBrand";
+import {CarBrand} from "../model/carBrand";
 
 @Injectable({providedIn: 'root'})
 export class CarBrandService {

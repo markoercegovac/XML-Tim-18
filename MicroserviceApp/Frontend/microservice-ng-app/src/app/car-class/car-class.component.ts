@@ -2,10 +2,10 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {HttpClient} from '@angular/common/http';
-import {CarClass} from '../model/CarClass';
+import {CarClass} from '../model/carClass';
 import {MatDialog} from "@angular/material/dialog";
 import {CreateCarClassComponent} from "./create-car-class/create-car-class.component";
-import {CarClassService} from "../service/car-class-service";
+import {CarClassService} from "../services/car-class-service";
 import { UpdateCarClassComponent } from './update-car-class/update-car-class.component';
 
 @Component({

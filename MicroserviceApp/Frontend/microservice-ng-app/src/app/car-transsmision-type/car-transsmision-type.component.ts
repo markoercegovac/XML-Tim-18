@@ -6,10 +6,10 @@ import {CarTranssmisionType} from '../model/CarTranssmisionType';
 
 import {MatDialog} from '@angular/material/dialog';
 import {CreateTranssmisionTypeComponent} from './create-transsmision-type/create-transsmision-type.component';
-import {CarModel} from "../model/CarModel";
+import {CarModel} from "../model/carModel";
 import {UpdateCarModelComponent} from "../car-model/update-car-model/update-car-model.component";
 import {UpdateCarTransmissionComponent} from "./update-car-transmission/update-car-transmission.component";
-import {CarTransmissionTypeService} from "../service/car-transmission-type-service";
+import {CarTransmissionTypeService} from "../services/car-transmission-type-service";
 
 
 @Component({
