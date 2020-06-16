@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
-const BASE_URL = 'http://localhost:8081';
+const BASE_URL = environment.localhost;
 
 @Injectable({providedIn: 'root'})
 export class TestService {

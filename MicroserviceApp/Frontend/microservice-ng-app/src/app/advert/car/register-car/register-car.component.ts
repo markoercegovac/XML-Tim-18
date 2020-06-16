@@ -5,7 +5,7 @@ import {CarFuelType} from "../../../model/carFuelType";
 import {CarBrand} from "../../../model/carBrand";
 import {CarTransmission} from "../../../model/carTransmission";
 import {Car} from "../../../model/car";
-import {CarService} from "../../../services/carService";
+import {CarService} from "../../../services/car.service";
 import {HttpClient} from "@angular/common/http";
 import {NgForm} from '@angular/forms';
 

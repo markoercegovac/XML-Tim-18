@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AdvertDetailViewModel } from '../model/advert-detail-view.model';
-import { advert_manager } from 'src/environments/environment';
+import { environment } from 'src/environments/environment';
 
-const BASE_URL = advert_manager.apiUrl;
+const BASE_URL = environment.advertManagerUrl;
 
 @Injectable({providedIn: 'root'})
 export class AdvertService {

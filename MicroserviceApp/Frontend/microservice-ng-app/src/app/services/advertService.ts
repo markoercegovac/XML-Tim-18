@@ -5,8 +5,9 @@ import {templateSourceUrl} from "@angular/compiler";
 import {Observable} from "rxjs";
 import {CarFuelType} from "../model/carFuelType";
 import {Capture} from "../model/capture";
+import { environment } from 'src/environments/environment';
 
-const URL: string='http://localhost:9090/advert-manager/advert'
+const URL: string= environment.advertManagerUrl+'/advert'
 
 @Injectable({
   providedIn: 'root'

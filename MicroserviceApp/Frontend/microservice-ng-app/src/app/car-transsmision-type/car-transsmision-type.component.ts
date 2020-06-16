@@ -9,7 +9,7 @@ import {CreateTranssmisionTypeComponent} from './create-transsmision-type/create
 import {CarModel} from "../model/carModel";
 import {UpdateCarModelComponent} from "../car-model/update-car-model/update-car-model.component";
 import {UpdateCarTransmissionComponent} from "./update-car-transmission/update-car-transmission.component";
-import {CarTransmissionTypeService} from "../services/car-transmission-type-service";
+import {CarTransmissionTypeService} from "../services/car-transmission-type.service";
 
 
 @Component({
@@ -75,7 +75,7 @@ export class CarTranssmisionTypeComponent implements OnInit {
     const urlDelete = 'http://localhost:9090/advert-manager/car-transmission-type/' + carTrans.id;
 
     this.http.delete(urlDelete).subscribe(res => {
-        //location.reload();
+      this.getAllCarTranssmisionType();
         alert('Uspesno obrisan brend.');
       },
       error => {

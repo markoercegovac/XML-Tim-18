@@ -27,6 +27,7 @@ public class Advert {
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private OwnersCar ownersCar;
 
+    @Lob
     @Column(name="profilePicture")
     private String profilePicture;
 

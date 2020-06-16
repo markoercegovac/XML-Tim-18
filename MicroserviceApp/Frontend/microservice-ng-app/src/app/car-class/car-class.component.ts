@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
 import {CarClass} from '../model/carClass';
 import {MatDialog} from "@angular/material/dialog";
 import {CreateCarClassComponent} from "./create-car-class/create-car-class.component";
-import {CarClassService} from "../services/car-class-service";
+import {CarClassService} from "../services/car-class.service";
 import { UpdateCarClassComponent } from './update-car-class/update-car-class.component';
 
 @Component({
@@ -68,7 +68,7 @@ export class CarClassComponent implements OnInit {
     const urlDelete = 'http://localhost:9090/advert-manager/car-class/' + carClass.id;
 
     this.http.delete(urlDelete).subscribe(res=>{
-        //location.reload();
+      this.getAllCarClass();
         alert('Uspesno obrisan brend.');
       },
       error => {

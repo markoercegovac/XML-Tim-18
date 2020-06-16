@@ -9,7 +9,7 @@ import {CreateFuelTypeComponent} from "./create-fuel-type/create-fuel-type.compo
 
 
 import {UpdateFuelTypeComponent} from "./update-fuel-type/update-fuel-type.component";
-import {CarFuelTypeService} from "../services/car-fuel-type";
+import {CarFuelTypeService} from "../services/car-fuel-type.service";
 
 @Component({
   selector: 'app-car-fuel-type',
@@ -44,7 +44,7 @@ export class CarFuelTypeComponent implements OnInit {
     const urlDelete = 'http://localhost:9090/advert-manager/car-fuel-type/' + carFuelType.id;
 
     this.http.delete(urlDelete).subscribe(res=>{
-        //location.reload();
+      this.getAllCarFuelType();
         alert('Uspesno obrisan brend.');
       },
       error => {

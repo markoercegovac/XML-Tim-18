@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {ImageModel} from '../../model/image';
 import {Price} from "../../model/price";
-import {PriceService} from "../../services/priceService";
+import {PriceService} from "../../services/price.service";
 import {Advert} from "../../model/advert";
 import {Picture} from "../../model/picture";
 import {AdvertService} from "../../services/advertService";
 import {Car} from "../../model/car";
-import {CarService} from "../../services/carService";
+import {CarService} from "../../services/car.service";
 
 @Component({
   selector: 'app-create-advert',

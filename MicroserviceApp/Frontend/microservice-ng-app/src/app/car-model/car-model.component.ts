@@ -10,7 +10,7 @@ import {CarClass} from "../model/carClass";
 import {CarBrand} from "../model/carBrand";
 import {UpdateCarBrandComponent} from "../car-brand/update-car-brand/update-car-brand.component";
 import {UpdateCarModelComponent} from "./update-car-model/update-car-model.component";
-import {CarModelService} from "../services/car-model-service";
+import {CarModelService} from "../services/car-model.service";
 
 @Component({
   selector: 'app-car-model',
@@ -86,7 +86,7 @@ export class CarModelComponent implements OnInit {
     const urlDelete = 'http://localhost:9090/advert-manager/car-model/' + carModel.id;
 
     this.http.delete(urlDelete).subscribe(res=>{
-        //location.reload();
+      this.getAllCarModel();
         alert('Uspesno obrisan brend.');
       },
       error => {

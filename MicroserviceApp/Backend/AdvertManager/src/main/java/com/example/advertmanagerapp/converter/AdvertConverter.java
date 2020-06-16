@@ -15,15 +15,15 @@ public abstract class AdvertConverter {
         ret.setProfilePicture(ad.getProfilePicture());
 
         //ERROR STACK SE NAPUNI!!!
-        // List<String> galleryPic = new ArrayList<String>();
-        // if(ad.getPictureSet()!=null) {
-        //     ad.getPictureSet().forEach(picture -> {
-        //         if(picture.isDeleted() == false) {
-        //             galleryPic.add(picture.getPicture());
-        //         }
-        //     });
-        // }
-        // ret.setGallery(galleryPic.toArray(new String[galleryPic.size()]));
+        List<String> galleryPic = new ArrayList<String>();
+        if(ad.getPictureSet()!=null) {
+            ad.getPictureSet().forEach(picture -> {
+                if(picture.isDeleted() == false) {
+                    galleryPic.add(picture.getPicture());
+                }
+            });
+        }
+        ret.setGallery(galleryPic.toArray(new String[galleryPic.size()]));
 
         ret.setMileage(ad.getOwnersCar().getMileage());
         ret.setMileageUnit(ad.getOwnersCar().getTraveledUnit().toString());

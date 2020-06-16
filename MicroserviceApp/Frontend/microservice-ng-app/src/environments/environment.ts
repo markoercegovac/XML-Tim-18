@@ -3,17 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
-};
-
-export const request_manager = {
   production: false,
-  apiUrl: 'http://localhost:8080/advert-request'
-};
-
-export const advert_manager = {
-  production: false,
-  apiUrl: 'http://localhost:9090/advert-manager'
+  localhost: 'http://localhost:8081',
+  requestManagerUrl: 'http://localhost:8080/advert-request',
+  advertManagerUrl: 'http://localhost:9090/advert-manager',
+  searchManagerUrl: 'http://localhost:9090/search-manager/'
 };
 
 /*

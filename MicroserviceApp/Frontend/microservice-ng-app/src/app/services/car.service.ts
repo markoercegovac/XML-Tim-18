@@ -7,7 +7,9 @@ import {CarClass} from "../model/carClass";
 import {CarFuelType} from "../model/carFuelType";
 import {CarTransmission} from "../model/carTransmission";
 import {Car} from "../model/car";
-import {Price} from "../model/price";
+import { environment } from 'src/environments/environment';
+
+const BASE_URL = environment.advertManagerUrl;
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +18,7 @@ export class CarService {
   private URL: string;
 
   constructor(private http: HttpClient) {
-    this.URL = 'http://localhost:9090/advert-manager';
+    this.URL = BASE_URL;
   }
 
   public getAllCarModels(id: number): Observable<CarModel[]> {
