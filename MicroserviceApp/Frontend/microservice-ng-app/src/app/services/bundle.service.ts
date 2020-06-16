@@ -3,11 +3,11 @@ import { BundleModel } from '../model/bundle.model';
 import { CartService } from './cart.service';
 import { AdvertInCartModel } from '../model/advert-in-cart.model';
 import { HttpClient } from '@angular/common/http';
-import { request_manager } from 'src/environments/environment';
+import { environment } from 'src/environments/environment';
 import { ResolvedStaticSymbol } from '@angular/compiler';
 import { stringify } from 'querystring';
 
-const BASE_URL = request_manager.apiUrl;
+const BASE_URL = environment.requestManagerUrl;
 
 @Injectable({providedIn: 'root'})
 export class BundleSerivce {

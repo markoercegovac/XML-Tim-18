@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Price} from '../../../model/price';
-import {PriceService} from '../../../services/priceService';
+import {PriceService} from '../../../services/price.service';
 import {HttpClient} from '@angular/common/http';
 import {NgForm} from '@angular/forms';
 

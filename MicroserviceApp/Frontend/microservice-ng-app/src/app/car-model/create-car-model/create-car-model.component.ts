@@ -1,7 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {DialogData} from '../../model/DialogData';
-import {CarModel} from '../../model/CarModel';
+import {CarModel} from '../../model/carModel';
 import {HttpClient} from "@angular/common/http";
 
 @Component({

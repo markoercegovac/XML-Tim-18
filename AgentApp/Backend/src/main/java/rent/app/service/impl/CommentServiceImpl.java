@@ -1,7 +1,6 @@
 package rent.app.service.impl;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rent.app.dto.CommentDTO;
 
@@ -39,7 +38,7 @@ public class CommentServiceImpl  implements CommentService {
     @Override
     public boolean addNewComment(CommentDTO newComment) {
 
-        Comment comment = new Comment();
+        //Comment comment = new Comment();
 
         return false;
     }

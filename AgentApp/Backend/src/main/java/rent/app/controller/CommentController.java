@@ -1,14 +1,10 @@
 package rent.app.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import rent.app.dto.CommentDTO;
-import rent.app.model.Comment;
 import rent.app.service.CommentService;
 
 import java.util.List;
@@ -29,12 +25,12 @@ public class CommentController {
     }
 
     @PostMapping(value = "/add", consumes = "application/json")
-    public ResponseEntity createComment(@RequestBody CommentDTO comment) {
+    public ResponseEntity<?> createComment(@RequestBody CommentDTO comment) {
 
         if(commentService.addNewComment(comment)) {
-            return new ResponseEntity(HttpStatus.OK);
+            return new ResponseEntity<>(HttpStatus.OK);
         } else {
-            return new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
+            return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
         }
     }
 

@@ -2,9 +2,9 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import {DialogData} from '../../model/DialogData';
 import {CarFuelTypeComponent} from "../car-fuel-type.component";
-import {CarFuelType} from "../../model/CarFuelType";
+import {CarFuelType} from "../../model/carFuelType";
 import {HttpClient} from "@angular/common/http";
-import {CarClass} from "../../model/CarClass";
+import {CarClass} from "../../model/carClass";
 
 @Component({
   selector: 'app-create-fuel-type',
@@ -32,7 +32,6 @@ export class CreateFuelTypeComponent implements OnInit {
   onYesClick() {
 
     const urlPost = 'http://localhost:9090/advert-manager/car-fuel-type';
-
     console.log(this.carFuelType.fuelType);
 
     this.http.post(urlPost, this.carFuelType).subscribe(res => {

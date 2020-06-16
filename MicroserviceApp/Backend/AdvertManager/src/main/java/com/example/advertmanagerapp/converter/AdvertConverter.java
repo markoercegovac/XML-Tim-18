@@ -14,10 +14,13 @@ public abstract class AdvertConverter {
         ret.setAdvertId(ad.getId());
         ret.setProfilePicture(ad.getProfilePicture());
 
+        //ERROR STACK SE NAPUNI!!!
         List<String> galleryPic = new ArrayList<String>();
-        if(ad.getPictureSet()!=null && ad.getPictureSet().size()>0) {
+        if(ad.getPictureSet()!=null) {
             ad.getPictureSet().forEach(picture -> {
-                galleryPic.add(picture.getPicture());
+                if(picture.isDeleted() == false) {
+                    galleryPic.add(picture.getPicture());
+                }
             });
         }
         ret.setGallery(galleryPic.toArray(new String[galleryPic.size()]));

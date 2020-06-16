@@ -1,8 +1,6 @@
 package rent.app.model;
 
 import lombok.Data;
-import lombok.Getter;
-import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 

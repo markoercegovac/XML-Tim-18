@@ -5,6 +5,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -23,10 +27,12 @@ public class Advert {
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private OwnersCar ownersCar;
 
+    @Lob
     @Column(name="profilePicture")
     private String profilePicture;
 
-    @OneToMany(mappedBy = "advert",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JsonManagedReference
+    @OneToMany(mappedBy = "advert",fetch = FetchType.LAZY ,cascade = CascadeType.PERSIST)
     private Set<Picture> pictureSet;
 
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
@@ -46,6 +52,7 @@ public class Advert {
     @Column(name="isActive")
     private boolean isActive;
 
+    @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Price price;
 

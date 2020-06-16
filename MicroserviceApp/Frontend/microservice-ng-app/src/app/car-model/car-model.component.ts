@@ -2,15 +2,15 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {HttpClient} from '@angular/common/http';
-import {CarModel} from '../model/CarModel';
+import {CarModel} from '../model/carModel';
 import {CreateCarBrandComponent} from "../car-brand/create-car-brand/create-car-brand.component";
 import {MatDialog} from "@angular/material/dialog";
 import {CreateCarModelComponent} from "./create-car-model/create-car-model.component";
-import {CarClass} from "../model/CarClass";
-import {CarBrand} from "../model/CarBrand";
+import {CarClass} from "../model/carClass";
+import {CarBrand} from "../model/carBrand";
 import {UpdateCarBrandComponent} from "../car-brand/update-car-brand/update-car-brand.component";
 import {UpdateCarModelComponent} from "./update-car-model/update-car-model.component";
-import {CarModelService} from "../service/car-model-service";
+import {CarModelService} from "../services/car-model.service";
 
 @Component({
   selector: 'app-car-model',
@@ -86,7 +86,7 @@ export class CarModelComponent implements OnInit {
     const urlDelete = 'http://localhost:9090/advert-manager/car-model/' + carModel.id;
 
     this.http.delete(urlDelete).subscribe(res=>{
-        //location.reload();
+      this.getAllCarModel();
         alert('Uspesno obrisan brend.');
       },
       error => {

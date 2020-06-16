@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {CarBrand} from "../model/CarBrand";
+import { environment } from 'src/environments/environment';
+
+const BASE_URL = environment.advertManagerUrl;
 
 @Injectable({providedIn: 'root'})
 export class CarBrandService {
@@ -11,7 +13,7 @@ export class CarBrandService {
 
   }
   public getAllCarBrand() {
-    const url = 'http://localhost:9090/advert-manager/car-brand/all';
+    const url = BASE_URL+'/car-brand/all';
     return this.http.get<any>(url);
   }
 

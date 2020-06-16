@@ -3,14 +3,13 @@ package rent.app.model;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
 
 
 @Data
 @Entity
 @Table
-public class DriveReport implements Serializable {
+public class DriveReport {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

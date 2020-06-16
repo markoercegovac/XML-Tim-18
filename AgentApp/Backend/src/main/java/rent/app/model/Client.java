@@ -1,12 +1,10 @@
 package rent.app.model;
 
 import lombok.Data;
-import org.springframework.context.annotation.EnableMBeanExport;
 
 import rent.app.model.enums.Role;
 
 import javax.persistence.*;
-import javax.xml.namespace.QName;
 import java.io.Serializable;
 import java.util.Set;
 
@@ -14,6 +12,8 @@ import java.util.Set;
 @Entity
 @Table(name="Client")
 public class Client implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Id
     private String email;
@@ -57,9 +57,6 @@ public class Client implements Serializable {
 
     @OneToMany(mappedBy = "client",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<Car> cars;
-
-    @OneToMany(mappedBy = "client",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private Set<Advert> adverts;
 
     @OneToMany(mappedBy = "client",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<Comment> comments;
