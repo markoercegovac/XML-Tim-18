@@ -14,13 +14,13 @@ export class AdvertDetailViewComponent implements OnInit {
   ad: AdvertDetailViewModel;
 
   constructor(
-    private activeUrl: ActivatedRoute, 
+    private activeUrl: ActivatedRoute,
     private adService: AdvertService,
     private router: Router) { }
 
   ngOnInit(): void {
     this.adId = +this.activeUrl.snapshot.params['id'];
-    
+
     this.adService.getAdvertDetail(this.adId).subscribe(
       (data: AdvertDetailViewModel) => {
         if(data != null) {
