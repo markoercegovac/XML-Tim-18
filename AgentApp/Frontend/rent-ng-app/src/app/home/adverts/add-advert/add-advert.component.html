@@ -16,7 +16,7 @@
             <span>Profile Image&nbsp;
                 <label for="profileImageInput" class="badge badge-success p-2">add</label>
             </span>
-            <input #profileImageInput type="file" accept="image/*" (change)="onInputProfileImage(profileImageInput)" id="profileImageInput" name="profileImageInput" hidden/>
+            <input #profileImageInput type="file" accept="image/*" (change)="onInputProfileImage(profileImageInput)" (change)="getImageFile($event)" id="profileImageInput" name="profileImageInput" hidden/>
         </label>
 
         <div *ngIf="profileImage" class="img-preview-container">
@@ -84,11 +84,16 @@
             </div>
         </div>
 
-        <!--ADVERT EXPIRE DATE-->
+        <!--ADVERT DATES-->
         <hr>
         <div class="form-group row">
-            <label for="inputDate">Ending date of adverting</label>
-            <input type="date" id="inputDate" name="inputDate"/>
+            <label for="inputStartDate">Start date of adverting</label>
+            <input type="date" id="inputStartDate" name="inputStartDate" ngModel required/>
+        </div>
+        <br>
+        <div class="form-group row">
+            <label for="inputEndDate">Ending date of adverting</label>
+            <input type="date" id="inputEndDate" name="inputEndDate" ngModel required/>
         </div>
 
         <br>

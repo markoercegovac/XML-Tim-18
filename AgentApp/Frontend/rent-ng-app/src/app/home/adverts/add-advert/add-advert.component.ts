@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ImageModel } from 'src/app/model/image.model';
+import { AdvertService } from 'src/app/service/advert.service';
+import { AdvertCreateModel } from 'src/app/model/advert-create.model';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-advert',
@@ -10,12 +13,17 @@ import { ImageModel } from 'src/app/model/image.model';
 })
 export class AddAdvertComponent implements OnInit {
 
+  imageFile: File;
   profileImage: ImageModel;
   imageGalery: ImageModel[] = [];
 
-  constructor() { }
+  constructor(private adSerivce: AdvertService) { }
 
   ngOnInit(): void {
+  }
+
+  public getImageFile(event) {
+    this.imageFile = event.target.files[0];
   }
 
   public onInputProfileImage(profileImageInput: any) {
@@ -33,10 +41,10 @@ export class AddAdvertComponent implements OnInit {
     reader.addEventListener('load', (event: any) => {
 
       if (isProfile === true) {
-        this.profileImage = new ImageModel(0, event.target.result, file);
+        this.profileImage = new ImageModel(0, event.target.result, this.imageFile);
       } else {
         let id = this.imageGalery.length;
-        this.imageGalery.push(new ImageModel(id, event.target.result, file));
+        this.imageGalery.push(new ImageModel(id, event.target.result, this.imageFile));
       }
     }
     );
@@ -57,7 +65,23 @@ export class AddAdvertComponent implements OnInit {
   }
 
   public onAddAd(form: NgForm) {
-    console.log(form.value.inputDescription);
+
+    const uploadImageData = new FormData();
+    uploadImageData.append('imageFile', this.profileImage.file, this.profileImage.file.name);
+
+    console.log(uploadImageData);
+    let ad: AdvertCreateModel;
+    ad = {
+      carId: null,
+      description: form.value.inputDescription,
+      endOfAdvert: form.value.inputStartDate,
+      startOfAdvert: form.value.inputEndDate,
+      profileImage: this.profileImage.src
+    };
+    console.log(this.profileImage);
+    uploadImageData.append('data', JSON.stringify(ad));
+
+    this.adSerivce.createAd(ad).subscribe();
   }
 
 }

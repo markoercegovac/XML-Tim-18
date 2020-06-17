@@ -18,8 +18,9 @@ public class Advert {
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Car car;
 
+    @Lob
     @Column(name="profilePicture")
-    private String profilePicture;
+    private byte[] profilePicture;
 
     @OneToMany(mappedBy = "advert",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<Picture> pictureSet;
