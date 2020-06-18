@@ -73,6 +73,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
@@ -87,10 +94,20 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../AdvertManager" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.example.request.repository" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.RequestBundleRepositoryTest.shouldReturnb2b3b4">
     <configuration name="RequestApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.request.RequestApplication" />
       <module name="request" />
@@ -104,8 +121,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RequestBundleCreationDateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="request" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.request.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.request.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.example.request.repository.RequestBundleCreationDateTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RequestBundleRepositoryTest.shouldReturnb2b3b4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="request" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.request.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.request.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.example.request.repository.RequestBundleRepositoryTest" />
+      <option name="METHOD_NAME" value="shouldReturnb2b3b4" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RequestBundleRepositoryTest.shouldReturnb2b3b4" />
+        <item itemvalue="JUnit.RequestBundleCreationDateTest" />
         <item itemvalue="Application.RequestApplication" />
       </list>
     </recent_temporary>
@@ -125,25 +175,33 @@
       <screen x="1024" y="0" width="1920" height="1080" />
     </state>
     <state x="1767" y="277" width="424" height="479" key="FileChooserDialogImpl/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591275326837" />
-    <state width="1878" height="866" key="GridCell.Tab.0.bottom" timestamp="1591275261017">
-      <screen x="1024" y="0" width="1920" height="1080" />
+    <state width="1878" height="866" key="GridCell.Tab.0.bottom" timestamp="1592474147569">
+      <screen x="0" y="0" width="2944" height="1040" />
     </state>
+    <state width="1878" height="866" key="GridCell.Tab.0.bottom/0.0.2944.1040@0.0.2944.1040" timestamp="1592474147569" />
     <state width="1878" height="866" key="GridCell.Tab.0.bottom/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591275261017" />
-    <state width="1878" height="866" key="GridCell.Tab.0.center" timestamp="1591275261017">
-      <screen x="1024" y="0" width="1920" height="1080" />
+    <state width="1878" height="866" key="GridCell.Tab.0.center" timestamp="1592474147568">
+      <screen x="0" y="0" width="2944" height="1040" />
     </state>
+    <state width="1878" height="866" key="GridCell.Tab.0.center/0.0.2944.1040@0.0.2944.1040" timestamp="1592474147568" />
     <state width="1878" height="866" key="GridCell.Tab.0.center/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591275261017" />
-    <state width="1878" height="866" key="GridCell.Tab.0.left" timestamp="1591275261017">
-      <screen x="1024" y="0" width="1920" height="1080" />
+    <state width="1878" height="866" key="GridCell.Tab.0.left" timestamp="1592474147567">
+      <screen x="0" y="0" width="2944" height="1040" />
     </state>
+    <state width="1878" height="866" key="GridCell.Tab.0.left/0.0.2944.1040@0.0.2944.1040" timestamp="1592474147567" />
     <state width="1878" height="866" key="GridCell.Tab.0.left/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591275261017" />
-    <state width="1878" height="866" key="GridCell.Tab.0.right" timestamp="1591275261017">
-      <screen x="1024" y="0" width="1920" height="1080" />
+    <state width="1878" height="866" key="GridCell.Tab.0.right" timestamp="1592474147568">
+      <screen x="0" y="0" width="2944" height="1040" />
     </state>
+    <state width="1878" height="866" key="GridCell.Tab.0.right/0.0.2944.1040@0.0.2944.1040" timestamp="1592474147568" />
     <state width="1878" height="866" key="GridCell.Tab.0.right/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591275261017" />
     <state x="1667" y="346" key="com.intellij.ide.util.TipDialog" timestamp="1591275291543">
       <screen x="1024" y="0" width="1920" height="1080" />
     </state>
     <state x="1667" y="346" key="com.intellij.ide.util.TipDialog/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591275291543" />
+    <state x="1737" y="264" width="483" height="504" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1592473856806">
+      <screen x="0" y="0" width="2944" height="1040" />
+    </state>
+    <state x="1737" y="264" width="483" height="504" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.2944.1040@0.0.2944.1040" timestamp="1592473856806" />
   </component>
 </project>

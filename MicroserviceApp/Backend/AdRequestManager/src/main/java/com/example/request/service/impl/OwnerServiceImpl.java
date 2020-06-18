@@ -53,7 +53,7 @@ public class OwnerServiceImpl implements OwnerService {
 	private List<AdRequestForOwnerDTO> getAllRequestsForOwner(String email) {
 
 		List<AdRequestForOwnerDTO> foundAdRequests = new ArrayList<>();
-		List<RequestBundle> foundRequest = bundleRepository.findAllByRequestingOwnerEmail(email).orElse(null);
+		List<RequestBundle> foundRequest = bundleRepository.findAllByOwnerEmail(email).orElse(null);
 
 		if(foundRequest != null && !foundRequest.isEmpty()) {
 			foundRequest.forEach(bundle -> {
@@ -71,7 +71,7 @@ public class OwnerServiceImpl implements OwnerService {
 	private List<AdRequestForOwnerDTO> getAllRequestsWithStatusForOwner(String email, AdvertStateEnum status) {
 
 		List<AdRequestForOwnerDTO> foundAdRequests = new ArrayList<>();
-		List<RequestBundle> foundRequest = bundleRepository.findAllByRequestingOwnerEmailAndAdvertState(email, status).orElse(null);
+		List<RequestBundle> foundRequest = bundleRepository.findAllByOwnerEmailAndAdvertState(email, status).orElse(null);
 
 		if(foundRequest != null && !foundRequest.isEmpty()) {
 			foundRequest.forEach(bundle -> {
