@@ -20,8 +20,9 @@ public interface RequestBundleRepository extends JpaRepository<RequestBundle, Lo
     Optional<List<RequestBundle>> findAllByOwnerEmail(String ownerEmail);
     Optional<List<RequestBundle>> findAllByOwnerEmailAndAdvertState(String ownerEmail, AdvertStateEnum state);
 
-    @Query("select b from RequestBundle where b.ownerEmail = :owner and b.creationDateAndTime <= :beforeDate")
-    Optional<List<RequestBundle>> findAllByOwnerEmailAndCreationDateAndTimeBefore(@Param("owner") String ownerEmaiml, @Param("beforeDate") Date beforeDate);
+    @Query(value = "select b from RequestBundle b where b.ownerEmail = ?1 and b.creationDateAndTime <= ?2",
+        nativeQuery = false)
+    Optional<List<RequestBundle>> findAllByOwnerEmailAndCreationDateAndTimeBefore(String owner, Date beforeDate);
 
 
 }

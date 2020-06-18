@@ -11,19 +11,21 @@ import com.example.request.repository.RequestBundleRepository;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import lombok.RequiredArgsConstructor;
 
 @Component
 @Aspect
-@RequiredArgsConstructor
 public class AutomaticalyCancelOlderRequests {
 	
-	private final RequestBundleRepository requestBundle;
+	@Autowired
+	private RequestBundleRepository requestBundle;
 
-	@Before("execution(* com.example.request.service.impl.findOwnersAdByState(..)) && args(email, ..)")
-	public void beforeOwnerSeeBundleRequests(JoinPoint joinPoint, String email) {
+	@Before(value = "execution(* com.example.request.service.impl.OwnerServiceImpl.findOwnersAdByState(..)) and args(email, state)")
+	public void beforeOwnerSeeBundleRequests(JoinPoint joinPoint, String email, AdvertStateEnum state) {
 
 		Calendar c = Calendar.getInstance();
 		c.add(Calendar.DATE, -1);
@@ -36,5 +38,5 @@ public class AutomaticalyCancelOlderRequests {
 				requestBundle.save(bundle);
 			});
 		}
-	}
+	}	
 }

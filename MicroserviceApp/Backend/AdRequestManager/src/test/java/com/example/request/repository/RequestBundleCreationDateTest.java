@@ -6,6 +6,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import com.example.request.model.AdvertStateEnum;
 import com.example.request.model.RequestBundle;
 
 import org.junit.Before;
@@ -50,6 +51,25 @@ public class RequestBundleCreationDateTest {
 		b5.setRequestBundleId(5l);
 		b6.setRequestBundleId(6l);
 
+		b1.setRequestingUserEmail(pera);
+		b1.setAdvertState(AdvertStateEnum.PENDING);
+		b1.setPriceWithDiscount(30l);
+		b2.setRequestingUserEmail(pera);
+		b2.setAdvertState(AdvertStateEnum.PENDING);
+		b2.setPriceWithDiscount(30l);
+		b3.setRequestingUserEmail(pera);
+		b3.setAdvertState(AdvertStateEnum.PENDING);
+		b3.setPriceWithDiscount(30l);
+		b4.setRequestingUserEmail(pera);
+		b4.setAdvertState(AdvertStateEnum.PENDING);
+		b4.setPriceWithDiscount(30l);
+		b5.setRequestingUserEmail(pera);
+		b5.setAdvertState(AdvertStateEnum.PENDING);
+		b5.setPriceWithDiscount(30l);
+		b6.setRequestingUserEmail(pera);
+		b6.setAdvertState(AdvertStateEnum.PENDING);
+		b6.setPriceWithDiscount(30l);
+
 		b1.setOwnerEmail(pera);
 		b2.setOwnerEmail(pera);
 		b3.setOwnerEmail(pera);
@@ -83,12 +103,42 @@ public class RequestBundleCreationDateTest {
 	@Test
 	public void shouldReturnb2b3b4() {
 		
-
 		List<RequestBundle> foundBundles = bundleRepository.findAllByOwnerEmailAndCreationDateAndTimeBefore(
 			pera, yesterDay).orElse(null);
 
 		assertNotNull(foundBundles);
 		assert(foundBundles.size() == 3);
+		foundBundles.forEach(bundle -> {
+			assert(bundle.getRequestBundleId().equals(4l) ||
+				bundle.getRequestBundleId().equals(2l) ||
+				bundle.getRequestBundleId().equals(3l));
+		});
+	}
 
+	@Test
+	public void shouldReturnb4() {
+		
+		List<RequestBundle> foundBundles = bundleRepository.findAllByOwnerEmailAndCreationDateAndTimeBefore(
+			pera, twoDaysBefore).orElse(null);
+
+		assertNotNull(foundBundles);
+		assert(foundBundles.size() == 1);
+		foundBundles.forEach(bundle -> {
+			assert(bundle.getRequestBundleId().equals(4l));
+		});
+	}
+
+	@Test
+	public void shouldReturnb5b6() {
+		
+		List<RequestBundle> foundBundles = bundleRepository.findAllByOwnerEmailAndCreationDateAndTimeBefore(
+			mika, today).orElse(null);
+
+		assertNotNull(foundBundles);
+		assert(foundBundles.size() == 2);
+		foundBundles.forEach(bundle -> {
+			assert(bundle.getRequestBundleId().equals(5l) ||
+				bundle.getRequestBundleId().equals(6l));
+		});
 	}
 }
