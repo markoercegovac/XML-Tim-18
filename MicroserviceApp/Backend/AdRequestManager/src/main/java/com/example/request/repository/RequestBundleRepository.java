@@ -14,4 +14,7 @@ public interface RequestBundleRepository extends JpaRepository<RequestBundle, Lo
     Optional<List<RequestBundle>> findAllByRequestingUserEmail(String clientEmail);
     Optional<List<RequestBundle>> findAllByRequestingUserEmailAndAdvertState(String clientEmail, AdvertStateEnum state);
 
+    Optional<List<RequestBundle>> findAllByRequestingOwnerEmail(String ownerEmail);
+    Optional<List<RequestBundle>> findAllByRequestingOwnerEmailAndAdvertState(String ownerEmail, AdvertStateEnum state);
+
 }

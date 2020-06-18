@@ -1,6 +1,6 @@
 package com.example.request.service.impl;
 
-import com.example.request.convertor.FromRequestBundleToAdRequestForClient;
+import com.example.request.convertor.AdRequestClientConvertor;
 import com.example.request.dto.AdRequestForClientDTO;
 import com.example.request.dto.CreateAdBundleRequestDTO;
 import com.example.request.model.AdvertCopy;
@@ -94,7 +94,7 @@ public class ClientRequestServiceImpl implements ClientRequestService {
 
         if(foundBundles != null) {
             foundBundles.forEach(bundle -> {
-                retBundles.add(FromRequestBundleToAdRequestForClient.convert(bundle));
+                retBundles.add(AdRequestClientConvertor.FromBundleToAdRequestForClient(bundle));
             });
         }
 
