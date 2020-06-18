@@ -4,7 +4,6 @@ import com.example.request.model.AdvertStateEnum;
 import com.example.request.model.RequestBundle;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
@@ -23,6 +22,5 @@ public interface RequestBundleRepository extends JpaRepository<RequestBundle, Lo
     @Query(value = "select b from RequestBundle b where b.ownerEmail = ?1 and b.creationDateAndTime <= ?2",
         nativeQuery = false)
     Optional<List<RequestBundle>> findAllByOwnerEmailAndCreationDateAndTimeBefore(String owner, Date beforeDate);
-
 
 }

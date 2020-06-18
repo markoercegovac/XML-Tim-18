@@ -30,7 +30,6 @@ public class OwnerServiceImpl implements OwnerService {
 		bundle.setApprovedDateAndTime(c.getTime());
 
 		bundleRepository.save(bundle);
-		//automatsko otkazivanje zahteva
 	}
 
 	@Override

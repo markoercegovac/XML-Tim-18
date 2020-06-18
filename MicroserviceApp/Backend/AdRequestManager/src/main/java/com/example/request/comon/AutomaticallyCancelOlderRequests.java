@@ -11,18 +11,16 @@ import com.example.request.repository.RequestBundleRepository;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import lombok.RequiredArgsConstructor;
 
 @Component
 @Aspect
-public class AutomaticalyCancelOlderRequests {
+@RequiredArgsConstructor
+public class AutomaticallyCancelOlderRequests {
 	
-	@Autowired
-	private RequestBundleRepository requestBundle;
+	private final RequestBundleRepository requestBundle;
 
 	@Before(value = "execution(* com.example.request.service.impl.OwnerServiceImpl.findOwnersAdByState(..)) and args(email, state)")
 	public void beforeOwnerSeeBundleRequests(JoinPoint joinPoint, String email, AdvertStateEnum state) {
