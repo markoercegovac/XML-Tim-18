@@ -18,6 +18,7 @@ public class AdvertController {
 
     @PostMapping
     public void createAdvert(@RequestBody AdvertDto advertDto) throws IOException {
+
         advertService.saveAdvert(advertDto);
     }
 }

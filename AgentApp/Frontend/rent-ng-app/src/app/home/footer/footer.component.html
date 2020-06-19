@@ -1,5 +1,5 @@
 <main class="mt-n5">
-  <div class="container">
+  <div class="container fixed-bottom" *ngIf="isActiveChat" >
 
     <!-- Grid row -->
     <div class="row d-flex flex-row-reverse">
@@ -8,9 +8,17 @@
       <div class="col-md-6 mb-4 d-flex flex-row-reverse">
 
         <mdb-card class="chat-room small-chat wide" id="myForm">
+          <div>
+            <button class="btn btn-primary float-right w-25" (click)="closeChat()">-</button>
+          </div>
+
           <mdb-card-header class="white d-flex justify-content-between p-2" id="toggle" style="cursor: pointer;">
+
+
             <div class="heading d-flex justify-content-start">
+
               <div class="profile-photo">
+
                 <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6.jpg" alt="avatar"
                      class="avatar rounded-circle mr-2 ml-0">
                 <span class="state"></span>
@@ -121,5 +129,11 @@
     </div>
     <!-- Grid row -->
 
+  </div>
+  <div>
+    <button class="btn btn-primary float-right" (click)="showChat()">
+      <i class="fa fa-home"></i>Chat
+
+    </button>
   </div>
 </main>

@@ -1,9 +1,9 @@
 export class PicModel {
   id: number;
   picture: string;
-  path: File;
   advertId: number;
   isDeleted: boolean;
+  path: string;
 
   constructor(id: number, pic: string, adv: number, deleted: boolean, path: string) {
     this.id=id;

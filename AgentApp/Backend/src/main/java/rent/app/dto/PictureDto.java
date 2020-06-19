@@ -3,7 +3,7 @@ package rent.app.dto;
 import lombok.Data;
 
 @Data
-public class PictureDto {
+public class PictureDto implements DTOEntity {
 
     private Long id;
     private String picture;

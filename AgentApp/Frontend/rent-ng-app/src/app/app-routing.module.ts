@@ -15,6 +15,7 @@ import { AddAdvertComponent } from './home/adverts/add-advert/add-advert.compone
 
 import {RegisterCarComponent} from './register-car/register-car.component';
 import {DefinePriceComponent} from './define-price/define-price.component';
+import {ReservedCarComponent} from './reserved-car/reserved-car.component';
 
 
 
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: 'definePrice',
     component: DefinePriceComponent
+  },
+  {
+    path: 'car/reserved',
+    component: ReservedCarComponent
   },
   { path: '**', component: NotFoundComponent }
 ];
