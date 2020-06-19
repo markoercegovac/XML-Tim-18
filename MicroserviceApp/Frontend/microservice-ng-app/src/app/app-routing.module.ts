@@ -24,7 +24,10 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 import {CaptureComponent} from "./advert/capture/capture/capture.component";
 import {UsersBanListComponent} from "./users-ban-list/users-ban-list.component";
-import {CreateCommentComponent} from "./create-comment/create-comment.component";
+import {CreateCommentComponent} from "./home/full-advert/comments/create-comment/create-comment.component";
+import {HomeComponent} from "./home/home.component";
+import {AdvertsComponent} from "./home/adverts/adverts.component";
+import {FullAdvertComponent} from "./home/full-advert/full-advert.component";
 
 
 const routes: Routes = [
@@ -97,8 +100,13 @@ const routes: Routes = [
     path: 'create-comment',
     component: CreateCommentComponent
   },
+  { path: 'home', component: HomeComponent, children: [
+      { path: 'ads', component: AdvertsComponent },
+      { path: 'ad/:id', component: FullAdvertComponent }
+    ]},
   { path: 'not-found', component: NotFoundComponent},
   { path: '**', redirectTo: '/not-found'}
+
 
 
 

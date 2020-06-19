@@ -37,7 +37,7 @@ public class CommentController {
         if(advertCopyService.getAdvertCopy(commentDto.getAdvertId())!=null) {
                 commentService.createComment(commentDto,advertCopyService.getAdvertCopy(commentDto.getAdvertId()));
 
-            System.out.println("/n/n/n/n/n/n/n/n bio sam ovdje komentar /n/n/n/n/n/n/n/n/n/n/n");
+
             return new ResponseEntity<>(HttpStatus.OK);
         }
 

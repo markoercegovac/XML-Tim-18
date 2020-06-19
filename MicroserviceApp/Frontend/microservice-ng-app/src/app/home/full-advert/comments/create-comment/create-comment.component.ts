@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import {Comment} from '../model/Comment';
-import {Grade} from "../model/Grade";
+import {Component, Input, OnInit} from '@angular/core';
+import {Comment} from '../../../../model/Comment';
+import {Grade} from "../../../../model/Grade";
 import {HttpClient} from "@angular/common/http";
-import {GradeService} from "../service/grade-service";
-import {CommentService} from "../service/comment-service";
+import {GradeService} from "../../../../service/grade-service";
+import {CommentService} from "../../../../service/comment-service";
 import {error} from "@angular/compiler/src/util";
 @Component({
   selector: 'app-create-comment',
@@ -13,14 +13,14 @@ import {error} from "@angular/compiler/src/util";
 export class CreateCommentComponent implements OnInit {
 
 
-
+  @Input('ad-id') adId: number;
 
   grade: Grade = {
     grade: null
   };
 // ne zaboravi da si setovala id =1 zbog hardkodovanja trenutnoo!
   comment: Comment = {
-    advertId: 1,
+    advertId: this.adId,
     userEmail: '',
     header: '',
     content: ''

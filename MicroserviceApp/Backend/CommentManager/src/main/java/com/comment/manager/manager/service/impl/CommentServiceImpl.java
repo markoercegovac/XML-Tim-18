@@ -22,7 +22,7 @@ public class CommentServiceImpl implements CommentService {
     public boolean createComment(Comment comment, AdvertCopy advertCopy) {
 
         Date todayDate = new Date();
-        if(advertCopy.getEndDate().after(todayDate)) {
+        if(!advertCopy.getEndDate().after(todayDate)) {
 
             // NAPOMENA! TREBA DODATI ID OGLASA,DOGOVORITI SE OKO TOGA.
             comment.setCommentState(CommentState.NEW);
