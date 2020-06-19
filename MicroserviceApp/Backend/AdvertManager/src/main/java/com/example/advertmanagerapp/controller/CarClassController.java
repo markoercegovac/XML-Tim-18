@@ -33,6 +33,7 @@ public class CarClassController {
 
     @PostMapping
     public ResponseEntity createCarClass(@RequestBody CarClass carClass){
+        carClass.setId(null);
         classService.saveCarClass(carClass);
         return new ResponseEntity(HttpStatus.OK);
     }

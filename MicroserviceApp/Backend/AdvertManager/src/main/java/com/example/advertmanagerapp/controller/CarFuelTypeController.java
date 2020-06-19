@@ -29,7 +29,7 @@ public class CarFuelTypeController {
 
     @PostMapping
     public ResponseEntity createCarFuelType(@RequestBody CarFuelType carFuelType){
-
+        carFuelType.setId(null);
         fuelTypeService.saveFuelType(carFuelType);
         return new ResponseEntity(HttpStatus.OK);
     }

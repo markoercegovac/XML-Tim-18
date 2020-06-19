@@ -1,18 +1,29 @@
 package com.comment.manager.manager.controller;
 
 import com.comment.manager.manager.dto.CommentDto;
-import lombok.RequiredArgsConstructor;
+import com.comment.manager.manager.model.Comment;
+import com.comment.manager.manager.service.AdvertCopyService;
+import com.comment.manager.manager.service.CommentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequiredArgsConstructor
+
 @RequestMapping("/comment-manager")
 @RestController
 @CrossOrigin
 public class CommentController {
+
+    private final CommentService commentService;
+
+    private final AdvertCopyService advertCopyService;
+
+    public CommentController(CommentService commentService, AdvertCopyService advertCopyService) {
+        this.commentService = commentService;
+        this.advertCopyService = advertCopyService;
+    }
 
     @GetMapping("/comment/{idAdvert}")
     public ResponseEntity<List<CommentDto>>getAdvertComments(@PathVariable String idAdvert){
@@ -20,8 +31,17 @@ public class CommentController {
     }
 
     @PostMapping("/comment")
-    public ResponseEntity<CommentDto> postComment(@RequestBody CommentDto commentDto){
-        return new ResponseEntity<>(HttpStatus.OK);
+    public ResponseEntity<Comment> postComment(@RequestBody Comment commentDto){
+
+        System.out.println(commentDto.getAdvertId());
+        if(advertCopyService.getAdvertCopy(commentDto.getAdvertId())!=null) {
+                commentService.createComment(commentDto,advertCopyService.getAdvertCopy(commentDto.getAdvertId()));
+
+            System.out.println("/n/n/n/n/n/n/n/n bio sam ovdje komentar /n/n/n/n/n/n/n/n/n/n/n");
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
     }
 
     @GetMapping("/admin/comment-manager/all")

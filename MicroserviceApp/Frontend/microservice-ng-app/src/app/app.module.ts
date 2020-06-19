@@ -56,6 +56,8 @@ import { AdvertDetailViewComponent } from './advert-detail-view/advert-detail-vi
 import { NotFoundComponent } from './not-found/not-found.component';
 
 import { CaptureComponent } from './advert/capture/capture/capture.component';
+import { UsersBanListComponent } from './users-ban-list/users-ban-list.component';
+import { CreateCommentComponent } from './create-comment/create-comment.component';
 
 @NgModule({
   declarations: [
@@ -98,7 +100,9 @@ import { CaptureComponent } from './advert/capture/capture/capture.component';
 
     SearchComponent,
     AdvertDetailViewComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    UsersBanListComponent,
+    CreateCommentComponent
 
   ],
     imports: [

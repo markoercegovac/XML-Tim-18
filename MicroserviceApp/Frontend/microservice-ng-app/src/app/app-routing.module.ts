@@ -23,6 +23,8 @@ import { AdvertDetailViewComponent } from './advert-detail-view/advert-detail-vi
 import { NotFoundComponent } from './not-found/not-found.component';
 
 import {CaptureComponent} from "./advert/capture/capture/capture.component";
+import {UsersBanListComponent} from "./users-ban-list/users-ban-list.component";
+import {CreateCommentComponent} from "./create-comment/create-comment.component";
 
 
 const routes: Routes = [
@@ -86,6 +88,14 @@ const routes: Routes = [
   {
     path: 'my/advert/:id',
     component: CaptureComponent
+  },
+  {
+    path: 'advert-manager/client-copy',
+    component: UsersBanListComponent
+  },
+  {
+    path: 'create-comment',
+    component: CreateCommentComponent
   },
   { path: 'not-found', component: NotFoundComponent},
   { path: '**', redirectTo: '/not-found'}
