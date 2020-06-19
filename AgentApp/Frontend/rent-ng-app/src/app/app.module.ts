@@ -37,6 +37,7 @@ import { RegisterCarComponent } from './register-car/register-car.component';
 import { DefinePriceComponent } from './define-price/define-price.component';
 import {FormsModule} from '@angular/forms';
 import { ReservedCarComponent } from './reserved-car/reserved-car.component';
+import { MyAdvertComponent } from './my-advert/my-advert.component';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { ReservedCarComponent } from './reserved-car/reserved-car.component';
     NavigationComponent,
     RegisterCarComponent,
     DefinePriceComponent,
-    ReservedCarComponent
+    ReservedCarComponent,
+    MyAdvertComponent
   ],
   imports: [
     BrowserModule,

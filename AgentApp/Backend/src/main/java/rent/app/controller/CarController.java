@@ -47,4 +47,9 @@ public class CarController {
     public void registerCar(@RequestBody CarDto car){
         carService.createCar(car);
     }
+
+    @GetMapping("/allCars")
+    public ResponseEntity<List<CarDtoMini>> getAllCars(){
+        return new ResponseEntity<>(carService.allCars(),HttpStatus.OK);
+    }
 }

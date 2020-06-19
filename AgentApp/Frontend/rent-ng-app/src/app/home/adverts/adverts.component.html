@@ -13,7 +13,7 @@
 
     </div>
     <hr>
-    <div *ngFor="let advert of adverts">
+    <div *ngFor="let advert of advertService.advertList">
         <app-advert-mini [ad]="advert"></app-advert-mini>
     </div>
 

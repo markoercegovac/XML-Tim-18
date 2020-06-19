@@ -26,7 +26,7 @@ export class HomeHeaderComponent implements OnInit {
     this.router.navigate(['/home/ads']);
   }
 
-  onReserved() {
-    this.router.navigate(['/car/reserved']);
+  myAdverts() {
+    this.router.navigate(['/my/adverts']);
   }
 }

@@ -7,6 +7,7 @@ import rent.app.model.*;
 import rent.app.repository.*;
 import rent.app.service.CarService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -62,5 +63,18 @@ public class CarServiceImpl implements CarService {
         car.setCarModel(carModel);
         car.setCarTransmissionType(carTransmissionType);
         carRepository.save(car);
+    }
+
+    @Override
+    public List<CarDtoMini> allCars() {
+        List<CarDtoMini> cars=new ArrayList<>();
+        List<Car>carList=carRepository.findAll();
+        for(Car c: carList){
+            CarDtoMini carDtoMini=new CarDtoMini();
+            carDtoMini.setId(c.getId());
+            carDtoMini.setCarName(c.getCarModel().getModelName()+":"+c.getCarBrand().getName());
+            cars.add(carDtoMini);
+        }
+        return cars;
     }
 }

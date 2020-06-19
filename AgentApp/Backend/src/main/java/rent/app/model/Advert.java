@@ -51,4 +51,6 @@ public class Advert {
     @OneToMany(mappedBy = "advert",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<Comment> comments;
 
+    @OneToMany
+    private List<Reservation> reservations;
 }

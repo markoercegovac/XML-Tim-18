@@ -1,6 +1,7 @@
 package rent.app.service;
 
 import rent.app.dto.CarDto;
+import rent.app.dto.CarDtoMini;
 import rent.app.dto.DTOEntity;
 import rent.app.dto.DtoUtils;
 
@@ -13,4 +14,5 @@ public interface CarService {
     List<DTOEntity> getCarClasses();
     List<DTOEntity> getTransmissions();
     void createCar(CarDto car);
+    List<CarDtoMini> allCars();
 }

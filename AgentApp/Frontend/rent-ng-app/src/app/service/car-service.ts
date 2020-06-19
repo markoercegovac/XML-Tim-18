@@ -9,6 +9,7 @@ import {CarClass} from "../model/carClass";
 import {CarFuelType} from "../model/carFuelType";
 import {CarTransmission} from "../model/carTransmission";
 import {environment} from '../../environments/environment';
+import {CarMini} from '../model/car-mini';
 
 const URL = environment.car;
 
@@ -47,8 +48,8 @@ export class CarService {
     return this.http.post(URL + '/registerCar', car);
   }
 
-  public getAllCars(): Observable<Car>{
-    return this.http.get<Car>(URL + '/allCars');
+  public getAllCars(): Observable<CarMini[]>{
+    return this.http.get<CarMini[]>(URL + '/allCars');
   }
 
 }

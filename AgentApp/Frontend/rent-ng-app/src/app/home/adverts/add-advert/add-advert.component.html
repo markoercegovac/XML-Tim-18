@@ -65,6 +65,16 @@
 
             </div>
         </div>
+      <div class="form-group row">
+        <label class="col-4 col-form-label" for="inputPrice">Select price</label>
+        <div class="col-8">
+
+          <select class="browser-default custom-select" name="inputCar" id="inputCar" ngModel required #inputCar="ngModel">
+            <option *ngFor="let car of allCars" value="{{car.id}}">{{car.carName}}</option>
+          </select>
+
+        </div>
+      </div>
 
         <!--DISSCOUNT-->
         <hr>

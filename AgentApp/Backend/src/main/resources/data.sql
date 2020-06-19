@@ -52,19 +52,7 @@ insert into price(id, name, price_per_day, discount, distance_overflow_price, in
 (803, "price #3", 432.4, 30, 452445, 4334, false),
 (804, "price #4", 432.4, 30, 452445, 4334, false);  
 
---ADVERTS
-insert into advert(id, is_active, car_id, current_driver, price_id)
-values(1, true, 301, null, 801);
 
---GRADES
-insert into grade(id, grade, advert_id) values(1, 3, 1);
-insert into grade(id, grade, advert_id) values(2, 3, 1);
-insert into grade(id, grade, advert_id) values(3, 5, 1);
 
---COMMENTS
-insert into comment(id, content, is_approved, client_email,advert_id)
-    values(1, 'odlicna ponuda', true, 'mika@maildrop.cc', 1);
-insert into comment(id, content, is_approved, client_email,advert_id)
-    values(2, 'super cena', true, 'pera@maildrop.cc', 1);
-insert into comment(id, content, is_approved, client_email,advert_id)
-    values(3, 'lose je jako', false, 'mika@maildrop.cc', 1);
+
+
