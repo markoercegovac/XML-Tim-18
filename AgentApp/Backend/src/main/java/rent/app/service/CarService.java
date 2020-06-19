@@ -1,13 +1,16 @@
 package rent.app.service;
 
-import rent.app.model.*;
+import rent.app.dto.CarDto;
+import rent.app.dto.DTOEntity;
+import rent.app.dto.DtoUtils;
 
 import java.util.List;
 
 public interface CarService {
-    List<CarBrand> getCarBrands();
-    List<CarModel> getCarModels();
-    List<CarFuelType> getFuelTypes();
-    List<CarClass> getCarClasses();
-    List<CarTransmissionType> getTransmissions();
+    List<DTOEntity> getCarBrands();
+    List<DTOEntity> getCarModels();
+    List<DTOEntity> getFuelTypes();
+    List<DTOEntity> getCarClasses();
+    List<DTOEntity> getTransmissions();
+    void createCar(CarDto car);
 }

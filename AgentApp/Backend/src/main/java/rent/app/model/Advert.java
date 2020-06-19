@@ -1,6 +1,7 @@
 package rent.app.model;
 
 import lombok.Data;
+import rent.app.dto.PictureDto;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -18,8 +19,9 @@ public class Advert {
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Car car;
 
-    @Column(name="profilePicture")
-    private String profilePicture;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "picture", referencedColumnName = "id_advert")
+    private Picture profilePicture;
 
     @OneToMany(mappedBy = "advert",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<Picture> pictureSet;

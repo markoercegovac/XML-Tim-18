@@ -8,40 +8,47 @@ import {CarBrand} from "../model/carBrand";
 import {CarClass} from "../model/carClass";
 import {CarFuelType} from "../model/carFuelType";
 import {CarTransmission} from "../model/carTransmission";
+import {environment} from '../../environments/environment';
+
+const URL = environment.car;
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class CarService {
-  private URL: string;
+
 
   constructor(private http: HttpClient) {
-    this.URL = 'http://localhost:9090/api/car';
+
   }
 
   public getAllCarModels(): Observable<CarModel[]> {
-    return this.http.get<CarModel[]>(this.URL + '/allModels');
+    return this.http.get<CarModel[]>(URL + '/allModels');
   }
 
   public getAllCarBrands(): Observable<CarBrand[]>{
-    return this.http.get<CarBrand[]>(this.URL+'/allBrands');
+    return this.http.get<CarBrand[]>(URL + '/allBrands');
   }
 
   public getAllCarTransmissionType(): Observable<CarTransmission[]>{
-    return this.http.get<CarTransmission[]>(this.URL+'/allTransmissionType');
+    return this.http.get<CarTransmission[]>(URL + '/allTransmissionType');
   }
 
-  public getAllCarClass():Observable<CarClass[]>{
-    return this.http.get<CarClass[]>(this.URL+'/allCarClass');
+  public getAllCarClass(): Observable<CarClass[]>{
+    return this.http.get<CarClass[]>(URL + '/allCarClass');
   }
 
-  public getAllFuelType():Observable<CarFuelType[]>{
-    return this.http.get<CarFuelType[]>(this.URL+'/allFuelType');
+  public getAllFuelType(): Observable<CarFuelType[]>{
+    return this.http.get<CarFuelType[]>(URL + '/allFuelType');
   }
 
-  public registerCar(car:Car){
-    return this.http.post(this.URL+'/registerCar',car);
+  public registerCar(car: Car){
+    return this.http.post(URL + '/registerCar', car);
+  }
+
+  public getAllCars(): Observable<Car>{
+    return this.http.get<Car>(URL + '/allCars');
   }
 
 }

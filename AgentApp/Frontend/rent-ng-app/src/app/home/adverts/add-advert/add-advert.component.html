@@ -10,7 +10,7 @@
         <button class="btn btn-success">add car specifik data</button>
         <hr>
         <br>
-        
+
         <!--PROFILE IMAGE-->
         <label>
             <span>Profile Image&nbsp;
@@ -57,12 +57,9 @@
         <div class="form-group row">
             <label class="col-4 col-form-label" for="inputPrice">Select price</label>
             <div class="col-8">
-              
-                <select class="browser-default custom-select" name="inputPrice" id="inputPrice" >
-                    <option value="0" disabled selected>select price</option>
-                    <option value="1">125 with 10% disscount</option>
-                    <option value="2">250</option>
-                    <option value="3">500 with 25%disscount</option>
+
+                <select class="browser-default custom-select" name="inputPrice" id="inputPrice" ngModel required #inputPrice="ngModel">
+                  <option *ngFor="let price of allPrices" value="{{price.id}}">{{price.pricePerDay}}</option>
                 </select>
 
             </div>
@@ -73,7 +70,7 @@
         <div class="form-group row">
             <label class="col-4 col-form-label" for="inputDisscount">Select discount</label>
             <div class="col-8">
-              
+
                 <select class="browser-default custom-select" name="inputDisscount" id="inputDisscount">
                     <option value="0" disabled selected>no disscount</option>
                     <option value="1">diss 10% for 25km</option>
@@ -88,7 +85,7 @@
         <hr>
         <div class="form-group row">
             <label for="inputDate">Ending date of adverting</label>
-            <input type="date" id="inputDate" name="inputDate"/>
+            <input type="date" id="inputDate" name="inputDate" ngModel required #inputDate="ngModel"/>
         </div>
 
         <br>

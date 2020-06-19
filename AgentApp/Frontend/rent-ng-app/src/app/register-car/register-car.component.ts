@@ -22,7 +22,21 @@ export class RegisterCarComponent implements OnInit {
   allCarFuelType: CarFuelType[];
   allCarBrand: CarBrand[];
   allCarTransmission: CarTransmission[];
-  model: Car;
+  model: Car={
+    id: 0,
+    childrenSitNumber: 0,
+    isInsurance: false,
+    travelDistance: 0,
+    carBrand: 0,
+    carFuelType: 0,
+    carModel: 0,
+    carTransmissionType: 0,
+    carClass: 0,
+  } ;
+
+
+
+
 
   constructor(private http: HttpClient, private carService: CarService) {}
 
