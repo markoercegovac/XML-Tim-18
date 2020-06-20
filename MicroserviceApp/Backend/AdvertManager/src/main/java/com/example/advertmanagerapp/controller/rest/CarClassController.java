@@ -1,4 +1,4 @@
-package com.example.advertmanagerapp.controller;
+package com.example.advertmanagerapp.controller.rest;
 
 
 import com.example.advertmanagerapp.dto.CarClassDto;
