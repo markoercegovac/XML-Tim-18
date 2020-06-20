@@ -12,16 +12,16 @@ import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 export class AdvertMiniComponent implements OnInit {
 
   @Input("ad") advert: AdvertMiniModel;
-  profileImage: any;
-  base64Image: SafeUrl;
+
   constructor(private router: Router, private advertService: AdvertService, private  domSanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
 
+
   }
 
   showFullAdvert() {
-    //this.router.navigate(['/home/ad', this.advert.advertId]);
+    this.router.navigate(['/home/ad', this.advert.advertId]);
   }
 
 }

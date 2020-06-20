@@ -39,6 +39,9 @@ import {FormsModule} from '@angular/forms';
 import { ReservedCarComponent } from './reserved-car/reserved-car.component';
 import { MyAdvertComponent } from './my-advert/my-advert.component';
 import { ChatComponent } from './home/footer/chat/chat.component';
+import { DriveReportCreateComponent } from './drive-report-create/drive-report-create.component';
+import { DriveReportListComponent } from './drive-report-list/drive-report-list.component';
+import { DriveReportUpdateComponent } from './drive-report-update/drive-report-update.component';
 
 
 @NgModule({
@@ -68,6 +71,9 @@ import { ChatComponent } from './home/footer/chat/chat.component';
     NavigationComponent,
     RegisterCarComponent,
     DefinePriceComponent,
+    DriveReportCreateComponent,
+    DriveReportListComponent,
+    DriveReportUpdateComponent,
     ReservedCarComponent,
     MyAdvertComponent,
     ChatComponent

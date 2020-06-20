@@ -14,6 +14,7 @@ import rent.app.repository.CarRepository;
 import rent.app.repository.PictureRepository;
 import rent.app.repository.PriceRepository;
 import rent.app.service.AdvertService;
+import rent.app.service.GradeService;
 import rent.app.service.PictureService;
 
 import java.io.IOException;
@@ -30,6 +31,7 @@ public class AdvertServiceImpl implements AdvertService {
     private final PriceRepository priceRepository;
     private final CarRepository carRepository;
     private final AdvertRepository advertRepository;
+    private final GradeService gradeService;
     private final DtoUtils dtoUtils;
 
     @Override
@@ -63,6 +65,7 @@ public class AdvertServiceImpl implements AdvertService {
 
         for(Advert a: adverts){
             AdvertMiniDto advertMiniDto=new AdvertMiniDto();
+            advertMiniDto.setGrade(gradeService.getGradeForAd(a.getId()));
             advertMiniDto.setAdvertId(a.getId());
             advertMiniDto.setCarBrand(a.getCar().getCarBrand().getName());
             advertMiniDto.setCarModel(a.getCar().getCarModel().getModelName());
