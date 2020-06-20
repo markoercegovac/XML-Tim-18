@@ -1,0 +1,23 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th scope="col">Number</th>
+    <th scope="col">Car Brand</th>
+    <th scope="col">Car Model</th>
+
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let advert of allAdverts">
+    <td>{{advert.advertId}}</td>
+    <td>{{advert.carBrand}}</td>
+    <td>{{advert.carModel}}</td>
+    <td><button class="btn btn-danger" (click)="reserved(advert)">Capture Date</button></td>
+  </tr>
+
+
+
+
+  </tbody>
+</table>

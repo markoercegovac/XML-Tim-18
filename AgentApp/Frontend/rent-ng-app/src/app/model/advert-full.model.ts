@@ -4,14 +4,14 @@ export interface AdvertFullModel {
 
     advertId: number;
     profileImage: string;
-    galeryImages: string[];
+    galleryImages: string[];
     price: number;
     grade: number;
     ownerEmail: string;
     firmName: string;
     description: string;
-
-    car: Car
+    carBrand: string;
+    carModel: string;
 
 
 }

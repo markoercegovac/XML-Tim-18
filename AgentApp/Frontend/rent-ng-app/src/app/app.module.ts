@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import {MDBBootstrapModule} from 'angular-bootstrap-md';
 // @ts-ignore
 import { HttpClientModule } from '@angular/common/http';
 import { SignInComponent } from './sign-in/sign-in.component';
@@ -36,6 +36,8 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { RegisterCarComponent } from './register-car/register-car.component';
 import { DefinePriceComponent } from './define-price/define-price.component';
 import {FormsModule} from '@angular/forms';
+import { ReservedCarComponent } from './reserved-car/reserved-car.component';
+import { MyAdvertComponent } from './my-advert/my-advert.component';
 
 
 @NgModule({
@@ -64,13 +66,16 @@ import {FormsModule} from '@angular/forms';
     AddAdvertComponent,
     NavigationComponent,
     RegisterCarComponent,
-    DefinePriceComponent
+    DefinePriceComponent,
+    ReservedCarComponent,
+    MyAdvertComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    MDBBootstrapModule
   ],
   providers: [],
   bootstrap: [AppComponent]
