@@ -6,20 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
-  isActiveChat:boolean;
+
   constructor() { }
 
   ngOnInit(): void {
 
   }
-  public showChat() {
-    this.isActiveChat = true;
-  }
-  public closeChat(){
-    this.isActiveChat = false;
-  }
+
 
   sendMesage() {
-    
+
   }
 }

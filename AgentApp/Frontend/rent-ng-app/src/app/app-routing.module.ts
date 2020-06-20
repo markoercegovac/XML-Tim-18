@@ -17,6 +17,8 @@ import {RegisterCarComponent} from './register-car/register-car.component';
 import {DefinePriceComponent} from './define-price/define-price.component';
 import {ReservedCarComponent} from './reserved-car/reserved-car.component';
 import {MyAdvertComponent} from './my-advert/my-advert.component';
+import {ChatComponent} from './chat/chat.component';
+import {InboxComponent} from './inbox/inbox.component';
 
 
 
@@ -51,6 +53,15 @@ const routes: Routes = [
   {
     path: 'my/adverts',
     component: MyAdvertComponent
+  },
+
+  {
+    path: 'chat',
+    component: ChatComponent
+  },
+  {
+    path: 'inbox',
+    component: InboxComponent
   },
   { path: '**', component: NotFoundComponent }
 ];
