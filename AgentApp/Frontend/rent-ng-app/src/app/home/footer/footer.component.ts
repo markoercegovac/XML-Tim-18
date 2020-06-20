@@ -10,16 +10,11 @@ import { Component, OnInit } from '@angular/core';
 
 
 export class FooterComponent implements OnInit {
-  isActiveChat: boolean;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  public showChat() {
-    this.isActiveChat = true;
-  }
-  public closeChat(){
-    this.isActiveChat = false;
-  }
+
 }
