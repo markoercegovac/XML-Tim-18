@@ -19,7 +19,7 @@ export class Car {
     this.isInsurance = isInsurance;
     this.travelDistance = travelDistance;
     this.carTransmissionType = carTransmission;
-    this.carClass=carClass;
+    this.carClass = carClass;
   }
 
 }

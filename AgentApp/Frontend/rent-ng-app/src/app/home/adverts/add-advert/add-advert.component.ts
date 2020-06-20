@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ImageModel } from 'src/app/model/image.model';
+import {PriceService} from '../../../service/price-service';
+import {AdvertService} from '../../../service/advert-service';
+import {Price} from '../../../model/price';
+import {Car} from '../../../model/car';
+import {PicModel} from '../../../model/picModel';
+import {AdvertCreateModel} from '../../../model/advert-create.model';
+import {CarService} from '../../../service/car-service';
+import {CarMini} from '../../../model/car-mini';
 
 @Component({
   selector: 'app-add-advert',
@@ -10,12 +18,30 @@ import { ImageModel } from 'src/app/model/image.model';
 })
 export class AddAdvertComponent implements OnInit {
 
+  allPrices: Price[];
+  allCars: CarMini[];
   profileImage: ImageModel;
   imageGalery: ImageModel[] = [];
 
-  constructor() { }
+
+  constructor(private advertService: AdvertService,private carService: CarService) { }
 
   ngOnInit(): void {
+    this.advertService.getAllPrices().subscribe(
+
+      data => {
+        this.allPrices = data;
+      },
+      error => {
+        console.log('Error occurred', error);
+      }
+    );
+
+    this.carService.getAllCars().subscribe(
+      data => {
+        this.allCars=data;
+      }
+    )
   }
 
   public onInputProfileImage(profileImageInput: any) {
@@ -57,7 +83,22 @@ export class AddAdvertComponent implements OnInit {
   }
 
   public onAddAd(form: NgForm) {
-    console.log(form.value.inputDescription);
+    let gallery: PicModel[]=[];
+
+    for(let img of this.imageGalery){
+      gallery.push(new PicModel(null,img.src,null,false,img.file.name));
+    }
+    let picModel: PicModel;
+    picModel=new PicModel(null,this.profileImage.src,null,false,this.profileImage.file.name);
+
+    console.log(form.value);
+    let advert: AdvertCreateModel;
+    advert=new AdvertCreateModel(null,picModel,gallery,new Date(),form.value.inputDate,form.value.inputDescription,
+      true,form.value.inputCar,form.value.inputPrice);
+
+
+    this.advertService.createAdvert(advert).subscribe();
+
   }
 
 }
