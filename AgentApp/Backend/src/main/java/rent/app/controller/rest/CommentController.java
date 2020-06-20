@@ -1,4 +1,4 @@
-package rent.app.controller;
+package rent.app.controller.rest;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

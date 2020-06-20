@@ -16,8 +16,6 @@ public class CarBrand {
     private Long id;
 
     @Column
-    @Min(2)
-    @Max(32)
     private String name;
 
     @Column
