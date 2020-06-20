@@ -9,11 +9,11 @@ import { Observable } from 'rxjs';
 })
 export class CommentService {
 
-  private BASE_URL: string = 'http://localhost:9090/comment/';
+  private BASE_URL = 'http://localhost:9090/comment/';
 
   constructor(private http: HttpClient) { }
 
   public getAllCommentsForAd(adId: number): Observable<any> {
-    return this.http.get<CommentModel[]>(this.BASE_URL+adId);
+    return this.http.get<CommentModel[]>(this.BASE_URL + adId);
   }
 }

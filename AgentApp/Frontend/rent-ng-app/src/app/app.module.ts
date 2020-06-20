@@ -36,6 +36,9 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { RegisterCarComponent } from './register-car/register-car.component';
 import { DefinePriceComponent } from './define-price/define-price.component';
 import {FormsModule} from '@angular/forms';
+import { DriveReportCreateComponent } from './drive-report-create/drive-report-create.component';
+import { DriveReportListComponent } from './drive-report-list/drive-report-list.component';
+import { DriveReportUpdateComponent } from './drive-report-update/drive-report-update.component';
 
 
 @NgModule({
@@ -64,7 +67,10 @@ import {FormsModule} from '@angular/forms';
     AddAdvertComponent,
     NavigationComponent,
     RegisterCarComponent,
-    DefinePriceComponent
+    DefinePriceComponent,
+    DriveReportCreateComponent,
+    DriveReportListComponent,
+    DriveReportUpdateComponent
   ],
   imports: [
     BrowserModule,
