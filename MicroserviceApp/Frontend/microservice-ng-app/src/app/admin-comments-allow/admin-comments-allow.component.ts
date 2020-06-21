@@ -61,7 +61,7 @@ export class AdminCommentsAllowComponent implements OnInit {
 
     this.service.rejected(element).subscribe(res=>{
 
-      alert("Uspesno prihvacen komentar.");
+      alert("Uspesno odbijen komentar.");
     },error => {
 
       alert("Greska");

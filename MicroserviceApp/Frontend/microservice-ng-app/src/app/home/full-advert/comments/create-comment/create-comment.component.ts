@@ -16,7 +16,8 @@ export class CreateCommentComponent implements OnInit {
   @Input('ad-id') adId: number;
 
   grade: Grade = {
-    grade: null
+    grade: null,
+    advertId : null
   };
 
   comment: Comment = {
@@ -33,6 +34,7 @@ export class CreateCommentComponent implements OnInit {
 
   ngOnInit(): void {
     this.comment.advertId = this.adId;
+    this.grade.advertId = this.adId;
   }
 
 
