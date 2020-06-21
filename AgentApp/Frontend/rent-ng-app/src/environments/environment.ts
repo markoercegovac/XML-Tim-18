@@ -7,6 +7,9 @@ export const environment = {
   advert: 'http://localhost:9090/api/advert',
   price: 'http://localhost:9090/api/price',
   car: 'http://localhost:9090/api/car',
+  grade: 'http://localhost:9090/grades',
+  comm: 'http://localhost:9090/comment/',
+  report: 'http://localhost:9090/crud',
 };
 
 /*

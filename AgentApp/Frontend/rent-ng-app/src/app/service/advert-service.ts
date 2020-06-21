@@ -10,7 +10,7 @@ import {Reservation} from '../model/reservation';
 
 const URL: string = environment.advert;
 const priceURL: string = environment.price;
-
+const gradeUrl: string = environment.grade;
 @Injectable({
   providedIn: 'root'
 })
@@ -23,7 +23,7 @@ export class AdvertService {
   }
 
   public createAdvert(advert: AdvertCreateModel){
-    return this.http.post(URL,advert);
+    return this.http.post(URL, advert);
   }
 
   public getAllPrices(): Observable<Price[]>{
@@ -31,7 +31,7 @@ export class AdvertService {
   }
 
 
-  public getAllAdverts() {
+  public getAllAdverts(): Observable<AdvertMiniModel[]> {
      return this.http.get<AdvertMiniModel[]>(URL + '/allAdverts');
 
   }
@@ -42,5 +42,8 @@ export class AdvertService {
 
   public createReservation(capture: Reservation){
     return this.http.post(URL + '/reservation', capture);
+  }
+  public getGradeForAdvert(id: number): any{
+    return this.http.get(gradeUrl + '/all/' + id);
   }
 }

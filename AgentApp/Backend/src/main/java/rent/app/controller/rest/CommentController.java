@@ -12,12 +12,12 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/comment")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 public class CommentController {
 
     private final CommentService commentService;
 
-    @GetMapping(value = "/{id}", consumes = "application/json")
+    @GetMapping(value = "/{id}")
     public ResponseEntity<List<CommentDTO>> getAllCommentsOfAdvert(@PathVariable("id") Long id) {
         List<CommentDTO> comments = commentService.getAllCommentsOfAd(id);
 
@@ -27,11 +27,10 @@ public class CommentController {
     @PostMapping(value = "/add", consumes = "application/json")
     public ResponseEntity<?> createComment(@RequestBody CommentDTO comment) {
 
-        if(commentService.addNewComment(comment)) {
-            return new ResponseEntity<>(HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
-        }
+        commentService.addNewComment(comment);
+
+            return new ResponseEntity<>( HttpStatus.OK);
+
     }
 
 }

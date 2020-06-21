@@ -59,7 +59,7 @@
             <label class="col-4 col-form-label" for="inputPrice">Select price</label>
             <div class="col-8">
 
-                <select class="browser-default custom-select" name="inputPrice" id="inputPrice" ngModel required #inputPrice="ngModel">
+                <select class="browser-default custom-select" name="inputPrice" id="inputPrice" ngModel required #a="ngModel">
                   <option *ngFor="let price of allPrices" value="{{price.id}}">{{price.pricePerDay}}</option>
                 </select>
 
