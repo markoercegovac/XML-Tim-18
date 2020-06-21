@@ -5,4 +5,5 @@ import rent.app.model.Car;
 
 public interface CarRepository extends JpaRepository<Car, Long> {
     Car findAllById(Long carId);
+    Car findByReportsId(Long driverReportId);
 }

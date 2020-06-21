@@ -35,14 +35,15 @@ export class DriveReportCreateComponent implements OnInit {
     console.log( 'tekst', this.model.carId);
     this.drService.createDr(this.model).subscribe(
       res => {
-        //    location.reload();
+        this.goToList();
       },
       error => {
         alert('Error');
+        this.goToList();
       }
     );
     //this.model = new DriveReport();
-    this.goToList();
+ 
   }
 
   goToList() {

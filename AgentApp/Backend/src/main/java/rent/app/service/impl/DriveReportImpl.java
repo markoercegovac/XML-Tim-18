@@ -30,7 +30,7 @@ public class DriveReportImpl implements DriveReportService {
             report.setTraveledDistance(d.getTraveledDistance());
             report.setDateOfReport(d.getDateOfReport());
             report.setDescribe(d.getDescribe());
-            report.setCarId(d.getCarReport().getId());
+//            report.setCarId(d.getCarReport().getId());
 
             listaDto.add(report);
         }
@@ -43,11 +43,14 @@ public class DriveReportImpl implements DriveReportService {
         DriveReport report = new DriveReport();
         Car car = this.carRepository.findAllById(newReport.getCarId());
         report.setId(newReport.getId());
-        report.setCarReport(car);
+//        report.setCarReport(car);
         report.setDateOfReport(newReport.getDateOfReport());
         report.setDescribe(newReport.getDescribe());
         report.setTraveledDistance(newReport.getTraveledDistance());
-        driveReportRepository.save(report);
+
+        car.getReports().add(report);
+        carRepository.save(car);
+
 
     }
 
@@ -61,10 +64,9 @@ public class DriveReportImpl implements DriveReportService {
 
         for(DriveReport dr: listaPom) {
             System.out.println(dr);
+            Car c = carRepository.findByReportsId(dr.getId());
 
-            if(dr.getCarReport().getId()==carId) {
-                System.out.println("id auta od preuzete cijele liste" +dr.getCarReport().getId());
-                System.out.println(dr);
+            if(c.getId().equals(carId)) {
                 lista.add(dr);
             }
         }
@@ -72,12 +74,13 @@ public class DriveReportImpl implements DriveReportService {
         List<DriveReportDto> listaDto= new ArrayList<>();
 
         for (DriveReport d: lista) {
+            Car c = carRepository.findByReportsId(d.getId());
             DriveReportDto report = new DriveReportDto();
             report.setId(d.getId());
             report.setTraveledDistance(d.getTraveledDistance());
             report.setDateOfReport(d.getDateOfReport());
             report.setDescribe(d.getDescribe());
-            report.setCarId(d.getCarReport().getId());
+            report.setCarId(c.getId());
 
             listaDto.add(report);
         }

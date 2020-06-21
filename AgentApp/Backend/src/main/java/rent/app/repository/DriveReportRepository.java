@@ -9,5 +9,5 @@ import java.util.List;
 public interface DriveReportRepository extends JpaRepository<DriveReport,Long> {
 
 
-    List<DriveReport> findAllByCarReportId(Long carId);
+//    List<DriveReport> findAllByCarReportId(Long carId);
 }

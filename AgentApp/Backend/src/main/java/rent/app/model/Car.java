@@ -1,5 +1,6 @@
 package rent.app.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -53,13 +54,15 @@ public class Car {
     @Column
     private int childrenSitNumber;
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private Client client;
+//    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+//    private Client client;
 
     @OneToMany(mappedBy = "car",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JsonBackReference
     private Set<Advert> adverts;
 
-    @OneToMany(mappedBy = "carReport",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JsonBackReference
     private Set<DriveReport> reports;
 
 }
