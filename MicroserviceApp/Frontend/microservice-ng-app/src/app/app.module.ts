@@ -58,6 +58,10 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { CaptureComponent } from './advert/capture/capture/capture.component';
 import { OwnerViewRequestsComponent } from './owner-view-requests/owner-view-requests.component';
 import { AdRequestItemComponent } from './owner-view-requests/ad-request-item/ad-request-item.component';
+import { MessagesComponent } from './messages/messages.component';
+import { MessageComponent } from './messages/message/message.component';
+import { CreateMessageComponent } from './messages/create-message/create-message.component';
+import { MessageDetailComponent } from './messages/message-detail/message-detail.component';
 
 @NgModule({
   declarations: [
@@ -102,7 +106,11 @@ import { AdRequestItemComponent } from './owner-view-requests/ad-request-item/ad
     AdvertDetailViewComponent,
     NotFoundComponent,
     OwnerViewRequestsComponent,
-    AdRequestItemComponent
+    AdRequestItemComponent,
+    MessagesComponent,
+    MessageComponent,
+    CreateMessageComponent,
+    MessageDetailComponent
 
   ],
     imports: [

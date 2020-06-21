@@ -1,0 +1,41 @@
+<div>
+	<br>
+	<div class="row justify-content-around">
+		<div class="col-3">
+			<h2 class="text text-info">Compose message</h2>
+		</div>
+		<div class="col-3">
+			<div class="row">
+				<label for="receiverSelect" class="text text-info">to&nbsp;</label>
+				<select name="receiverSelect" id="receiverSelect" [(ngModel)]="receiver" >
+					<option *ngFor="let e of contacts" value="{{e}}">{{e}}</option>
+				</select>
+			</div>
+		</div>
+	</div>
+	<hr class="info">
+
+	<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+
+		<div class="row justify-content-start ml-5">
+			<div class="col-2">
+				<label for="headerInput" class="text text-info">Header: </label>
+			</div>
+			<div class="col-2">
+				<input type="text" name="headerInput" id="headerInput" ngModel required>
+			</div>
+		</div>
+
+		<br>
+		<div class="row justify-content-center ml-5 mr-5" >
+			<textarea style="width: 100%;" cols="30" rows="10" id="contentInput" name="contentInput" ngModel required></textarea>
+		</div>
+		
+		<br>
+		<div class="row justify-content-end">
+			<div class="col-1">
+				<button type="submit" class="btn btn-primary" [disabled]="f.invalid">send</button>
+			</div>
+		</div>
+	</form>
+</div>

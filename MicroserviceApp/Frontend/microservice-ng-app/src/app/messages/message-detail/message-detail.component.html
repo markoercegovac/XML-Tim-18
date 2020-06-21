@@ -1,0 +1,27 @@
+<div class="container-fluid" *ngIf="error == false">
+	<div class="row justify-content-around">
+		<div class="col-2">
+			<h2 class="text text-primary">{{msg.header}}</h2>
+		</div>
+		<div class="col-2">
+			<h2 class="text text-primary">{{msg.creationDate | date:'short'}}</h2>
+		</div>
+	</div>
+	<hr class="bg-primary">
+	<br>
+	<div class="row justify-content-center">
+		<textarea style="width: 80%;" cols="30" rows="10" disabled>{{msg.content}}</textarea>
+	</div>
+
+	<div class="row justify-content-around">
+		<div class="col-3">
+			<span class="badge badge-primary badge-lg">
+				{{amISender?'receiver':'sender'}}
+			</span>
+			{{amISender?msg.receiverEmail:msg.senderEmail}}
+		</div>
+		<div class="col-1">
+			<button class="btn btn-primary" (click)="onSend()">{{amISender?'spam':'replay'}}</button>
+		</div>
+	</div>
+</div>
