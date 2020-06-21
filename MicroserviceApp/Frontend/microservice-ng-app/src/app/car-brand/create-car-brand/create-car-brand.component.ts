@@ -1,12 +1,12 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatTableDataSource} from '@angular/material/table';
+
 import {HttpClient} from '@angular/common/http';
 
 import {MAT_DIALOG_DATA, MatDialog, MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import {DialogData} from '../../model/DialogData';
 import {CarBrand} from "../../model/carBrand";
 import {CarBrandComponent} from "../car-brand.component";
+
 
 
 @Component({
@@ -23,7 +23,7 @@ export class CreateCarBrandComponent implements OnInit {
     name: '',
     isRemoved: false
 
-  }
+  };
   constructor(public http: HttpClient,
               public dialogRef: MatDialogRef<CreateCarBrandComponent>,
               @Inject(MAT_DIALOG_DATA) public data: CarBrand) {}

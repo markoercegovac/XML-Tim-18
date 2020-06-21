@@ -19,22 +19,23 @@ public class ConcreteCar implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "carBrand_id", referencedColumnName = "id")
     private CarBrand carBrand;
 
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "carClass_id", referencedColumnName = "id")
     private CarClass carClass;
 
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "carFuelType_id", referencedColumnName = "id")
     private CarFuelType carFuelType;
 
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "carModel_id", referencedColumnName = "id")
     private CarModel carModel;
 

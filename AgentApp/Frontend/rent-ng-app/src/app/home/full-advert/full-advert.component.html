@@ -1,8 +1,8 @@
 <div>
-    
+
     <div class="row">
         <div class="col-5 border-right">
-            
+
             <div class="row justify-content-center">
                 <div class="bg-secondary" style="width: 250px;height: 250px;">profile image</div>
             </div>
@@ -13,21 +13,40 @@
                 <div class="col-2 bg-secondary" style="width: 50px;height: 50px;"></div>
                 <div class="col-2 bg-secondary" style="width: 50px;height: 50px;"></div>
                 <div class="col-2 bg-secondary" style="width: 50px;height: 50px;"></div>
-            
+
             </div>
 
         </div>
         <div class="col-7">
             <h3>price: </h3>
             <br>
-            <p>grade: </p>
+            <p>grade:{{grade}} </p>
             <p>owner: </p>
             <p>car specifik data</p>
         </div>
     </div>
     <hr>
     <p>Description:</p>
+<!--    <form (click)="createGrade()">-->
+<!--    <h1>Ocena<i class="grade"></i></h1>-->
 
+<!--    <div>-->
+<!--      <select class="form-group" >-->
+<!--        <option value="1">1</option>-->
+<!--        <option value="2">2</option>-->
+<!--        <option value="3">3</option>-->
+<!--        <option value="4">4</option>-->
+<!--        <option value="5">5</option>-->
+<!--      </select>-->
+<!--    </div>-->
+<!--      <br>-->
+
+<!--    <div>-->
+<!--      <button class="btn btn-primary">Create Grade</button>-->
+
+<!--    </div>-->
+
+<!--    </form>-->
     <br>
     <hr>
     <app-comments [ad-id]="adId"></app-comments>

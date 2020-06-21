@@ -24,7 +24,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../AgentApp/Backend" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -76,15 +76,11 @@
     </state>
     <state x="1235" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2944.1082@0.0.2944.1082" timestamp="1589709148283" />
     <state x="1442" y="219" key="#com.intellij.execution.impl.EditConfigurationsDialog/1024.42.1920.1080/0.0.1024.768@1024.42.1920.1080" timestamp="1589651600121" />
-    <state x="768" y="231" width="374" height="570" key="#com.intellij.ide.util.MemberChooser" timestamp="1592746148931">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="768" y="231" width="374" height="570" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1592746148931" />
-    <state x="738" y="264" width="424" height="479" key="FileChooserDialogImpl" timestamp="1589875161949">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="1762" y="274" width="424" height="479" key="FileChooserDialogImpl" timestamp="1592760610915">
+      <screen x="1024" y="0" width="1920" height="1080" />
     </state>
     <state x="738" y="264" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589875161949" />
-    <state x="1762" y="274" key="FileChooserDialogImpl/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1589795937797" />
+    <state x="1762" y="274" width="424" height="479" key="FileChooserDialogImpl/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1592760610915" />
     <state x="1762" y="316" width="424" height="479" key="FileChooserDialogImpl/1024.42.1920.1080/0.0.1024.768@1024.42.1920.1080" timestamp="1589650916107" />
     <state width="867" height="624" key="GridCell.Tab.0.bottom" timestamp="1592759475802">
       <screen x="0" y="0" width="2944" height="1040" />
@@ -142,11 +138,12 @@
       <screen x="1024" y="42" width="1920" height="1080" />
     </state>
     <state x="1467" y="138" width="1024" height="840" key="SettingsEditor/1024.42.1920.1080/0.0.1024.768@1024.42.1920.1080" timestamp="1589651685279" />
-    <state x="668" y="333" key="com.intellij.ide.util.TipDialog" timestamp="1592740038816">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="356" y="246" key="com.intellij.ide.util.TipDialog" timestamp="1592760599387">
+      <screen x="0" y="0" width="1024" height="768" />
     </state>
     <state x="668" y="333" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1592740038816" />
     <state x="1024" y="347" key="com.intellij.ide.util.TipDialog/0.0.2944.1082@0.0.2944.1082" timestamp="1589708057070" />
+    <state x="356" y="246" key="com.intellij.ide.util.TipDialog/1024.0.1920.1080/0.0.1024.768@0.0.1024.768" timestamp="1592760599387" />
     <state x="1692" y="346" key="com.intellij.ide.util.TipDialog/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1589794523415" />
     <state x="1667" y="388" key="com.intellij.ide.util.TipDialog/1024.42.1920.1080/0.0.1024.768@1024.42.1920.1080" timestamp="1589650850290" />
     <state x="1648" y="259" key="run.anything.popup" timestamp="1589650884156">

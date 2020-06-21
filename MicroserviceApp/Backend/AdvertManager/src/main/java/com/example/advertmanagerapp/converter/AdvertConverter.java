@@ -30,12 +30,12 @@ public abstract class AdvertConverter {
         ret.setDescription(ad.getDescription());
         ret.setPricePerDay(ad.getPrice().getPricePerDay());
         ret.setInsurancePrice(ad.getPrice().getInsurancePrice());
-        ret.setDiscount(ad.getPrice().getDiscount());
+        ret.setDiscount(ad.getPrice().getDiscount()); /*
         ret.setCarBrand(ad.getOwnersCar().getConcreteCar().getCarBrand().getName());
         ret.setCarClass(ad.getOwnersCar().getConcreteCar().getCarClass().getClassName());
         ret.setCarFuelType(ad.getOwnersCar().getConcreteCar().getCarFuelType().getFuelType());
         ret.setCarModel(ad.getOwnersCar().getConcreteCar().getCarModel().getModelName());
-        ret.setCarTransmissionType(ad.getOwnersCar().getConcreteCar().getCarTransmissionType().getTransmissionType());
+        ret.setCarTransmissionType(ad.getOwnersCar().getConcreteCar().getCarTransmissionType().getTransmissionType()); */
         ret.setCarChildSeatNumber(ad.getOwnersCar().getChildrenSitNumber());
         ret.setCarAvailableDistanceWithoutOverflowPrice(ad.getOwnersCar().getTravelDistanceConstraint());
 

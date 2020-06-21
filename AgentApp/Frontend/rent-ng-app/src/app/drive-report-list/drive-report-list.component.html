@@ -1,0 +1,46 @@
+<html>
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <style>
+    body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+  </style>
+</head>
+
+<body>
+<div class="w3-main" >
+  <h1 class="text-danger text-center"><b> {{ title }} </b></h1>
+  <hr/>
+
+  <div *ngIf="typeC">
+    <table class="table table-bordered table-hover">
+      <thead>
+      <th>Id: </th>
+      <th>Traveled Distance: </th>
+      <th>Describe: </th>
+      <th>Date Of Report: </th>
+      </thead>
+
+      <tbody>
+      <tr *ngFor=" let dr of typeC ">
+        <td>{{dr.id }}</td>
+        <td>{{dr.traveledDistance }}</td>
+        <td>{{dr.describe }}</td>
+        <td>{{dr.dateOfReport }}</td>
+
+        <td><button (click)="deleteC(dr.id, dr)">Delete</button></td>
+        <td><button (click)="updateC(dr, dr.id)">Update</button></td>
+
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+
+</div>
+
+</body>
+
+</html>

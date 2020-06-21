@@ -1,24 +1,32 @@
 package com.example.advertmanagerapp.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import com.example.advertmanagerapp.model.enums.Role;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table
-public class ClientCopy implements Serializable {
+public class ClientCopy  {
 
     @Id
+    @GeneratedValue
+    private Long id;
+
+    @Column
     private String email;
 
-    @Column(nullable = true)
+    @Column
     private String name;
 
-    @Column(nullable = true)
+    @Column
     private String surname;
 
     @Column
@@ -54,9 +62,9 @@ public class ClientCopy implements Serializable {
 
 //    @OneToMany(mappedBy = "client",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 //    private Set<OwnersCar> ownersCars;
-
+/*
     @OneToMany(mappedBy = "client",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private Set<Advert> adverts;
+    private Set<Advert> adverts; */
 
 
 }
