@@ -8,11 +8,11 @@ import {Injectable} from '@angular/core';
 })
 export class CommentService {
 
-  private BASE_URL = 'http://localhost:9090/comment/';
+  private BASE_URL = 'http://localhost:8080/comment-manager/all/';
 
   constructor(private http: HttpClient) { }
 
-  public getAllCommentsForAd(adId: number): Observable<any> {
-    return this.http.get<CommentModel[]>(this.BASE_URL + adId);
+  public getAllCommentsForAd(adId: number): any {
+    return this.http.get<any>(this.BASE_URL + adId);
   }
 }

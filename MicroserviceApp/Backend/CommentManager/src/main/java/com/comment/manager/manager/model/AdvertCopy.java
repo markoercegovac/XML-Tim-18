@@ -1,6 +1,7 @@
 package com.comment.manager.manager.model;
 
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.persistence.*;
@@ -9,7 +10,9 @@ import java.sql.Date;
 @Table
 @Entity
 @Data
+@RequiredArgsConstructor
 public class AdvertCopy {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,5 +23,6 @@ public class AdvertCopy {
 
     @Column
     private Date endDate;
+
 
 }

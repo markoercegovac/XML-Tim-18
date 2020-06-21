@@ -7,4 +7,6 @@ import org.springframework.stereotype.Service;
 public interface AdvertCopyService {
 
     AdvertCopy getAdvertCopy(Long id);
+    void saveAdvertCopy(AdvertCopy advertCopy);
+    void saveTest();
 }

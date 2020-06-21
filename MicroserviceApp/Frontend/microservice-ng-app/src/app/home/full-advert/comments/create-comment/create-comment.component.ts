@@ -18,9 +18,9 @@ export class CreateCommentComponent implements OnInit {
   grade: Grade = {
     grade: null
   };
-// ne zaboravi da si setovala id =1 zbog hardkodovanja trenutnoo!
+
   comment: Comment = {
-    advertId: this.adId,
+    advertId: null,
     userEmail: '',
     header: '',
     content: ''
@@ -32,15 +32,19 @@ export class CreateCommentComponent implements OnInit {
               public commentService: CommentService) { }
 
   ngOnInit(): void {
+    this.comment.advertId = this.adId;
   }
 
 
   public countStar(star) {
     this.grade.grade = star;
     console.log('Value of star', star);
+    console.log(this.comment.advertId);
   }
 
   public kreirajKomentarIOcenu() {
+
+
 
 
     this.gradeService.createGrade(this.grade).subscribe(res => {

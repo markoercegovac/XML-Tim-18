@@ -66,6 +66,7 @@ import { FullAdvertComponent } from './home/full-advert/full-advert.component';
 import { CommentsComponent } from './home/full-advert/comments/comments.component';
 import { HomeHeaderComponent } from './home/home-header/home-header.component';
 import { CommentComponent } from './home/full-advert/comments/comment/comment.component';
+import { AdminCommentsAllowComponent } from './admin-comments-allow/admin-comments-allow.component';
 
 @NgModule({
   declarations: [
@@ -118,7 +119,8 @@ import { CommentComponent } from './home/full-advert/comments/comment/comment.co
     FullAdvertComponent,
     CommentsComponent,
     HomeHeaderComponent,
-    CommentComponent
+    CommentComponent,
+    AdminCommentsAllowComponent
 
   ],
     imports: [

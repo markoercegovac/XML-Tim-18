@@ -19,7 +19,7 @@ export class CommentsComponent implements OnInit {
     this.showAddCommentModal = false;
 
 
-    if(this.adId != null) {
+    if ( this.adId != null) {
       this.getAllComennts(this.adId);
     }
 

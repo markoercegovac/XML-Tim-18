@@ -17,4 +17,14 @@ public class AdvertCopyServiceImpl implements AdvertCopyService {
 
         return advertCopyRepository.findById(id).get();
     }
+
+    @Override
+    public void saveAdvertCopy(AdvertCopy advertCopy) {
+        advertCopyRepository.save(advertCopy);
+    }
+
+    @Override
+    public void saveTest() {
+
+    }
 }

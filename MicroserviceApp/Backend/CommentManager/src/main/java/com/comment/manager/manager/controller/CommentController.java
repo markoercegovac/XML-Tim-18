@@ -13,7 +13,7 @@ import java.util.List;
 
 @RequestMapping("/comment-manager")
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class CommentController {
 
     private final CommentService commentService;
@@ -44,9 +44,13 @@ public class CommentController {
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
     }
 
-    @GetMapping("/admin/comment-manager/all")
-    public ResponseEntity<List<CommentDto>>getAllComments(){
-        return new ResponseEntity<>(HttpStatus.OK);
+
+
+    @GetMapping("/all/{id}")
+    public List<Comment> getAllComments(@PathVariable("id") Long id){
+
+        return commentService.getAllApprovedFromOneAdvert(id);
+
     }
 
     @PostMapping("/admin/comment-manager/")
@@ -57,5 +61,29 @@ public class CommentController {
     public ResponseEntity<CommentDto> removeComment(@RequestBody CommentDto commentDto){
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @GetMapping("/comment/get-new")
+    public List<Comment> getAllNew() {
+
+        return commentService.findAllNew();
+
+    }
+
+    @PostMapping("comment/approved")
+    public ResponseEntity setApproved(@RequestBody Comment comment){
+
+        commentService.setApproved(comment.getId());
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+    @PostMapping("comment/rejected")
+    public ResponseEntity setRejecte(@RequestBody Comment comment){
+
+        commentService.setRejected(comment.getId());
+        return new ResponseEntity(HttpStatus.OK);
+    }
+
+
+
 
 }

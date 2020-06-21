@@ -15,8 +15,9 @@ export class FullAdvertComponent implements OnInit {
   constructor(private currentUrl: ActivatedRoute) { }
 
   ngOnInit(): void {
-    //uzmi selektovani oglas
+    // uzmi selektovani oglas
     this.adId = +this.currentUrl.snapshot.params.id;
+    console.log('id koji preuzima comments je : ',this.adId);
   }
 
 }
