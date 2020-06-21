@@ -4,7 +4,8 @@ import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from '@angular/material/paginator';
 import {Comment} from '../model/Comment';
 import {HttpClient} from "@angular/common/http";
-import {CommentService} from '../service/comment-service';
+import {CommentService} from '../services/comment-service';
+
 @Component({
   selector: 'app-admin-comments-allow',
   templateUrl: './admin-comments-allow.component.html',

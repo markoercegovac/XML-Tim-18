@@ -1,10 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Comment} from '../../../../model/Comment';
-import {Grade} from "../../../../model/Grade";
-import {HttpClient} from "@angular/common/http";
-import {GradeService} from "../../../../service/grade-service";
-import {CommentService} from "../../../../service/comment-service";
+import {Grade} from '../../../../model/Grade';
+import {HttpClient} from '@angular/common/http';
+import {CommentService} from '../../../../services/comment-service';
+
 import {error} from "@angular/compiler/src/util";
+import {GradeService} from '../../../../services/grade-service';
 @Component({
   selector: 'app-create-comment',
   templateUrl: './create-comment.component.html',
