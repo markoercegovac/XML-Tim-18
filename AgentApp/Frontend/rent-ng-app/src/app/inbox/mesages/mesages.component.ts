@@ -8,7 +8,7 @@ import {MessageModel} from '../../model/message-model';
 })
 export class MesagesComponent implements OnInit {
 
-  @Input("ms")message: MessageModel
+  @Input('ms')message: MessageModel
 
   constructor() { }
 

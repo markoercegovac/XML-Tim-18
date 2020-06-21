@@ -1,21 +1,33 @@
 
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 <app-chat-header></app-chat-header>
 <br>
 <div class="w3-main" >
   <div class="row">
     <div class="offset-3"></div>
     <div class="col-md-6">
-      <form name="captureForm"  #f="ngForm"  novalidate class="feedback-form">
+      <form name="captureForm" (ngSubmit)="sendMessage(f)"  #f="ngForm"  novalidate class="feedback-form">
+        <div>
+          <h4>Sender </h4>
+        </div>
+
+        <div class="form-group">
+          <select class="form-control" name="recipientInput" id="senderInput"  ngModel required #senderInput="ngModel">
+            <option value="test">test</option>
+            <option value="erceg">erceg</option>
+          </select>
+        </div>
         <div>
           <h4>Recipient </h4>
         </div>
 
         <div class="form-group">
-          <select class="form-control">
-            <option>test</option>
+          <select class="form-control" name="recipientInput" id="recipientInput"  ngModel required #recipientInput="ngModel">
+            <option value="test">test</option>
+            <option value="erceg">erceg</option>
           </select>
         </div>
+
 
         <hr>
         <br>
@@ -24,22 +36,22 @@
             <i class="fa fa-calendar"></i></h4>
         </div>
         <br>
+
+        <div class="form-group">
+          <label >Title</label>
+          <input class="form-control" name="titleInput" placeholder="Title" id="titleInput" ngModel required #titleInput="ngModel"/>
+        </div>
         <div class="form-group">
           <label>Content</label>
-          <textarea class="form-control" name="desc" rows="7" >Content</textarea>
+          <textarea class="form-control" name="contentInput" rows="7" id="contentInput" placeholder="Write message here" ngModel required #contentInput="ngModel" ></textarea>
 
         </div>
         <hr>
-        <br>
-        <div class="form-group">
-          <label>Attachment</label>
-          <input type="date"  class="form-control" name="endDate"  >
 
-        </div>
 
         <div class="form-group" style="margin-top:20px;">
-          <input type="submit" class="btn btn-info float-right" value="Send Message" />
-          <!--          <input type="submit" class="btn btn-primary float-left" [routerLink]="['/create/advert']" value="Back" />-->
+          <button type="submit" class="btn btn-info float-right" >Send Message</button>
+
         </div>
 
 

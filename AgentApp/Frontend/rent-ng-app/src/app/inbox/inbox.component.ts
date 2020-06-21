@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MessageModel} from '../model/message-model';
+import {MessageService} from '../service/message-service';
 
 
 @Component({
@@ -10,15 +11,42 @@ import {MessageModel} from '../model/message-model';
 export class InboxComponent implements OnInit {
 
   messages: MessageModel[] = [];
+  change: boolean;
 
-  constructor() { }
+  constructor(private messageService: MessageService) { }
 
   ngOnInit(): void {
-    this.mock();
+    this.change=true;
+    this.changeUser();
   }
 
-  mock() {
-    this.messages.push({id: 1, title: 'TIM-18', content: 'Sve oce to da se ispisae', sender: 'erceg', recipient: 'er', date: null});
 
+  changeUser() {
+
+    if (this.change == true){
+      this.change = false;
+      this.loadUser(this.change);
+    }
+    else {
+      this.change = true;
+      this.loadUser(this.change);
+    }
+  }
+
+  loadUser(change: boolean){
+    if(change){
+      this.messageService.getInbox().subscribe(
+        data=>{
+          this.messages = data;
+        }
+      );
+    }
+    else {
+      this.messageService.getInboxTest().subscribe(
+        data=>{
+          this.messages=data;
+        }
+      );
+    }
   }
 }
