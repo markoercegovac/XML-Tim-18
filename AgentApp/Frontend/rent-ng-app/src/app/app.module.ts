@@ -42,6 +42,9 @@ import { ChatComponent } from './chat/chat.component';
 import { ChatHeaderComponent } from './chat/chat-header/chat-header.component';
 import { InboxComponent } from './inbox/inbox.component';
 import { MesagesComponent } from './inbox/mesages/mesages.component';
+import { DriveReportCreateComponent } from './drive-report-create/drive-report-create.component';
+import { DriveReportListComponent } from './drive-report-list/drive-report-list.component';
+import { DriveReportUpdateComponent } from './drive-report-update/drive-report-update.component';
 
 
 @NgModule({
@@ -71,6 +74,9 @@ import { MesagesComponent } from './inbox/mesages/mesages.component';
     NavigationComponent,
     RegisterCarComponent,
     DefinePriceComponent,
+    DriveReportCreateComponent,
+    DriveReportListComponent,
+    DriveReportUpdateComponent,
     ReservedCarComponent,
     MyAdvertComponent,
     ChatComponent,

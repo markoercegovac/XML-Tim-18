@@ -14,10 +14,14 @@ export class AdvertsComponent implements OnInit {
 
   adverts: AdvertMiniModel[] = [];
   public profileImage:any;
-  constructor(private router: Router , public advertService: AdvertService) { }
+  constructor(private router: Router , private advertService: AdvertService) { }
 
   ngOnInit(): void {
-
+    this.advertService.getAllAdverts().subscribe(
+      data => {
+        this.adverts = data;
+      }
+    );
   }
 
   onAddAdvert() {

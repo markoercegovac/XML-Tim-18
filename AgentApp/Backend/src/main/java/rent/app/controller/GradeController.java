@@ -19,10 +19,8 @@ public class GradeController {
     private final GradeService gradeService;
 
     @GetMapping("/all/{ad_id}")
-    public ResponseEntity<List<Grade>> getAllGradesForAd(@PathVariable("ad_id") Long adId) {
-        List<Grade> grades = gradeService.getGradeForAd(adId);
-
-        return new ResponseEntity<List<Grade>>(grades, HttpStatus.OK);
+    public ResponseEntity<Float> getAllGradesForAd(@PathVariable("ad_id") Long adId) {
+        return new ResponseEntity<Float>(gradeService.getGradeForAd(adId), HttpStatus.OK);
     }
 
     @PostMapping("/add")

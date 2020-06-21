@@ -7,7 +7,7 @@ public class AdvertMiniDto {
     private Long advertId;
     private String profilePicture;
     private String price;
-    private String grade;
+    private float grade;
     private String traveledDistance;
     private String distanceUnit;
     private String carBrand;

@@ -18,27 +18,27 @@ export class CommentsComponent implements OnInit {
 
   ngOnInit(): void {
     this.showAddCommentModal = false;
+    console.log(this.adId);
+    this.rest.getAllCommentsForAd(this.adId).subscribe(
+      data => {
+        this.comments = data;
+        console.log(this.comments);
+      }, (err) => {
+      }
+    );
 
+  //  if (this.adId != null) {
+   //   this.getAllComennts(this.adId);
+   // }
 
-    if(this.adId != null) {
-      this.getAllComennts(this.adId);
-    }
-    
   }
 
   onAddComment() {
     this.showAddCommentModal = !this.showAddCommentModal;
+
   }
 
-  getAllComennts(adId: number) {
-    this.rest.getAllCommentsForAd(adId).subscribe(
-      (data: CommentModel[]) => {
-        this.comments = data;
-      }, (err) => {
-        this.comments = [];
-        console.log('no coment');
-      }
-    );
-  }
+
+
 
 }

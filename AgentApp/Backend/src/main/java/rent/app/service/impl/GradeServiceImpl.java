@@ -27,7 +27,14 @@ public class GradeServiceImpl implements GradeService {
     }
 
     @Override
-    public List<Grade> getGradeForAd(Long adId) {
-        return gradeRepository.findAllByAdvertId(adId);
+    public float getGradeForAd(Long adId) {
+        List<Grade>  grades=gradeRepository.findAllByAdvertId(adId);
+
+        float br=0;
+
+        for(Grade g: grades){
+            br+=g.getGrade();
+        }
+        return br/grades.size();
     }
 }

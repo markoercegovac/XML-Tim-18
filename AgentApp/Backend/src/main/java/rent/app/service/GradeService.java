@@ -10,5 +10,5 @@ public interface GradeService {
 
     void addGrade(Grade newGrade);
     void changeGrade(Grade grade);
-    List<Grade> getGradeForAd(Long adId);
+    float getGradeForAd(Long adId);
 }

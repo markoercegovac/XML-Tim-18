@@ -1,0 +1,37 @@
+<html>
+<title>Drive Report</title>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<body>
+<div class="testbox">
+  <form name="cttForm" #f="ngForm" (ngSubmit)="createC()" >
+    <div class="banner">
+      <h1>Drive Report</h1>
+    </div>
+    <br/>
+    <fieldset>
+      <legend>Information</legend>
+      <div class="item">
+        <label for="fdistance">Traveled Distance<span>*</span></label>
+        <input id="fdistance" type="number" name="fdistance" required [(ngModel)]="model.traveledDistance" />
+      </div>
+      <!--Probala sam ovde textarea, ali nije htelo da preuzme vrednost kod update-a -->
+      <div class="item">
+        <label for="instructions">Describe:  </label><br/>
+        <input id="instructions" type="text" name="instructions" required [(ngModel)]="model.describe" />
+      </div>
+      <div class="item">
+        <label for="bdate">Date Of Report <span>*</span></label>
+        <input id="bdate" type="date" name="bdate" required [(ngModel)]="model.dateOfReport" />
+        <i class="fas fa-calendar-alt"></i>
+      </div>
+    </fieldset>
+    <br/>
+
+    <div class="btn-block">
+      <button type="submit" >Create</button>
+    </div>
+  </form>
+</div>
+</body>
+</html>

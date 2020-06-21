@@ -8,7 +8,7 @@ import { CommentModel } from '../../../../model/comment.model';
 })
 export class CommentComponent implements OnInit {
 
-  @Input() comment: CommentModel;
+  @Input('comment') comment: CommentModel;
 
   constructor() { }
 
