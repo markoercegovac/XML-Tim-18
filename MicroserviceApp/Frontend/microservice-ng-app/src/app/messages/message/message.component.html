@@ -1,0 +1,12 @@
+<div [ngClass]="{'row':true, 'border-primary':true, 'bg-info': odd%2==0}" (click)="onSelectMsg()">
+	<div class="col">
+		{{message.fromUser}}
+	</div>
+	<div class="col">
+		{{message.header}}
+	</div>
+	<div class="col">
+		{{message.creationDate | date:'short'}}
+	</div>
+</div>
+

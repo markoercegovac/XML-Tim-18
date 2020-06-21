@@ -1,0 +1,38 @@
+<div class="container-fluid">
+
+	<br>
+	<div class="row justify-content-around">
+		<div class="col">
+			<h2>My messages</h2>
+		</div>
+		<div class="col-2">
+			<button class="btn btn-primary" (click)="onToggle()">{{showBody=='inbox'? 'compose':'inbox'}}</button>
+		</div>
+	</div>
+	<hr>
+	<br>
+
+	<div *ngIf="showBody=='inbox'">
+		<div class="row border-info">
+			<div class="col text text-info"><b>sender</b></div>
+			<div class="col text text-info"><b>header</b></div>
+			<div class="col text text-info"><b>date</b></div>
+		</div>
+		<div *ngFor="let msg of messages; let i = index">
+			<app-message 
+				[message]="msg" 
+				[odd]="i"
+				(detailView)="detailView($event)">
+			</app-message>
+		</div>
+	</div>
+
+	<div *ngIf="showBody=='compose'">
+		<app-create-message></app-create-message>
+	</div>
+
+	<div *ngIf="showBody=='detail'">
+		<app-message-detail [messageId]="messageId" (replay)="replay($event)"></app-message-detail>
+	</div>
+
+</div>

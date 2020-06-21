@@ -14,19 +14,17 @@ import java.util.Date;
 public class Message implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="message_id")
     private Long messageId;
 
-    @Email(message = "must ba a valid email")
-    @Length(min = 5, max = 51)
-    @Column(name="receiver_email", nullable = false)
-    private String receiverEmail;
+    @OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="valid_communication_id", nullable = false)
+    private ValidUserOwnerCommunication validUserOwnerCommunication;
 
-    @Email(message = "must ba a valid email")
-    @Length(min = 5, max = 51)
-    @Column(name="sender_email", nullable = false)
-    private String senderEmail;
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private DirectionEnum direction;
 
     @Length(min = 3, max = 124)
     @Column(name="header", nullable = false)

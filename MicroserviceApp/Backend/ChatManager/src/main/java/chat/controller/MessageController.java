@@ -4,29 +4,25 @@ import chat.dto.LongMessageDTO;
 import chat.dto.SeenMessage;
 import chat.dto.SendMessageDTO;
 import chat.dto.ShortMessageDTO;
-import chat.service.MessageService;
+import chat.service.CommunicationService;
+import chat.service.ReadMessageService;
+import chat.service.SendMessageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
+import java.util.Set;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/chat-server")
+@CrossOrigin(origins = "http://localhost:4200")
 public class MessageController {
 
-    private final MessageService messageService;
-
-    /**
-     * JUST A TEST END POINT FOR DOCKER
-     * */
-    @GetMapping(value = "/test", produces = "application/text")
-    public ResponseEntity<String> getTest() {
-        System.out.println("TEST");
-        return new ResponseEntity<>("TEST PORUKA JE POSLATA :)", HttpStatus.CREATED);
-    }
+    private final ReadMessageService readMessageService;
+    private final SendMessageService sendMessageService;
+    private final CommunicationService communicationService;
 
     /**
      * returns all messages that I have send or that I have received
@@ -34,21 +30,53 @@ public class MessageController {
      * @output all my messages in short form
      * */
     @GetMapping(value = "/message/{user_email}")
-    public ResponseEntity<ShortMessageDTO> getAllMyMessage(@PathVariable("user_email") String userEmail, @RequestParam(value = "to", required = false) String to) {
+    public ResponseEntity<Set<ShortMessageDTO>> getAllMyMessage(
+            @PathVariable("user_email") String userEmail,
+            @RequestParam(value = "owner", required = true) boolean isOwner,
+            @RequestParam(value = "to", required = false) String to) {
 
-        return new ResponseEntity<ShortMessageDTO>(HttpStatus.OK);
+        Set<ShortMessageDTO> foundMessages;
+
+        try {
+            if (to == null || to.strip().isEmpty()) {
+                foundMessages = readMessageService.readAllMessages(userEmail, isOwner);
+            } else {
+                foundMessages = readMessageService.readAllMessageExchange(userEmail, isOwner, to);
+            }
+            return new ResponseEntity<Set<ShortMessageDTO>>(foundMessages, HttpStatus.OK);
+        } catch(NullPointerException e) {
+            e.printStackTrace();
+            return new ResponseEntity<Set<ShortMessageDTO>>(HttpStatus.BAD_REQUEST);
+        }
     }
 
     /**
      * returns a specific message
-     * @input user's email and message id
+     * @input  message id
      * @output concert message with detail
      * */
-    @GetMapping(value = "/message/{user_email}/{message_id}")
-    public ResponseEntity<LongMessageDTO> getSpecificMessage(@PathVariable("user_email") String userEmail, @PathVariable("message_id") Long id) {
+    @GetMapping(value = "/message/detail/{message_id}")
+    public ResponseEntity<LongMessageDTO> getSpecificMessage(@PathVariable("message_id") Long id) {
 
-        //hardcoded; for docker test
-        return new ResponseEntity<LongMessageDTO>(messageService.getSpecificMessage(userEmail, id),HttpStatus.OK);
+        try {
+            LongMessageDTO message = readMessageService.readDetailMessage(id);
+            return new ResponseEntity<LongMessageDTO>(message,HttpStatus.OK);
+        } catch (NullPointerException e) {
+            return new ResponseEntity<LongMessageDTO>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping(value = "/message/{email}/can-communicate")
+    public ResponseEntity<Set<String>> getAllUsersThatICanCommunicateWith(
+            @PathVariable("email") String userEmail,
+            @RequestParam(value = "owner", required = true) boolean isOwner) {
+
+        try {
+            Set<String> ret = communicationService.getAllForCommunication(userEmail, isOwner);
+            return new ResponseEntity<>(ret, HttpStatus.OK);
+        } catch (NullPointerException e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 
     /**
@@ -81,6 +109,12 @@ public class MessageController {
     @PostMapping(value = "/message")
     public ResponseEntity postNewMessages(@RequestBody SendMessageDTO sendMessage) {
 
-        return new ResponseEntity(HttpStatus.CREATED);
+        try {
+            sendMessageService.send(sendMessage);
+
+            return new ResponseEntity(HttpStatus.CREATED);
+        } catch(Exception e) {
+            return new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
+        }
     }
 }

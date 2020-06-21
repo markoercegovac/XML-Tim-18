@@ -59,6 +59,10 @@ import { CaptureComponent } from './advert/capture/capture/capture.component';
 
 import { OwnerViewRequestsComponent } from './owner-view-requests/owner-view-requests.component';
 import { AdRequestItemComponent } from './owner-view-requests/ad-request-item/ad-request-item.component';
+import { MessagesComponent } from './messages/messages.component';
+import { MessageComponent } from './messages/message/message.component';
+import { CreateMessageComponent } from './messages/create-message/create-message.component';
+import { MessageDetailComponent } from './messages/message-detail/message-detail.component';
 
 import { UsersBanListComponent } from './users-ban-list/users-ban-list.component';
 import { CreateCommentComponent } from './home/full-advert/comments/create-comment/create-comment.component';
@@ -117,6 +121,12 @@ import { AdminCommentsAllowComponent } from './admin-comments-allow/admin-commen
     NotFoundComponent,
 
     OwnerViewRequestsComponent,
+    AdRequestItemComponent,
+    MessagesComponent,
+    MessageComponent,
+    CreateMessageComponent,
+    MessageDetailComponent
+
     AdRequestItemComponent
     UsersBanListComponent,
     CreateCommentComponent,

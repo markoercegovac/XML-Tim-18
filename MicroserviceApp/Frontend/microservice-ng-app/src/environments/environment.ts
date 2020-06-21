@@ -7,7 +7,8 @@ export const environment = {
   localhost: 'http://localhost:8081',
   requestManagerUrl: 'http://localhost:8080/advert-request',
   advertManagerUrl: 'http://localhost:9090/advert-manager',
-  searchManagerUrl: 'http://localhost:9090/search-manager/'
+  searchManagerUrl: 'http://localhost:9090/search-manager/',
+  chatManagerUrl: 'http://localhost:8080/chat-server'
 };
 
 /*
