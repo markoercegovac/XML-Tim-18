@@ -31,7 +31,7 @@ export class DriveReportCreateComponent implements OnInit {
   }
 
   goToList() {
-    this.router.navigate(['/listaDR']);
+    this.router.navigate(['/listaDR/' + this.model.carId]);
   }
 
 }

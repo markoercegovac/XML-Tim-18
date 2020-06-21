@@ -56,7 +56,7 @@ const routes: Routes = [
     component: DriveReportCreateComponent
   },
   {
-    path: 'listaDR',
+    path: 'listaDR/:id',
     component: DriveReportListComponent
   },
   {

@@ -11,7 +11,7 @@ import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 })
 export class AdvertMiniComponent implements OnInit {
 
-  @Input("ad") advert: AdvertMiniModel;
+  @Input('ad') advert: AdvertMiniModel;
 
   constructor(private router: Router, private advertService: AdvertService, private  domSanitizer: DomSanitizer) { }
 

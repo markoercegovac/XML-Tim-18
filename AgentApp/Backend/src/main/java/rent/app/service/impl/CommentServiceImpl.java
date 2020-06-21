@@ -4,7 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import rent.app.dto.CommentDTO;
 
+import rent.app.model.Advert;
 import rent.app.model.Comment;
+import rent.app.repository.AdvertRepository;
 import rent.app.repository.CommentRepository;
 import rent.app.service.CommentService;
 
@@ -16,6 +18,7 @@ import java.util.List;
 public class CommentServiceImpl  implements CommentService {
 
     private final CommentRepository commentRepository;
+    private final AdvertRepository advertRepository;
 
     @Override
     public List<CommentDTO> getAllCommentsOfAd(Long adId) {
@@ -26,7 +29,7 @@ public class CommentServiceImpl  implements CommentService {
             CommentDTO com = new CommentDTO();
             com.setCommentId(comment.getId());
             com.setAdvertId(comment.getAdvert().getId());
-            com.setAuthor(comment.getClient().getEmail());
+//            com.setAuthor(comment.getClient().getEmail());
             com.setContent(comment.getContent());
 
             commentsDTO.add(com);
@@ -36,10 +39,15 @@ public class CommentServiceImpl  implements CommentService {
     }
 
     @Override
-    public boolean addNewComment(CommentDTO newComment) {
+    public void addNewComment(CommentDTO newComment) {
 
-        //Comment comment = new Comment();
+        Comment comment = new Comment();
+        Advert advert = advertRepository.findAllById(newComment.getAdvertId());
+        comment.setId(newComment.getCommentId());
+        comment.setAdvert(advert);
+        comment.setContent(newComment.getContent());
+        commentRepository.save(comment);
 
-        return false;
+
     }
 }
