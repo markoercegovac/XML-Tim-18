@@ -39,10 +39,10 @@ public class Client implements Serializable {
     @Column
     private String password;
 
-    @Column
+    @Column(nullable=true)
     private boolean isBanned;
 
-    @Column
+    @Column(nullable = true)
     private boolean isRemoved;
 
     @Column(nullable = true)

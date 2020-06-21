@@ -6,9 +6,8 @@ import rent.app.model.DriveReport;
 
 import java.util.List;
 
-@Repository
 public interface DriveReportRepository extends JpaRepository<DriveReport,Long> {
 
-    List<DriveReport> findAll();
+
     List<DriveReport> findAllByCarReportId(Long carId);
 }

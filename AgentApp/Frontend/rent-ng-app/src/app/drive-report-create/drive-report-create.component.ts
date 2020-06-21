@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {DriveReportService} from '../service/drive-report.service';
 import {DriveReport} from '../model/drive-report';
+import {CarMini} from '../model/car-mini';
+import {CarService} from '../service/car-service';
 
 
 
@@ -13,11 +15,24 @@ import {DriveReport} from '../model/drive-report';
 export class DriveReportCreateComponent implements OnInit {
 
   model: DriveReport = new DriveReport();
-  constructor(private drService: DriveReportService , private router: Router) { }
+  allCars: CarMini[];
+  constructor(private drService: DriveReportService , private router: Router, private carService: CarService) { }
 
   ngOnInit(): void {
+    this.carService.getAllCars().subscribe(
+
+      data => {
+        this.allCars = data;
+      },
+      error => {
+        console.log('Error occurred', error);
+      }
+    );
+
   }
   createC(){
+
+    console.log( 'tekst', this.model.carId);
     this.drService.createDr(this.model).subscribe(
       res => {
         //    location.reload();
@@ -26,12 +41,16 @@ export class DriveReportCreateComponent implements OnInit {
         alert('Error');
       }
     );
-    this.model = new DriveReport();
+    //this.model = new DriveReport();
     this.goToList();
   }
 
   goToList() {
     this.router.navigate(['/listaDR/' + this.model.carId]);
+  }
+
+  setValue(car: CarMini) {
+      this.model.carId = car.id;
   }
 
 }

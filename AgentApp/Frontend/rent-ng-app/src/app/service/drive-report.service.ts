@@ -23,7 +23,7 @@ export class DriveReportService {
   public readDr(): Observable<any>{
     return this.http.get<any>(report + '/readDR');
   }
-  public readDrById(id: number): Observable<any>{
-    return this.http.get<any>(report + '/readDR/' + id );
+  public readDrById(id: number): any{
+    return this.http.get(report + '/readDR/' + id );
   }
 }

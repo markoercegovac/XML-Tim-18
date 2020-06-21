@@ -23,8 +23,6 @@ public class DriveReportController {
 
     private final DriveReportService driveReportService;
 
-    Date date1 = new Date();
-    Date date2 = new Date();
     //crud operacije za Drive Report
     @GetMapping("/readDR")
     public List<DriveReportDto> getAllDR() {

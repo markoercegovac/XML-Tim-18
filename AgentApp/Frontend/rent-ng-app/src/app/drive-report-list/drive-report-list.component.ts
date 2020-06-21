@@ -20,17 +20,22 @@ export class DriveReportListComponent implements OnInit {
     this.route.params.subscribe(
       (params: Params) => {
         this.id = +params.id;
+        console.log(this.id);
+
+        this.drService.readDrById(this.id).subscribe(
+          data => {
+            this.typeC = data;
+            console.log(this.typeC);
+          },
+          error => {
+            console.log('Error occured', error);
+          }
+        );
       }
     );
 
-    this.drService.readDrById(this.id).subscribe(
-      data => {
-        this.typeC = data;
-      },
-      error => {
-        console.log('Error occured', error);
-      }
-    );
+
+
   }
   updateC(dr: DriveReport, id: number){
     this.router.navigate(['updateDR', id]);

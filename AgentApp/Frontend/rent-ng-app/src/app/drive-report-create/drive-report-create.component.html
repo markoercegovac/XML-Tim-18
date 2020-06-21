@@ -10,21 +10,53 @@
     </div>
     <br/>
     <fieldset>
-      <legend>Information</legend>
-      <div class="item">
+      <table>
+      <tr><legend>Information</legend></tr>
+
+       <tr>
+        <td>
         <label for="fdistance">Traveled Distance<span>*</span></label>
+        </td>
+         <td>
         <input id="fdistance" type="number" name="fdistance" required [(ngModel)]="model.traveledDistance" />
-      </div>
-      <!--Probala sam ovde textarea, ali nije htelo da preuzme vrednost kod update-a -->
-      <div class="item">
+         </td>
+       </tr>
+        <!--Probala sam ovde textarea, ali nije htelo da preuzme vrednost kod update-a -->
+      <tr>
+        <td>
         <label for="instructions">Describe:  </label><br/>
+        </td>
+        <td>
         <input id="instructions" type="text" name="instructions" required [(ngModel)]="model.describe" />
-      </div>
-      <div class="item">
-        <label for="bdate">Date Of Report <span>*</span></label>
-        <input id="bdate" type="date" name="bdate" required [(ngModel)]="model.dateOfReport" />
-        <i class="fas fa-calendar-alt"></i>
-      </div>
+        </td>
+      </tr>
+        <tr>
+          <td>
+            <label for="bdate">Date Of Report <span>*</span></label>
+          </td>
+          <td>
+            <input id="bdate" type="date" name="bdate" required [(ngModel)]="model.dateOfReport" />
+            <i class="fas fa-calendar-alt"></i>
+          </td>
+        </tr>
+        <br/>
+
+    <!-- Selektuj auto za koji zelis da napises izvestaj-->
+
+    <tr>
+      <td>
+      <label for="bdate">Select car <span>*</span></label>
+      </td>
+
+      <td>
+        <select  name="inputCar" id="inputCar" required [(ngModel)]="model.carId"  >
+          <option *ngFor="let car of allCars" value="{{car.id}}" > {{car.carName}} </option>
+        </select>
+      </td>
+
+    </tr>
+
+      </table>
     </fieldset>
     <br/>
 
@@ -32,6 +64,7 @@
       <button type="submit" >Create</button>
     </div>
   </form>
+
 </div>
 </body>
 </html>

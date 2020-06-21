@@ -24,7 +24,7 @@ export class AddAdvertComponent implements OnInit {
   imageGalery: ImageModel[] = [];
 
 
-  constructor(private advertService: AdvertService,private carService: CarService) { }
+  constructor(private advertService: AdvertService, private carService: CarService) { }
 
   ngOnInit(): void {
     this.advertService.getAllPrices().subscribe(
