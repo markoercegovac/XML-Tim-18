@@ -1,6 +1,6 @@
 package com.example.request.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -29,9 +30,11 @@ public class AdvertCopy {
     @Column(name = "owner_email", nullable = false)
     private String ownerEmail;
 
-    @OneToMany(mappedBy = "advertCopy", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<Request> request;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<Request> requests;
 
-    @OneToMany(mappedBy = "advertCopy", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonManagedReference
     private Set<CarReservedDate> carReservedDate;
 }

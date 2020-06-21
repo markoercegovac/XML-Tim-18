@@ -1,17 +1,31 @@
 package com.example.request.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import lombok.Data;
-
-import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Date;
-import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.Data;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Data
 @Entity
 @Table(name = "request")
-public class Request implements Serializable {
+public class Request {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,12 +39,5 @@ public class Request implements Serializable {
     @Temporal(value = TemporalType.TIMESTAMP)
     @Column(name = "end_reservation_date", nullable = false)
     private Date endReservationDate;
-    
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "request_bundle_id", nullable = false)
-    private RequestBundle requestBundle;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "advert_copy_id", nullable = false)
-    private AdvertCopy advertCopy;
 }

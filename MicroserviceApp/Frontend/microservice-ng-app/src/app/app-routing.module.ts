@@ -21,12 +21,16 @@ import { AdvertDetailViewComponent } from './advert-detail-view/advert-detail-vi
 import { NotFoundComponent } from './not-found/not-found.component';
 
 import {CaptureComponent} from "./advert/capture/capture/capture.component";
+
+import { OwnerViewRequestsComponent } from './owner-view-requests/owner-view-requests.component';
+
 import {UsersBanListComponent} from "./users-ban-list/users-ban-list.component";
 import {CreateCommentComponent} from "./home/full-advert/comments/create-comment/create-comment.component";
 import {HomeComponent} from "./home/home.component";
 import {AdvertsComponent} from "./home/adverts/adverts.component";
 import {FullAdvertComponent} from "./home/full-advert/full-advert.component";
 import {AdminCommentsAllowComponent} from "./admin-comments-allow/admin-comments-allow.component";
+
 
 
 const routes: Routes = [
@@ -36,6 +40,7 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'bundle', component: BundleComponent},
   { path: 'advert/:id', component: AdvertDetailViewComponent },
+  { path: 'owner/requests', component: OwnerViewRequestsComponent },
   {
     path: 'create/advert',
     component: CreateAdvertComponent

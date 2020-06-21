@@ -28,14 +28,14 @@ public class ClientController {
 
         try {
             clientRequestServiceImpl.createNewRequestBundle(createBundle);
-            return new ResponseEntity("SUCCESSFULLY CREATED REQUEST BUNDLE", HttpStatus.CREATED);
+            return new ResponseEntity<String>("SUCCESSFULLY CREATED REQUEST BUNDLE", HttpStatus.CREATED);
         } catch(Exception e) {
             String errorMessage = e.getMessage();
             if(errorMessage == null || errorMessage.isEmpty()) {
                 errorMessage = "TRIED TO RESERVED AN UN-EXISTING ADVERT ";
             }
 
-            return  new ResponseEntity(errorMessage, HttpStatus.BAD_REQUEST);
+            return  new ResponseEntity<String>(errorMessage, HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -50,7 +50,7 @@ public class ClientController {
             @RequestParam(value = "status", required = false) String status) {
 
         return new ResponseEntity<List<AdRequestForClientDTO>>(
-                clientRequestServiceImpl.findAllBunlesByStatus(clientEmail, status),
+                clientRequestServiceImpl.findAllBundlesByStatus(clientEmail, status),
                 HttpStatus.OK);
     }
 
@@ -60,16 +60,16 @@ public class ClientController {
      * @output: 200 OK
      **/
     @PutMapping(value = "/{request_id}")
-    public ResponseEntity putRequestIsPaid(
+    public ResponseEntity<String> putRequestIsPaid(
             @PathVariable("request_id") Long requestId) {
 
         try {
             clientRequestServiceImpl.clientPaid(requestId);
-            return new ResponseEntity(HttpStatus.OK);
+            return new ResponseEntity<String>("OK", HttpStatus.OK);
         } catch(NullPointerException e) {
-            return new ResponseEntity("COULD NOT FIND ADVERT REQUEST", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<String>("COULD NOT FIND ADVERT REQUEST", HttpStatus.BAD_REQUEST);
         } catch(Exception e) {
-            return new ResponseEntity(e.getLocalizedMessage(), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<String>(e.getLocalizedMessage(), HttpStatus.BAD_REQUEST);
         }
     }
 

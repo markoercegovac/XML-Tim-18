@@ -56,6 +56,10 @@ import { AdvertDetailViewComponent } from './advert-detail-view/advert-detail-vi
 import { NotFoundComponent } from './not-found/not-found.component';
 
 import { CaptureComponent } from './advert/capture/capture/capture.component';
+
+import { OwnerViewRequestsComponent } from './owner-view-requests/owner-view-requests.component';
+import { AdRequestItemComponent } from './owner-view-requests/ad-request-item/ad-request-item.component';
+
 import { UsersBanListComponent } from './users-ban-list/users-ban-list.component';
 import { CreateCommentComponent } from './home/full-advert/comments/create-comment/create-comment.component';
 import { HomeComponent } from './home/home.component';
@@ -67,6 +71,7 @@ import { CommentsComponent } from './home/full-advert/comments/comments.componen
 import { HomeHeaderComponent } from './home/home-header/home-header.component';
 import { CommentComponent } from './home/full-advert/comments/comment/comment.component';
 import { AdminCommentsAllowComponent } from './admin-comments-allow/admin-comments-allow.component';
+
 
 @NgModule({
   declarations: [
@@ -110,6 +115,9 @@ import { AdminCommentsAllowComponent } from './admin-comments-allow/admin-commen
     SearchComponent,
     AdvertDetailViewComponent,
     NotFoundComponent,
+
+    OwnerViewRequestsComponent,
+    AdRequestItemComponent
     UsersBanListComponent,
     CreateCommentComponent,
     HomeComponent,
@@ -121,6 +129,7 @@ import { AdminCommentsAllowComponent } from './admin-comments-allow/admin-commen
     HomeHeaderComponent,
     CommentComponent,
     AdminCommentsAllowComponent
+
 
   ],
     imports: [

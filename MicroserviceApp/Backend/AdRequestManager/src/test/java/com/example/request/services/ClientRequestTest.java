@@ -1,6 +1,8 @@
 package com.example.request.services;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import com.example.request.RequestApplication;
 import com.example.request.dto.AdRequestDTO;
 import com.example.request.dto.CreateAdBundleRequestDTO;
 import com.example.request.model.AdvertCopy;
@@ -16,7 +18,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.*;
 
-@SpringBootTest
+@SpringBootTest(classes = RequestApplication.class)
 class ClientRequestTest {
 
     @Autowired

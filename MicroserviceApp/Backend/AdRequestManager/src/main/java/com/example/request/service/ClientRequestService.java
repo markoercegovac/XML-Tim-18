@@ -10,6 +10,6 @@ import java.util.List;
 public interface ClientRequestService {
 
     void createNewRequestBundle(CreateAdBundleRequestDTO createBundle) throws RuntimeException, Exception;
-    List<AdRequestForClientDTO> findAllBunlesByStatus(String clientEmail, String status);
+    List<AdRequestForClientDTO> findAllBundlesByStatus(String clientEmail, String status);
     void clientPaid(Long bundleId) throws Exception, NullPointerException;
 }
