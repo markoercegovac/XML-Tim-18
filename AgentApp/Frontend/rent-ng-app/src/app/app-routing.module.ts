@@ -15,6 +15,13 @@ import { AddAdvertComponent } from './home/adverts/add-advert/add-advert.compone
 
 import {RegisterCarComponent} from './register-car/register-car.component';
 import {DefinePriceComponent} from './define-price/define-price.component';
+import {ReservedCarComponent} from './reserved-car/reserved-car.component';
+import {MyAdvertComponent} from './my-advert/my-advert.component';
+import {ChatComponent} from './chat/chat.component';
+import {InboxComponent} from './inbox/inbox.component';
+import {DriveReportCreateComponent} from './drive-report-create/drive-report-create.component';
+import {DriveReportListComponent} from './drive-report-list/drive-report-list.component';
+import {DriveReportUpdateComponent} from './drive-report-update/drive-report-update.component';
 
 
 
@@ -41,6 +48,35 @@ const routes: Routes = [
   {
     path: 'definePrice',
     component: DefinePriceComponent
+  },
+  {
+    path: 'kreirajDR',
+    component: DriveReportCreateComponent
+  },
+  {
+    path: 'listaDR/:id',
+    component: DriveReportListComponent
+  },
+  {
+    path: 'updateDR/:id',
+    component: DriveReportUpdateComponent
+  },
+  {
+    path: 'car/reserved/:id',
+    component: ReservedCarComponent
+  },
+  {
+    path: 'my/adverts',
+    component: MyAdvertComponent
+  },
+
+  {
+    path: 'chat',
+    component: ChatComponent
+  },
+  {
+    path: 'inbox',
+    component: InboxComponent
   },
   { path: '**', component: NotFoundComponent }
 ];

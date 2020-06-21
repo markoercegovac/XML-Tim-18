@@ -3,7 +3,7 @@
   <div class="row">
     <div class="offset-3"></div>
     <div class="col-md-6">
-      <form name="certificateForm"   novalidate class="feedback-form">
+      <form name="certificateForm" (ngSubmit)="createPrice()"  novalidate class="feedback-form">
         <div>
           <h4><b>Price </b>
             <i class="fa fa-credit-card"></i></h4>
@@ -12,16 +12,48 @@
         <div class="form-group" style="margin-top:20px;">
           <label>Price per day</label>
           <input type="number"
-                 placeholder="Price par day"
+                 placeholder="Price Per Day"
                  class="form-control"
                  pattern="^\d*(\.\d{0,2})?$"
                  min="0"
+                 [(ngModel)]="model.pricePerDay"
+                 name="pricePerDay"
+
           />
         </div>
 
         <div class="form-group" style="margin-top:20px;">
+          <label>Insurance Price</label>
+          <input type="number"
+                 placeholder="Insurance Price"
+                 class="form-control"
+                 pattern="^\d*(\.\d{0,2})?$"
+                 min="0"
+                 [(ngModel)]="model.insurancePrice"
+                 name="insurancePrice"
+
+          />
+        </div>
+
+        <div class="form-group" style="margin-top:20px;">
+          <label>Distance Overflow Price</label>
+          <input type="number"
+                 placeholder="Distance Overflow Price"
+                 class="form-control"
+                 pattern="^\d*(\.\d{0,2})?$"
+                 min="0"
+                 [(ngModel)]="model.distanceOverflowPrice"
+                 name="distanceOverflowPrice"
+
+          />
+        </div>
+
+
+
+
+        <div class="form-group" style="margin-top:20px;">
           <label>Discount</label>
-          <select class="form-control custom-select" >
+          <select class="form-control custom-select" name="discount" [(ngModel)]="model.discount">
             <option value="5">5%</option>
             <option value="10">10%</option>
             <option value="20">20%</option>

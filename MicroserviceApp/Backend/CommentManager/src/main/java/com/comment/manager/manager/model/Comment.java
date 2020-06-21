@@ -33,4 +33,5 @@ public class Comment {
     @Enumerated(EnumType.STRING)
     @Column
     private CommentState commentState;
+
 }

@@ -24,6 +24,4 @@ public class DriveReport {
     @Column(name="CarDateOfReport")
     private Date dateOfReport;
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private Car carReport;
 }

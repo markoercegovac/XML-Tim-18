@@ -1,9 +1,11 @@
 package rent.app.model;
 
 import lombok.Data;
+import rent.app.dto.PictureDto;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -18,11 +20,12 @@ public class Advert {
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Car car;
 
-    @Column(name="profilePicture")
-    private String profilePicture;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "picture_id", referencedColumnName = "id")
+    private Picture profilePicture;
 
-    @OneToMany(mappedBy = "advert",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private Set<Picture> pictureSet;
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    private List<Picture> pictureSet;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name="startOfAdvert")
@@ -48,4 +51,6 @@ public class Advert {
     @OneToMany(mappedBy = "advert",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<Comment> comments;
 
+    @OneToMany
+    private List<Reservation> reservations;
 }

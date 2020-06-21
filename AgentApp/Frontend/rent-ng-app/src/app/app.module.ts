@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import {MDBBootstrapModule} from 'angular-bootstrap-md';
 // @ts-ignore
 import { HttpClientModule } from '@angular/common/http';
 import { SignInComponent } from './sign-in/sign-in.component';
@@ -36,6 +36,15 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { RegisterCarComponent } from './register-car/register-car.component';
 import { DefinePriceComponent } from './define-price/define-price.component';
 import {FormsModule} from '@angular/forms';
+import { ReservedCarComponent } from './reserved-car/reserved-car.component';
+import { MyAdvertComponent } from './my-advert/my-advert.component';
+import { ChatComponent } from './chat/chat.component';
+import { ChatHeaderComponent } from './chat/chat-header/chat-header.component';
+import { InboxComponent } from './inbox/inbox.component';
+import { MesagesComponent } from './inbox/mesages/mesages.component';
+import { DriveReportCreateComponent } from './drive-report-create/drive-report-create.component';
+import { DriveReportListComponent } from './drive-report-list/drive-report-list.component';
+import { DriveReportUpdateComponent } from './drive-report-update/drive-report-update.component';
 
 
 @NgModule({
@@ -64,13 +73,23 @@ import {FormsModule} from '@angular/forms';
     AddAdvertComponent,
     NavigationComponent,
     RegisterCarComponent,
-    DefinePriceComponent
+    DefinePriceComponent,
+    DriveReportCreateComponent,
+    DriveReportListComponent,
+    DriveReportUpdateComponent,
+    ReservedCarComponent,
+    MyAdvertComponent,
+    ChatComponent,
+    ChatHeaderComponent,
+    InboxComponent,
+    MesagesComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    MDBBootstrapModule
   ],
   providers: [],
   bootstrap: [AppComponent]

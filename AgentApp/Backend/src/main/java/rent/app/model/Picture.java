@@ -13,10 +13,7 @@ public class Picture {
     private Long id;
 
     @Column
-    private String picture;
-
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private Advert advert;
+    private String path;
 
     @Column
     private boolean isDeleted;

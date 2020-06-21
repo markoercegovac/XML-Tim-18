@@ -40,10 +40,10 @@ insert into car_fuel_type(id, fuel_type,is_removed) values(6,"HYDROGEN",FALSE);
 insert into car_fuel_type(id, fuel_type,is_removed) values(7,"OTHER",FALSE);
 
 -- CAR
-insert into car(id, children_sit_number, is_insurance, travel_distance_constraint, car_brand_id, car_class_id, car_fuel_type_id, car_model_id, car_transmission_type_id, client_email, mileage_id) values
-(301, 2, false, 4333, 1, 1, 1, 1, 1, 'mika@maildrop.cc', null),
-(302, 2, false, 4333, 2, 2, 2, 2, 2, 'mika@maildrop.cc', null),
-(303, 2, false, 4333, 1, 1, 1, 3, 2, 'mika@maildrop.cc', null);
+insert into car(id, children_sit_number, is_insurance, travel_distance_constraint, car_brand_id, car_class_id, car_fuel_type_id, car_model_id, car_transmission_type_id, mileage_id) values
+(301, 2, false, 4333, 1, 1, 1, 1, 1, null),
+(302, 2, false, 4333, 2, 2, 2, 2, 2, null),
+(303, 2, false, 4333, 1, 1, 1, 3, 2, null);
 
 -- PRICE
 insert into price(id, name, price_per_day, discount, distance_overflow_price, insurance_price, is_removed) values
@@ -52,19 +52,7 @@ insert into price(id, name, price_per_day, discount, distance_overflow_price, in
 (803, "price #3", 432.4, 30, 452445, 4334, false),
 (804, "price #4", 432.4, 30, 452445, 4334, false);  
 
---ADVERTS
-insert into advert(id, is_active, car_id, current_driver, price_id)
-values(1, true, 301, null, 801);
 
---GRADES
-insert into grade(id, grade, advert_id) values(1, 3, 1);
-insert into grade(id, grade, advert_id) values(2, 3, 1);
-insert into grade(id, grade, advert_id) values(3, 5, 1);
 
---COMMENTS
-insert into comment(id, content, is_approved, client_email,advert_id)
-    values(1, 'odlicna ponuda', true, 'mika@maildrop.cc', 1);
-insert into comment(id, content, is_approved, client_email,advert_id)
-    values(2, 'super cena', true, 'pera@maildrop.cc', 1);
-insert into comment(id, content, is_approved, client_email,advert_id)
-    values(3, 'lose je jako', false, 'mika@maildrop.cc', 1);
+
+

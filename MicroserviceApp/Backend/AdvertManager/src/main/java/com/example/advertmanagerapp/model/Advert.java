@@ -57,7 +57,7 @@ public class Advert {
     private Price price;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "client_id", referencedColumnName = "email")
+    @JoinColumn(name = "id", referencedColumnName = "id")
     private ClientCopy currentDriver;
 
     @OneToMany
