@@ -1,6 +1,7 @@
 package com.example.request.model;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -17,10 +18,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
 
-import org.hibernate.validator.constraints.Length;
-
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 @Data
@@ -34,12 +33,10 @@ public class RequestBundle {
     private Long requestBundleId;
 
     @Email
-    @Length(min = 5, max = 51)
     @Column(name = "owner_email", nullable = false)
     private String ownerEmail;
 
     @Email
-    @Length(min = 5, max = 51)
     @Column(name = "requesting_user_email", nullable = false)
     private String requestingUserEmail;
 
@@ -56,9 +53,9 @@ public class RequestBundle {
     private Date approvedDateAndTime;
 
     @Column(name = "price_with_discount", nullable = false)
-    @Min(value = 0)
     private double priceWithDiscount;
 
-    @OneToMany(mappedBy = "requestBundle", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<Request> requests;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<Request> requests;
 }

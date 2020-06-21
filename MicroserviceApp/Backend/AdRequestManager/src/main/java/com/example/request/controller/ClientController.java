@@ -50,7 +50,7 @@ public class ClientController {
             @RequestParam(value = "status", required = false) String status) {
 
         return new ResponseEntity<List<AdRequestForClientDTO>>(
-                clientRequestServiceImpl.findAllBunlesByStatus(clientEmail, status),
+                clientRequestServiceImpl.findAllBundlesByStatus(clientEmail, status),
                 HttpStatus.OK);
     }
 

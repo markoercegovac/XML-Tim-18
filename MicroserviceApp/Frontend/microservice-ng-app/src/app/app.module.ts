@@ -56,6 +56,8 @@ import { AdvertDetailViewComponent } from './advert-detail-view/advert-detail-vi
 import { NotFoundComponent } from './not-found/not-found.component';
 
 import { CaptureComponent } from './advert/capture/capture/capture.component';
+import { OwnerViewRequestsComponent } from './owner-view-requests/owner-view-requests.component';
+import { AdRequestItemComponent } from './owner-view-requests/ad-request-item/ad-request-item.component';
 
 @NgModule({
   declarations: [
@@ -98,7 +100,9 @@ import { CaptureComponent } from './advert/capture/capture/capture.component';
 
     SearchComponent,
     AdvertDetailViewComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    OwnerViewRequestsComponent,
+    AdRequestItemComponent
 
   ],
     imports: [

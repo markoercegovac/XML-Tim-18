@@ -20,6 +20,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class AutomaticallyCancelOlderRequests {
 	
+	private final ChangeState changeState;
 	private final RequestBundleRepository requestBundle;
 
 	@Before(value = "execution(* com.example.request.service.impl.OwnerServiceImpl.findOwnersAdByState(..)) and args(email, state)")
@@ -31,9 +32,7 @@ public class AutomaticallyCancelOlderRequests {
 
 		if(olderBundles != null && !olderBundles.isEmpty()) {
 			olderBundles.forEach(bundle -> {
-				bundle.setAdvertState(AdvertStateEnum.CANCEL);
-
-				requestBundle.save(bundle);
+				changeState.change(bundle.getRequestBundleId(), AdvertStateEnum.CANCEL);
 			});
 		}
 	}	

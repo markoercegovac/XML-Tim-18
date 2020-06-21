@@ -22,7 +22,7 @@ public class OwnerServiceImpl implements OwnerService {
 	private final RequestBundleRepository bundleRepository;
 	
 	@Override
-	public void approvBundle(Long bundleId) throws Exception {
+	public void approveBundle(Long bundleId) throws Exception {
 		RequestBundle bundle = bundleRepository.getOne(bundleId);
 
 		Calendar c = Calendar.getInstance();
@@ -58,7 +58,8 @@ public class OwnerServiceImpl implements OwnerService {
 			foundRequest.forEach(bundle -> {
 				try {
 					foundAdRequests.add(AdRequestOwnerConvertor.fromBundleToAdRequestForOwner(bundle));
-				} catch(NullPointerException e) {
+				} catch(Exception e) {
+					e.printStackTrace();
 					System.out.println("DATA BASE IS NOT CONSISTENT");
 				}
 			});

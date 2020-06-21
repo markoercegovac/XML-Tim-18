@@ -15,7 +15,12 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Data
 @Entity
@@ -34,12 +39,5 @@ public class Request {
     @Temporal(value = TemporalType.TIMESTAMP)
     @Column(name = "end_reservation_date", nullable = false)
     private Date endReservationDate;
-    
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "request_bundle_id", nullable = false)
-    private RequestBundle requestBundle;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "advert_copy_id", nullable = false)
-    private AdvertCopy advertCopy;
 }

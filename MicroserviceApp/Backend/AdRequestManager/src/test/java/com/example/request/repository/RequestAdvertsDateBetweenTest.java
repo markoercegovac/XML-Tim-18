@@ -1,8 +1,6 @@
 package com.example.request.repository;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 import com.example.request.model.AdvertCopy;
 import com.example.request.model.AdvertStateEnum;
@@ -38,21 +36,6 @@ public class RequestAdvertsDateBetweenTest {
 
 		String email = "ime@mail.com";
 
-		RequestBundle b = new RequestBundle();
-		b.setAdvertState(AdvertStateEnum.PENDING);
-		b.setCreationDateAndTime(new Date());
-		b.setOwnerEmail(email);
-		b.setRequestingUserEmail(email);
-		b.setPriceWithDiscount(100l);
-		b.setRequestBundleId(1l);
-		bundleRepository.save(b);
-
-		AdvertCopy a = new AdvertCopy();		
-		a.setAdvertCopyId(1l);
-		a.setOwnerEmail(email);
-		a.setAdvertEndDate(new Date());
-		advertReposiotry.save(a);
-
 		d = new Date[8];
 		Calendar c = Calendar.getInstance();
 		d[0] =  (Date) c.getTime().clone();
@@ -62,12 +45,11 @@ public class RequestAdvertsDateBetweenTest {
 			d[i] = (Date) c.getTime().clone();
 		}
 
+		List<Request> req = new ArrayList<>();
 		r = new Request[9];
 		for(int i=0; i<9; ++i) {
 			r[i] = new Request();
 			r[i].setRequestId((long) i);
-			r[i].setAdvertCopy(a);
-			r[i].setRequestBundle(b);
 			if(i < 7) {
 				r[i].setStartReservationDate(d[i]);
 				r[i].setEndReservationDate(d[i+1]);
@@ -80,7 +62,26 @@ public class RequestAdvertsDateBetweenTest {
 			}
 
 			requestRepository.save(r[i]);
+			req.add(r[i]);
 		}
+
+		RequestBundle b = new RequestBundle();
+		b.setAdvertState(AdvertStateEnum.PENDING);
+		b.setCreationDateAndTime(new Date());
+		b.setOwnerEmail(email);
+		b.setRequestingUserEmail(email);
+		b.setPriceWithDiscount(100l);
+		b.setRequestBundleId(1l);
+
+		b.setRequests(req);
+		bundleRepository.save(b);
+
+		AdvertCopy a = new AdvertCopy();
+		a.setAdvertCopyId(1l);
+		a.setOwnerEmail(email);
+		a.setAdvertEndDate(new Date());
+		a.setRequests(req);
+		advertReposiotry.save(a);
 	}
 
 	@Test
@@ -93,6 +94,14 @@ public class RequestAdvertsDateBetweenTest {
 			d[2],
 			d[5]).orElse(null);
 
-		assert(found.size() == 2);
+		assert(found == null);
+	}
+
+	@Test
+	public void test1() {
+
+		AdvertCopy a = advertReposiotry.findByRequestsRequestId(1l).orElse(null);
+
+		assert(a.getAdvertCopyId().equals(1l));
 	}
 }

@@ -73,6 +73,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="request" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -94,6 +97,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="ToolWindowCoverage.ShowToolbar" value="false" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -107,7 +111,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RequestBundleRepositoryTest.shouldReturnb2b3b4">
+  <component name="RunManager" selected="Application.RequestApplication">
     <configuration name="RequestApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.request.RequestApplication" />
       <module name="request" />
@@ -121,7 +125,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RequestBundleCreationDateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RequestAdvertsDateBetweenTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="request" />
       <extension name="coverage">
         <pattern>
@@ -130,8 +134,40 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.example.request.repository" />
-      <option name="MAIN_CLASS_NAME" value="com.example.request.repository.RequestBundleCreationDateTest" />
+      <option name="MAIN_CLASS_NAME" value="com.example.request.repository.RequestAdvertsDateBetweenTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RequestAdvertsDateBetweenTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="request" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.request.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.request.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.example.request.repository.RequestAdvertsDateBetweenTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RequestAdvertsDateBetweenTest.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="request" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.request.repository.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.request.repository" />
+      <option name="MAIN_CLASS_NAME" value="com.example.request.repository.RequestAdvertsDateBetweenTest" />
+      <option name="METHOD_NAME" value="test1" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -154,9 +190,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.RequestBundleRepositoryTest.shouldReturnb2b3b4" />
-        <item itemvalue="JUnit.RequestBundleCreationDateTest" />
         <item itemvalue="Application.RequestApplication" />
+        <item itemvalue="JUnit.RequestAdvertsDateBetweenTest.test1" />
+        <item itemvalue="JUnit.RequestAdvertsDateBetweenTest.test" />
+        <item itemvalue="JUnit.RequestAdvertsDateBetweenTest" />
+        <item itemvalue="JUnit.RequestBundleRepositoryTest.shouldReturnb2b3b4" />
       </list>
     </recent_temporary>
   </component>
@@ -175,33 +213,63 @@
       <screen x="1024" y="0" width="1920" height="1080" />
     </state>
     <state x="1767" y="277" width="424" height="479" key="FileChooserDialogImpl/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591275326837" />
-    <state width="1878" height="866" key="GridCell.Tab.0.bottom" timestamp="1592474147569">
-      <screen x="0" y="0" width="2944" height="1040" />
+    <state width="1581" height="917" key="GridCell.Tab.0.bottom" timestamp="1592724682305">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="866" key="GridCell.Tab.0.bottom/0.0.2944.1040@0.0.2944.1040" timestamp="1592474147569" />
+    <state width="1581" height="917" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1592724682305" />
+    <state width="1471" height="917" key="GridCell.Tab.0.bottom/0.0.2944.1040@0.0.2944.1040" timestamp="1592687955792" />
     <state width="1878" height="866" key="GridCell.Tab.0.bottom/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591275261017" />
-    <state width="1878" height="866" key="GridCell.Tab.0.center" timestamp="1592474147568">
-      <screen x="0" y="0" width="2944" height="1040" />
+    <state width="1581" height="917" key="GridCell.Tab.0.center" timestamp="1592724682303">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="866" key="GridCell.Tab.0.center/0.0.2944.1040@0.0.2944.1040" timestamp="1592474147568" />
+    <state width="1581" height="917" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1592724682303" />
+    <state width="1471" height="917" key="GridCell.Tab.0.center/0.0.2944.1040@0.0.2944.1040" timestamp="1592687955792" />
     <state width="1878" height="866" key="GridCell.Tab.0.center/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591275261017" />
-    <state width="1878" height="866" key="GridCell.Tab.0.left" timestamp="1592474147567">
-      <screen x="0" y="0" width="2944" height="1040" />
+    <state width="1581" height="917" key="GridCell.Tab.0.left" timestamp="1592724682302">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="866" key="GridCell.Tab.0.left/0.0.2944.1040@0.0.2944.1040" timestamp="1592474147567" />
+    <state width="1581" height="917" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1592724682302" />
+    <state width="1471" height="917" key="GridCell.Tab.0.left/0.0.2944.1040@0.0.2944.1040" timestamp="1592687955791" />
     <state width="1878" height="866" key="GridCell.Tab.0.left/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591275261017" />
-    <state width="1878" height="866" key="GridCell.Tab.0.right" timestamp="1592474147568">
-      <screen x="0" y="0" width="2944" height="1040" />
+    <state width="1581" height="917" key="GridCell.Tab.0.right" timestamp="1592724682304">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1878" height="866" key="GridCell.Tab.0.right/0.0.2944.1040@0.0.2944.1040" timestamp="1592474147568" />
+    <state width="1581" height="917" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1592724682304" />
+    <state width="1471" height="917" key="GridCell.Tab.0.right/0.0.2944.1040@0.0.2944.1040" timestamp="1592687955792" />
     <state width="1878" height="866" key="GridCell.Tab.0.right/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591275261017" />
-    <state x="1667" y="346" key="com.intellij.ide.util.TipDialog" timestamp="1591275291543">
-      <screen x="1024" y="0" width="1920" height="1080" />
+    <state width="921" height="917" key="GridCell.Tab.1.bottom" timestamp="1592724682296">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="921" height="917" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1592724682296" />
+    <state width="571" height="917" key="GridCell.Tab.1.bottom/0.0.2944.1040@0.0.2944.1040" timestamp="1592687955789" />
+    <state width="921" height="917" key="GridCell.Tab.1.center" timestamp="1592724682293">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="921" height="917" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1592724682293" />
+    <state width="571" height="917" key="GridCell.Tab.1.center/0.0.2944.1040@0.0.2944.1040" timestamp="1592687955788" />
+    <state width="921" height="917" key="GridCell.Tab.1.left" timestamp="1592724682292">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="921" height="917" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1592724682292" />
+    <state width="571" height="917" key="GridCell.Tab.1.left/0.0.2944.1040@0.0.2944.1040" timestamp="1592687955787" />
+    <state width="921" height="917" key="GridCell.Tab.1.right" timestamp="1592724682294">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="921" height="917" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1592724682294" />
+    <state width="571" height="917" key="GridCell.Tab.1.right/0.0.2944.1040@0.0.2944.1040" timestamp="1592687955788" />
+    <state x="643" y="333" key="com.intellij.ide.util.TipDialog" timestamp="1592720566476">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="643" y="333" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1592720566476" />
     <state x="1667" y="346" key="com.intellij.ide.util.TipDialog/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1591275291543" />
     <state x="1737" y="264" width="483" height="504" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1592473856806">
       <screen x="0" y="0" width="2944" height="1040" />
     </state>
     <state x="1737" y="264" width="483" height="504" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.2944.1040@0.0.2944.1040" timestamp="1592473856806" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/request$RequestApplication.ic" NAME="RequestApplication Coverage Results" MODIFIED="1592724419491" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.example.request.*</FILTER>
+    </SUITE>
   </component>
 </project>

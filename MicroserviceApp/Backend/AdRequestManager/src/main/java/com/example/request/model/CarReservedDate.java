@@ -35,7 +35,4 @@ public class CarReservedDate {
     @Column(name = "end_date", nullable = false)
     private Date endDate;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "advert_copy_id", nullable = false)
-    private AdvertCopy advertCopy;
 }

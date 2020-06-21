@@ -21,6 +21,7 @@ import { AdvertDetailViewComponent } from './advert-detail-view/advert-detail-vi
 import { NotFoundComponent } from './not-found/not-found.component';
 
 import {CaptureComponent} from "./advert/capture/capture/capture.component";
+import { OwnerViewRequestsComponent } from './owner-view-requests/owner-view-requests.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'bundle', component: BundleComponent},
   { path: 'advert/:id', component: AdvertDetailViewComponent },
+  { path: 'owner/requests', component: OwnerViewRequestsComponent },
   {
     path: 'create/advert',
     component: CreateAdvertComponent

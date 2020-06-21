@@ -15,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(value = "/advert-request/owner")
 public class OwnerController {
 
@@ -32,13 +33,13 @@ public class OwnerController {
 
         List<AdRequestForOwnerDTO> foundAds = new ArrayList<>();
 
-		try {
-			foundAds = ownerService.findOwnersAdByState(ownerEmail, status);
+      try {
+        foundAds = ownerService.findOwnersAdByState(ownerEmail, status);
 
-			return new ResponseEntity<List<AdRequestForOwnerDTO>>(foundAds, HttpStatus.OK);
-		} catch(Exception e) {
-			return new ResponseEntity<List<AdRequestForOwnerDTO>>(HttpStatus.BAD_REQUEST);
-		}
+        return new ResponseEntity<List<AdRequestForOwnerDTO>>(foundAds, HttpStatus.OK);
+      } catch(Exception e) {
+        return new ResponseEntity<List<AdRequestForOwnerDTO>>(HttpStatus.BAD_REQUEST);
+      }
 
     }
 
@@ -52,9 +53,10 @@ public class OwnerController {
             @PathVariable("request_id") Long requestId) {
 
 		try {
-			ownerService.approvBundle(requestId);
+			ownerService.approveBundle(requestId);
 			return new ResponseEntity<String>("APPROVED", HttpStatus.OK);
 		} catch(Exception e) {
+		    e.printStackTrace();
 			return new ResponseEntity<String>(e.getLocalizedMessage(), HttpStatus.NOT_ACCEPTABLE);
 		}
     }

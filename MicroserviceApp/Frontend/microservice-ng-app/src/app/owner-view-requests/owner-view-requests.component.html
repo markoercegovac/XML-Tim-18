@@ -1,0 +1,37 @@
+<div class="container-fluid">
+	<br>
+	<div class="row justify-content-around">
+		<div class="col">
+			<h1>List of advert requests</h1>
+		</div>
+		<div class="col">
+			<div class="row">
+				<div class="col">
+					<label for="InputState">filter by state</label>
+				</div>
+				<div class="col">
+					<select name="InputState" id="InputState" (change)="onChangeState($event)">
+						<option value="ALL">all</option>
+						<option value="PENDING">pending</option>
+						<option value="APPROVED">approved</option>
+						<option value="PAID">paid</option>
+						<option value="CANCEL">canceled</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<br>
+
+	<div *ngIf="requestSerivice.bundles.length != 0">
+		<div class="row justify-content-center">
+			<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let b of requestSerivice.bundles">
+				<app-ad-request-item [bundle]="b" class="mb-2 mr-1" ></app-ad-request-item>
+			</div>
+		</div>
+	</div>
+	<div *ngIf="requestSerivice.bundles.length == 0">
+		<h3>NO REQUESTS</h3>
+	</div>
+</div>

@@ -13,10 +13,12 @@ import org.springframework.data.repository.query.Param;
 @Repository
 public interface RequestRepository extends JpaRepository<Request, Long> {
 
-	@Query(value = "SELECT r FROM Request r WHERE "+
-		" r.advertCopy.advertCopyId = :id and " +
-		" r.startReservationDate BETWEEN :startDate AND :endDate AND"+
-		" r.endReservationDate BETWEEN :startDate AND :endDate")
+	@Query(value = "SELECT r.* FROM request r \n" +
+			"INNER JOIN advert_copy_requests ar\n" +
+			"ON r.request_id = ar.requests_request_id \n" +
+			"WHERE ar.advert_copy_advert_copy_id = :id\n" +
+			"AND r.end_reservation_date <= :startDate\n" +
+			"AND r.start_reservation_date >= :endDate", nativeQuery = true)
 	Optional<List<Request>> findAllByAdvertIdAndDatesBetween(
 		@Param("id") Long advertId,
 		@Param("startDate") Date startDate,

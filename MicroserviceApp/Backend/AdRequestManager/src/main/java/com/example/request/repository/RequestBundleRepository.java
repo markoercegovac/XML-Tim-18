@@ -23,4 +23,6 @@ public interface RequestBundleRepository extends JpaRepository<RequestBundle, Lo
         nativeQuery = false)
     Optional<List<RequestBundle>> findAllByOwnerEmailAndCreationDateAndTimeBefore(String owner, Date beforeDate);
 
+    Optional<RequestBundle> findByRequestsRequestId(Long requestId);
+
 }

@@ -11,5 +11,5 @@ import org.springframework.stereotype.Service;
 public interface OwnerService {
 	
 	List<AdRequestForOwnerDTO> findOwnersAdByState(String email, AdvertStateEnum state) throws Exception;
-	void approvBundle(Long bundleId) throws Exception;
+	void approveBundle(Long bundleId) throws Exception;
 }

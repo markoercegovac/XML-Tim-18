@@ -13,8 +13,8 @@ import com.example.request.repository.RequestRepository;
 import com.example.request.service.ClientRequestService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.*;
 
 @Service
@@ -25,7 +25,7 @@ public class ClientRequestServiceImpl implements ClientRequestService {
     private final RequestBundleRepository requestBundleRepository;
     private final AdvertCopyRepository advertCopyRepository;
 
-    @Transactional(rollbackOn = Exception.class)
+    @Transactional(rollbackFor = Exception.class)
     public void createNewRequestBundle(CreateAdBundleRequestDTO createBundle) throws RuntimeException, Exception {
 
         RequestBundle wishedBundle = new RequestBundle();
@@ -56,18 +56,18 @@ public class ClientRequestServiceImpl implements ClientRequestService {
                 throw new RuntimeException("ADVERT DOSE NOT HAVE VALID START DATE");
             } else {
                 Request validRequest = new Request();
-                validRequest.setAdvertCopy(foundAdvert);
                 validRequest.setStartReservationDate(advert.getStartDate());
                 validRequest.setEndReservationDate(advert.getEndDate());
-                validRequest.setRequestBundle(wishedBundle);
-
                 requestRepository.save(validRequest);
+
+                foundAdvert.getRequests().add(validRequest);
+                advertCopyRepository.save(foundAdvert);
             }
         }
         );
     }
 
-    public List<AdRequestForClientDTO> findAllBunlesByStatus(String clientEmail, String status) {
+    public List<AdRequestForClientDTO> findAllBundlesByStatus(String clientEmail, String status) {
         List<AdRequestForClientDTO> retBundles = new ArrayList<>();
         List<RequestBundle> foundBundles;
 
