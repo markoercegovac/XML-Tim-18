@@ -20,6 +20,7 @@ public class ClientCopy  {
     @GeneratedValue
     private Long id;
 
+    @Column
     private String email;
 
     @Column
