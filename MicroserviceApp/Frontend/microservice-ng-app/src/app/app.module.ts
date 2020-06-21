@@ -56,6 +56,17 @@ import { AdvertDetailViewComponent } from './advert-detail-view/advert-detail-vi
 import { NotFoundComponent } from './not-found/not-found.component';
 
 import { CaptureComponent } from './advert/capture/capture/capture.component';
+import { UsersBanListComponent } from './users-ban-list/users-ban-list.component';
+import { CreateCommentComponent } from './home/full-advert/comments/create-comment/create-comment.component';
+import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './home/footer/footer.component';
+import { AdvertsComponent } from './home/adverts/adverts.component';
+import { AdvertMiniComponent } from './home/adverts/advert-mini/advert-mini.component';
+import { FullAdvertComponent } from './home/full-advert/full-advert.component';
+import { CommentsComponent } from './home/full-advert/comments/comments.component';
+import { HomeHeaderComponent } from './home/home-header/home-header.component';
+import { CommentComponent } from './home/full-advert/comments/comment/comment.component';
+import { AdminCommentsAllowComponent } from './admin-comments-allow/admin-comments-allow.component';
 
 @NgModule({
   declarations: [
@@ -98,7 +109,18 @@ import { CaptureComponent } from './advert/capture/capture/capture.component';
 
     SearchComponent,
     AdvertDetailViewComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    UsersBanListComponent,
+    CreateCommentComponent,
+    HomeComponent,
+    FooterComponent,
+    AdvertsComponent,
+    AdvertMiniComponent,
+    FullAdvertComponent,
+    CommentsComponent,
+    HomeHeaderComponent,
+    CommentComponent,
+    AdminCommentsAllowComponent
 
   ],
     imports: [

@@ -30,7 +30,9 @@ public class CarBrandController {
 
     @PostMapping
     public ResponseEntity createCarBrand(@RequestBody CarBrand carBrand){
+        carBrand.setId(null);
         carBrandService.saveCarBrand(carBrand);
+
         return new ResponseEntity(HttpStatus.OK);
     }
 

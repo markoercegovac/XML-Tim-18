@@ -30,8 +30,7 @@ public class CarTransmmisionController {
     @PostMapping
     public ResponseEntity createCarTransmision(@RequestBody CarTransmissionType carTransmision){
 
-
-        carTransmision.setRemoved(false);
+        carTransmision.setId(null);
         transsmisionTypeService.saveCarTranssmisionType(carTransmision);
         return new ResponseEntity(HttpStatus.OK);
     }

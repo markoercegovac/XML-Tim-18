@@ -24,7 +24,8 @@ export class CarBrandComponent implements OnInit {
 
   listsOfCarBrands: CarBrand [] = [];
 
-  name: string = "";
+  name: string;
+
 
   displayColumns: string [] = ['name', 'update', 'delete'] ;
   dataSource: MatTableDataSource<CarBrand>;
@@ -36,7 +37,7 @@ export class CarBrandComponent implements OnInit {
   }
 
 
-  constructor(private http: HttpClient, public dialog: MatDialog , public service: CarBrandService) { 
+  constructor(private http: HttpClient, public dialog: MatDialog , public service: CarBrandService) {
     this.dataSource = new MatTableDataSource();
     this.dataSource.data = [];
   }
@@ -85,7 +86,7 @@ export class CarBrandComponent implements OnInit {
     dialogRefUpdate.afterClosed().subscribe(result => {
       console.log("bio sam ovdje!");
 
-      this.getAllCarBrand()
+      this.getAllCarBrand();
     });
   }
 
