@@ -15,6 +15,7 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.util.Base64;
 import java.util.List;
 @Service
 @RequiredArgsConstructor
@@ -34,10 +35,10 @@ public class PictureServiceImpl implements PictureService {
     }
 
     @Override
-    public byte[] getProfilePicture(Picture picture) throws IOException {
+    public String getProfilePicture(Picture picture) throws IOException {
         byte[] fileContent = FileUtils.readFileToByteArray(new File(filePath+picture.getPath()));
-
-        return fileContent;
+        String encodedString = Base64.getEncoder().encodeToString(fileContent);
+        return encodedString;
     }
 
     @Override

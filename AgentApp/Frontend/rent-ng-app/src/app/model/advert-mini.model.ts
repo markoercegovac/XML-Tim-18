@@ -1,7 +1,7 @@
 export interface AdvertMiniModel {
 
     advertId: number;
-    profileImage: any;
+    profilePicture: string;
     price: number;
     grade: number;
 

@@ -17,7 +17,7 @@ public class Advert {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY)
     private Car car;
 
     @OneToOne(fetch = FetchType.LAZY)
@@ -41,7 +41,7 @@ public class Advert {
     @Column(name="isActive")
     private boolean isActive;
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY)
     private Price price;
 
     @OneToOne(fetch = FetchType.LAZY)

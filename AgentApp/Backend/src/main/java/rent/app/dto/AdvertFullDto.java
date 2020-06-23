@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class AdvertFullDto {
+public class AdvertFullDto implements DTOEntity{
     private Long advertId;
     private String profileImage;
     private List<String> galleryImages;

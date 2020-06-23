@@ -56,10 +56,10 @@ public class Car {
 
 //    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 //    private Client client;
-
-    @OneToMany(mappedBy = "car",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    @JsonBackReference
-    private Set<Advert> adverts;
+//
+//    @OneToMany(mappedBy = "car",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+//    @JsonBackReference
+//    private Set<Advert> adverts;
 
     @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JsonBackReference

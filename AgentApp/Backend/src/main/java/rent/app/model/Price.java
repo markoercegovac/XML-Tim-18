@@ -36,7 +36,6 @@ public class Price {
     @Column
     private boolean isRemoved;
 
-    @OneToMany(mappedBy = "price",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private Set<Advert> advertSet;
+
 
 }

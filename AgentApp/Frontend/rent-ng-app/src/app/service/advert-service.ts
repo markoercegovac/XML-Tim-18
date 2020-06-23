@@ -46,4 +46,8 @@ export class AdvertService {
   public getGradeForAdvert(id: number): any{
     return this.http.get(gradeUrl + '/all/' + id);
   }
+
+  public getAdvert(id: number): any{
+    return this.http.get(URL + '/show/' + id);
+  }
 }
