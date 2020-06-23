@@ -3,6 +3,7 @@ package rent.app.service.impl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import rent.app.dto.AdvertDto;
+import rent.app.dto.AdvertFullDto;
 import rent.app.dto.AdvertMiniDto;
 import rent.app.dto.DtoUtils;
 import rent.app.model.Advert;
@@ -68,15 +69,32 @@ public class AdvertServiceImpl implements AdvertService {
             advertMiniDto.setGrade(gradeService.getGradeForAd(a.getId()));
             advertMiniDto.setAdvertId(a.getId());
             advertMiniDto.setCarBrand(a.getCar().getCarBrand().getName());
-            advertMiniDto.setCarModel(a.getCar().getCarModel().getModelName());
+            //advertMiniDto.setCarModel(a.getCar().getCarModel().getModelName());
             //advertMiniDto.setDistanceUnit(a.getCar().getTravelDistanceConstraint().toString());
 //            advertMiniDto.setPrice(a.getPrice().getPricePerDay());
-//            advertMiniDto.setProfilePicture(pictureService.getProfilePicture(a.getProfilePicture()));
+            advertMiniDto.setProfilePicture(pictureService.getProfilePicture(a.getProfilePicture()));
             advertMiniDtos.add(advertMiniDto);
         }
 
 
         return advertMiniDtos;
+    }
+
+    @Override
+    public AdvertFullDto getAdvert(Long id) throws IOException {
+        Advert advert=advertRepository.findById(id).get();
+        AdvertFullDto advertFullDto=new AdvertFullDto();
+        advertFullDto.setAdvertId(advert.getId());
+        advertFullDto.setCarBrand(advert.getCar().getCarBrand().getName());
+        advertFullDto.setCarModel(advert.getCar().getCarModel().getModelName());
+        advertFullDto.setPrice(advert.getPrice().getPricePerDay());
+        advertFullDto.setProfileImage(pictureService.getProfilePicture(advert.getProfilePicture()));
+        List<String> pictures=new ArrayList<>();
+        for(Picture p : advert.getPictureSet()){
+            pictures.add(pictureService.getProfilePicture(p));
+        }
+        advertFullDto.setGalleryImages(pictures);
+        return advertFullDto;
     }
 
 

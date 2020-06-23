@@ -10,10 +10,13 @@ insert into car_brand(id, name, is_removed) values(1, "BMW", FALSE);
 insert into car_brand(id, name, is_removed) values(2, "AUDI", FALSE);
 insert into car_brand(id, name, is_removed) values(3, "PORSCHE", FALSE);
 insert into car_brand(id, name, is_removed) values(4, "YUGO", FALSE);
-insert into car_brand(id, name, is_removed) values(5, "LAMBORGHINI", FALSE);
 insert into car_brand(id, name, is_removed) values(6, "TOYOTA", FALSE);
 insert into car_brand(id, name, is_removed) values(7, "FERRARI", FALSE);
 insert into car_brand(id, name, is_removed) values(8, "FIAT", FALSE);
+insert into car_brand(id, name, is_removed) values(9, "NISSAN", FALSE);
+insert into car_brand(id, name, is_removed) values(10, "PEUGEOT", FALSE);
+insert into car_brand(id, name, is_removed) values(11, "GOLF", FALSE);
+
 
 -- CAR CLASS
 insert into car_class(id, class_name, is_removed) values(1, "S", FALSE);
@@ -25,6 +28,9 @@ insert into car_model(id, model_name, is_removed) values(1, "R8", FALSE);
 insert into car_model(id, model_name, is_removed) values(2, "MACAN", FALSE);
 insert into car_model(id, model_name, is_removed) values(3, "PUNTO", FALSE);
 insert into car_model(id, model_name, is_removed) values(4, "5", FALSE);
+insert into car_model(id, model_name, is_removed) values(5, "MICRA", FALSE);
+insert into car_model(id, model_name, is_removed) values(6, "307", FALSE);
+insert into car_model(id, model_name, is_removed) values(7, "PANDA", FALSE);
 
 -- CAR TRANSMISION TYPE
 insert into car_transmission_type(id, transmission_type,is_removed) values(1,"MANUAL",FALSE);

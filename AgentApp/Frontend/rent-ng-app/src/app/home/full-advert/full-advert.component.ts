@@ -26,6 +26,13 @@ export class FullAdvertComponent implements OnInit {
         this.grade=data;
       }
     );
+
+    this.advertService.getAdvert(this.adId).subscribe(
+      data=>{
+        this.advert=data;
+        console.log(this.advert);
+      }
+    );
   }
 
   createGrade() {
