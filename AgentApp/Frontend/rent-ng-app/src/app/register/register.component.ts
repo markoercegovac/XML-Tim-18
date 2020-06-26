@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {UserRegister} from '../model/UserRegister';
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-register',
@@ -18,7 +19,7 @@ export class RegisterComponent implements OnInit {
     role: ''
   }
 
-  constructor(private router: Router) { }
+  constructor(private router: Router , public http : HttpClient) { }
 
   ngOnInit(): void {
   }
@@ -29,7 +30,15 @@ export class RegisterComponent implements OnInit {
   }
 
   onRegister() {
-    console.log('registaring');
-    //TODO: http for registration
+
+    this.http.post('http://localhost:9090/register', this.user).subscribe(
+      res => {
+        alert("Zahtev za registraciju je poslat.Dalje informacije o prihvatanja bice poslate na mail.");
+      },
+      error => {
+        alert("Nesto je krenulo pogresno ");
+      }
+    );
+
   }
 }
