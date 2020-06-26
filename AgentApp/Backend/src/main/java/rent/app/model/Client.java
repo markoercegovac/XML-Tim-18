@@ -7,14 +7,13 @@ import rent.app.model.security.Role;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.Set;
+
 
 @Data
 @Entity
-@Table(name="Client")
+@Table
 public class Client implements Serializable {
 
-    private static final long serialVersionUID = 1L;
 
     @Id
     private String email;
@@ -28,25 +27,25 @@ public class Client implements Serializable {
     @Column(nullable = true)
     private String surname;
 
-    @Column
+    @Column(nullable = true)
     private String state;
 
-    @Column
+    @Column(nullable = true)
     private String city;
 
-    @Column
+    @Column(nullable = true)
     private String street;
 
-    @Column
+    @Column(nullable = true)
     private String streetNumber;
 
-    @Column
+    @Column(nullable = false)
     private String password;
 
-    @Column(nullable=true)
+    @Column
     private boolean isBanned;
 
-    @Column(nullable = true)
+    @Column
     private boolean isRemoved;
 
     @Column(nullable = true)
@@ -54,14 +53,6 @@ public class Client implements Serializable {
 
     @Column(nullable = true)
     private String companyRegistrationNumber;
-
-
-
-    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private Set<Car> cars;
-
-    @OneToMany(mappedBy = "client",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private Set<Comment> comments;
 
     @ManyToMany(fetch=FetchType.EAGER)
     @JoinTable(

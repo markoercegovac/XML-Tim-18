@@ -8,6 +8,7 @@ import rent.app.model.Client;
 import rent.app.model.security.Permission;
 import rent.app.model.security.Role;
 
+
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -40,11 +41,13 @@ public class UserPrincipal  implements UserDetails {
 
     @Override
     public String getPassword() {
+        System.out.println("Preuzeo:"  + this.user.getPassword() + this.getUsername());
         return this.user.getPassword();
     }
 
     @Override
-    public String getUsername() {
+    public String getUsername()
+    {
         return this.user.getUsername();
     }
 
