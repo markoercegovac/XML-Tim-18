@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import { MessageService } from 'src/app/services/message.service';
 import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
@@ -11,8 +11,11 @@ import { MessageCreateModel } from '../../model/message-create.model';
 })
 export class CreateMessageComponent implements OnInit {
 
+  @Input('predefined') predefined: {header: string, receiver: string};
+  @Output('seeInbox') seeInbox = new EventEmitter();
   contacts: string[];
   receiver: string;
+  header: string;
   me: string;
 
   constructor(private route: ActivatedRoute, private msgService: MessageService) { }
@@ -25,6 +28,11 @@ export class CreateMessageComponent implements OnInit {
         this.contacts = data;
       }
     );
+
+    if(this.predefined != null) {
+      this.receiver = this.predefined.receiver;
+      this.header = this.predefined.header;
+    }
   }
 
   onSubmit(form: NgForm) {
@@ -37,6 +45,8 @@ export class CreateMessageComponent implements OnInit {
     };
 
     this.msgService.sendMessage(msg).subscribe();
+
+    this.seeInbox.emit();
   }
 
 }

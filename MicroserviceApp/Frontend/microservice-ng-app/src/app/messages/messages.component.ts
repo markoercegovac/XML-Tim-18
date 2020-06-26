@@ -16,6 +16,7 @@ export class MessagesComponent implements OnInit {
 
   showBody: string;
   bodyEnum: string[] = ['inbox', 'compose', 'detail'];
+  predefinedMsg : {header: string, receiver: string};
 
   constructor(private route: ActivatedRoute, private msgService: MessageService) { }
 
@@ -23,16 +24,18 @@ export class MessagesComponent implements OnInit {
     this.messageId = 0;
     this.showBody = this.bodyEnum[0];
     this.activeEmail = this.route.snapshot.params['email'];
+    this.predefinedMsg = null;
 
     this.reload();
   }
 
   onToggle() {
-    this.reload();
     if(this.showBody === this.bodyEnum[0]) {
+      this.predefinedMsg = null;
       this.showBody = this.bodyEnum[1];
     } else {
       this.showBody = this.bodyEnum[0];
+      this.reload();
     }
   }
 
@@ -41,8 +44,14 @@ export class MessagesComponent implements OnInit {
     this.showBody = this.bodyEnum[2];
   }
 
-  replay(event) {
-    alert()
+  replay(event: {header: string, receiver: string}) {
+    this.predefinedMsg = event;
+    this.showBody = this.bodyEnum[1];
+  }
+
+  seeInbox() {
+    this.showBody = this.bodyEnum[0];
+    this.reload();
   }
 
   reload() {

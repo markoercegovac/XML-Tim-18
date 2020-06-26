@@ -6,7 +6,6 @@ import com.comment.manager.manager.model.enums.CommentState;
 import com.comment.manager.manager.repository.CommentRepository;
 import com.comment.manager.manager.service.CommentService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

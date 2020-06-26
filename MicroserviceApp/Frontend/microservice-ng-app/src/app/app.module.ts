@@ -97,7 +97,6 @@ import { AdminCommentsAllowComponent } from './admin-comments-allow/admin-commen
     MyPriceListComponent,
     MyCarsComponent,
     CaptureComponent,
-
     CarBrandComponent,
     CarClassComponent,
     CarFuelTypeComponent,
@@ -114,20 +113,16 @@ import { AdminCommentsAllowComponent } from './admin-comments-allow/admin-commen
     UpdateFuelTypeComponent,
     UpdateCarModelComponent,
     UpdateCarTransmissionComponent,
-
-
     SearchComponent,
     AdvertDetailViewComponent,
     NotFoundComponent,
-
     OwnerViewRequestsComponent,
     AdRequestItemComponent,
     MessagesComponent,
     MessageComponent,
     CreateMessageComponent,
-    MessageDetailComponent
-
-    AdRequestItemComponent
+    MessageDetailComponent,
+    AdRequestItemComponent,
     UsersBanListComponent,
     CreateCommentComponent,
     HomeComponent,
