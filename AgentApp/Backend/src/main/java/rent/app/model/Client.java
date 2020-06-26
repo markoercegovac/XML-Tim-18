@@ -1,11 +1,12 @@
 package rent.app.model;
 
 import lombok.Data;
+import rent.app.model.security.Role;
 
-import rent.app.model.enums.Role;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Set;
 
 @Data
@@ -17,6 +18,9 @@ public class Client implements Serializable {
 
     @Id
     private String email;
+
+    @Column(nullable=false)
+    private String username;
 
     @Column(nullable = true)
     private String name;
@@ -51,13 +55,20 @@ public class Client implements Serializable {
     @Column(nullable = true)
     private String companyRegistrationNumber;
 
-    @Enumerated(EnumType.STRING)
-    @Column
-    private Role role;
+
 
     @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<Car> cars;
 
     @OneToMany(mappedBy = "client",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<Comment> comments;
+
+    @ManyToMany(fetch=FetchType.EAGER)
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(
+                    name = "user_id", referencedColumnName = "email"),
+            inverseJoinColumns = @JoinColumn(
+                    name = "role_id", referencedColumnName = "id"))
+    private Collection<Role> roles;
 }
