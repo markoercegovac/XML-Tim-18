@@ -1,7 +1,7 @@
 package chat.model;
 
 import lombok.Data;
-import org.hibernate.validator.constraints.Length;
+//import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -19,16 +19,16 @@ public class Message implements Serializable {
     private Long messageId;
 
     @Email(message = "must ba a valid email")
-    @Length(min = 5, max = 51)
+  //  @Length(min = 5, max = 51)
     @Column(name="receiver_email", nullable = false)
     private String receiverEmail;
 
     @Email(message = "must ba a valid email")
-    @Length(min = 5, max = 51)
+ //   @Length(min = 5, max = 51)
     @Column(name="sender_email", nullable = false)
     private String senderEmail;
 
-    @Length(min = 3, max = 124)
+ //   @Length(min = 3, max = 124)
     @Column(name="header", nullable = false)
     private String header;
 

@@ -1,7 +1,7 @@
 package com.example.request.model;
 
 import lombok.Data;
-import org.hibernate.validator.constraints.Length;
+//import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -21,12 +21,12 @@ public class RequestBundle implements Serializable {
     private Long requestBundleId;
 
     @Email
-    @Length(min = 5, max = 51)
+ //   @Length(min = 5, max = 51)
     @Column(name = "owner_email", nullable = false)
     private String ownerEmail;
 
     @Email
-    @Length(min = 5, max = 51)
+   // @Length(min = 5, max = 51)
     @Column(name = "requesting_user_email", nullable = false)
     private String requestingUserEmail;
 

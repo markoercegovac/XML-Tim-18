@@ -1,7 +1,134 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6a265d49-ea31-4ff7-bdc0-c282a380f5c3" name="Default Changelist" comment="" />
+    <list default="true" id="6a265d49-ea31-4ff7-bdc0-c282a380f5c3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../AgentApp/Frontend/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AdRequestManager/src/main/resources/microapptruststore.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AdRequestManager/src/main/resources/requestmanager.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AdvertManager/src/main/resources/advertmanager.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AdvertManager/src/main/resources/microapptruststore.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AdvertSearch/src/main/resources/microapptruststore.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AdvertSearch/src/main/resources/searchmanager.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/chatmanager.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/microapptruststore.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CommentManager/src/main/resources/commentmanager.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CommentManager/src/main/resources/microapptruststore.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UserManager/src/main/resources/microapptruststore.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../UserManager/src/main/resources/usermanager.p12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/ssl.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../AgentApp/Backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../../AgentApp/Backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../AgentApp/Backend/src/main/resources/bootsecurity.p12" beforeDir="false" afterPath="$PROJECT_DIR$/../../../AgentApp/Backend/src/main/resources/bootsecurity.p12" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../AgentApp/Frontend/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../AgentApp/Frontend/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdRequestManager/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AdRequestManager/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdRequestManager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AdRequestManager/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdRequestManager/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AdRequestManager/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdRequestManager/src/main/java/com/example/request/RequestApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AdRequestManager/src/main/java/com/example/request/RequestApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdRequestManager/src/main/java/com/example/request/model/RequestBundle.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AdRequestManager/src/main/java/com/example/request/model/RequestBundle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdRequestManager/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../AdRequestManager/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdRequestManager/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../AdRequestManager/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdRequestManager/target/classes/com/example/request/RequestApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AdRequestManager/target/classes/com/example/request/RequestApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdRequestManager/target/classes/com/example/request/controller/DataSyncController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AdRequestManager/target/classes/com/example/request/controller/DataSyncController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdRequestManager/target/classes/com/example/request/model/RequestBundle.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AdRequestManager/target/classes/com/example/request/model/RequestBundle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdvertManager/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AdvertManager/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/AdvertmanagerAppApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AdvertManager/src/main/java/com/example/advertmanagerapp/AdvertmanagerAppApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdvertManager/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../AdvertManager/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdvertSearch/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../AdvertSearch/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdvertSearch/src/main/java/com/example/advert_search/AdvertSearchApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AdvertSearch/src/main/java/com/example/advert_search/AdvertSearchApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdvertSearch/src/main/resources/application-prod.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../AdvertSearch/src/main/resources/application-prod.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AdvertSearch/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../AdvertSearch/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chat/ChatApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat/ChatApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chat/model/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chat/model/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application-prod.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application-prod.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/chat/ChatApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/chat/ChatApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/chat/model/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/chat/model/Message.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CommentManager/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../CommentManager/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CommentManager/src/main/java/com/comment/manager/manager/ManagerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CommentManager/src/main/java/com/comment/manager/manager/ManagerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CommentManager/src/main/resources/application-prod.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../CommentManager/src/main/resources/application-prod.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CommentManager/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../CommentManager/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserManager/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../UserManager/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserManager/src/main/java/com/user/manager/ManagerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UserManager/src/main/java/com/user/manager/ManagerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserManager/src/main/resources/application-prod.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../UserManager/src/main/resources/application-prod.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserManager/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../UserManager/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_10_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_10_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_10_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_10_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_10_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_10_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__com_sun_istack_istack_commons_runtime_3_0_8.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__com_sun_xml_fastinfoset_FastInfoset_1_2_16.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__com_zaxxer_HikariCP_3_4_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__jakarta_validation_jakarta_validation_api_2_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_19.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_10_8.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_10_8.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_12_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_apache_logging_log4j_log4j_to_slf4j_2_12_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_33.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_9_0_33.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_33.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_assertj_assertj_core_3_13_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_dom4j_dom4j_2_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_2_3_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_glassfish_jaxb_txw2_2_3_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_hamcrest_hamcrest_2_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_hibernate_hibernate_core_5_4_12_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_hibernate_validator_hibernate_validator_6_0_18_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_jboss_jandex_2_1_1_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_5_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_5_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_5_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_5_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_5_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_5_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_jvnet_staxex_stax_ex_1_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_mockito_mockito_core_3_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_mockito_mockito_junit_jupiter_3_1_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_2_6_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_2_6_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_2_6_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_2_2_6_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jdbc_2_2_6_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_2_2_6_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_2_2_6_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_2_6_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_2_6_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_2_6_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_2_6_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_validation_2_2_6_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_2_6_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_2_6_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_2_6_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_springframework_data_spring_data_commons_2_2_6_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_springframework_data_spring_data_jdbc_1_1_6_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_2_2_6_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_springframework_data_spring_data_relational_1_1_6_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_springframework_spring_aop_5_2_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_springframework_spring_aspects_5_2_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_springframework_spring_beans_5_2_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_springframework_spring_context_5_2_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_springframework_spring_core_5_2_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_springframework_spring_expression_5_2_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_springframework_spring_jcl_5_2_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_springframework_spring_jdbc_5_2_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_springframework_spring_orm_5_2_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_springframework_spring_test_5_2_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_springframework_spring_tx_5_2_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_springframework_spring_web_5_2_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_springframework_spring_webmvc_5_2_5_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_xmlunit_xmlunit_core_2_6_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/libraries/Maven__org_yaml_snakeyaml_1_25.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../Frontend/microservice-ng-app/angular.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,7 +142,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
   <component name="ProjectId" id="1bzgIQWUnngXJLnuvzqQL8SOPhe" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -23,15 +154,22 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../AgentApp/Backend" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\FAKULTET\8 SEMESTAR\Xml\xml git\XML-Tim-18\MicroserviceApp\Backend\ChatManager\src\main\resources" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="ChatApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="11 (2)" />
+      <option name="ALTERNATIVE_JRE_PATH" value="11.0.6" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="chat.ChatApplication" />
       <module name="chat" />
@@ -51,6 +189,21 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="6a265d49-ea31-4ff7-bdc0-c282a380f5c3" name="Default Changelist" comment="" />
@@ -58,46 +211,61 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1589640255028</updated>
+      <workItem from="1593113245271" duration="2661000" />
+      <workItem from="1593123896029" duration="501000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
     <state x="555" y="180" width="800" height="720" key="#Intentions" timestamp="1589641178486">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="555" y="180" width="800" height="720" key="#Intentions/0.0.1920.1040@0.0.1920.1040" timestamp="1589641178486" />
-    <state x="1235" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589709148283">
-      <screen x="0" y="0" width="2944" height="1082" />
+    <state x="274" y="46" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593114136921">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="274" y="46" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1593114136921" />
     <state x="1235" y="187" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2944.1082@0.0.2944.1082" timestamp="1589709148283" />
     <state x="1442" y="219" key="#com.intellij.execution.impl.EditConfigurationsDialog/1024.42.1920.1080/0.0.1024.768@1024.42.1920.1080" timestamp="1589651600121" />
-    <state x="738" y="264" width="424" height="479" key="FileChooserDialogImpl" timestamp="1589875161949">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="534" y="257" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1593113303260">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="534" y="257" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1366.728@0.0.1366.728" timestamp="1593113303260" />
+    <state x="525" y="185" width="313" height="336" key="FileChooserDialogImpl" timestamp="1593124398812">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="525" y="185" width="313" height="336" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1593124398812" />
     <state x="738" y="264" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589875161949" />
     <state x="1762" y="274" key="FileChooserDialogImpl/1024.0.1920.1080/0.0.1024.768@1024.0.1920.1080" timestamp="1589795937797" />
     <state x="1762" y="316" width="424" height="479" key="FileChooserDialogImpl/1024.42.1920.1080/0.0.1024.768@1024.42.1920.1080" timestamp="1589650916107" />
-    <state width="1546" height="917" key="GridCell.Tab.0.bottom" timestamp="1589876546058">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1323" height="101" key="GridCell.Tab.0.bottom" timestamp="1593124401937">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1323" height="101" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1593124401937" />
     <state width="1546" height="917" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589876546058" />
     <state width="1617" height="917" key="GridCell.Tab.0.bottom/0.0.2944.1082@0.0.2944.1082" timestamp="1589712688385" />
     <state width="1617" height="917" key="GridCell.Tab.0.bottom/1024.42.1920.1080/0.0.1024.768@1024.42.1920.1080" timestamp="1589651779385" />
-    <state width="1546" height="917" key="GridCell.Tab.0.center" timestamp="1589876546055">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1323" height="101" key="GridCell.Tab.0.center" timestamp="1593124401937">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1323" height="101" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1593124401937" />
     <state width="1546" height="917" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589876546055" />
     <state width="1617" height="917" key="GridCell.Tab.0.center/0.0.2944.1082@0.0.2944.1082" timestamp="1589712688385" />
     <state width="1617" height="917" key="GridCell.Tab.0.center/1024.42.1920.1080/0.0.1024.768@1024.42.1920.1080" timestamp="1589651779385" />
-    <state width="1546" height="917" key="GridCell.Tab.0.left" timestamp="1589876546053">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1323" height="101" key="GridCell.Tab.0.left" timestamp="1593124401937">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1323" height="101" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1593124401937" />
     <state width="1546" height="917" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589876546053" />
     <state width="1617" height="917" key="GridCell.Tab.0.left/0.0.2944.1082@0.0.2944.1082" timestamp="1589712688385" />
     <state width="1617" height="917" key="GridCell.Tab.0.left/1024.42.1920.1080/0.0.1024.768@1024.42.1920.1080" timestamp="1589651779385" />
-    <state width="1546" height="917" key="GridCell.Tab.0.right" timestamp="1589876546056">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1323" height="101" key="GridCell.Tab.0.right" timestamp="1593124401937">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1323" height="101" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1593124401937" />
     <state width="1546" height="917" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589876546056" />
     <state width="1617" height="917" key="GridCell.Tab.0.right/0.0.2944.1082@0.0.2944.1082" timestamp="1589712688385" />
     <state width="1617" height="917" key="GridCell.Tab.0.right/1024.42.1920.1080/0.0.1024.768@1024.42.1920.1080" timestamp="1589651779385" />
