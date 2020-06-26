@@ -2,15 +2,18 @@ package rent.app.service.impl;
 
 
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import rent.app.dto.RequestDto;
 import rent.app.model.RegistrationRequest;
 import rent.app.repository.RegistrationRequestRepository;
 import rent.app.service.RegistrationRequestService;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class RegistrationRequestServiceImpl implements RegistrationRequestService {
 
     private final RegistrationRequestRepository repository;
@@ -24,12 +27,13 @@ public class RegistrationRequestServiceImpl implements RegistrationRequestServic
     }
 
     @Override
-    public ArrayList<RegistrationRequest> getAll() {
-        return (ArrayList<RegistrationRequest>) repository.findAll();
+    public List<RegistrationRequest> getAll() {
+        return repository.findAll();
     }
 
+
     @Override
-    public void removeRequestEmail(RegistrationRequest rq) {
+    public void removeRequestEmail(RequestDto rq) {
         repository.deleteById(rq.getEmail());
     }
 }

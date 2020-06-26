@@ -23,14 +23,13 @@ import org.springframework.stereotype.Service;
 @Service
 class EmailServiceImpl implements EmailService {
 
-
-
-    private final Environment env;
+    @Autowired
+    JavaMailSender javaMailSender;
 
     @Override
     public void sendMail(String email,String tekst,String subjekat) {
-        final String username="tim8bsep@gmail.com";
-        final String password="tim8bsep";
+        final String username="tim44isa@gmail.com";
+        final String password="timisa44";
 
         Properties properties=new Properties();
         properties.put("mail.smtp.starttls.enable", "true");

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {UserRegister} from '../model/UserRegister';
 import {HttpClient} from "@angular/common/http";
+import {Registration} from '../service/registration';
+import {User} from '../model/User';
 
 @Component({
   selector: 'app-all-registration-request',
@@ -10,27 +12,29 @@ import {HttpClient} from "@angular/common/http";
 export class AllRegistrationRequestComponent implements OnInit {
 
   zahtevi: UserRegister [];
-  constructor(public http: HttpClient) { }
+  constructor(private registerService: Registration) { }
 
   ngOnInit(): void {
-    this.preuzmiSveZahteve();
-  }
+    this.registerService.allRegistrationRequests().subscribe(res=> {
 
-  preuzmiSveZahteve() {
+        this.zahtevi = res ;
 
-    this.http.get<any>('http://localhost:9090/admin/all/registration').subscribe(res=> {
-
-      this.zahtevi = res ;
-    },
+      },
       error => {
         alert('Nesto je poslo naopacke.');
       });
-
-
   }
 
-  approve(user: UserRegister) {
 
+
+
+
+
+  public approve(register: UserRegister) {
+    let req: UserRegister;
+    req={email:register.email,password:register.password,name:register.name,surname:register.surname,Role:register.Role}
+    this.registerService.accept(req).subscribe();
+    alert(req.email);
   }
 
   rejected(user: UserRegister) {
