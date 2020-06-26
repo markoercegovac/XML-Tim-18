@@ -22,9 +22,9 @@ public class DbInit implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        this.userRepository.deleteAll();
-        this.roleRepository.deleteAll();
-        this.permissionRepository.deleteAll();
+//        this.userRepository.deleteAll();
+//        this.roleRepository.deleteAll();
+//        this.permissionRepository.deleteAll();
 
         //INITIALIZATION
         Permission p1=new Permission();

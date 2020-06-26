@@ -1,0 +1,61 @@
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+ribbon:
+  ReadTimeout: 60000
+  eureka:
+    enabled: true
+server:
+  port: 8662
+spring:
+  application:
+    name: gateway-service
+zuul:
+
+
+  host:
+    connect-timeout-millis: 5000000
+    socket-timeout-millis: 5000000
+  ignored-services: '''*'''
+  routes:
+    comment-manager:
+      path: /comment-manager/**
+      service-id: comment-manager
+      strip-prefix: false
+
+    user-manager:
+      path: /**
+      service-id: user-manager
+      strip-prefix: true
+  sensitive-headers: Cookie,Set-Cookie
+  add-host-header: true
+
+
+
+security:
+  oauth2:
+    client:
+      client-id: user-manager
+      client-secret: user123
+      access-token-uri: http://localhost:8081/oauth/token
+      user-authorization-uri: http://localhost:8081/oauth/authorize
+    resource:
+      jwt:
+        key-value: -----BEGIN PUBLIC KEY-----
+          MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAu/4M3DMubZIrjhyUqyLC
+          PjMtzxB6AHZn8dKYMSe8F78dtm9tLFZmTRoIJ5vZsoQkgoKHHVu0WcwaI+O0UXQd
+          MFfNri8kkDWthlpf/2qPvs0ohC422r3hgRj1mbzFVMX4MZS6ujHgoBIe2H7xCoDR
+          m4btJYUNlRSfKsumyXIYkPAJyXauquAgu9XGQl3+UX52nFl5KWpNxTDJegjEMPfY
+          lWK4/zjsT/eAm2dLwIWb6fJ/Ba0B4HKXuG4uFEPU53yVUx1DUWpjCrEj3Kv55GaF
+          vAZTiZlVrXMwd9JZsimxh+zJR99MLVgvnH4c43WpEh2FPjqTBqyNnqluMq9HlU74
+          jwIDAQAB
+          -----END PUBLIC KEY-----
+      user-info-uri: http://localhost:8081/user/me
+    sso:
+      login-path: /login
+
+

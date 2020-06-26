@@ -11,6 +11,7 @@ import org.springframework.security.oauth2.config.annotation.configurers.ClientD
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
@@ -29,6 +30,8 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
     @Value("${config.oauth2.publicKey}")
     private String publicKey;
 
+
+
     @Autowired
     PasswordEncoder passwordEncoder;
 
@@ -41,11 +44,16 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
         security.tokenKeyAccess("permitAll()").checkTokenAccess("isAuthenticated()");
     }
 
+
+
+
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.inMemory().withClient(clientid).secret(passwordEncoder.encode(clientSecret)).scopes("read", "write")
+        clients.inMemory().withClient(clientid).secret(passwordEncoder.encode(clientSecret)).scopes("openid")
                 .authorizedGrantTypes("password", "refresh_token").accessTokenValiditySeconds(3600)
                 .refreshTokenValiditySeconds(18000);
+
+
     }
 
     @Override
@@ -66,6 +74,7 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
         converter.setVerifierKey(publicKey);
         return converter;
     }
+
 
 
 }
