@@ -1,0 +1,71 @@
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost
+server:
+  port: 8081
+spring:
+  application:
+    name: user-manager
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initialization-mode: always
+    password: root
+    url: jdbc:mysql://localhost:3306/user_manager_db?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL57Dialect
+    show-sql: true
+
+#OAUTH2 CONFIGURATION
+
+
+config:
+  oauth2:
+    clientid: user-manager
+    clientSecret: user123
+    privateKey: -----BEGIN RSA PRIVATE KEY-----
+      MIIEowIBAAKCAQEAu/4M3DMubZIrjhyUqyLCPjMtzxB6AHZn8dKYMSe8F78dtm9t
+      LFZmTRoIJ5vZsoQkgoKHHVu0WcwaI+O0UXQdMFfNri8kkDWthlpf/2qPvs0ohC42
+      2r3hgRj1mbzFVMX4MZS6ujHgoBIe2H7xCoDRm4btJYUNlRSfKsumyXIYkPAJyXau
+      quAgu9XGQl3+UX52nFl5KWpNxTDJegjEMPfYlWK4/zjsT/eAm2dLwIWb6fJ/Ba0B
+      4HKXuG4uFEPU53yVUx1DUWpjCrEj3Kv55GaFvAZTiZlVrXMwd9JZsimxh+zJR99M
+      LVgvnH4c43WpEh2FPjqTBqyNnqluMq9HlU74jwIDAQABAoIBAGxc7+rKMdwFIsgj
+      H2taeN9DvwcZt0mm9xnEy+ehwOFrT+RGbIbfMs8Ez2iNhLpLQ4RbWykIIHiWlwbT
+      DbDaHq0sH6plEE10M5c7ZxSix0MznUQ8I3CJfYBd88xvrMvF5eAmnFARyipa557h
+      5W2pfamJ6A71mDO0FF+lznlWJGT+i47QpvwtLkY2yV+9KFw/MSbLabVprwRDjv8m
+      GXgMdUjN19KTVTyziRQc9S1SiWdo7U0shW+ZYYPZXbg3YNoeMyWgwWP1ll8t/gjZ
+      2Ik4seqtBgf5L7tRASbrW7DHzwU88ue2BoDriNQlHVqru6GDK89T6mnsBcYV5q+M
+      aP3+bKkCgYEA4h5Oqr19vdH7j44T94VDsGRs6+aGganRoJRAjK2H1Pz4AgA0ox63
+      AmY5psWDV79iVSfEepw9SI+iQVhM1/YUuVa8DArRef6MUC3ZUn92trIB2vFbu9ju
+      N6pnjNNlH2nffbil//R4lbJjVPyDTmBJyG4UxAxuqvK8aMr3u81iqjUCgYEA1NXs
+      DOvG8r6OZJr+yQGCpPIE/B78FO3BJBhOz0gIxuODrrElSg2DfPFgyRrOgGki2GCd
+      5LjLVffiQbBLeLpb49kPi0mPD8p4IVuDFI7o1a19cvhaEI2Oee5lPwA78S3qizGz
+      RngczXBwD6XGg6vPkVgyX8SFRbYEuHCszSps0DMCgYB/VogAuUPVoSok1uNBskfD
+      T1rTone/D45g+vw6/QKQnIFiRxFdh0+Sx1TSKUrlIH9U61dHoTMV6OV8HSjxOcDD
+      +yddNL5xEDueb6OCRQvqqOZIkUGS0QCeUpWMBgRdo3bbyx+Yu+kojFRKKQYdHjaO
+      7Ac/vKyaEqat8ReAKJLWvQKBgQCdmQoBR1U5ygCGXn7rOEMVAGDQj+D5XlP19knl
+      EuHs4+tOH74M55TFn7abM05Vp4Q11NUV2AA42CShn3lDHDuOq9vmt8FHYBU0Hh8h
+      yfB+yMhrqZqHR0qI3w35aKL6I5XZHCQzuh0Zwng4Hfiw5zf71+L1Jv/Ibs9wA37x
+      LMkGIQKBgAM03BfzasALnIGUo5d+/M9DS4pqcEkWv/TXMDeAKqNzY1/e3CLrec/3
+      Ap+zyZquAH743cvLOfyu2S2GiA9/Xr7a7Odpr1Urgn66iOpt1pOvkrr3LgByDuZq
+      PGn+8N+ynvqaARyYHIvLGtQdET0dnKbcjlAZLYTFu7eqjye9xtHm
+      -----END RSA PRIVATE KEY-----
+    publicKey: -----BEGIN PUBLIC KEY-----
+      MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAu/4M3DMubZIrjhyUqyLC
+      PjMtzxB6AHZn8dKYMSe8F78dtm9tLFZmTRoIJ5vZsoQkgoKHHVu0WcwaI+O0UXQd
+      MFfNri8kkDWthlpf/2qPvs0ohC422r3hgRj1mbzFVMX4MZS6ujHgoBIe2H7xCoDR
+      m4btJYUNlRSfKsumyXIYkPAJyXauquAgu9XGQl3+UX52nFl5KWpNxTDJegjEMPfY
+      lWK4/zjsT/eAm2dLwIWb6fJ/Ba0B4HKXuG4uFEPU53yVUx1DUWpjCrEj3Kv55GaF
+      vAZTiZlVrXMwd9JZsimxh+zJR99MLVgvnH4c43WpEh2FPjqTBqyNnqluMq9HlU74
+      jwIDAQAB
+      -----END PUBLIC KEY-----
+

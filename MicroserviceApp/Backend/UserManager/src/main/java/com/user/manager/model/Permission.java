@@ -17,8 +17,6 @@ public class Permission {
     @Column
     private String name;
 
-    @ManyToMany(mappedBy = "permissions")
-    private Collection<Role> roles;
 
 
 

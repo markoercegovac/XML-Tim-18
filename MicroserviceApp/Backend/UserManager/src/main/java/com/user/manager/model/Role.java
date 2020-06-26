@@ -16,16 +16,6 @@ public class Role {
     @Column
     private String name;
 
-
-    @ManyToMany(mappedBy = "roles")
-    private Collection<User> users;
-
     @ManyToMany(fetch=FetchType.EAGER)
-    @JoinTable(
-            name = "roles_permissions",
-            joinColumns = @JoinColumn(
-                    name = "role_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(
-                    name = "privilege_id", referencedColumnName = "id"))
     private Collection<Permission> permissions;
 }

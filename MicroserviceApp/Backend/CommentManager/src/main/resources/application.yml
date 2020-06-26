@@ -1,0 +1,39 @@
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost
+spring:
+  application:
+    name: comment-manager
+  datasource:
+    data: classpath:data.sql
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initialization-mode: always
+    password: root
+    url: jdbc:mysql://localhost:3306/mysql-comment?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    show-sql: true
+security:
+  oauth2:
+    resource:
+      jwt:
+        key-value: -----BEGIN PUBLIC KEY-----
+          MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAu/4M3DMubZIrjhyUqyLC
+          PjMtzxB6AHZn8dKYMSe8F78dtm9tLFZmTRoIJ5vZsoQkgoKHHVu0WcwaI+O0UXQd
+          MFfNri8kkDWthlpf/2qPvs0ohC422r3hgRj1mbzFVMX4MZS6ujHgoBIe2H7xCoDR
+          m4btJYUNlRSfKsumyXIYkPAJyXauquAgu9XGQl3+UX52nFl5KWpNxTDJegjEMPfY
+          lWK4/zjsT/eAm2dLwIWb6fJ/Ba0B4HKXuG4uFEPU53yVUx1DUWpjCrEj3Kv55GaF
+          vAZTiZlVrXMwd9JZsimxh+zJR99MLVgvnH4c43WpEh2FPjqTBqyNnqluMq9HlU74
+          jwIDAQAB
+          -----END PUBLIC KEY-----
+
