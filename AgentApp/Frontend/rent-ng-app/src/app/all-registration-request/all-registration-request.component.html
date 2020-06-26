@@ -1,0 +1,14 @@
+
+<table>
+  <th>email</th>
+  <th>name</th>
+  <th>surname</th>
+
+<tr *ngFor="let item of zahtevi">
+  <td>{{item.email}}</td>
+  <td>{{item.name}}</td>
+  <td>{{item.surname}}</td>
+  <td><button (click)="approve( item )">approve</button></td>
+  <td><button (click)="rejected(item)">reject</button> </td>
+</tr>
+</table>

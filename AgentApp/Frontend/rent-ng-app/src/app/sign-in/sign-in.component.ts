@@ -20,6 +20,8 @@ export class SignInComponent implements OnInit {
 
   onSignIn() {
 
+    console.log(this.user.username);
+    console.log(this.user.password);
     this.auth.login(this.user.username, this.user.password);
 
 

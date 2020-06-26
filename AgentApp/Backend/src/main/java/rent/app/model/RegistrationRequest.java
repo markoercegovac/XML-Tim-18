@@ -1,6 +1,7 @@
 package rent.app.model;
 
 
+
 import lombok.Data;
 
 import javax.persistence.Column;
@@ -17,7 +18,7 @@ public class RegistrationRequest {
     @Id
     private String email;
 
-    @Column(nullable=false)
+    @Column(nullable = false)
     private String username;
 
     @Column(nullable = true)

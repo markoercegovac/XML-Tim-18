@@ -22,6 +22,7 @@ import {InboxComponent} from './inbox/inbox.component';
 import {DriveReportCreateComponent} from './drive-report-create/drive-report-create.component';
 import {DriveReportListComponent} from './drive-report-list/drive-report-list.component';
 import {DriveReportUpdateComponent} from './drive-report-update/drive-report-update.component';
+import {AllRegistrationRequestComponent} from "./all-registration-request/all-registration-request.component";
 
 
 
@@ -33,6 +34,7 @@ const routes: Routes = [
       { path: 'ad/add', component: AddAdvertComponent },
       { path: 'ad/:id', component: FullAdvertComponent }
     ]},
+  {path : 'admin/register/aprove', component: AllRegistrationRequestComponent},
   { path: 'sign-in', component: SignInComponent },
   { path: 'register', component: RegisterComponent },
   {
