@@ -6,6 +6,8 @@ import chat.dto.SendMessageDTO;
 import chat.dto.ShortMessageDTO;
 import chat.service.MessageService;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +19,9 @@ import java.util.Date;
 @RequestMapping("/chat-server")
 public class MessageController {
 
+
+    private static final Logger logger = LoggerFactory.getLogger("DebugLogger");
+    String className = " [" + MessageController.class.getName() +"] ";
     private final MessageService messageService;
 
     /**
@@ -24,6 +29,7 @@ public class MessageController {
      * */
     @GetMapping(value = "/test", produces = "application/text")
     public ResponseEntity<String> getTest() {
+        logger.debug(className + "Test");
         System.out.println("TEST");
         return new ResponseEntity<>("TEST PORUKA JE POSLATA :)", HttpStatus.CREATED);
     }
@@ -35,7 +41,7 @@ public class MessageController {
      * */
     @GetMapping(value = "/message/{user_email}")
     public ResponseEntity<ShortMessageDTO> getAllMyMessage(@PathVariable("user_email") String userEmail, @RequestParam(value = "to", required = false) String to) {
-
+        logger.debug(className + "Preuzmi poruke sa id: "+ userEmail);
         return new ResponseEntity<ShortMessageDTO>(HttpStatus.OK);
     }
 
@@ -46,7 +52,7 @@ public class MessageController {
      * */
     @GetMapping(value = "/message/{user_email}/{message_id}")
     public ResponseEntity<LongMessageDTO> getSpecificMessage(@PathVariable("user_email") String userEmail, @PathVariable("message_id") Long id) {
-
+        logger.debug(className + "Preuzmi specijalne poruke sa id: "+ userEmail);
         //hardcoded; for docker test
         return new ResponseEntity<LongMessageDTO>(messageService.getSpecificMessage(userEmail, id),HttpStatus.OK);
     }
@@ -58,7 +64,7 @@ public class MessageController {
      * */
     @GetMapping(value = "/message/{user_email}/new-messages")
     public ResponseEntity<String> getNewMessages(@PathVariable("user_email") String userEmail) {
-
+        logger.debug(className + "Preuzmi nove poruke sa id: "+ userEmail);
         return new ResponseEntity<String>("YES", HttpStatus.OK);
     }
 
@@ -69,7 +75,7 @@ public class MessageController {
      * */
     @PutMapping(value = "/message")
     public ResponseEntity putMessageSeen(@RequestBody SeenMessage seenMessage) {
-
+        logger.debug(className + "Poruka seen");
         return new ResponseEntity(HttpStatus.OK);
     }
 
@@ -80,7 +86,7 @@ public class MessageController {
      * */
     @PostMapping(value = "/message")
     public ResponseEntity postNewMessages(@RequestBody SendMessageDTO sendMessage) {
-
+        logger.debug(className + "Kreiraj novu poruku");
         return new ResponseEntity(HttpStatus.CREATED);
     }
 }

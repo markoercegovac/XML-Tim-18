@@ -7,8 +7,8 @@
 
         <RollingFile
                 name="FileAuth"
-                fileName="logs/AgentLogs/infoAuth.log"
-                filePattern="logs/AgentLogs/infoAuth.%i.log.gz"
+                fileName="logs/ChatLogs/infoAuth.log"
+                filePattern="logs/ChatLogs/infoAuth.%i.log.gz"
                 ignoreExceptions="false">
             <PatternLayout>
                 <Pattern>%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</Pattern>
@@ -24,8 +24,8 @@
 
         <RollingFile
                 name="RootFile"
-                fileName="logs/AgentLogs/rootLogsFile.log"
-                filePattern="logs/AgentLogs/rootLogsFile.%i.log.gz"
+                fileName="logs/ChatLogs/rootLogsFile.log"
+                filePattern="logs/ChatLogs/rootLogsFile.%i.log.gz"
                 ignoreExceptions="false">
             <PatternLayout>
                 <Pattern>%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</Pattern>
@@ -39,8 +39,8 @@
         </RollingFile>
         <RollingFile
                 name="DebugFile"
-                fileName="logs/AgentLogs/rootDebugFile.log"
-                filePattern="logs/AgentLogs/rootDebugFile.%i.log.gz"
+                fileName="logs/ChatLogs/rootDebugFile.log"
+                filePattern="logs/ChatLogs/rootDebugFile.%i.log.gz"
                 ignoreExceptions="false">
             <PatternLayout>
                 <Pattern>%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</Pattern>

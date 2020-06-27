@@ -2,6 +2,8 @@ package com.example.request.controller;
 
 import com.example.request.dto.AdRequestForClientDTO;
 import com.example.request.dto.CreateAdBundleRequestDTO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,8 +20,12 @@ public class ClientController {
      * @input: createRequestDTO
      * @output: 201 if created or 406
      * */
+    private static final Logger logger = LoggerFactory.getLogger("DebugLogger");
+    String className = " [" + ClientController.class.getName() +"] ";
+
     @PostMapping(value = "", consumes = "application/json")
     public ResponseEntity postNewAdvertRequest(@RequestBody CreateAdBundleRequestDTO createBundle) {
+        logger.debug(className + "Kreiranje novog bundle-a");
 
         return new ResponseEntity(HttpStatus.CREATED);
     }
@@ -35,7 +41,7 @@ public class ClientController {
             @RequestParam(value = "status", required = false) String status) {
 
         List<AdRequestForClientDTO> finedAds = new ArrayList<>();
-
+        logger.debug(className + "Preuzimanje zahteva na osnovu email-a: "+ clientEmail);
         return new ResponseEntity<List<AdRequestForClientDTO>>(finedAds, HttpStatus.OK);
     }
 
@@ -47,7 +53,7 @@ public class ClientController {
     @PutMapping(value = "/{request_id}")
     public ResponseEntity putRequestIsPaid(
             @PathVariable("request_id") Long requestId) {
-
+        logger.debug(className + "Placen zahtev za zauzimanje sa id: "+ requestId);
         return new ResponseEntity(HttpStatus.OK);
     }
 

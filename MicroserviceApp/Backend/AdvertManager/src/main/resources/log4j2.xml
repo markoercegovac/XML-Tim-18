@@ -7,8 +7,8 @@
 
         <RollingFile
                 name="FileAuth"
-                fileName="logs/AgentLogs/infoAuth.log"
-                filePattern="logs/AgentLogs/infoAuth.%i.log.gz"
+                fileName="logs/AdvertLogs/infoAuth.log"
+                filePattern="logs/AdvertLogs/infoAuth.%i.log.gz"
                 ignoreExceptions="false">
             <PatternLayout>
                 <Pattern>%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</Pattern>
@@ -24,8 +24,8 @@
 
         <RollingFile
                 name="RootFile"
-                fileName="logs/AgentLogs/rootLogsFile.log"
-                filePattern="logs/AgentLogs/rootLogsFile.%i.log.gz"
+                fileName="logs/AdvertLogs/rootLogsFile.log"
+                filePattern="logs/AdvertLogs/rootLogsFile.%i.log.gz"
                 ignoreExceptions="false">
             <PatternLayout>
                 <Pattern>%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</Pattern>
@@ -39,8 +39,8 @@
         </RollingFile>
         <RollingFile
                 name="DebugFile"
-                fileName="logs/AgentLogs/rootDebugFile.log"
-                filePattern="logs/AgentLogs/rootDebugFile.%i.log.gz"
+                fileName="logs/AdvertLogs/rootDebugFile.log"
+                filePattern="logs/AdvertLogs/rootDebugFile.%i.log.gz"
                 ignoreExceptions="false">
             <PatternLayout>
                 <Pattern>%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</Pattern>
