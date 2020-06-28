@@ -1,9 +1,9 @@
 --SCRIPT FOR ADDING DEFAULT DATA TO AGENT APP
 
---CLIENT
-insert into client(email, name, surname)
-values('mika@maildrop.cc', 'mika', 'mikic'),
-   ('pera@maildrop.cc', 'pera', 'peric');
+-- --CLIENT
+-- insert into client(email, name, surname)
+-- values('mika@maildrop.cc', 'mika', 'mikic'),
+--    ('pera@maildrop.cc', 'pera', 'peric');
 
 --CAR BRAND
 insert into car_brand(id, name, is_removed) values(1, "BMW", FALSE);
@@ -45,11 +45,11 @@ insert into car_fuel_type(id, fuel_type,is_removed) values(5,"FULL-ELECTRIC",FAL
 insert into car_fuel_type(id, fuel_type,is_removed) values(6,"HYDROGEN",FALSE);
 insert into car_fuel_type(id, fuel_type,is_removed) values(7,"OTHER",FALSE);
 
--- CAR
-insert into car(id, children_sit_number, is_insurance, travel_distance_constraint, car_brand_id, car_class_id, car_fuel_type_id, car_model_id, car_transmission_type_id, mileage_id) values
-(301, 2, false, 4333, 1, 1, 1, 1, 1, null),
-(302, 2, false, 4333, 2, 2, 2, 2, 2, null),
-(303, 2, false, 4333, 1, 1, 1, 3, 2, null);
+-- -- CAR
+-- insert into car(id, children_sit_number, is_insurance, travel_distance_constraint, car_brand_id, car_class_id, car_fuel_type_id, car_model_id, car_transmission_type_id, mileage_id) values
+-- (301, 2, false, 4333, 1, 1, 1, 1, 1, null),
+-- (302, 2, false, 4333, 2, 2, 2, 2, 2, null),
+-- (303, 2, false, 4333, 1, 1, 1, 3, 2, null);
 
 -- PRICE
 insert into price(id, name, price_per_day, discount, distance_overflow_price, insurance_price, is_removed) values
