@@ -17,6 +17,7 @@ export class AuthInterceptor implements HttpInterceptor {
         });
 
         console.log('AUTORIZATION JWT');
+
         return next.handle(cloned);
       } else {
         console.log('AUTORIZATION NO JWT');
