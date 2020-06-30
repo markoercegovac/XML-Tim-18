@@ -28,15 +28,13 @@ export class AuthService {
             .subscribe(data => {
                 console.log('JWT ADDED', data);
 
-                console.log(data.access_token);
+
                 let token=data.access_token;
                 localStorage.setItem('token', token);
 
             });
     }
-    saveToken(token){
-    }
-
+   
 
     logout() {
         console.log('JWT REMOVED');
