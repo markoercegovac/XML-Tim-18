@@ -42,18 +42,26 @@ public class DbInit implements CommandLineRunner {
         p3.setName("USER");
         permissionRepository.save(p3);
 
-        List<Permission> testList=new ArrayList<Permission>();
-        testList.add(p1);
-        testList.add(p2);
-        testList.add(p3);
+        List<Permission> adminList=new ArrayList<Permission>();
+        adminList.add(p1);
+        adminList.add(p2);
+
+        List<Permission> userList=new ArrayList<Permission>();
+        userList.add(p3);
 
         //USER_ROLE
+        role2.setName("ADMIN");
+        role2.setPermissions(adminList);
+        roleRepository.save(role2);
+
         role1.setName("USER");
-        role1.setPermissions(testList);
+        role1.setPermissions(userList);
         roleRepository.save(role1);
 
         List<Role> roleList=new ArrayList<Role>();
         roleList.add(role1);
+        List<Role> roleList2=new ArrayList<Role>();
+        roleList.add(role2);
 
         //USERS
         User user1= new User();
@@ -66,16 +74,9 @@ public class DbInit implements CommandLineRunner {
         user2.setEmail("bla@com");
         user2.setUsername("user");
         user2.setPassword(passwordEncoder.encode("user123"));
+        user2.setRoles(roleList2);
 
         userRepository.save(user1);
         userRepository.save(user2);
-
-
-
-
-
-
-
-
     }
 }

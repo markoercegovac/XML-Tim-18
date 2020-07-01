@@ -43,7 +43,7 @@ public class SendAdToRequestMaangerAspect {
 
 			AdRequestMQ msg = new AdRequestMQ();
 			msg.setAdvertCopyId(a.getId());
-			msg.setOwnerEmail(a.getOwnersCar().getClient().getEmail());
+//			msg.setOwnerEmail(a.getOwnersCar().getClient().getEmail());
 			msg.setAdvertEndDate((Date) a.getEndOfAdvert());
 			msg.setCarReservedDate(carReservedDate);
 

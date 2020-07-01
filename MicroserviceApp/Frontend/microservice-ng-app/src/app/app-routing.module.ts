@@ -32,92 +32,46 @@ import {AdvertsComponent} from "./home/adverts/adverts.component";
 import {FullAdvertComponent} from "./home/full-advert/full-advert.component";
 import {AdminCommentsAllowComponent} from "./admin-comments-allow/admin-comments-allow.component";
 import { AdminGuard } from './guard/admin.guard';
+import { AdminComponent } from './admin/admin.component';
 
 
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/login' },
-  { path: 'register', component: RegistrationComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'cart', component: CartComponent },
-  { path: 'bundle', component: BundleComponent},
-  { path: 'advert/:id', component: AdvertDetailViewComponent },
-  { path: 'owner/requests', component: OwnerViewRequestsComponent },
-  { path: 'message/:email', component: MessagesComponent },
-  {
-    path: 'create/advert',
-    component: CreateAdvertComponent
-  },
-  {
-    path: 'my/adverts',
-    component: MyAdvertsComponent
-  },
-  {
-    path: 'all/adverts',
-    component: AllAdvertsComponent
-  },
-  {
-    path: 'register/car',
-    component: RegisterCarComponent
-  },
-  {
-    path: 'my/cars',
-    component: MyCarsComponent
-  },
-  {
-    path: 'admin/aprove',
-    component: AdminCommentsAllowComponent
-  },
-  {
-    path: 'define/price',
-    component: DefinePriceComponent
-  },
-  {
-    path: 'my/price/list',
-    component: MyPriceListComponent
-  },
-  {
-    path: 'advert-manager/car-brand',
-    component : CarBrandComponent,
-    canActivate: [AdminGuard]
-  },
-  {
-    path: 'advert-manager/car-class',
-    component: CarClassComponent,
-    canActivate: [AdminGuard]
-  },
-  {
-    path : 'advert-manager/car-model',
-    component: CarModelComponent,
-    canActivate: [AdminGuard]
-  },
-  {
-    path : 'advert-manager/car-fuel-type',
-    component : CarFuelTypeComponent,
-    canActivate: [AdminGuard]
-  },
-  {
-    path : 'advert-manager/car-transsmision-type',
-    component: CarTranssmisionTypeComponent,
-    canActivate: [AdminGuard]
-  },
-  {
-    path: 'search',
-    component: SearchComponent
-  },
-  {
-    path: 'my/advert/:id',
-    component: CaptureComponent
-  },
-  {
-    path: 'advert-manager/client-copy',
-    component: UsersBanListComponent
-  },
+  { path: '', pathMatch: 'full', redirectTo: '/home' },
+
+  { path: 'admin', component: AdminComponent, canActivate: [AdminGuard], children: [
+    { path: 'brand', component: CarBrandComponent},
+    { path: 'class', component: CarClassComponent},
+    { path: 'model', component: CarModelComponent},
+    { path: 'fuel-type', component: CarFuelTypeComponent},
+    { path: 'transmission', component: CarTranssmisionTypeComponent},
+    { path: 'comment', component: AdminCommentsAllowComponent},
+    { path: 'ban', component: UsersBanListComponent}
+  ] },
 
   { path: 'home', component: HomeComponent, children: [
-      { path: 'ads', component: AdvertsComponent },
-      { path: 'ad/:id', component: FullAdvertComponent }
-    ]},
+    { path: '', pathMatch: 'full', redirectTo: 'all/adverts'},
+    { path: 'login', component: LoginComponent },
+    { path: 'register', component: RegistrationComponent },
+    
+    { path: 'comment/create', component: CreateCommentComponent },
+    { path: 'ads', component: AdvertsComponent },
+    { path: 'ad/:id', component: FullAdvertComponent },
+    { path: 'cart', component: CartComponent },
+    { path: 'bundle', component: BundleComponent},
+    { path: 'advert/:id', component: AdvertDetailViewComponent },
+    { path: 'owner/requests', component: OwnerViewRequestsComponent },
+    { path: 'message/:email', component: MessagesComponent },
+    { path: 'create/advert', component: CreateAdvertComponent },
+    { path: 'my/adverts', component: MyAdvertsComponent },
+    { path: 'all/adverts', component: AllAdvertsComponent },
+    { path: 'register/car', component: RegisterCarComponent },
+    { path: 'my/cars', component: MyCarsComponent },
+    { path: 'define/price', component: DefinePriceComponent },
+    { path: 'my/price/list', component: MyPriceListComponent },
+    { path: 'search', component: SearchComponent },
+    { path: 'my/advert/:id', component: CaptureComponent },
+  ]},
   { path: 'not-found', component: NotFoundComponent},
   { path: '**', redirectTo: '/not-found'}
 ];

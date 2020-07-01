@@ -41,14 +41,14 @@ public class SendAdToSearchAspect {
 			AdSearchMQ msg = new AdSearchMQ();
 			msg.setAdvertCopyId(ad.getId());
 			msg.setCity(ad.getClient().getCity());
-			msg.setCarMark(ad.getOwnersCar().getConcreteCar().getCarBrand().getName());
-			msg.setModelMark(ad.getOwnersCar().getConcreteCar().getCarModel().getModelName());
-			msg.setCarFuelType(ad.getOwnersCar().getConcreteCar().getCarFuelType().getFuelType());
-			msg.setCarTransmissionType(ad.getOwnersCar().getConcreteCar().getCarTransmissionType().getTransmissionType());
-			msg.setCarClass(ad.getOwnersCar().getConcreteCar().getCarClass().getClassName());
-			msg.setTraveledKm(ad.getOwnersCar().getMileage());
-			msg.setInsurance(ad.getOwnersCar().isInsurance());
-			msg.setNumberOfSeats(ad.getOwnersCar().getChildrenSitNumber());
+//			msg.setCarMark(ad.getOwnersCar().getConcreteCar().getCarBrand().getName());
+//			msg.setModelMark(ad.getOwnersCar().getConcreteCar().getCarModel().getModelName());
+//			msg.setCarFuelType(ad.getOwnersCar().getConcreteCar().getCarFuelType().getFuelType());
+//			msg.setCarTransmissionType(ad.getOwnersCar().getConcreteCar().getCarTransmissionType().getTransmissionType());
+//			msg.setCarClass(ad.getOwnersCar().getConcreteCar().getCarClass().getClassName());
+//			msg.setTraveledKm(ad.getOwnersCar().getMileage());
+//			msg.setInsurance(ad.getOwnersCar().isInsurance());
+//			msg.setNumberOfSeats(ad.getOwnersCar().getChildrenSitNumber());
 			msg.setProfilePicture(null);
 			msg.setCarReservationDate(reserved);
 

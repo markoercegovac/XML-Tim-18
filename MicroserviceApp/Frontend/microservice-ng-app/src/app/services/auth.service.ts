@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import * as jwt_decode from 'jwt-decode';
+import { Router } from '@angular/router';
 
 const BASE_URL = environment.zuul;
 
 @Injectable({providedIn: 'root'})
 export class AuthService {
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient, private router: Router) {}
 
     login(username:string, password:string ) {
         this.logout();
@@ -32,18 +33,26 @@ export class AuthService {
                 let token=data.access_token;
                 localStorage.setItem('token', token);
 
-                console.log(this.getPermissions())
+                if(this.getPermissions().includes('PERMISSION_ADMIN')) {
+                    this.router.navigate(['/admin']);
+                } else {
+                    this.router.navigate(['/home']);
+                }
             });
     }
 
     logout() {
         console.log('JWT REMOVED');
         localStorage.removeItem("token");
+        this.router.navigate(['/home']);
     }
 
     getPermissions(): string[] {
         let permissions: string[] = [];
         let token = localStorage.getItem("token");
+        if(token === null) {
+            return permissions;
+        }
         let decoted: { [key: string]: string };
         decoted = jwt_decode(token);
 

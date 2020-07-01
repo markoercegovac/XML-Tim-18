@@ -29,6 +29,6 @@ export class MyAdvertsComponent implements OnInit {
   }
 
   captureDate(advert: Advert) {
-      this.router.navigate(["my/advert/"+advert.id]);
+      this.router.navigate(["home/my/advert/"+advert.id]);
   }
 }

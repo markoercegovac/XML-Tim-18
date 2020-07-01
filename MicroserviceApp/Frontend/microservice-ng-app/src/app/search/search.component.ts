@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Search} from '../model/search';
-import {Router} from '@angular/router';
 import {SearchService} from '../services/search.service';
 
 @Component({
@@ -22,7 +21,7 @@ export class SearchComponent implements OnInit {
     endOfAdvert: new FormControl(this.getThreeDaysForwardDate(), Validators.compose ([Validators.maxLength(10), this.dateValidationEnd]) ), // god-mes-dan
   });
 
-  constructor(private router: Router, private searchService: SearchService ) { }
+  constructor(private searchService: SearchService ) { }
 
 
 
@@ -41,7 +40,7 @@ ngOnInit(): void {
 
       this.searchService.searchOglase(pretrazi.city, pretrazi.startOfAdvert, pretrazi.endOfAdvert)
         .subscribe(
-          (response: Search[]) => {
+          (response: any) => {
             this.oglasi = response;
           }
         );
