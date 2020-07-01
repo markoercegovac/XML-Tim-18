@@ -125,9 +125,9 @@ import { AdminCommentsAllowComponent } from './admin-comments-allow/admin-commen
     MessagesComponent,
     MessageComponent,
     CreateMessageComponent,
-    MessageDetailComponent
+    MessageDetailComponent,
 
-    AdRequestItemComponent
+    AdRequestItemComponent,
     UsersBanListComponent,
     CreateCommentComponent,
     HomeComponent,

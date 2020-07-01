@@ -1,5 +1,7 @@
 --SCRIPT FOR ADDING DEFAULT DATA TO AGENT APP
 
+--
+
 -- --CLIENT
 -- insert into client(email, name, surname)
 -- values('mika@maildrop.cc', 'mika', 'mikic'),
@@ -51,12 +53,16 @@ insert into car_fuel_type(id, fuel_type,is_removed) values(7,"OTHER",FALSE);
 -- (302, 2, false, 4333, 2, 2, 2, 2, 2, null),
 -- (303, 2, false, 4333, 1, 1, 1, 3, 2, null);
 
--- PRICE
-insert into price(id, name, price_per_day, discount, distance_overflow_price, insurance_price, is_removed) values
-(801, "price #1", 432.4, 30, 452445, 4334, false),
-(802, "price #2", 432.4, 30, 452445, 4334, false),
-(803, "price #3", 432.4, 30, 452445, 4334, false),
-(804, "price #4", 432.4, 30, 452445, 4334, false);  
+--
+-- -- PRICE
+-- insert into price(id, name, price_per_day, discount, distance_overflow_price, insurance_price, is_removed) values
+-- (801, "price #1", 432.4, 30, 452445, 4334, false),
+-- (802, "price #2", 432.4, 30, 452445, 4334, false),
+-- (803, "price #3", 432.4, 30, 452445, 4334, false),
+-- (804, "price #4", 432.4, 30, 452445, 4334, false);
+
+
+
 
 
 

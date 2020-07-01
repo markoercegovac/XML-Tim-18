@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
@@ -43,7 +44,7 @@ public class AdvertController {
 
 
     @PostMapping
-    public void createAdvert (@RequestBody AdvertDto advertDto){
+    public void createAdvert (@RequestBody AdvertDto advertDto) throws IOException {
         advertService.createAdvert(advertDto);
     }
 

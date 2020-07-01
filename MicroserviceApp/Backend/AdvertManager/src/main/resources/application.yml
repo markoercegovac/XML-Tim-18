@@ -1,0 +1,35 @@
+server:
+  port: 9090
+soap:
+  agent:
+    url: '"http://localhost:9091/ws"'
+spring:
+  application:
+    name: advert-manager
+  datasource:
+    data: classpath:script.sql
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initialization-mode: always
+    password: root
+    url: jdbc:mysql://localhost:3306/advert_manager_db?sessionVariables=sql_mode='NO_ENGINE_SUBSTITUTION'&jdbcCompliantTruncation=false&useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    show-sql: true
+security:
+  oauth2:
+    resource:
+      jwt:
+        key-value: -----BEGIN PUBLIC KEY-----
+          MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAu/4M3DMubZIrjhyUqyLC
+          PjMtzxB6AHZn8dKYMSe8F78dtm9tLFZmTRoIJ5vZsoQkgoKHHVu0WcwaI+O0UXQd
+          MFfNri8kkDWthlpf/2qPvs0ohC422r3hgRj1mbzFVMX4MZS6ujHgoBIe2H7xCoDR
+          m4btJYUNlRSfKsumyXIYkPAJyXauquAgu9XGQl3+UX52nFl5KWpNxTDJegjEMPfY
+          lWK4/zjsT/eAm2dLwIWb6fJ/Ba0B4HKXuG4uFEPU53yVUx1DUWpjCrEj3Kv55GaF
+          vAZTiZlVrXMwd9JZsimxh+zJR99MLVgvnH4c43WpEh2FPjqTBqyNnqluMq9HlU74
+          jwIDAQAB
+          -----END PUBLIC KEY-----

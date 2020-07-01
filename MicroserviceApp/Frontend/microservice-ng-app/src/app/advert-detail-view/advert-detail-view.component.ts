@@ -16,14 +16,14 @@ export class AdvertDetailViewComponent implements OnInit {
   profileImg: any;
 
   constructor(
-    private activeUrl: ActivatedRoute, 
+    private activeUrl: ActivatedRoute,
     private adService: AdvertService,
     private router: Router,
     private domSanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.adId = +this.activeUrl.snapshot.params['id'];
-    
+
     this.adService.getAdvertDetail(this.adId).subscribe(
       (data: AdvertDetailViewModel) => {
         if(data != null) {
@@ -31,7 +31,7 @@ export class AdvertDetailViewComponent implements OnInit {
           this.profileImg = this.domSanitizer.bypassSecurityTrustUrl(this.ad.profilePicture);
           console.log(data);
         } else {
-          this.router.navigate(['/not-found']);
+          //this.router.navigate(['/not-found']);
         }
       }
     );

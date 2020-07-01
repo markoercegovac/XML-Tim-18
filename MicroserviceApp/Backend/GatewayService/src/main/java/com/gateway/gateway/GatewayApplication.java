@@ -40,7 +40,8 @@ public class GatewayApplication extends ResourceServerConfigurerAdapter  {
                 antMatchers("/oauth/**").
                 permitAll().
                 antMatchers("/**").
-                authenticated();
+                authenticated().and().cors();
+
     }
 
 }

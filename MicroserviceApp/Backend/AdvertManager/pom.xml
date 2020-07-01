@@ -16,6 +16,8 @@
 
     <properties>
         <java.version>11</java.version>
+        <spring-cloud.version>Hoxton.SR4</spring-cloud.version>
+        <name>user-manager</name>
     </properties>
 
     <dependencies>
@@ -43,11 +45,25 @@
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
+
+        <!--OATUH2-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-oauth2</artifactId>-->
+<!--        </dependency>-->
         <!--GENERICKI MAPPER-->
         <dependency>
             <groupId>org.modelmapper</groupId>
             <artifactId>modelmapper</artifactId>
             <version>2.3.0</version>
+        </dependency>
+
+        <!--PICTURE BASE64-->
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.6</version>
         </dependency>
 
         <dependency>
@@ -111,7 +127,17 @@
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
     </dependencies>
-
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <build>
         <plugins>
             <plugin>
