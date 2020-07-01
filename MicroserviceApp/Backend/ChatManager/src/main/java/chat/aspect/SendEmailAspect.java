@@ -6,9 +6,10 @@ import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import chat.comon.MailProducer;
 import chat.dto.SendMessageDTO;
-import chat.model.Mail;
+import chat.mq.dto.Mail;
+import chat.mq.service.MailProducer;
+
 
 @Component
 @Aspect

@@ -1,4 +1,4 @@
-package com.user.manager.model;
+package chat.mq.dto;
 
 import java.io.Serializable;
 
@@ -10,14 +10,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Mail implements Serializable {
+
 	/**
-	*
-	*/
+	 * Message from Chat manager
+	 */
 	private static final long serialVersionUID = 1L;
 
-	private String userEmail;
-	private String password;
-	private String companyName;
-	private String token;
+	private String receiver;
+	private String sender;
+	private String header;
+	private String content;
 	
 }

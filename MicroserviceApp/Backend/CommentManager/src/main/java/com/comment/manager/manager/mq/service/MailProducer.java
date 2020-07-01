@@ -1,7 +1,7 @@
-package com.user.manager.comon;
+package com.comment.manager.manager.mq.service;
 
+import com.comment.manager.manager.mq.dto.Mail;
 import com.google.gson.Gson;
-import com.user.manager.model.Mail;
 
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,5 +25,6 @@ public class MailProducer {
 	
 	public void produceMsg(Mail msg){
 		amqpTemplate.convertAndSend(exchange, routingKey, gson.toJson(msg));
+		System.out.println("MQ>> sending to mail "+ msg);
 	}
 }

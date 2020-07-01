@@ -1,6 +1,7 @@
 package com.user.manager.aspect;
 
-import com.user.manager.comon.MailProducer;
+
+import com.user.manager.mq.service.MailProducer;
 
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;

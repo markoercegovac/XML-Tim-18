@@ -2,15 +2,11 @@ package com.example.request.model;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -22,6 +18,9 @@ import lombok.Data;
 @Table(name = "car_reserved_date")
 public class CarReservedDate {
 
+    /**
+     * Whe owner manualy reserve car
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="car_reserved_date_id")

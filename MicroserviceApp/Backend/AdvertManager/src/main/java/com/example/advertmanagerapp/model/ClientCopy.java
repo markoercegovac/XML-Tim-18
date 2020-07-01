@@ -6,8 +6,6 @@ import com.example.advertmanagerapp.model.enums.Role;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -16,6 +14,9 @@ import java.util.Set;
 @Table
 public class ClientCopy  {
 
+    /*
+    *IMA PREVISE OBELEZJA
+    */
     @Id
     @GeneratedValue
     private Long id;

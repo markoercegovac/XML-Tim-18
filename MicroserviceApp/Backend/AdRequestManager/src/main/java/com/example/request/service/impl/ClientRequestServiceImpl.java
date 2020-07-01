@@ -55,6 +55,15 @@ public class ClientRequestServiceImpl implements ClientRequestService {
                 //datum zauzeca je u proslosti
                 throw new RuntimeException("ADVERT DOSE NOT HAVE VALID START DATE");
             } else {
+
+                //provera da li moze da rezervise
+                foundAdvert.getCarReservedDate().forEach(reserved -> {
+                    if((reserved.getEndDate().compareTo(advert.getStartDate()) >= 0) &&
+                        (reserved.getStartDate().compareTo(advert.getEndDate()) <= 0)) {
+                            throw new RuntimeException("ADVERT IS REZERVED FOR ASKED DATE");
+                    }
+                });
+
                 Request validRequest = new Request();
                 validRequest.setStartReservationDate(advert.getStartDate());
                 validRequest.setEndReservationDate(advert.getEndDate());

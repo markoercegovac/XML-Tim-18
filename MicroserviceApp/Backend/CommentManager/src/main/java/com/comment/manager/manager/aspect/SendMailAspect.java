@@ -1,9 +1,9 @@
 package com.comment.manager.manager.aspect;
 
-import com.comment.manager.manager.comon.MailProducer;
 import com.comment.manager.manager.model.AdvertCopy;
 import com.comment.manager.manager.model.Comment;
-import com.comment.manager.manager.model.Mail;
+import com.comment.manager.manager.mq.dto.Mail;
+import com.comment.manager.manager.mq.service.MailProducer;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;

@@ -1,7 +1,8 @@
-package com.example.request.comon;
+package com.example.request.aspect;
 
 import java.util.List;
 
+import com.example.request.comon.ChangeState;
 import com.example.request.model.AdvertCopy;
 import com.example.request.model.AdvertStateEnum;
 import com.example.request.model.Request;

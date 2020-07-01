@@ -1,4 +1,4 @@
-package com.comment.manager.manager.model;
+package com.user.manager.mq.dto;
 
 import java.io.Serializable;
 
@@ -11,16 +11,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Mail implements Serializable {
 	/**
-	*{
-	 * "ownerEmail": "pera@maildrop.cc",
-	 * "userEmail": "mika@maildrop.cc",
-	 * "comment": "This is just a test"
-	 * }
+	*
 	*/
 	private static final long serialVersionUID = 1L;
 
-	private String ownerEmail;
 	private String userEmail;
-	private String comment;
+	private String password;
+	private String companyName;
+	private String token;
 	
 }
