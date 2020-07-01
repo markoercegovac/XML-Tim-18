@@ -25,8 +25,8 @@ public abstract class AdvertConverter {
         }
         ret.setGallery(galleryPic.toArray(new String[galleryPic.size()]));
 
-        ret.setMileage(ad.getOwnersCar().getMileage());
-        ret.setMileageUnit(ad.getOwnersCar().getTraveledUnit().toString());
+//        ret.setMileage(ad.getOwnersCar().getMileage());
+//        ret.setMileageUnit(ad.getOwnersCar().getTraveledUnit().toString());
         ret.setDescription(ad.getDescription());
         ret.setPricePerDay(ad.getPrice().getPricePerDay());
         ret.setInsurancePrice(ad.getPrice().getInsurancePrice());
@@ -36,8 +36,8 @@ public abstract class AdvertConverter {
         ret.setCarFuelType(ad.getOwnersCar().getConcreteCar().getCarFuelType().getFuelType());
         ret.setCarModel(ad.getOwnersCar().getConcreteCar().getCarModel().getModelName());
         ret.setCarTransmissionType(ad.getOwnersCar().getConcreteCar().getCarTransmissionType().getTransmissionType()); */
-        ret.setCarChildSeatNumber(ad.getOwnersCar().getChildrenSitNumber());
-        ret.setCarAvailableDistanceWithoutOverflowPrice(ad.getOwnersCar().getTravelDistanceConstraint());
+//        ret.setCarChildSeatNumber(ad.getOwnersCar().getChildrenSitNumber());
+//        ret.setCarAvailableDistanceWithoutOverflowPrice(ad.getOwnersCar().getTravelDistanceConstraint());
 
         return ret;
     }

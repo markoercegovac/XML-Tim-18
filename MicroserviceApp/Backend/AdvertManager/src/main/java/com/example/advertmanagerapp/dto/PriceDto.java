@@ -18,5 +18,5 @@ public class PriceDto implements DtoEntity {
     private float distanceOverflowPrice;
     private float discount;
     private boolean isRemoved;
-    private Set<Advert> advertSet;
+
 }

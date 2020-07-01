@@ -16,7 +16,7 @@ public class AdvertDto implements DtoEntity {
 
     private Long id;
     private Long carId;
-    private String profilePicture;
+    private PictureDto profilePicture;
     private Set<PictureDto> pictureSet;
     private Date startOfAdvert;
     private Date endOfAdvert;

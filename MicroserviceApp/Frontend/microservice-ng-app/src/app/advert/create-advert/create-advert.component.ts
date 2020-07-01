@@ -72,15 +72,18 @@ export class CreateAdvertComponent implements OnInit {
     let gallery:Picture[]=[];
 
     for(let img of this.imageGallery){
-      gallery.push(new Picture(null,img.src,null,false));
+      gallery.push(new Picture(null,img.src,null,false,img.file.name));
     }
     // if(!(this.startDate<this.endDate)){
     //   return;
     // }if(!(this.startDate>=new Date())){
     //   return;
     // }
+    let picModel: Picture;
+    picModel=new Picture(null,this.profileImage.src,null,false,this.profileImage.file.name);
+
     let advert:Advert;
-    advert=new Advert(null,this.profileImage.src,gallery,this.startDate,this.endDate,this.desc,true,this.carId,this.priceId);
+    advert=new Advert(null,picModel,gallery,this.startDate,this.endDate,this.desc,true,this.carId,this.priceId);
     this.advertService.createAdvert(advert).subscribe();
 
   }

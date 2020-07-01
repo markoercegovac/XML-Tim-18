@@ -9,6 +9,8 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
+
 @RequestMapping()
 @RequiredArgsConstructor
 @RestController
@@ -16,6 +18,11 @@ import org.springframework.web.bind.annotation.*;
 public class AuthorizationController {
 
 
+    @GetMapping("/user/me")
+    public Principal user(Principal principal) {
+        System.out.println(principal);
+        return principal;
+    }
     @PostMapping("/register")
     public ResponseEntity<RegistrationDto> register(@RequestBody RegistrationDto registerDto){
         return new ResponseEntity<>(HttpStatus.OK);

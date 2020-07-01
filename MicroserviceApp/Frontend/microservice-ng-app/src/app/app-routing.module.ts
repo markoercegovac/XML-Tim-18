@@ -31,6 +31,7 @@ import {HomeComponent} from "./home/home.component";
 import {AdvertsComponent} from "./home/adverts/adverts.component";
 import {FullAdvertComponent} from "./home/full-advert/full-advert.component";
 import {AdminCommentsAllowComponent} from "./admin-comments-allow/admin-comments-allow.component";
+import { AdminGuard } from './guard/admin.guard';
 
 
 
@@ -77,23 +78,28 @@ const routes: Routes = [
   },
   {
     path: 'advert-manager/car-brand',
-    component : CarBrandComponent
+    component : CarBrandComponent,
+    canActivate: [AdminGuard]
   },
   {
     path: 'advert-manager/car-class',
-    component: CarClassComponent
+    component: CarClassComponent,
+    canActivate: [AdminGuard]
   },
   {
     path : 'advert-manager/car-model',
-    component: CarModelComponent
+    component: CarModelComponent,
+    canActivate: [AdminGuard]
   },
   {
     path : 'advert-manager/car-fuel-type',
-    component : CarFuelTypeComponent
+    component : CarFuelTypeComponent,
+    canActivate: [AdminGuard]
   },
   {
     path : 'advert-manager/car-transsmision-type',
-    component: CarTranssmisionTypeComponent
+    component: CarTranssmisionTypeComponent,
+    canActivate: [AdminGuard]
   },
   {
     path: 'search',

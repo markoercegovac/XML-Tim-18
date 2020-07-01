@@ -24,16 +24,16 @@ public class Advert {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private OwnersCar ownersCar;
+    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    private ConcreteCar concreteCar;
 
     @Lob
     @Column(name="profilePicture")
     private String profilePicture;
 
     @JsonManagedReference
-    @OneToMany(mappedBy = "advert",fetch = FetchType.LAZY ,cascade = CascadeType.PERSIST)
-    private Set<Picture> pictureSet;
+    @OneToMany(fetch = FetchType.LAZY ,cascade = CascadeType.PERSIST)
+    private List<Picture> pictureSet;
 
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private ClientCopy client;

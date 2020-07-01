@@ -1,24 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import {User} from '../model/User';
+import {AuthService} from '../service/AuthService';
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html'
 })
 export class SignInComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  user: User = {
+    username: '',
+    password: ''
+  };
+
+  constructor(private router: Router, private auth: AuthService) { }
 
   ngOnInit(): void {
   }
 
   onSignIn() {
-    console.log('signing in...');
-    this.router.navigate(['/home/ads']);
-  }
 
-  onRegister() {
-    console.log('go to register');
-    this.router.navigate(['/register']);
-  }
+    console.log(this.user.username);
+    console.log(this.user.password);
+    this.auth.login(this.user.username, this.user.password);
+
+
+    }
+
+
+
+
 }

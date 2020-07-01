@@ -13,7 +13,7 @@ import {AdvertService} from '../../service/advert-service';
 export class AdvertsComponent implements OnInit {
 
   adverts: AdvertMiniModel[] = [];
-  public profileImage:any;
+
   constructor(private router: Router , private advertService: AdvertService) { }
 
   ngOnInit(): void {

@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface PictureService {
     void saveProfilePicture(PictureDto pictureDto) throws IOException;
-    byte[] getProfilePicture(Picture picture) throws IOException;
+    String getProfilePicture(Picture picture) throws IOException;
     List<String> getPictures(List<Picture> gallery);
 }
