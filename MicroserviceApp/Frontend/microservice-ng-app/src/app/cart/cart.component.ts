@@ -16,7 +16,7 @@ export class CartComponent implements OnInit {
   }
 
   onCheck() {
-    this.router.navigate(['/bundle']);
+    this.router.navigate(['home/bundle']);
   }
 
   private mock() {

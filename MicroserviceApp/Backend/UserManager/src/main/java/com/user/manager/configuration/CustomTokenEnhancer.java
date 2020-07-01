@@ -18,6 +18,7 @@ public class CustomTokenEnhancer extends JwtAccessTokenConverter {
         Map<String,Object> info = new LinkedHashMap<>(accessToken.getAdditionalInformation());
         if(user.getUsername()!=null){
             info.put("username",user.getUsername());
+            info.put("authorities", user.getAuthorities());
         }
 
 

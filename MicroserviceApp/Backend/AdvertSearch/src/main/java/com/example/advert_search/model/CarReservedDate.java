@@ -1,16 +1,15 @@
 package com.example.advert_search.model;
 
-
-
-import com.example.advert_search.dto.AdvertCopyDto;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-@RequiredArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Entity
 @Table

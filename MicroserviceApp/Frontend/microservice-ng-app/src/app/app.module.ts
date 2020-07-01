@@ -75,6 +75,7 @@ import { CommentsComponent } from './home/full-advert/comments/comments.componen
 import { HomeHeaderComponent } from './home/home-header/home-header.component';
 import { CommentComponent } from './home/full-advert/comments/comment/comment.component';
 import { AdminCommentsAllowComponent } from './admin-comments-allow/admin-comments-allow.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -97,7 +98,6 @@ import { AdminCommentsAllowComponent } from './admin-comments-allow/admin-commen
     MyPriceListComponent,
     MyCarsComponent,
     CaptureComponent,
-
     CarBrandComponent,
     CarClassComponent,
     CarFuelTypeComponent,
@@ -114,19 +114,15 @@ import { AdminCommentsAllowComponent } from './admin-comments-allow/admin-commen
     UpdateFuelTypeComponent,
     UpdateCarModelComponent,
     UpdateCarTransmissionComponent,
-
-
     SearchComponent,
     AdvertDetailViewComponent,
     NotFoundComponent,
-
     OwnerViewRequestsComponent,
     AdRequestItemComponent,
     MessagesComponent,
     MessageComponent,
     CreateMessageComponent,
     MessageDetailComponent,
-
     AdRequestItemComponent,
     UsersBanListComponent,
     CreateCommentComponent,
@@ -138,7 +134,8 @@ import { AdminCommentsAllowComponent } from './admin-comments-allow/admin-commen
     CommentsComponent,
     HomeHeaderComponent,
     CommentComponent,
-    AdminCommentsAllowComponent
+    AdminCommentsAllowComponent,
+    AdminComponent
 
 
   ],

@@ -1,4 +1,4 @@
-package com.example.request.model;
+package com.example.request.mq.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
