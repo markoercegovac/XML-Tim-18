@@ -25,16 +25,17 @@ export class AuthService {
         params.append('client_secret','user123');
 
         this.http.post("http://localhost:8662/oauth/token",params.toString(),{headers:headers})
-            .subscribe(data => {
+            .subscribe((data:any) => {
                 console.log('JWT ADDED', data);
 
 
                 let token=data.access_token;
+
                 localStorage.setItem('token', token);
 
             });
     }
-   
+
 
     logout() {
         console.log('JWT REMOVED');

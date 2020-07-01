@@ -17,10 +17,10 @@ public class Picture {
     @Column
     private String picture;
 
-    @JsonBackReference
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    @JoinColumn(nullable = false)
-    private Advert advert;
+
+    @Column
+    private String path;
+
 
     @Column
     private boolean isDeleted;

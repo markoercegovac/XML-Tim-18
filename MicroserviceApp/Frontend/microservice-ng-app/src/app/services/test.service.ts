@@ -10,7 +10,7 @@ export class TestService {
     constructor(private http: HttpClient) {}
 
     public test() {
-        return this.http.get("http://localhost:8662/comment-manager/test");
+        return this.http.get("http://localhost:8662/comment-manager/test",{responseType:"text"});
     }
 
 }

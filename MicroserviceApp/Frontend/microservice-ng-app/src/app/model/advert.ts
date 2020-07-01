@@ -2,7 +2,7 @@ import {Picture} from "./picture";
 
 export class Advert {
   id: number;
-  profilePicture: string;
+  profilePicture: Picture;
   pictureSet: Picture[];
   startOfAdvert: Date;
   endOfAdvert: Date;
@@ -11,7 +11,7 @@ export class Advert {
   carId: number;
   priceId: number;
 
-  constructor(id: number, pictureProf: string, pictureSet: Picture[], start: Date, end: Date,
+  constructor(id: number, pictureProf: Picture, pictureSet: Picture[], start: Date, end: Date,
                des: string, isActive: boolean, carId: number, pric: number) {
     this.id=id;
     this.profilePicture=pictureProf;
