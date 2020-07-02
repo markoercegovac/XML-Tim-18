@@ -19,7 +19,6 @@ export class NavigationAdminComponent implements OnInit {
   }
 
   public onBrand() {
-    alert('BRAND');
     this.router.navigate(["/admin/brand"]);
   }
 
