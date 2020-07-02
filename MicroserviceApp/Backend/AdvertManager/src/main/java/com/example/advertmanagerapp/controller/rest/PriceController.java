@@ -15,7 +15,6 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/advert-manager/price")
 @RestController
-@CrossOrigin
 public class PriceController {
 
 

@@ -17,7 +17,6 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("advert-manager/car-class")
 @RestController
-@CrossOrigin
 public class CarClassController {
 
 

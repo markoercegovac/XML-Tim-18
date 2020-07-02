@@ -15,7 +15,7 @@ export class NavigationComponent implements OnInit {
   }
 
   onHome() {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/home/advert/all']);
   }
 
   onCreateAdvert() {
@@ -27,7 +27,7 @@ export class NavigationComponent implements OnInit {
   }
 
   onAllAdverts() {
-    this.router.navigate(['/home/all/adverts']);
+    this.router.navigate(['/home/advert/all']);
   }
 
   onCars() {

@@ -50,27 +50,28 @@ const routes: Routes = [
   ] },
 
   { path: 'home', component: HomeComponent, children: [
-    { path: '', pathMatch: 'full', redirectTo: 'all/adverts'},
+    { path: '', pathMatch: 'full', redirectTo: '/home/advert/all'},
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegistrationComponent },
     
     { path: 'comment/create', component: CreateCommentComponent },
-    { path: 'ads', component: AdvertsComponent },
-    { path: 'ad/:id', component: FullAdvertComponent },
+    { path: 'advert/all', component: AdvertsComponent }, //LISTA SVIH OGLASA
+    { path: 'advert/:id', component: AdvertDetailViewComponent }, //DETALAN PRIKAZ SA KAROSELOM
     { path: 'cart', component: CartComponent },
     { path: 'bundle', component: BundleComponent},
-    { path: 'advert/:id', component: AdvertDetailViewComponent },
-    { path: 'owner/requests', component: OwnerViewRequestsComponent },
     { path: 'message/:email', component: MessagesComponent },
-    { path: 'create/advert', component: CreateAdvertComponent },
-    { path: 'my/adverts', component: MyAdvertsComponent },
-    { path: 'all/adverts', component: AllAdvertsComponent },
-    { path: 'register/car', component: RegisterCarComponent },
+    { path: 'owner/requests', component: OwnerViewRequestsComponent },
+    { path: 'my/adverts', component: MyAdvertsComponent }, //OGLASI OD VLASNIKA
+    { path: 'my/advert/:id', component: CaptureComponent }, //vlasnik daje termin zauzeca
     { path: 'my/cars', component: MyCarsComponent },
-    { path: 'define/price', component: DefinePriceComponent },
     { path: 'my/price/list', component: MyPriceListComponent },
+    { path: 'create/advert', component: CreateAdvertComponent },
+    { path: 'register/car', component: RegisterCarComponent },
+    { path: 'define/price', component: DefinePriceComponent },
     { path: 'search', component: SearchComponent },
-    { path: 'my/advert/:id', component: CaptureComponent },
+
+    //{ path: 'all/advert', component: AllAdvertsComponent}
+    //{ path: 'ad/:id', component: FullAdvertComponent }, //DETALJAN PRIKAZ
   ]},
   { path: 'not-found', component: NotFoundComponent},
   { path: '**', redirectTo: '/not-found'}

@@ -14,6 +14,7 @@ import java.util.Set;
 public class AdvertDto implements DtoEntity {
 
 
+    private String email;
     private Long id;
     private Long carId;
     private PictureDto profilePicture;

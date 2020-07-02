@@ -18,12 +18,12 @@ export class NavigationAdminComponent implements OnInit {
     this.router.navigate(["/admin"]);
   }
 
-  onBrand() {
+  public onBrand() {
     this.router.navigate(["/admin/brand"]);
   }
 
   onClass() {
-    this.router.navigate(["/admin/class"]);
+    this.router.navigate(["admin/class"]);
   }
 
   onModel() {

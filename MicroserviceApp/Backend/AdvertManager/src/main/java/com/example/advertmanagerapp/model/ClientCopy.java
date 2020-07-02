@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import com.example.advertmanagerapp.model.enums.Role;
 import lombok.NoArgsConstructor;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -63,9 +64,8 @@ public class ClientCopy  {
 
 //    @OneToMany(mappedBy = "client",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 //    private Set<OwnersCar> ownersCars;
-/*
-    @OneToMany(mappedBy = "client",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private Set<Advert> adverts; */
 
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    private List<Advert> adverts;
 
 }

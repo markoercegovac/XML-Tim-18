@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { AdvertDetailViewModel } from '../model/advert-detail-view.model';
 import { AdvertService } from '../services/advert.service';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -18,7 +18,6 @@ export class AdvertDetailViewComponent implements OnInit {
   constructor(
     private activeUrl: ActivatedRoute,
     private adService: AdvertService,
-    private router: Router,
     private domSanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
