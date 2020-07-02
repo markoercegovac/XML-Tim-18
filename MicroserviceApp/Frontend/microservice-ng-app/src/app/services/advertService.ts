@@ -6,6 +6,7 @@ import {Observable} from "rxjs";
 import {CarFuelType} from "../model/carFuelType";
 import {Capture} from "../model/capture";
 import { environment } from 'src/environments/environment';
+import {AdvertMiniModel} from "../model/advert-mini.model";
 
 const URL: string= environment.advertManagerUrl+'/advert'
 
@@ -31,6 +32,10 @@ export class AdvertService{
   }
   public createCaptureForAdvert(capture:Capture){
     return this.http.post(URL+'/capture',capture);
+  }
+
+  public homeAllAdvert():Observable<AdvertMiniModel[]>{
+    return this.http.get<AdvertMiniModel[]>(URL+'/home/all');
   }
 
 
