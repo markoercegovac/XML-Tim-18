@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {UserRegister} from '../model/UserRegister';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
     surname: '',
     password: '',
     email: '',
-    role: ''
+    Role: ''
   };
 
   constructor(private router: Router , public http : HttpClient) { }

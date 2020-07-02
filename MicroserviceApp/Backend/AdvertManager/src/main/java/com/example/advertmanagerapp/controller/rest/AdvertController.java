@@ -3,6 +3,7 @@ package com.example.advertmanagerapp.controller.rest;
 import com.example.advertmanagerapp.dto.AdvertCartDTO;
 import com.example.advertmanagerapp.dto.AdvertDetailDTO;
 import com.example.advertmanagerapp.dto.AdvertDto;
+import com.example.advertmanagerapp.dto.AdvertMiniDto;
 import com.example.advertmanagerapp.dto.CaptureDto;
 import com.example.advertmanagerapp.dto.mapper.DtoEntity;
 import com.example.advertmanagerapp.service.AdvertService;
@@ -71,6 +72,11 @@ public class AdvertController {
         return new ResponseEntity<Integer>(HttpStatus.OK);
     }
 
+    @GetMapping("/home/all")
+    public ResponseEntity<List<AdvertMiniDto>>getHomeAdverts() throws IOException {
+        return new ResponseEntity<>(advertService.allAdvertsHome(),HttpStatus.OK);
+    }
+
     @GetMapping("/all")
     public ResponseEntity<List<DtoEntity>> getAllAdverts () {
         //izmeniti da radi sa User adverts
@@ -81,7 +87,6 @@ public class AdvertController {
     public ResponseEntity continueAdvertTime (@RequestBody Date date,@PathVariable(value="advert_id") Long advert_id ) {
         return new ResponseEntity(HttpStatus.OK);
     }
-
     @GetMapping("/capture/{id}")
     public ResponseEntity<List<DtoEntity>> getCarModel(@PathVariable("id") Long id){
         return new ResponseEntity<>(captureService.getAdvertCaptures(id),HttpStatus.OK);

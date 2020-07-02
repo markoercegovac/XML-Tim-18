@@ -8,7 +8,23 @@ eureka:
     hostname: localhost
 server:
   port: 8081
+
+
+rabbitmq:
+  exchange:
+    ad: direct.user.ad
+    mail: direct.user.mail
+  routingkey:
+    ad: key.user.ad
+    mail: key.user.mail
+
+
 spring:
+  rabbitmq:
+    host: ${RABBITMQ:localhost}
+    password: guest
+    port: 5672
+    username: guest
   application:
     name: user-manager
   datasource:

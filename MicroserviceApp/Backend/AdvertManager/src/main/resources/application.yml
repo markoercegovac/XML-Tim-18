@@ -30,9 +30,9 @@ spring:
     data: classpath:script.sql
     driver-class-name: com.mysql.cj.jdbc.Driver
     initialization-mode: always
-    password: agent1
-    url: jdbc:mysql://localhost:3306/ad_manager_db?sessionVariables=sql_mode='NO_ENGINE_SUBSTITUTION'&jdbcCompliantTruncation=false&useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
-    username: agentXML
+    password: root
+    url: jdbc:mysql://localhost:3306/advert_manager_db?sessionVariables=sql_mode='NO_ENGINE_SUBSTITUTION'&jdbcCompliantTruncation=false&useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
   jpa:
     hibernate:
       ddl-auto: create-drop

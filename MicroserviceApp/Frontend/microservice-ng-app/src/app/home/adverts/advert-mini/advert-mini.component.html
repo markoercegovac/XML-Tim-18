@@ -3,8 +3,9 @@
   <div class="row align-items-center">
 
     <div class="col-4 border-right">
-      <div class="bg-secondary" style="height: 200px;">
-        <p>profileImage: {{advert.profileImage}}</p>
+      <div class="bg-secondary" style="height: 25%;">
+        <img style="width:100%; height:100%" id='base64image'
+             src="{{'data:image/jpg;base64,' + advert.profileImage}}" />
       </div>
     </div>
 

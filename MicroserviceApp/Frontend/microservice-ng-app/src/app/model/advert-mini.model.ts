@@ -1,6 +1,4 @@
 
-
-
 export interface AdvertMiniModel {
 
   advertId: number;

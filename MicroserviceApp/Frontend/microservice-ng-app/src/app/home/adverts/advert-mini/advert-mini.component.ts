@@ -15,6 +15,7 @@ export class AdvertMiniComponent implements OnInit {
   constructor(private router: Router, public cart: CartService) { }
 
   ngOnInit(): void {
+
   }
 
   showFullAdvert() {

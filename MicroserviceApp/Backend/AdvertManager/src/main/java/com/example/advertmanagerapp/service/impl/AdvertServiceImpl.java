@@ -3,6 +3,8 @@ package com.example.advertmanagerapp.service.impl;
 import com.example.advertmanagerapp.converter.AdvertConverter;
 import com.example.advertmanagerapp.dto.AdvertCartDTO;
 import com.example.advertmanagerapp.dto.AdvertDetailDTO;
+import com.example.advertmanagerapp.dto.AdvertMiniDto;
+import com.example.advertmanagerapp.dto.PictureDto;
 import com.example.advertmanagerapp.model.Advert;
 import com.example.advertmanagerapp.repository.*;
 import com.example.advertmanagerapp.dto.AdvertDto;
@@ -96,7 +98,28 @@ public class AdvertServiceImpl implements AdvertService {
     @Override
     public List<DtoEntity> allAdverts() {
         return advertRepository.findAll().stream().map(a->dtoUtils.convertToDto(a,new AdvertDto())).collect(Collectors.toList());
+
     }
+
+    @Override
+    public List<AdvertMiniDto> allAdvertsHome() throws IOException {
+        List<Advert> advertList=advertRepository.findAll();
+        List<AdvertMiniDto> advertMiniDtos=new ArrayList<>();
+
+        for(Advert a : advertList){
+            AdvertMiniDto mini=new AdvertMiniDto();
+            mini.setAdvertId(a.getId());
+            mini.setCarBrand(a.getConcreteCar().getCarBrand().getName());
+            mini.setCarModel(a.getConcreteCar().getCarModel().getModelName());
+            mini.setPrice(a.getPrice().getPricePerDay());
+            Picture picture=new Picture();
+            picture.setPath(a.getProfilePicture());
+            mini.setProfileImage(pictureService.getPicture(picture));
+            advertMiniDtos.add(mini);
+        }
+        return advertMiniDtos;
+    }
+
 
     @Override
     public AdvertCartDTO detailAdForCart(Long adId) {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {AdvertMiniModel} from '../../model/advert-mini.model';
+import {AdvertService} from "../../services/advertService";
 
 @Component({
   selector: 'app-adverts',
@@ -11,12 +12,15 @@ export class AdvertsComponent implements OnInit {
 
   adverts: AdvertMiniModel[] = [];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,private advertService:AdvertService) { }
 
   ngOnInit(): void {
-    this.mock();
+    this.advertService.homeAllAdvert().subscribe(data => {
+        this.adverts = data;
+        console.log(this.adverts);
+      }
+    )
   }
-
   onAddAdvert() {
     this.router.navigate(['/home/ad/add']);
   }
@@ -25,13 +29,6 @@ export class AdvertsComponent implements OnInit {
     this.router.navigate(['/home/search']);
   }
 
-  mock() {
-    this.adverts.push({ advertId: 1, profileImage: 'image1', traveledDistance: 250, distanceUnit: 'km', carBrand: 'toyota', carModel: 'yaris', grade: 4, price: 500 });
-    this.adverts.push({ advertId: 2, profileImage: 'image2', traveledDistance: 300, distanceUnit: 'km', carBrand: 'toyota', carModel: 'yaris', grade: 4, price: 600 });
-    // tslint:disable-next-line:max-line-length
-    this.adverts.push({ advertId: 3, profileImage: 'image3', traveledDistance: 500, distanceUnit: 'km', carBrand: 'yugo', carModel: 'koral', grade: 2, price: 500 });
-    this.adverts.push({ advertId: 4, profileImage: 'image4', traveledDistance: 250, distanceUnit: 'km', carBrand: 'fiat', carModel: 'prglica', grade: 5, price: 500 });
-  }
 }
 
 
