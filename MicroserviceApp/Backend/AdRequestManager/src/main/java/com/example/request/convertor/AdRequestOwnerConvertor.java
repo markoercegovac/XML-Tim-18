@@ -8,8 +8,6 @@ import com.example.request.dto.AdRequestDTO;
 import com.example.request.dto.AdRequestForOwnerDTO;
 import com.example.request.model.RequestBundle;
 
-import org.springframework.transaction.annotation.Transactional;
-
 public abstract class AdRequestOwnerConvertor {
 
 	public static AdRequestForOwnerDTO fromBundleToAdRequestForOwner(RequestBundle bundle) throws NullPointerException {

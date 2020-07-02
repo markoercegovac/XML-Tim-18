@@ -8,7 +8,8 @@ import {Capture} from "../model/capture";
 import { environment } from 'src/environments/environment';
 import {AdvertMiniModel} from "../model/advert-mini.model";
 
-const URL: string= environment.advertManagerUrl+'/advert'
+// const URL: string= environment.advertManagerUrl+'/advert'
+const URL: string= environment.zuul+'/advert-manager/advert'
 
 @Injectable({
   providedIn: 'root'

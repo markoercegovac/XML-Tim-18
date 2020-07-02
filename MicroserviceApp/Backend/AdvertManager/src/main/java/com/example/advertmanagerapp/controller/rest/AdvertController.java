@@ -1,5 +1,6 @@
 package com.example.advertmanagerapp.controller.rest;
 
+import com.example.advertmanagerapp.dto.AdvertCartDTO;
 import com.example.advertmanagerapp.dto.AdvertDetailDTO;
 import com.example.advertmanagerapp.dto.AdvertDto;
 import com.example.advertmanagerapp.dto.AdvertMiniDto;
@@ -11,7 +12,6 @@ import com.example.advertmanagerapp.service.CaptureService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -22,7 +22,6 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/advert-manager/advert")
 @RestController
-@CrossOrigin
 public class AdvertController {
 
 
@@ -34,20 +33,23 @@ public class AdvertController {
             @PathVariable(value="advert_id") Long advert_id,
             @RequestParam(value = "details", required = false) String details ){
 
-        if(details!=null && details.equals("client")) {
+        if(details!=null && details.equals("cart")) {
+            AdvertCartDTO ret = advertService.detailAdForCart(advert_id);
 
+            return new ResponseEntity<AdvertCartDTO>(ret, HttpStatus.OK);
+        } else if(details!=null && details.equals("client")) {
             AdvertDetailDTO ret = advertService.detailAdForClient(advert_id);
 
             return new ResponseEntity<AdvertDetailDTO>(ret, HttpStatus.OK);
         } else {
-
             return new ResponseEntity<AdvertDto>(HttpStatus.OK);
         }
     }
 
 
     @PostMapping
-    public void createAdvert (@RequestBody AdvertDto advertDto) throws IOException {
+    public void createAdvert (@RequestBody AdvertDto advertDto, Principal principal) throws IOException {
+        advertDto.setEmail(principal.getName());
         advertService.createAdvert(advertDto);
     }
 
@@ -78,7 +80,6 @@ public class AdvertController {
     @GetMapping("/all")
     public ResponseEntity<List<DtoEntity>> getAllAdverts () {
         //izmeniti da radi sa User adverts
-
         return new ResponseEntity<>(advertService.allAdverts(),HttpStatus.OK);
     }
 

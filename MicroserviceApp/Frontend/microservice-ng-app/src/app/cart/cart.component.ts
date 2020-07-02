@@ -12,11 +12,11 @@ export class CartComponent implements OnInit {
   constructor(public cart: CartService, private router: Router) { }
 
   ngOnInit(): void {
-    this.mock();
+    //this.mock();
   }
 
   onCheck() {
-    this.router.navigate(['/bundle']);
+    this.router.navigate(['home/bundle']);
   }
 
   private mock() {

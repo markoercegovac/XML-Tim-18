@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RequestMapping("/advert-manager/car-report")
 @RestController
-@CrossOrigin
 public class DriveReportController {
 
     @GetMapping("/{car_id}")

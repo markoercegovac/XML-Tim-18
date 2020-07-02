@@ -3,7 +3,27 @@ server:
 soap:
   agent:
     url: '"http://localhost:9091/ws"'
+
+rabbitmq:
+  exchange:
+    comment: direct.ad.comment
+    request: direct.ad.request
+    search: direct.ad.search
+  queue:
+    from:
+      request: direct.reques.ad
+      user: queue.user.a
+  routingkey:
+    comment: key.ad.comment
+    request: key.ad.request
+    search: key.ad.search
+
 spring:
+  rabbitmq:
+    host: ${RABBITMQ:localhost}
+    password: guest
+    port: 5672
+    username: guest
   application:
     name: advert-manager
   datasource:

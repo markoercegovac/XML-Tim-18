@@ -17,7 +17,6 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/advert-manager/car-model")
 @RestController
-@CrossOrigin
 public class CarModelController {
 
     private final CarModelService modelService;

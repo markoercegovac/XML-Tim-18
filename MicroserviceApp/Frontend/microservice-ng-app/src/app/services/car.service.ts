@@ -9,7 +9,8 @@ import {CarTransmission} from "../model/carTransmission";
 import {Car} from "../model/car";
 import { environment } from 'src/environments/environment';
 
-const BASE_URL = environment.advertManagerUrl;
+// const BASE_URL = environment.advertManagerUrl;
+const BASE_URL = environment.zuul+"/advert-manager";
 
 @Injectable({
   providedIn: 'root'

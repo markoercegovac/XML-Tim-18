@@ -1,156 +1,184 @@
 version: "3.7"
 services:
 
-  eureka:
-    build: ./Eureka
-    image: eureka
-    container_name: eureka
+#  eureka:
+#    build: ./Eureka
+#    image: eureka
+#    container_name: eureka
+#    networks:
+#      - demo
+#    ports:
+#      - 8761:8761
+
+#  zuul:
+#    build: ./GatewayService
+#    container_name: zuul
+#    networks:
+#      - demo
+#    ports:
+#      - 8091:8083
+#    environment:
+#      REGISTRY_HOST: eureka
+#    depends_on:
+#      - eureka
+#      - comment-manager
+#
+#  chat-manager:
+#    build: ./ChatManager
+#    image: chat-manager
+#    container_name: chat-manager
+#    restart: on-failure
+#    networks:
+#      - demo
+#    ports:
+#      - 8092:8080
+#    environment:
+#      REGISTRY_HOST: eureka
+#      DATABASE_USERNAME: us_chat
+#      DATABASE_PASSWORD: password-chat
+#      DATABASE_DOMAIN: mysql-db
+#      DATABASE_SCHEMA: chat_db
+#    depends_on: 
+#      - mysql-db
+#
+#  request-manager:
+#    build: ./AdRequestManager
+#    image: request-manager
+#    container_name: request-manager
+#    restart: on-failure
+#    networks:
+#      - demo
+#    ports:
+#      - 8093:8080
+#    environment:
+#      REGISTRY_HOST: eureka
+#      DATABASE_USERNAME: us_request
+#      DATABASE_PASSWORD: password-request
+#      DATABASE_DOMAIN: mysql-db
+#      DATABASE_SCHEMA: request_db
+#    depends_on: 
+#      - mysql-db
+#
+#  comment-manager:
+#    build: ./CommentManager
+#    image: comment-manager
+#    container_name: comment-manager
+#    restart: on-failure
+#    networks:
+#      - demo
+#    ports:
+#      - 8094:8081
+#    environment:
+#      REGISTRY_HOST: eureka
+#      DATABASE_USERNAME: us_comment
+#      DATABASE_PASSWORD: password-comment
+#      DATABASE_DOMAIN: mysql-db
+#      DATABASE_SCHEMA: comment_db
+#    depends_on:
+#      - eureka
+#      - mysql-db
+#
+#  search-manager:
+#    build: ./AdvertSearch
+#    image: search-manager
+#    container_name: search-manager
+#    restart: on-failure
+#    networks:
+#        - demo
+#    ports:
+#      - 8095:8080
+#    environment:
+#      REGISTRY_HOST: eureka
+#      DATABASE_USERNAME: us_search
+#      DATABASE_PASSWORD: password-search
+#      DATABASE_DOMAIN: mysql-db
+#      DATABASE_SCHEMA: search_db
+#    depends_on:
+#        - mysql-db
+#
+#  advert-manager:
+#    build: ./AdvertManager
+#    image: advert-manager
+#    container_name: advert-manager
+#    restart: on-failure
+#    networks:
+#        - demo
+#    ports:
+#      - 8096:8080
+#    environment:
+#      REGISTRY_HOST: eureka
+#      DATABASE_USERNAME: us_advert
+#      DATABASE_PASSWORD: password-advert
+#      DATABASE_DOMAIN: mysql-db
+#      DATABASE_SCHEMA: advert_db
+#    depends_on:
+#        - mysql-db
+#
+#  user-manager:
+#    build: ./UserManager
+#    image: user-manager
+#    container_name: user-manager
+#    restart: on-failure
+#    networks:
+#        - demo
+#    ports:
+#      - 8097:8080
+#    environment:
+#      REGISTRY_HOST: eureka
+#      DATABASE_USERNAME: us_user
+#      DATABASE_PASSWORD: password-user
+#      DATABASE_DOMAIN: mysql-db
+#      DATABASE_SCHEMA: user_db
+#    depends_on:
+#        - mysql-db
+#        - eureka
+
+#  mail-manager:
+#    build: ./MailManager
+#    image: mail-manager
+#    container_name: mail-manager
+#    restart: on-failure
+#    networks:
+#        - demo
+#    ports:
+#      - 8097:8080
+#    environment:
+#      REGISTRY_HOST: eureka
+#      RABBITMQ: rabbitmq
+#    depends_on:
+#        - eureka
+#        - rabbitmq
+
+  rabbitmq:
+    build: ./RabbitMQ
+    ports:
+      - 4369:4369
+      - 5671:5671
+      - 5672:5672
+      - 15671:15671
+      - 15672:15672
+      - 25672:25672
     networks:
       - demo
-    ports:
-      - 8761:8761
 
-  zuul:
-    build: ./GatewayService
-    container_name: zuul
-    networks:
-      - demo
-    ports:
-      - 8091:8083
-    environment:
-      REGISTRY_HOST: eureka
-    depends_on:
-      - eureka
-      - comment-manager
-
-  chat-manager:
-    build: ./ChatManager
-    image: chat-manager
-    container_name: chat-manager
-    restart: on-failure
-    networks:
-      - demo
-    ports:
-      - 8092:8080
-    environment:
-      REGISTRY_HOST: eureka
-      DATABASE_USERNAME: us_chat
-      DATABASE_PASSWORD: password-chat
-      DATABASE_DOMAIN: mysql-db
-      DATABASE_SCHEMA: chat_db
-    depends_on: 
-      - mysql-db
-
-  request-manager:
-    build: ./AdRequestManager
-    image: request-manager
-    container_name: request-manager
-    restart: on-failure
-    networks:
-      - demo
-    ports:
-      - 8093:8080
-    environment:
-      REGISTRY_HOST: eureka
-      DATABASE_USERNAME: us_request
-      DATABASE_PASSWORD: password-request
-      DATABASE_DOMAIN: mysql-db
-      DATABASE_SCHEMA: request_db
-    depends_on: 
-      - mysql-db
-
-  comment-manager:
-    build: ./CommentManager
-    image: comment-manager
-    container_name: comment-manager
-    restart: on-failure
-    networks:
-      - demo
-    ports:
-      - 8094:8081
-    environment:
-      REGISTRY_HOST: eureka
-      DATABASE_USERNAME: us_comment
-      DATABASE_PASSWORD: password-comment
-      DATABASE_DOMAIN: mysql-db
-      DATABASE_SCHEMA: comment_db
-    depends_on:
-      - eureka
-      - mysql-db
-
-  search-manager:
-    build: ./AdvertSearch
-    image: search-manager
-    container_name: search-manager
-    restart: on-failure
-    networks:
-        - demo
-    ports:
-      - 8095:8080
-    environment:
-      REGISTRY_HOST: eureka
-      DATABASE_USERNAME: us_search
-      DATABASE_PASSWORD: password-search
-      DATABASE_DOMAIN: mysql-db
-      DATABASE_SCHEMA: search_db
-    depends_on:
-        - mysql-db
-
-  advert-manager:
-    build: ./AdvertManager
-    image: advert-manager
-    container_name: advert-manager
-    restart: on-failure
-    networks:
-        - demo
-    ports:
-      - 8096:8080
-    environment:
-      REGISTRY_HOST: eureka
-      DATABASE_USERNAME: us_advert
-      DATABASE_PASSWORD: password-advert
-      DATABASE_DOMAIN: mysql-db
-      DATABASE_SCHEMA: advert_db
-    depends_on:
-        - mysql-db
-
-  user-manager:
-    build: ./UserManager
-    image: user-manager
-    container_name: user-manager
-    restart: on-failure
-    networks:
-        - demo
-    ports:
-      - 8097:8080
-    environment:
-      REGISTRY_HOST: eureka
-      DATABASE_USERNAME: us_user
-      DATABASE_PASSWORD: password-user
-      DATABASE_DOMAIN: mysql-db
-      DATABASE_SCHEMA: user_db
-    depends_on:
-        - mysql-db
-        - eureka
-
-  mysql-db:
-    image: mysql:8.0.19
-    command: --default-authentication-plugin=mysql_native_password
-    container_name: mysql-db
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: SuperRootPassword1
-      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
-      MYSQL_DATABASE: main
-      MYSQL_USER: admin
-      MYSQL_PASSWOR: AdminPassword1
-    ports:
-      - 3307:3306
-    networks:
-      - demo
-    volumes:
-      - ./dockerScript/init.sql:/docker-entrypoint-initdb.d/init.sql
-      - mysql-db-data:/var/lib/mysql-db
+#  mysql-db:
+#    image: mysql:8.0.19
+#    command: --default-authentication-plugin=mysql_native_password
+#    container_name: mysql-db
+#    restart: always
+#    environment:
+#      MYSQL_ROOT_PASSWORD: SuperRootPassword1
+#      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+#      MYSQL_DATABASE: main
+#      MYSQL_USER: admin
+#      MYSQL_PASSWOR: AdminPassword1
+#    ports:
+#      - 3307:3306
+#    networks:
+#      - demo
+#    volumes:
+#      - ./dockerScript/init.sql:/docker-entrypoint-initdb.d/init.sql
+#      - mysql-db-data:/var/lib/mysql-db
 
 volumes:
   mysql-db-data:

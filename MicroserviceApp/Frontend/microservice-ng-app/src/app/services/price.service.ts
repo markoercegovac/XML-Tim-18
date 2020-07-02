@@ -4,7 +4,8 @@ import {Price} from '../model/price';
 import {Observable} from "rxjs";
 import { environment } from 'src/environments/environment';
 
-const BASE_URL = environment.advertManagerUrl;
+// const BASE_URL = environment.advertManagerUrl;
+const BASE_URL = environment.zuul+"/advert-manager";
 
 @Injectable({
   providedIn: 'root'

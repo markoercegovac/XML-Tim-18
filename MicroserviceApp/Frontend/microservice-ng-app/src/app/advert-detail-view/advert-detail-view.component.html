@@ -1,60 +1,64 @@
 <div class="container-fluid">
     <br>
     
-    <!--Carousel Wrapper-->
-    <mdb-carousel [isControls]="true" class="carousel slide carousel-fade" [animation]="'fade'">
-    <!--PROFILE IMAGE-->
-    <mdb-carousel-item>
-      <div class="view w-100">
-        <img class="d-block w-100" src="{{ad.profilePicture}}" alt="profile image">
-        <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
-      </div>
-      <div class="carousel-caption">
-        <h3 class="h3-responsive">Light mask</h3>
-        <p>First text</p>
-      </div>
-    </mdb-carousel-item>
-    <!--IMAGE GALERY-->
+    <div *ngIf="ad != null && ad != undefined">
+      <!--Carousel Wrapper-->
+      <mdb-carousel [isControls]="true" class="carousel slide carousel-fade" [animation]="'fade'">
+        <!--PROFILE IMAGE-->
+        <mdb-carousel-item>
+          <div class="view w-100">
+            <img class="d-block w-100" src="{{ad.profilePicture}}" alt="profile image">
+            <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
+          </div>
+          <div class="carousel-caption">
+            <h3 class="h3-responsive">Light mask</h3>
+            <p>First text</p>
+          </div>
+        </mdb-carousel-item>
+        <!--IMAGE GALERY-->
 
-  </mdb-carousel>
-  <!--/.Carousel Wrapper-->
+      </mdb-carousel>
+      <!--/.Carousel Wrapper-->
 
-    <hr class="bg-success">
-    <!--AD INFO-->
+      <hr class="bg-success">
+      <!--AD INFO-->
+      <br>
+
+      <div class="row justify-content-around">
+
+          <div class="col-sm-12 col-md-6 border-right border-success">
+                  <div class="row">
+                      <h3>Price per day: {{ad.pricePerDay}}</h3>
+                      &nbsp;&nbsp;
+                      <h2 class="text text-danger" *ngIf="ad.discount != null">{{ad.discount}}% OFF</h2>
+                  </div>
+                  <h4>Crossed distance: {{ad.mileage}} {{ad.mileageUnit}}</h4>
+                  <br>
+                  <h4 *ngIf="ad.insurancePrice != null">Insurance price: {{ad.insurancePrice}}</h4>
+                  <p *ngIf="ad.distanceOverflowPrice != null">Every added km, after crossing {{ad.carAvailableDistanceWithoutOverflowPrice}} km, cost's {{ad.distanceOverflowPrice}} $</p>
+          </div>
+
+          <div class="col-sm-12 col-md-6">
+              <h2>Car information</h2>
+              <br/>
+              <h4>Brand: {{ad.carBrand}}</h4>
+              <h4>Model: {{ad.carModel}}</h4>
+              <h4>Class: {{ad.carClass}}</h4>
+              <h4>Fuel Type: {{ad.carFuelType}}</h4>
+              <h4>Transmission: {{ad.carTransmissionType}}</h4>
+              <br>
+              <h4>Number of children seats: {{ad.carChildSeatNumber}}</h4>
+          </div>
+
+      </div>
+      <div>
+        <h3>Advert description</h3>
+        <p>{{ad.description}}</p>
+      </div>
+    </div>
+    <hr>
     <br>
-
-    <div class="row justify-content-around">
-
-        <div class="col-sm-12 col-md-6 border-right border-success">
-                <div class="row">
-                    <h3>Price per day: {{ad.pricePerDay}}</h3>
-                    &nbsp;&nbsp;
-                    <h2 class="text text-danger" *ngIf="ad.discount != null">{{ad.discount}}% OFF</h2>
-                </div>
-                <h4>Crossed distance: {{ad.mileage}} {{ad.mileageUnit}}</h4>
-                <br>
-                <h4 *ngIf="ad.insurancePrice != null">Insurance price: {{ad.insurancePrice}}</h4>
-                <p *ngIf="ad.distanceOverflowPrice != null">Every added km, after crossing {{ad.carAvailableDistanceWithoutOverflowPrice}} km, cost's {{ad.distanceOverflowPrice}} $</p>
-        </div>
-
-        <div class="col-sm-12 col-md-6">
-            <h2>Car information</h2>
-            <br/>
-            <h4>Brand: {{ad.carBrand}}</h4>
-            <h4>Model: {{ad.carModel}}</h4>
-            <h4>Class: {{ad.carClass}}</h4>
-            <h4>Fuel Type: {{ad.carFuelType}}</h4>
-            <h4>Transmission: {{ad.carTransmissionType}}</h4>
-            <br>
-            <h4>Number of children seats: {{ad.carChildSeatNumber}}</h4>
-        </div>
-
-    </div>
-    <div>
-      <h3>Advert description</h3>
-      <p>{{ad.description}}</p>
-    </div>
-
+    <app-comments [ad-id]="adId"></app-comments>
     <br>
     <br>
 </div>

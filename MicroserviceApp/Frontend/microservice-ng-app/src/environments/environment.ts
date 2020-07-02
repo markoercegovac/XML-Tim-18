@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  zuul: 'http//localhost:8662',
+  zuul: 'http://localhost:8662',
   localhost: 'http://localhost:8081',
   requestManagerUrl: 'http://localhost:8080/advert-request',
   advertManagerUrl: 'http://localhost:9090/advert-manager',

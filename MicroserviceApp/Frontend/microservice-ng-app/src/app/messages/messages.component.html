@@ -28,7 +28,7 @@
 	</div>
 
 	<div *ngIf="showBody=='compose'">
-		<app-create-message></app-create-message>
+		<app-create-message (seeInbox)="seeInbox()" [predefined]="predefinedMsg"></app-create-message>
 	</div>
 
 	<div *ngIf="showBody=='detail'">

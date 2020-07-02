@@ -19,6 +19,9 @@ public class AdvertCopy {
     private Long id;
 
     @Column
+    private String ownerEmail;
+
+    @Column
     private Date startDate;
 
     @Column

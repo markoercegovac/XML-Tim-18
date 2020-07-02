@@ -1,1 +1,5 @@
-<p>home-header works!</p>
+<div class="container-fluid">
+	<app-navigation *ngIf="curent === 'UN_REGISTRATED'"></app-navigation>
+	<app-navigation *ngIf="curent === 'USER'"></app-navigation>
+	<app-navigation *ngIf="curent === 'OWNER'"></app-navigation>
+</div>

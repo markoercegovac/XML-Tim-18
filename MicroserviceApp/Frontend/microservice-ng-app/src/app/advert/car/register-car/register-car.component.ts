@@ -8,6 +8,7 @@ import {Car} from "../../../model/car";
 import {CarService} from "../../../services/car.service";
 import {HttpClient} from "@angular/common/http";
 import {NgForm} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-car',
@@ -34,7 +35,7 @@ export class RegisterCarComponent implements OnInit {
     year: "",
     nameOfCar:"",
   };
-  constructor(private carService: CarService ) { }
+  constructor(private carService: CarService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -79,8 +80,13 @@ export class RegisterCarComponent implements OnInit {
   }
 
   createCar() {
-    this.carService.registerCar(this.model).subscribe();
+    this.carService.registerCar(this.model).subscribe(
+      data => {
+        this.router.navigate(["/home/create/advert"]);
+      }
+    );
   }
+
   changeBrand(){
 
     this.carService.getAllCarModels(this.model.carBrandId).subscribe(

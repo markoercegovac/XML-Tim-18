@@ -15,15 +15,19 @@ export class AdvertsComponent implements OnInit {
   constructor(private router: Router,private advertService:AdvertService) { }
 
   ngOnInit(): void {
-    this.advertService.homeAllAdvert().subscribe(data=>{
-      this.adverts=data;
-      console.log(this.adverts);
-    }
-   )
-
+    this.advertService.homeAllAdvert().subscribe(data => {
+        this.adverts = data;
+        console.log(this.adverts);
+      }
+    )
+  }
+  onAddAdvert() {
+    this.router.navigate(['/home/ad/add']);
   }
 
-
+  onSearch() {
+    this.router.navigate(['/home/search']);
+  }
 
 }
 
