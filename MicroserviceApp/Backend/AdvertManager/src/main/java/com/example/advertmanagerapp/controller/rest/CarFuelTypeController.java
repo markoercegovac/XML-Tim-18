@@ -15,7 +15,6 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/advert-manager/car-fuel-type")
 @RestController
-@CrossOrigin
 public class CarFuelTypeController {
 
     private final CarFuelTypeService fuelTypeService;

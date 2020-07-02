@@ -12,7 +12,6 @@ import javax.websocket.server.PathParam;
 @RequiredArgsConstructor
 @RequestMapping("/advert-manager/discount")
 @RestController
-@CrossOrigin
 public class DiscountController {
 
     @PostMapping

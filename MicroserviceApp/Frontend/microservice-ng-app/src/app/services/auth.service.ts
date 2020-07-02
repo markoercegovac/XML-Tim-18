@@ -55,11 +55,22 @@ export class AuthService {
         }
         let decoted: { [key: string]: string };
         decoted = jwt_decode(token);
-
+        console.log(decoted);
         for(let i=0; i<decoted['authorities'].length; ++i) {
             permissions.push(decoted['authorities'][i]['authority'].toString());
         }
 
         return permissions;
+    }
+
+    getCurrentUserEmail(): string {
+        let token = localStorage.getItem("token");
+        if(token === null) {
+            return null;
+        }
+        let decoted: { [key: string]: string };
+        decoted = jwt_decode(token);
+        
+        return decoted["username"];
     }
 }

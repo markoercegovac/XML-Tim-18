@@ -1,8 +1,8 @@
 -- -- CLIENT COPY
--- insert into client_copy(email, city, company_name, company_registration_number, is_banned, is_removed, name, surname, password, role, state, street, street_number)
--- values("pera@maildrop.cc", null, null, null, false, false, null, null, null, null, null, null, null);
--- insert into client_copy(email, city, company_name, company_registration_number, is_banned, is_removed, name, surname, password, role, state, street, street_number)
--- values("mika@maildrop.cc", null, null, null, false, false, null, null, null, null, null, null, null);
+ insert into client_copy(id, email, city, company_name, company_registration_number, is_banned, is_removed, name, surname, password, role, state, street, street_number)
+ values(101, "pera@maildrop.cc", null, null, null, false, false, null, null, null, null, null, null, null);
+ insert into client_copy(id, email, city, company_name, company_registration_number, is_banned, is_removed, name, surname, password, role, state, street, street_number)
+ values(102, "bla@com", null, null, null, false, false, null, null, null, null, null, null, null);
 
 -- CAR BRAND
 insert into car_brand(id, name, is_removed) values(1, "BMW", FALSE);

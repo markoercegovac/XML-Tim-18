@@ -9,6 +9,8 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+
 @Component
 public class UserConsumer {
 
@@ -26,11 +28,11 @@ public class UserConsumer {
 			UserMQ u = gson.fromJson(msg, UserMQ.class);
 			
 			ClientCopy c = new ClientCopy();
-			c.setId(u.getId());
 			c.setEmail(u.getEmail());
 			c.setName(u.getName());
 			c.setSurname(u.getSurname());
 			c.setCompanyName(u.getCompanyName());
+			c.setAdverts(new ArrayList<>());
 		
 			clientCopyRepository.save(c);
 		} catch(Exception e) {

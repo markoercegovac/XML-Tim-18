@@ -76,6 +76,9 @@ import { HomeHeaderComponent } from './home/home-header/home-header.component';
 import { CommentComponent } from './home/full-advert/comments/comment/comment.component';
 import { AdminCommentsAllowComponent } from './admin-comments-allow/admin-comments-allow.component';
 import { AdminComponent } from './admin/admin.component';
+import { NavigationUserComponent } from './navigation-user/navigation-user.component';
+import { NavigationOwnerComponent } from './navigation-owner/navigation-owner.component';
+import { NavigationUnregistatedComponent } from './navigation-unregistated/navigation-unregistated.component';
 
 
 @NgModule({
@@ -135,7 +138,10 @@ import { AdminComponent } from './admin/admin.component';
     HomeHeaderComponent,
     CommentComponent,
     AdminCommentsAllowComponent,
-    AdminComponent
+    AdminComponent,
+    NavigationUserComponent,
+    NavigationOwnerComponent,
+    NavigationUnregistatedComponent
 
 
   ],

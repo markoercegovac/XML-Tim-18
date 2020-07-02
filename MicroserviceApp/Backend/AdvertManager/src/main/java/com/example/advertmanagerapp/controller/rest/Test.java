@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RequestMapping("/advert-manager/test")
 @RestController
-@CrossOrigin
 public class Test {
 
     @GetMapping

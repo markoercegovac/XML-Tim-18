@@ -40,7 +40,7 @@ public class SendAdToSearchAspect {
 
 			AdSearchMQ msg = new AdSearchMQ();
 			msg.setAdvertCopyId(ad.getId());
-			msg.setCity(ad.getClient().getCity());
+//			msg.setCity(ad.getClient().getCity());
 //			msg.setCarMark(ad.getOwnersCar().getConcreteCar().getCarBrand().getName());
 //			msg.setModelMark(ad.getOwnersCar().getConcreteCar().getCarModel().getModelName());
 //			msg.setCarFuelType(ad.getOwnersCar().getConcreteCar().getCarFuelType().getFuelType());

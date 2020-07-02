@@ -7,7 +7,8 @@ import {CarFuelType} from "../model/carFuelType";
 import {Capture} from "../model/capture";
 import { environment } from 'src/environments/environment';
 
-const URL: string= environment.advertManagerUrl+'/advert'
+// const URL: string= environment.advertManagerUrl+'/advert'
+const URL: string= environment.zuul+'/advert-manager/advert'
 
 @Injectable({
   providedIn: 'root'

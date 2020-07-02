@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ClientCopyRepository extends JpaRepository<ClientCopy,String> {
 
-
+    ClientCopy findByEmail(String email);
+    ClientCopy findByAdvertsId(Long id);
 
 }

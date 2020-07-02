@@ -21,6 +21,10 @@ export class AdvertsComponent implements OnInit {
     this.router.navigate(['/home/ad/add']);
   }
 
+  onSearch() {
+    this.router.navigate(['/home/search']);
+  }
+
   mock() {
     this.adverts.push({ advertId: 1, profileImage: 'image1', traveledDistance: 250, distanceUnit: 'km', carBrand: 'toyota', carModel: 'yaris', grade: 4, price: 500 });
     this.adverts.push({ advertId: 2, profileImage: 'image2', traveledDistance: 300, distanceUnit: 'km', carBrand: 'toyota', carModel: 'yaris', grade: 4, price: 600 });

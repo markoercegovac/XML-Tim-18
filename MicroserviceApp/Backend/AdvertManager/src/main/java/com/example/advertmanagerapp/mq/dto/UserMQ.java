@@ -8,8 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserMQ {
-	
-	private Long id;
+
     private String email;
     private String name;
     private String surname;

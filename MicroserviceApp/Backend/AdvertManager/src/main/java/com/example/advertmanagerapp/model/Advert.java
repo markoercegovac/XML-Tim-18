@@ -35,8 +35,8 @@ public class Advert {
     @OneToMany(fetch = FetchType.LAZY ,cascade = CascadeType.PERSIST)
     private List<Picture> pictureSet;
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private ClientCopy client;
+//    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+//    private ClientCopy client;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name="startOfAdvert")
