@@ -36,13 +36,14 @@ public class AdvertServiceImpl implements AdvertService {
     private final PriceRepository priceRepository;
     private final ConcreteCarRepository concreteCarRepository;
     private final ClientCopyRepository clientCopyRepository;
+    private final AdvertConverter advertConverter;
 
     public AdvertDetailDTO detailAdForClient(Long advertId) {
 
         try {
             Advert foundAd = advertRepository.findByIdAndIsActiveTrue(advertId).orElse(null);
             if (foundAd != null) {
-                return AdvertConverter.fromAdvertToAdvertDetail(foundAd);
+                return advertConverter.fromAdvertToAdvertDetail(foundAd);
             } else {
                 return null;
             }
@@ -80,7 +81,7 @@ public class AdvertServiceImpl implements AdvertService {
         Picture profilePicture= new Picture();
         profilePicture.setPath(advertDto.getProfilePicture().getPath());
         pictureRepository.save(profilePicture);
-//        advertRepository.save(advert);
+        advertRepository.save(advert);
 
         ClientCopy clientCopy = clientCopyRepository.findByEmail(advertDto.getEmail());
         if(clientCopy.getAdverts() != null) {

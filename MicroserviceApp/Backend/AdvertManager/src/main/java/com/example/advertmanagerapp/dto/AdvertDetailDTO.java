@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -13,8 +15,7 @@ public class AdvertDetailDTO {
      * Data types are Obj becouse they can be null, accept pricePerDay
      * */
     private Long advertId;
-    private String profilePicture;
-    private String[] gallery;
+    private List<String> gallery;
     private String description;
     private float pricePerDay;
     private float mileage;
