@@ -1,7 +1,7 @@
 export interface AdvertDetailViewModel {
-    
+
     advertId: number;
-    profilePicture: string;
+    //profilePicture: string;
     gallery: string[];
     description: string;
     pricePerDay: number;

@@ -27,8 +27,8 @@ export class AdvertDetailViewComponent implements OnInit {
       (data: AdvertDetailViewModel) => {
         if(data != null) {
           this.ad = data;
-          this.profileImg = this.domSanitizer.bypassSecurityTrustUrl(this.ad.profilePicture);
-          console.log(data);
+
+          console.log(this.ad);
         } else {
           //this.router.navigate(['/not-found']);
         }
