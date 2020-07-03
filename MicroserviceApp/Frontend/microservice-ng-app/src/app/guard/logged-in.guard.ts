@@ -3,17 +3,16 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Rout
 import { AuthService } from '../services/auth.service';
 
 @Injectable({providedIn: 'root'})
-export class UserGuard implements CanActivate{
+export class LoggedInGuard implements CanActivate{
 
     constructor(private authService: AuthService) {}
 
-    canActivate(route: ActivatedRouteSnapshot, router: RouterStateSnapshot): boolean {
+    canActivate(route: ActivatedRouteSnapshot, router: RouterStateSnapshot): boolean | UrlTree {
 		let auths: string[] = this.authService.getPermissions();
-        if(auths.includes('PERMISSION_USER')) {
-            alert('To continue, you have to be registrated!');
+        if(auths.includes('PERMISSION_OWNER') || auths.includes('PERMISSION_USER')) {
             return true;
         } else {
-            return false;
+            this.authService.logout();
         }
 
     }

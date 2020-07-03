@@ -84,7 +84,10 @@ export class CreateAdvertComponent implements OnInit {
 
     let advert:Advert;
     advert=new Advert(null,picModel,gallery,this.startDate,this.endDate,this.desc,true,this.carId,this.priceId);
-    this.advertService.createAdvert(advert).subscribe();
+    this.advertService.createAdvert(advert).subscribe(
+      data => { alert('SUCCESSFULY CREATED')},
+      error => {alert('YOU DID NOT SELECT ALL FIELDS')}
+    );
 
   }
 

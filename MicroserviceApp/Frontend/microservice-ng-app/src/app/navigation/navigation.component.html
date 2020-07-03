@@ -1,46 +1,9 @@
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<nav class="navbar navbar-expand-lg navbar-light sticky-top bg-light">
-<div class="container-fluid">
-  <a class="navbar-brand" (click)="onHome()">
-    <h2><i class="fa fa-car" aria-hidden="true"></i>RENT IT</h2>
-  </a>
-  <button class="navbar-toggler navbar-toggler-right" type="button" (click)="navbarCollapsed = !navbarCollapsed" [attr.aria-expanded]="!navbarCollapsed" 
-  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="navbar-collapse" id="navbarSupportedContent" [ngClass]="{'collapse': navbarCollapsed === false}">
-      <ul class="navbar-nav ml-auto">
-        <li>
-          <a class="nav-link" (click)="onAllAdverts()">Home</a>
-        </li>
-        <li>
-          <a class="nav-link" (click)="onCreateAdvert()">Create Advert</a>
-        </li>
-        <li>
-          <a class="nav-link" (click)="onMyAdverts()">My Adverts</a>
-        </li>
-        <li>
-          <a class="nav-link" (click)="onCars()">My Cars</a>
-        </li>
-        <li>
-          <a class="nav-link" (click)="onPriceList()">My Price List</a>
-        </li>
-
-        <li class="nav-item active">
-          <a class="nav-link" (click)="onLogin()">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" (click)="onRegister()">Register</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" (click)="onCart()">
-            <span class="badge badge-success" >
-              <i class="fa fa-shopping-cart"></i>
-            </span>
-          </a>
-        </li>
-    </ul>
-  </div>
+<div *ngIf="authService.navigation == 'UNREGISTRATED'">
+  <app-navigation-unregistated ></app-navigation-unregistated>
 </div>
-</nav>
+<div *ngIf="authService.navigation == 'OWNER'">
+  <app-navigation-owner></app-navigation-owner>
+</div>
+<div *ngIf="authService.navigation == 'USER'">
+  <app-navigation-user></app-navigation-user>
+</div>
