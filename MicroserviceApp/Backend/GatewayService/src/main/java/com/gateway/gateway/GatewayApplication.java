@@ -13,6 +13,7 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -40,7 +41,9 @@ public class GatewayApplication extends ResourceServerConfigurerAdapter  {
     @Override
     public void configure(final HttpSecurity http) throws Exception {
         http.authorizeRequests().
-                antMatchers("/oauth/**").
+                antMatchers("/oauth/**", "/").
+                permitAll().
+                antMatchers(HttpMethod.GET, "/advert-manager/advert/all", "/advert-manager/advert/home/all").
                 permitAll().
                 antMatchers("/**").
                 authenticated().and().cors();

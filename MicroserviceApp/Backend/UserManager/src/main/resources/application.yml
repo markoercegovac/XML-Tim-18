@@ -30,9 +30,9 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     initialization-mode: always
-    password: root
+    password: agent1
     url: jdbc:mysql://localhost:3306/user_manager_db?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-    username: root
+    username: agentXML
   jpa:
     hibernate:
       ddl-auto: create-drop

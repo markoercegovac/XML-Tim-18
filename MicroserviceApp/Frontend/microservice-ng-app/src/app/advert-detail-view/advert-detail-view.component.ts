@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AdvertDetailViewModel } from '../model/advert-detail-view.model';
 import { AdvertService } from '../services/advert.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-advert-detail-view',
@@ -18,7 +19,8 @@ export class AdvertDetailViewComponent implements OnInit {
   constructor(
     private activeUrl: ActivatedRoute,
     private adService: AdvertService,
-    private domSanitizer: DomSanitizer) { }
+    private domSanitizer: DomSanitizer,
+    private cart: CartService) { }
 
   ngOnInit(): void {
     this.adId = +this.activeUrl.snapshot.params['id'];
@@ -34,6 +36,10 @@ export class AdvertDetailViewComponent implements OnInit {
         }
       }
     );
+  }
+
+  onCart() {
+    this.cart.addAdvertIdInCart(this.adId);
   }
 
 }

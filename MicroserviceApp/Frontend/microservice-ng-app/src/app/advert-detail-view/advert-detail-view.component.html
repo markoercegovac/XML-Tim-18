@@ -11,8 +11,8 @@
             <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
           </div>
           <div class="carousel-caption">
-            <h3 class="h3-responsive">Light mask</h3>
-            <p>First text</p>
+            <h3 class="h3-responsive">{{ad.pricePerDay}}</h3>
+            <p>{{ad.carBrand}} {{ad.carModel}}</p>
           </div>
         </mdb-carousel-item>
         <!--IMAGE GALERY-->
@@ -54,6 +54,11 @@
       <div>
         <h3>Advert description</h3>
         <p>{{ad.description}}</p>
+      </div>
+    </div>
+    <div class="row justify-content-end">
+      <div class="col-2">
+        <button class="btn btn-success" (click)="onCart()">add to cart</button>
       </div>
     </div>
     <hr>

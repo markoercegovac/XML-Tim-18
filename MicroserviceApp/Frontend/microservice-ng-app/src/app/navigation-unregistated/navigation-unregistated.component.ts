@@ -12,30 +12,15 @@ export class NavigationUnregistatedComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.router.navigate(['/home/advert/all']);
   }
 
   onHome() {
     this.router.navigate(['/home/advert/all']);
   }
 
-  onCreateAdvert() {
-    this.router.navigate(['/home/create/advert']);
-  }
-
-  onMyAdverts() {
-    this.router.navigate(['/home/my/adverts']);
-  }
-
   onAllAdverts() {
     this.router.navigate(['/home/advert/all']);
-  }
-
-  onCars() {
-    this.router.navigate(['/home/my/cars']);
-  }
-
-  onPriceList() {
-    this.router.navigate(['/home/my/price/list']);
   }
 
   onLogin() {

@@ -5,10 +5,12 @@ import * as jwt_decode from 'jwt-decode';
 import { Router } from '@angular/router';
 
 const BASE_URL = environment.zuul;
+const NAVIGATION = ['USER', 'OWNER', 'UNREGISTRATED'];
 
 @Injectable({providedIn: 'root'})
 export class AuthService {
 
+    public navigation: string = NAVIGATION[2];
     constructor(private http: HttpClient, private router: Router) {}
 
     login(username:string, password:string ) {
@@ -36,15 +38,20 @@ export class AuthService {
                 if(this.getPermissions().includes('PERMISSION_ADMIN')) {
                     this.router.navigate(['/admin']);
                 } else {
+                    this.onLoadNavigation();
                     this.router.navigate(['/home']);
                 }
+            }, error => {
+                alert('EMAIL OR PASSWORD IS INCORECT');
             });
+
     }
 
     logout() {
         console.log('JWT REMOVED');
         localStorage.removeItem("token");
         this.router.navigate(['/home']);
+        this.onLoadNavigation();
     }
 
     getPermissions(): string[] {
@@ -73,4 +80,14 @@ export class AuthService {
         
         return decoted["username"];
     }
+
+    onLoadNavigation() {
+        if(this.getPermissions().includes('PERMISSION_USER')) {
+          this.navigation = NAVIGATION[0];
+        } else if(this.getPermissions().includes('PERMISSION_OWNER')) {
+          this.navigation = NAVIGATION[1];
+        } else {
+          this.navigation = NAVIGATION[2];
+        }
+      }
 }

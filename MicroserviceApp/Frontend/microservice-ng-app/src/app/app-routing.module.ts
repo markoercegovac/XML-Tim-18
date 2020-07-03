@@ -33,6 +33,9 @@ import {FullAdvertComponent} from "./home/full-advert/full-advert.component";
 import {AdminCommentsAllowComponent} from "./admin-comments-allow/admin-comments-allow.component";
 import { AdminGuard } from './guard/admin.guard';
 import { AdminComponent } from './admin/admin.component';
+import { LoggedInGuard } from './guard/logged-in.guard';
+import { UserGuard } from './guard/user.guard';
+import { OwnerGuard } from './guard/owner.guard';
 
 
 
@@ -50,28 +53,25 @@ const routes: Routes = [
   ] },
 
   { path: 'home', component: HomeComponent, children: [
-    { path: '', pathMatch: 'full', redirectTo: '/home/advert/all'},
+    { path: 'advert/all', component: AdvertsComponent }, //LISTA SVIH OGLASA
+    { path: 'advert/:id', component: AdvertDetailViewComponent }, //DETALAN PRIKAZ SA KAROSELOM
+    { path: 'search', component: SearchComponent },
+    { path: 'cart', component: CartComponent },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegistrationComponent },
     
-    { path: 'comment/create', component: CreateCommentComponent },
-    { path: 'advert/all', component: AdvertsComponent }, //LISTA SVIH OGLASA
-    { path: 'advert/:id', component: AdvertDetailViewComponent }, //DETALAN PRIKAZ SA KAROSELOM
-    { path: 'cart', component: CartComponent },
-    { path: 'bundle', component: BundleComponent},
-    { path: 'message/:email', component: MessagesComponent },
-    { path: 'owner/requests', component: OwnerViewRequestsComponent },
-    { path: 'my/adverts', component: MyAdvertsComponent }, //OGLASI OD VLASNIKA
-    { path: 'my/advert/:id', component: CaptureComponent }, //vlasnik daje termin zauzeca
-    { path: 'my/cars', component: MyCarsComponent },
-    { path: 'my/price/list', component: MyPriceListComponent },
-    { path: 'create/advert', component: CreateAdvertComponent },
-    { path: 'register/car', component: RegisterCarComponent },
-    { path: 'define/price', component: DefinePriceComponent },
-    { path: 'search', component: SearchComponent },
+    { path: 'comment/create', component: CreateCommentComponent, canActivate: [LoggedInGuard] },
+    { path: 'message/:email', component: MessagesComponent, canActivate: [LoggedInGuard] },
+    { path: 'bundle', component: BundleComponent, canActivate: [UserGuard]},
+    { path: 'owner/requests', component: OwnerViewRequestsComponent, canActivate: [OwnerGuard] },
+    { path: 'my/adverts', component: MyAdvertsComponent, canActivate: [OwnerGuard] }, //OGLASI OD VLASNIKA
+    { path: 'my/advert/:id', component: CaptureComponent, canActivate: [OwnerGuard]}, //vlasnik daje termin zauzeca
+    { path: 'my/cars', component: MyCarsComponent, canActivate: [OwnerGuard]},
+    { path: 'my/price/list', component: MyPriceListComponent, canActivate: [OwnerGuard]},
+    { path: 'create/advert', component: CreateAdvertComponent, canActivate: [OwnerGuard]},
+    { path: 'register/car', component: RegisterCarComponent, canActivate: [OwnerGuard]},
+    { path: 'define/price', component: DefinePriceComponent, canActivate: [OwnerGuard]}
 
-    //{ path: 'all/advert', component: AllAdvertsComponent}
-    //{ path: 'ad/:id', component: FullAdvertComponent }, //DETALJAN PRIKAZ
   ]},
   { path: 'not-found', component: NotFoundComponent},
   { path: '**', redirectTo: '/not-found'}
