@@ -41,6 +41,9 @@ public class User {
     private boolean isBanned;
 
     @Column
+    private boolean isForbiddenAdvert;
+
+    @Column
     private boolean isRemoved;
 
     @Column(nullable = true)

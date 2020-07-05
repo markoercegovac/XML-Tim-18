@@ -14,8 +14,9 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping()
 @RestController
-@CrossOrigin
 public class ManagerController {
+
+
 
     @GetMapping("/admin/user-manager")
     public ResponseEntity<List<UserDto>> getUsers(@RequestBody UserDto userDto){
@@ -41,5 +42,7 @@ public class ManagerController {
     public ResponseEntity<RegistrationDto> rejectRequest(@RequestBody RegistrationDto registrationDto){
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+
 
 }

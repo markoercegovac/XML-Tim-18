@@ -1,9 +1,10 @@
 package com.user.manager.dto;
 
+import com.user.manager.mapper.DtoEntity;
 import lombok.Data;
 
 @Data
-public class UserDto {
+public class UserDto implements DtoEntity {
     private String email;
     private String username;
     private String password;

@@ -33,6 +33,7 @@ public class UserConsumer {
 			c.setSurname(u.getSurname());
 			c.setCompanyName(u.getCompanyName());
 			c.setAdverts(new ArrayList<>());
+			c.setForbiddenAdvert(u.isForbiddenAdvert());
 		
 			clientCopyRepository.save(c);
 		} catch(Exception e) {

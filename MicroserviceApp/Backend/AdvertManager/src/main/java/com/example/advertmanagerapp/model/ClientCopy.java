@@ -52,6 +52,9 @@ public class ClientCopy  {
     @Column
     private boolean isRemoved;
 
+    @Column
+    private boolean isForbiddenAdvert;
+
     @Column(nullable = true)
     private String companyName;
 
