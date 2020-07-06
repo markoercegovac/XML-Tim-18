@@ -46,6 +46,7 @@ import { DriveReportCreateComponent } from './drive-report-create/drive-report-c
 import { DriveReportListComponent } from './drive-report-list/drive-report-list.component';
 import { DriveReportUpdateComponent } from './drive-report-update/drive-report-update.component';
 import { AllRegistrationRequestComponent } from './all-registration-request/all-registration-request.component';
+import { RegisterApprovedComponent } from './register-approved/register-approved.component';
 
 
 @NgModule({
@@ -84,7 +85,8 @@ import { AllRegistrationRequestComponent } from './all-registration-request/all-
     ChatHeaderComponent,
     InboxComponent,
     MesagesComponent,
-    AllRegistrationRequestComponent
+    AllRegistrationRequestComponent,
+    RegisterApprovedComponent
   ],
   imports: [
     BrowserModule,
