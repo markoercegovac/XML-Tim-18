@@ -1,5 +1,6 @@
 package com.example.advertmanagerapp.dto;
 
+import com.example.advertmanagerapp.dto.mapper.DtoEntity;
 import com.example.advertmanagerapp.model.Advert;
 import com.example.advertmanagerapp.model.OwnersCar;
 import com.example.advertmanagerapp.model.enums.Role;
@@ -8,7 +9,7 @@ import lombok.Data;
 
 import java.util.Set;
 @Data
-public class ClientCopyDto {
+public class ClientCopyDto implements DtoEntity {
 
 
     private String email;

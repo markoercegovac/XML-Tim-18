@@ -2,6 +2,7 @@ package com.example.advertmanagerapp.controller;
 
 
 import ch.qos.logback.core.net.server.Client;
+import com.example.advertmanagerapp.dto.mapper.DtoEntity;
 import com.example.advertmanagerapp.model.ClientCopy;
 import com.example.advertmanagerapp.service.ClientCopyService;
 import lombok.RequiredArgsConstructor;
@@ -36,5 +37,7 @@ public class ClientCopyController {
 
         service.delete(clientCopy);
     }
+
+    
 
 }
