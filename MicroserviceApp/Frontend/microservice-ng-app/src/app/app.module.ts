@@ -79,6 +79,7 @@ import { AdminComponent } from './admin/admin.component';
 import { NavigationUserComponent } from './navigation-user/navigation-user.component';
 import { NavigationOwnerComponent } from './navigation-owner/navigation-owner.component';
 import { NavigationUnregistatedComponent } from './navigation-unregistated/navigation-unregistated.component';
+import { AdminBanUsersComponent } from './admin-ban-users/admin-ban-users.component';
 
 
 @NgModule({
@@ -141,7 +142,8 @@ import { NavigationUnregistatedComponent } from './navigation-unregistated/navig
     AdminComponent,
     NavigationUserComponent,
     NavigationOwnerComponent,
-    NavigationUnregistatedComponent
+    NavigationUnregistatedComponent,
+    AdminBanUsersComponent
 
 
   ],
