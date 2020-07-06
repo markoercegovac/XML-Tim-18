@@ -19,7 +19,7 @@ public class ClientCopy  {
     *IMA PREVISE OBELEZJA
     */
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
@@ -53,7 +53,7 @@ public class ClientCopy  {
     private boolean isRemoved;
 
     @Column
-    private boolean isForbiddenAdvert;
+    private boolean isForbiddenAdvert=false;
 
     @Column(nullable = true)
     private String companyName;

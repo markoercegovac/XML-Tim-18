@@ -9,6 +9,7 @@ import com.example.advertmanagerapp.dto.mapper.DtoEntity;
 import com.example.advertmanagerapp.service.AdvertService;
 import com.example.advertmanagerapp.service.CaptureService;
 
+import com.example.advertmanagerapp.service.CheckService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +25,7 @@ import java.util.List;
 @RestController
 public class AdvertController {
 
-
+    private final CheckService checkService;
     private final CaptureService captureService;
     private final AdvertService advertService;
 
@@ -48,9 +49,13 @@ public class AdvertController {
 
 
     @PostMapping
-    public void createAdvert (@RequestBody AdvertDto advertDto, Principal principal) throws IOException {
-        advertDto.setEmail(principal.getName());
-        advertService.createAdvert(advertDto);
+    public String createAdvert (@RequestBody AdvertDto advertDto, Principal principal) throws IOException {
+        if(!checkService.isForbiddenUser(principal.getName())){
+            advertDto.setEmail(principal.getName());
+            advertService.createAdvert(advertDto);
+            return "success";
+        }
+        return "not";
     }
 
 
