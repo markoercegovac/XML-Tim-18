@@ -27,7 +27,7 @@ import lombok.Data;
 public class RequestBundle {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="request_bundle_id")
     private Long requestBundleId;
 

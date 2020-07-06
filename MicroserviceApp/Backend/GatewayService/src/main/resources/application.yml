@@ -15,8 +15,6 @@ spring:
   application:
     name: gateway-service
 zuul:
-
-
   host:
     connect-timeout-millis: 5000000
     socket-timeout-millis: 5000000
@@ -32,6 +30,26 @@ zuul:
       service-id: comment-manager
       strip-prefix: false
 
+    request-manager:
+      path: /advert-request/**
+      service-id: request-manager
+      strip-prefix: false
+
+    search-manager:
+      path: /search-manager/**
+      service-id: search-manager
+      strip-prefix: false
+
+    chat-manager:
+      path: /chat-server/**
+      service-id: chat-manager
+      strip-prefix: false
+
+    comment-manager:
+      path: /comment-manager/**
+      service-id: comment-manager
+      strip-prefix: false
+
     user-manager:
       path: /**
       service-id: user-manager
@@ -39,15 +57,13 @@ zuul:
   sensitive-headers: Cookie,Set-Cookie
   add-host-header: true
 
-
-
 security:
   oauth2:
     client:
       client-id: user-manager
       client-secret: user123
-      access-token-uri: http://localhost:8081/oauth/token
-      user-authorization-uri: http://localhost:8081/oauth/authorize
+      access-token-uri: http://${ACCESS_ADR:localhost}:${ACCESS_PORT:8081}/oauth/token
+      user-authorization-uri: http://${AUTH_ADR:localhost}:${AUTH_PORT:8081}/oauth/authorize
     resource:
       jwt:
         key-value: -----BEGIN PUBLIC KEY-----
@@ -59,7 +75,7 @@ security:
           vAZTiZlVrXMwd9JZsimxh+zJR99MLVgvnH4c43WpEh2FPjqTBqyNnqluMq9HlU74
           jwIDAQAB
           -----END PUBLIC KEY-----
-      user-info-uri: http://localhost:8081/user/me
+      user-info-uri: http://${AUTH_ADR:localhost}:${AUTH_PORT:8081}/user/me
     sso:
       login-path: /login
 

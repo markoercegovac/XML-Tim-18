@@ -1,23 +1,10 @@
 server:
   port: 9090
 
-soap:
-  agent:
-    url: '"http://localhost:9091/ws"'
-
 rabbitmq:
-  exchange:
-    comment: direct.ad.comment
-    request: direct.ad.request
-    search: direct.ad.search
-  routingkey:
-    comment: key.ad.comment
-    request: key.ad.request
-    search: key.ad.search
   queue:
     from:
-      request: queue.reques.ad # CRVENA VEZA NA SLICI
-      user: queue.user.a
+      advert: queue.ad.search
 
 spring:
   rabbitmq:
@@ -26,14 +13,13 @@ spring:
     username: guest
     port: 5672
   application:
-    name: ${springboot.app.name:advert-manager}
+    name: ${springboot.app.name:search-manager}
   datasource:
-    data: classpath:script.sql
     driver-class-name: com.mysql.cj.jdbc.Driver
     initialization-mode: always
-    username: ${DATABASE_USERNAME:agentXML}
-    password: ${DATABASE_PASSWORD:agent1}
-    url: jdbc:mysql://${DATABASE_DOMAIN:localhost}:${DATABASE_PORT:3306}/${DATABASE_SCHEMA:ad_manager_db}?sessionVariables=sql_mode='NO_ENGINE_SUBSTITUTION'&jdbcCompliantTruncation=false&useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: ${DATABASE_USERNAME:}
+    password: ${DATABASE_PASSWORD:}
+    url: jdbc:mysql://${DATABASE_DOMAIN:localhost}:${DATABASE_PORT:3306}/${DATABASE_SCHEMA:_db}?sessionVariables=sql_mode='NO_ENGINE_SUBSTITUTION'&jdbcCompliantTruncation=false&useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
   jpa:
     hibernate:
       ddl-auto: create-drop

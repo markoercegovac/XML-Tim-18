@@ -17,7 +17,7 @@ import java.util.Set;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/chat-server")
-@CrossOrigin(origins = "http://localhost:4200")
+// @CrossOrigin(origins = "http://localhost:4200")
 public class MessageController {
 
     private final ReadMessageService readMessageService;

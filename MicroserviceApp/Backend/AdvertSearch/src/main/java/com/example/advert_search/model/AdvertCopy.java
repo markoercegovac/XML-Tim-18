@@ -12,7 +12,7 @@ import java.util.List;
 @Table
 public class AdvertCopy {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "advert_copy_id", nullable = false)
     private Long advertCopyId;
 
