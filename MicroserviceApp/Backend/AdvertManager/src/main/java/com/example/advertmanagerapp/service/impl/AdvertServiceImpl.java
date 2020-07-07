@@ -135,7 +135,9 @@ public class AdvertServiceImpl implements AdvertService {
                         (foundAd.getPrice().getPricePerDay() * foundAd.getPrice().getDiscount() * 0.01f):
                         foundAd.getPrice().getPricePerDay();
                 ret.setPrice(price);
-                ret.setProfileImage(foundAd.getProfilePicture());
+                Picture picture=new Picture();
+                picture.setPath(foundAd.getProfilePicture());
+                ret.setProfileImage(pictureService.getPicture(picture));
                 ClientCopy c = clientCopyRepository.findByAdvertsId(adId);
 
                 ret.setOwnerEmail(c.getEmail());
@@ -145,10 +147,21 @@ public class AdvertServiceImpl implements AdvertService {
                 return null;
             }
         } catch (NullPointerException e) {
+            e.printStackTrace();
             return null;
         } catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
+    }
+
+    @Override
+    public String getProfileImg(Long advertId) throws Exception {
+        Advert foundAd = advertRepository.findByIdAndIsActiveTrue(advertId).orElseThrow(NullPointerException::new);
+        Picture picture=new Picture();
+        picture.setPath(foundAd.getProfilePicture());
+
+        return pictureService.getPicture(picture);
     }
 
 }

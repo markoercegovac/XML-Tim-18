@@ -23,7 +23,6 @@ export class AdvertMiniComponent implements OnInit {
   }
 
   onAddToCart() {
-    alert('ADVERT ADDED TO CART');
     this.cart.addAdvertIdInCart(this.advert.advertId);
   }
 }

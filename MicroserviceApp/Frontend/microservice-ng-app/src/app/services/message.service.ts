@@ -5,8 +5,8 @@ import { MessageItemModel } from '../model/message-item.model';
 import { MessageDetailModel } from '../model/message-detail.model';
 import { MessageCreateModel } from '../model/message-create.model';
 
-const BASE_URL = environment.chatManagerUrl;
-
+// const BASE_URL = environment.chatManagerUrl;
+const BASE_URL = environment.zuul+ '/chat-server';
 @Injectable({providedIn: 'root'})
 export class MessageService {
 

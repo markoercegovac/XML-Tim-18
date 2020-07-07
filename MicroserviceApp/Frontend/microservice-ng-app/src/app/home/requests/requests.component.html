@@ -1,0 +1,10 @@
+<div class="container">
+	<br>
+	<h1>My Requests</h1>
+	<hr> 
+	<br>
+
+	<div *ngFor="let request of myRequests">
+		<app-requests-bundle [bundle]="request"></app-requests-bundle>
+	</div>
+</div>

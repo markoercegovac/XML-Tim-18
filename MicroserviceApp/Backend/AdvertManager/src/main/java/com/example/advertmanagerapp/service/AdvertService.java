@@ -14,6 +14,7 @@ import java.util.List;
 @Service
 public interface AdvertService {
     AdvertDetailDTO detailAdForClient(Long advertId);
+    String getProfileImg(Long advertId) throws Exception;
     void createAdvert(AdvertDto advertDto) throws IOException;
     List<DtoEntity> allAdverts();
     List<AdvertMiniDto> allAdvertsHome() throws IOException;

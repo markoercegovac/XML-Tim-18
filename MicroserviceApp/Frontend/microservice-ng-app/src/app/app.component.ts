@@ -8,9 +8,14 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent implements OnInit {
   title = 'microservice-ng-app';
-  constructor() {
+  constructor(
+    private auth: AuthService
+  ) {
   }
 
   ngOnInit() {
+    if(this.auth.getCurrentUserEmail() != null) {
+      this.auth.onLoadNavigation();
+    }
   }
 }

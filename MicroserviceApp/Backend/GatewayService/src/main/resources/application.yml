@@ -20,14 +20,10 @@ zuul:
     socket-timeout-millis: 5000000
   ignored-services: '''*'''
   routes:
+
     advert-manager:
       path: /advert-manager/**
       service-id: advert-manager
-      strip-prefix: false
-
-    comment-manager:
-      path: /comment-manager/**
-      service-id: comment-manager
       strip-prefix: false
 
     request-manager:

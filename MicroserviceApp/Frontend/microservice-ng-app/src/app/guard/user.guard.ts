@@ -10,7 +10,6 @@ export class UserGuard implements CanActivate{
     canActivate(route: ActivatedRouteSnapshot, router: RouterStateSnapshot): boolean {
 		let auths: string[] = this.authService.getPermissions();
         if(auths.includes('PERMISSION_USER')) {
-            alert('To continue, you have to be registrated!');
             return true;
         } else {
             return false;

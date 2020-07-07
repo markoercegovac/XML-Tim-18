@@ -1,0 +1,34 @@
+<form (ngSubmit)="submit(f)" #f="ngForm">
+	<h1 mat-dialog-title>
+		<i class="fa fa-plus" aria-hidden="true"></i>
+		&nbsp;
+		Please select start and end date of renting.
+	</h1>
+	<div mat-dialog-content>
+		<div class="row justify-content-around">
+			<div class="col-6">
+				<label for="InputStartDate">Start date of renting</label>
+			</div>
+			<div class="col-6">
+				<input type="date" id="InputStartDate"  name="InputStartDate" [(ngModel)]="InputStartDate">
+			</div>
+		</div>
+
+		<div class="row justify-content-around">
+			<div class="col-6">
+				<label for="InputEndDate">End date of renting</label>
+			</div>
+			<div class="col-6">
+				<input type="date" id="InputEndDate"  name="InputEndDate" [(ngModel)]="InputEndDate">
+			</div>
+		</div>
+
+		<div *ngIf="error == true">
+			<p class="text-danger">Selected dates are not in order.</p>
+		</div>
+	</div>
+	<div mat-dialog-actions align="end">
+		<button mat-button (click)="onCancel()">cancel</button>
+		<button mat-button type="submit">add to cart</button>
+	</div>
+</form>

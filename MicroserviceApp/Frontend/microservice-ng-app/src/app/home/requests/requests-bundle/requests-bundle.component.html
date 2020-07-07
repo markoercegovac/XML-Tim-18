@@ -1,0 +1,24 @@
+<div class="container mb-3 bg-secondary">
+
+	<div class="row justify-content-around text-light">
+		<div class="col-xs-12 col-sm-6 col-md-3">
+			<h3>Bundle status: {{bundle.status}}</h3>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-3">
+			<h3>Price: {{bundle.priceWithDiscount}}</h3>
+		</div>
+	</div>
+	<br>
+
+	<div class="row justify-content-center">
+		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let ad of bundle.advertRequests">
+			<app-requesting-ad-item [ad]="ad"></app-requesting-ad-item>
+		</div>
+	</div>
+
+	<div class="row justify-content-end">
+		<div class="col-xs-12 col-sm-6 col-md-3">
+			<h5 class="text-light">Owner: {{bundle.advertOwnerEmail}}</h5>
+		</div>
+	</div>
+</div>

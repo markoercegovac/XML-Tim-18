@@ -28,24 +28,70 @@ public class AdvertController {
     private final CaptureService captureService;
     private final AdvertService advertService;
 
-    @GetMapping ("/{advert_id}")
+    @GetMapping (value = "/{advert_id}", produces = "application/json")
     public ResponseEntity<?> getAdvertInfo(
             @PathVariable(value="advert_id") Long advert_id,
-            @RequestParam(value = "details", required = false) String details ){
+            @RequestParam(value = "details", required = true) String details ){
 
-        if(details!=null && details.equals("cart")) {
-            AdvertCartDTO ret = advertService.detailAdForCart(advert_id);
+        Object ret = null;
+        HttpStatus status = HttpStatus.OK;
 
-            return new ResponseEntity<AdvertCartDTO>(ret, HttpStatus.OK);
-        } else if(details!=null && details.equals("client")) {
-            AdvertDetailDTO ret = advertService.detailAdForClient(advert_id);
+        if(details.equals("cart")) {
 
-            return new ResponseEntity<AdvertDetailDTO>(ret, HttpStatus.OK);
+            AdvertCartDTO found = advertService.detailAdForCart(advert_id);
+            ret = found;
+        } else if(details.equals("client")) {
+
+            AdvertDetailDTO found = advertService.detailAdForClient(advert_id);
+            ret = found;
+        } else if(details.equals("profile-img")) {
+
+            String profile = "";
+            try {
+                profile = advertService.getProfileImg(advert_id);
+            } catch(Exception e) {
+                profile = "ERROR, ADVERT DOSE NOT EXIST";
+                status = HttpStatus.BAD_REQUEST;
+            }
+
+            ret = profile;
         } else {
-            return new ResponseEntity<AdvertDto>(HttpStatus.OK);
+
+            status = HttpStatus.BAD_REQUEST;
         }
+
+        return new ResponseEntity<Object>(ret, status);
     }
 
+//    @GetMapping ("/{advert_id}")
+//    public ResponseEntity<?> getAdvertInfo(
+//            @PathVariable(value="advert_id") Long advert_id,
+//            @RequestParam(value = "details", required = false) String details ){
+//
+//        if(details!=null && details.equals("cart")) {
+//            AdvertCartDTO ret = advertService.detailAdForCart(advert_id);
+//
+//            return new ResponseEntity<AdvertCartDTO>(ret, HttpStatus.OK);
+//        } else if(details!=null && details.equals("client")) {
+//            AdvertDetailDTO ret = advertService.detailAdForClient(advert_id);
+//
+//            return new ResponseEntity<AdvertDetailDTO>(ret, HttpStatus.OK);
+//        } else if(details!=null && details.equals("profile-img")) {
+//            String profile = "";
+//            HttpStatus status = HttpStatus.OK;
+//
+//            try {
+//                profile = advertService.getProfileImg(advert_id);
+//            } catch(Exception e) {
+//                profile = "ERROR, ADVERT DOSE NOT EXIST";
+//                status = HttpStatus.BAD_REQUEST;
+//            }
+//
+//            return new ResponseEntity<String>(profile, status);
+//        } else {
+//            return new ResponseEntity<AdvertDto>(HttpStatus.OK);
+//        }
+//    }
 
     @PostMapping
     public void createAdvert (@RequestBody AdvertDto advertDto, Principal principal) throws IOException {

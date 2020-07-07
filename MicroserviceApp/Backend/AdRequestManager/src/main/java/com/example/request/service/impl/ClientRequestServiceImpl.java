@@ -1,6 +1,8 @@
 package com.example.request.service.impl;
 
 import com.example.request.convertor.AdRequestClientConvertor;
+import com.example.request.convertor.AdRequestDetailConverter;
+import com.example.request.dto.AdRequestDetailedDTO;
 import com.example.request.dto.AdRequestForClientDTO;
 import com.example.request.dto.CreateAdBundleRequestDTO;
 import com.example.request.model.AdvertCopy;
@@ -28,14 +30,7 @@ public class ClientRequestServiceImpl implements ClientRequestService {
     @Transactional(rollbackFor = Exception.class)
     public void createNewRequestBundle(CreateAdBundleRequestDTO createBundle) throws RuntimeException, Exception {
 
-        RequestBundle wishedBundle = new RequestBundle();
-        wishedBundle.setAdvertState(AdvertStateEnum.PENDING);
-        wishedBundle.setCreationDateAndTime(new Date());
-        wishedBundle.setOwnerEmail(createBundle.getAdvertOwnerEmail());
-        wishedBundle.setRequestingUserEmail(createBundle.getRequestingUserEmail());
-        wishedBundle.setPriceWithDiscount(createBundle.getPriceWithDiscount());
-        requestBundleRepository.save(wishedBundle);
-
+        List<Request> requests = new ArrayList<>();
         createBundle.getRequestedAdverts().forEach(advert -> {
 
             AdvertCopy foundAdvert = advertCopyRepository.findById(advert.getAdvertId()).orElse(null);
@@ -67,17 +62,26 @@ public class ClientRequestServiceImpl implements ClientRequestService {
                 Request validRequest = new Request();
                 validRequest.setStartReservationDate(advert.getStartDate());
                 validRequest.setEndReservationDate(advert.getEndDate());
+                requests.add(validRequest);
                 requestRepository.save(validRequest);
 
                 foundAdvert.getRequests().add(validRequest);
                 advertCopyRepository.save(foundAdvert);
             }
-        }
-        );
+        });
+
+        RequestBundle wishedBundle = new RequestBundle();
+        wishedBundle.setAdvertState(AdvertStateEnum.PENDING);
+        wishedBundle.setCreationDateAndTime(new Date());
+        wishedBundle.setOwnerEmail(createBundle.getAdvertOwnerEmail());
+        wishedBundle.setRequestingUserEmail(createBundle.getRequestingUserEmail());
+        wishedBundle.setPriceWithDiscount(createBundle.getPriceWithDiscount());
+        wishedBundle.setRequests(requests);
+        requestBundleRepository.save(wishedBundle);
     }
 
-    public List<AdRequestForClientDTO> findAllBundlesByStatus(String clientEmail, String status) {
-        List<AdRequestForClientDTO> retBundles = new ArrayList<>();
+    public List<AdRequestDetailedDTO> findAllBundlesByStatus(String clientEmail, String status) {
+        List<AdRequestDetailedDTO> retBundles = new ArrayList<>();
         List<RequestBundle> foundBundles;
 
         if(status == null) {
@@ -103,7 +107,7 @@ public class ClientRequestServiceImpl implements ClientRequestService {
 
         if(foundBundles != null) {
             foundBundles.forEach(bundle -> {
-                retBundles.add(AdRequestClientConvertor.FromBundleToAdRequestForClient(bundle));
+                retBundles.add(AdRequestDetailConverter.fromBundleToAdRequestDetail(bundle));
             });
         }
 

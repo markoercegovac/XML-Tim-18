@@ -8,10 +8,10 @@
             </span>
         </div>
     </div>
-    <img class="card-img-top" src="..." alt={{advert.profileImage}}>
+    <img class="card-img-top" src="{{'data:image/jpg;base64,' + advert.profileImage}}" alt="profile image">
     <div class="card-body">
       <p class="card-text">
           {{advert.startDate | date: 'shortDate'}}&nbsp;-&nbsp;{{advert.endDate | date: 'shortDate'}}
       </p>
     </div>
-  </div>
+</div>

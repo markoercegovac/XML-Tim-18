@@ -13,4 +13,8 @@ export class AdvertService {
     public getAdvertDetail(adId: number) {
         return this.http.get<AdvertDetailViewModel>(BASE_URL+'/advert/'+adId+'?details=client');
     }
+
+    public getProfileImg(adId: number) {
+        return this.http.get<string>(BASE_URL+'/advert/'+adId+'?details=profile-img');
+    }
 }

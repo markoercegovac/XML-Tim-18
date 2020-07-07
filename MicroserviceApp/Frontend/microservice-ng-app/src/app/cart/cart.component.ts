@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-cart',
@@ -9,14 +10,24 @@ import { Router } from '@angular/router';
 })
 export class CartComponent implements OnInit {
 
-  constructor(public cart: CartService, private router: Router) { }
+  constructor(
+    public cart: CartService,
+    private router: Router,
+    private auth: AuthService
+  ) { }
 
   ngOnInit(): void {
     //this.mock();
   }
 
   onCheck() {
-    this.router.navigate(['home/bundle']);
+    if(this.auth.getPermissions().includes('PERMISSION_USER')) {
+      this.router.navigate(['home/bundle']);
+    } else {
+      alert('To continue, you have to be registrated!');
+    
+      window.localStorage.setItem('cart', JSON.stringify(this.cart.getAllAdverts()));
+    }
   }
 
   private mock() {

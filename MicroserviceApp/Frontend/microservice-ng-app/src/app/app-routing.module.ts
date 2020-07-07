@@ -36,6 +36,7 @@ import { AdminComponent } from './admin/admin.component';
 import { LoggedInGuard } from './guard/logged-in.guard';
 import { UserGuard } from './guard/user.guard';
 import { OwnerGuard } from './guard/owner.guard';
+import { RequestsComponent } from './home/requests/requests.component';
 
 
 
@@ -60,9 +61,10 @@ const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegistrationComponent },
     
+    { path: 'bundle', component: BundleComponent, canActivate: [UserGuard]},
+    { path: 'requests', component: RequestsComponent, canActivate: [UserGuard] },
     { path: 'comment/create', component: CreateCommentComponent, canActivate: [LoggedInGuard] },
     { path: 'message/:email', component: MessagesComponent, canActivate: [LoggedInGuard] },
-    { path: 'bundle', component: BundleComponent, canActivate: [UserGuard]},
     { path: 'owner/requests', component: OwnerViewRequestsComponent, canActivate: [OwnerGuard] },
     { path: 'my/adverts', component: MyAdvertsComponent, canActivate: [OwnerGuard] }, //OGLASI OD VLASNIKA
     { path: 'my/advert/:id', component: CaptureComponent, canActivate: [OwnerGuard]}, //vlasnik daje termin zauzeca

@@ -1,5 +1,6 @@
 package com.example.request.controller;
 
+import com.example.request.dto.AdRequestDetailedDTO;
 import com.example.request.dto.AdRequestForClientDTO;
 import com.example.request.dto.CreateAdBundleRequestDTO;
 import com.example.request.service.ClientRequestService;
@@ -13,7 +14,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(value = "/advert-request/client")
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 public class ClientController {
 
     private final ClientRequestService clientRequestServiceImpl;
@@ -30,6 +31,7 @@ public class ClientController {
             clientRequestServiceImpl.createNewRequestBundle(createBundle);
             return new ResponseEntity<String>("SUCCESSFULLY CREATED REQUEST BUNDLE", HttpStatus.CREATED);
         } catch(Exception e) {
+            e.printStackTrace();
             String errorMessage = e.getMessage();
             if(errorMessage == null || errorMessage.isEmpty()) {
                 errorMessage = "TRIED TO RESERVED AN UN-EXISTING ADVERT ";
@@ -45,11 +47,11 @@ public class ClientController {
      * @output: List of requests
      * */
     @GetMapping(value = "/{user_email}", produces = "application/json")
-    public ResponseEntity<List<AdRequestForClientDTO>> getAllRequestsForClient(
+    public ResponseEntity<List<AdRequestDetailedDTO>> getAllRequestsForClient(
             @PathVariable("user_email") String clientEmail,
             @RequestParam(value = "status", required = false) String status) {
 
-        return new ResponseEntity<List<AdRequestForClientDTO>>(
+        return new ResponseEntity<List<AdRequestDetailedDTO>>(
                 clientRequestServiceImpl.findAllBundlesByStatus(clientEmail, status),
                 HttpStatus.OK);
     }
