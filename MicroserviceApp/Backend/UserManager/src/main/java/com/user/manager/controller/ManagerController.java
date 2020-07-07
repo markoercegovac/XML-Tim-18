@@ -18,10 +18,7 @@ public class ManagerController {
 
 
 
-    @GetMapping("/admin/user-manager")
-    public ResponseEntity<List<UserDto>> getUsers(@RequestBody UserDto userDto){
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
+
 
     @PostMapping("/admin/user-manager/change-user")
     public ResponseEntity<ChangeUserDto> changeUser(@RequestBody ChangeUserDto changeUserDto){

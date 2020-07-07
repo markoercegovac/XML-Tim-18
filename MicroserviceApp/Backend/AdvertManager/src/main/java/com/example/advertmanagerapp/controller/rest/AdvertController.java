@@ -9,6 +9,7 @@ import com.example.advertmanagerapp.dto.mapper.DtoEntity;
 import com.example.advertmanagerapp.service.AdvertService;
 import com.example.advertmanagerapp.service.CaptureService;
 
+import com.example.advertmanagerapp.service.CheckService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,14 +25,14 @@ import java.util.List;
 @RestController
 public class AdvertController {
 
-
+    private final CheckService checkService;
     private final CaptureService captureService;
     private final AdvertService advertService;
 
     @GetMapping (value = "/{advert_id}", produces = "application/json")
     public ResponseEntity<?> getAdvertInfo(
             @PathVariable(value="advert_id") Long advert_id,
-            @RequestParam(value = "details", required = true) String details ){
+            @RequestParam(value = "details", required = true) String details, Principal principal){
 
         Object ret = null;
         HttpStatus status = HttpStatus.OK;
@@ -39,7 +40,13 @@ public class AdvertController {
         if(details.equals("cart")) {
 
             AdvertCartDTO found = advertService.detailAdForCart(advert_id);
-            ret = found;
+
+            if(checkService.checkUserReservation(principal.getName())){
+                ret = "forbidden";
+            } else {
+                ret = found;
+            }
+
         } else if(details.equals("client")) {
 
             AdvertDetailDTO found = advertService.detailAdForClient(advert_id);
@@ -63,40 +70,18 @@ public class AdvertController {
         return new ResponseEntity<Object>(ret, status);
     }
 
-//    @GetMapping ("/{advert_id}")
-//    public ResponseEntity<?> getAdvertInfo(
-//            @PathVariable(value="advert_id") Long advert_id,
-//            @RequestParam(value = "details", required = false) String details ){
-//
-//        if(details!=null && details.equals("cart")) {
-//            AdvertCartDTO ret = advertService.detailAdForCart(advert_id);
-//
-//            return new ResponseEntity<AdvertCartDTO>(ret, HttpStatus.OK);
-//        } else if(details!=null && details.equals("client")) {
-//            AdvertDetailDTO ret = advertService.detailAdForClient(advert_id);
-//
-//            return new ResponseEntity<AdvertDetailDTO>(ret, HttpStatus.OK);
-//        } else if(details!=null && details.equals("profile-img")) {
-//            String profile = "";
-//            HttpStatus status = HttpStatus.OK;
-//
-//            try {
-//                profile = advertService.getProfileImg(advert_id);
-//            } catch(Exception e) {
-//                profile = "ERROR, ADVERT DOSE NOT EXIST";
-//                status = HttpStatus.BAD_REQUEST;
-//            }
-//
-//            return new ResponseEntity<String>(profile, status);
-//        } else {
-//            return new ResponseEntity<AdvertDto>(HttpStatus.OK);
-//        }
-//    }
-
     @PostMapping
-    public void createAdvert (@RequestBody AdvertDto advertDto, Principal principal) throws IOException {
-        advertDto.setEmail(principal.getName());
-        advertService.createAdvert(advertDto);
+    public String createAdvert (@RequestBody AdvertDto advertDto, Principal principal) throws IOException {
+        if(!checkService.checkCreationEnable(principal.getName())){
+            return "notCreation";
+        }
+        if(!checkService.isForbiddenUser(principal.getName())){
+            advertDto.setEmail(principal.getName());
+            advertService.createAdvert(advertDto);
+            return "success";
+        }
+
+        return "not";
     }
 
 

@@ -49,6 +49,9 @@ export class NavigationAdminComponent implements OnInit {
   onLogout() {
     this.authService.logout();
   }
-  
 
+
+  onUserList() {
+    this.router.navigate(["/admin/ban/user"])
+  }
 }

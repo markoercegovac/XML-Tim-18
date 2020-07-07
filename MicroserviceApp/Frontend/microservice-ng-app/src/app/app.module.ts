@@ -84,6 +84,7 @@ import { RequestsBundleComponent } from './home/requests/requests-bundle/request
 import { RequestingAdItemComponent } from './home/requests/requests-bundle/requesting-ad-item/requesting-ad-item.component';
 import { AddingToCartComponent } from './adding-to-cart/adding-to-cart.component';
 import { BundleRequestComponent } from './owner-view-requests/bundle-request/bundle-request.component';
+import { AdminBanUsersComponent } from './admin-ban-users/admin-ban-users.component';
 
 
 @NgModule({
@@ -151,9 +152,8 @@ import { BundleRequestComponent } from './owner-view-requests/bundle-request/bun
     RequestsBundleComponent,
     RequestingAdItemComponent,
     AddingToCartComponent,
-    BundleRequestComponent
-
-
+    BundleRequestComponent,
+    AdminBanUsersComponent
   ],
     imports: [
         BrowserModule,

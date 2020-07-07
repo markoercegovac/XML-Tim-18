@@ -14,4 +14,5 @@ public class UserMQ {
     private String surname;
     private String companyName;
     private boolean isForbiddenAdvert;
+    private boolean isCreationEnabled;
 }

@@ -85,7 +85,18 @@ export class CreateAdvertComponent implements OnInit {
     let advert:Advert;
     advert=new Advert(null,picModel,gallery,this.startDate,this.endDate,this.desc,true,this.carId,this.priceId);
     this.advertService.createAdvert(advert).subscribe(
-      data => { alert('SUCCESSFULY CREATED')},
+      data => {
+        if(data==="success"){
+          alert('SUCCESSFULY CREATED')
+        }
+        else if(data==="notCreation"){
+          alert('YOUR ACCOUNT IS FORBID FOR ADVERT CREATION! Please contact supports.')
+        }
+
+        else {
+          alert('YOU CAN ONLY CREATE 3 ADVERTS!')
+        }
+          },
       error => {alert('YOU DID NOT SELECT ALL FIELDS')}
     );
 

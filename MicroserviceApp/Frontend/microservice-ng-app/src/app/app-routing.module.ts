@@ -37,6 +37,7 @@ import { LoggedInGuard } from './guard/logged-in.guard';
 import { UserGuard } from './guard/user.guard';
 import { OwnerGuard } from './guard/owner.guard';
 import { RequestsComponent } from './home/requests/requests.component';
+import {AdminBanUsersComponent} from "./admin-ban-users/admin-ban-users.component";
 
 
 
@@ -50,7 +51,8 @@ const routes: Routes = [
     { path: 'fuel-type', component: CarFuelTypeComponent},
     { path: 'transmission', component: CarTranssmisionTypeComponent},
     { path: 'comment', component: AdminCommentsAllowComponent},
-    { path: 'ban', component: UsersBanListComponent}
+    { path: 'ban', component: UsersBanListComponent},
+      {path: 'ban/user' , component: AdminBanUsersComponent}
   ] },
 
   { path: 'home', component: HomeComponent, children: [
