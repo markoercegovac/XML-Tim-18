@@ -9,6 +9,7 @@ import com.example.advertmanagerapp.dto.mapper.DtoEntity;
 import com.example.advertmanagerapp.service.AdvertService;
 import com.example.advertmanagerapp.service.CaptureService;
 
+import com.example.advertmanagerapp.service.CheckService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,17 +25,21 @@ import java.util.List;
 @RestController
 public class AdvertController {
 
-
+    private final CheckService checkService;
     private final CaptureService captureService;
     private final AdvertService advertService;
+
 
     @GetMapping ("/{advert_id}")
     public ResponseEntity<?> getAdvertInfo(
             @PathVariable(value="advert_id") Long advert_id,
-            @RequestParam(value = "details", required = false) String details ){
+            @RequestParam(value = "details", required = false) String details ,Principal principal){
 
         if(details!=null && details.equals("cart")) {
             AdvertCartDTO ret = advertService.detailAdForCart(advert_id);
+            if(checkService.checkUserReservation(principal.getName())){
+                return new ResponseEntity<String>("forbidden",HttpStatus.OK);
+            }
 
             return new ResponseEntity<AdvertCartDTO>(ret, HttpStatus.OK);
         } else if(details!=null && details.equals("client")) {
@@ -48,9 +53,17 @@ public class AdvertController {
 
 
     @PostMapping
-    public void createAdvert (@RequestBody AdvertDto advertDto, Principal principal) throws IOException {
-        advertDto.setEmail(principal.getName());
-        advertService.createAdvert(advertDto);
+    public String createAdvert (@RequestBody AdvertDto advertDto, Principal principal) throws IOException {
+        if(!checkService.checkCreationEnable(principal.getName())){
+            return "notCreation";
+        }
+        if(!checkService.isForbiddenUser(principal.getName())){
+            advertDto.setEmail(principal.getName());
+            advertService.createAdvert(advertDto);
+            return "success";
+        }
+
+        return "not";
     }
 
 

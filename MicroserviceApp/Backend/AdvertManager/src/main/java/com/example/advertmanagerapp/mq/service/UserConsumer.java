@@ -34,6 +34,7 @@ public class UserConsumer {
 			c.setCompanyName(u.getCompanyName());
 			c.setAdverts(new ArrayList<>());
 			c.setForbiddenAdvert(u.isForbiddenAdvert());
+			c.setCreationEnabled(u.isCreationEnabled());
 		
 			clientCopyRepository.save(c);
 		} catch(Exception e) {

@@ -8,6 +8,7 @@ public class UserDto implements DtoEntity {
     private String email;
     private String username;
     private String password;
+    private String isBanned;
     private String name;
     private String surname;
     private String companyName;

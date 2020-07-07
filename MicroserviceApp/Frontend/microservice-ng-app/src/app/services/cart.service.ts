@@ -18,6 +18,7 @@ export class CartService {
     public addAdvertIdInCart(id: number) {
         this.http.get<AdvertInCartModel>(BASE_URl+id+"?details=cart").subscribe(
             data => {
+                console.log(data);
                 this.addAdvertInCart(data);
             }, error => {
                 alert('SERVER ERROR');
