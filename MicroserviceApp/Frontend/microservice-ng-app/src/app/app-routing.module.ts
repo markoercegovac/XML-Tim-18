@@ -38,6 +38,7 @@ import { UserGuard } from './guard/user.guard';
 import { OwnerGuard } from './guard/owner.guard';
 import { RequestsComponent } from './home/requests/requests.component';
 import {AdminBanUsersComponent} from "./admin-ban-users/admin-ban-users.component";
+import { RegisterAgentComponent } from './registration/register-agent/register-agent.component';
 
 
 
@@ -61,7 +62,8 @@ const routes: Routes = [
     { path: 'search', component: SearchComponent },
     { path: 'cart', component: CartComponent },
     { path: 'login', component: LoginComponent },
-    { path: 'register', component: RegistrationComponent },
+    { path: 'register', component: RegistrationComponent},
+      {path: 'register/agent', component: RegisterAgentComponent},
     
     { path: 'bundle', component: BundleComponent, canActivate: [UserGuard]},
     { path: 'requests', component: RequestsComponent, canActivate: [UserGuard] },

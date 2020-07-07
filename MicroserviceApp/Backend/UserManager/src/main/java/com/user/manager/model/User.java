@@ -14,7 +14,7 @@ public class User {
     private String email;
 
     @Column(nullable=false)
-    private String username;
+    private String username; //orCompany name
 
     @Column(nullable = true)
     private String name;
@@ -46,11 +46,14 @@ public class User {
     @Column
     private boolean isRemoved;
 
-    @Column(nullable = true)
-    private String companyName;
+    @Column
+    private boolean adminApproved; //true znaci da je odobren, false ja da treba da se odobri
 
     @Column(nullable = true)
-    private String companyRegistrationNumber;
+    private String companyRegistrationNumber; //if not null we have a company(AGENT)
+
+    @Column(nullable = true)
+    private String agentUrl;
 
     @ManyToMany(fetch=FetchType.EAGER)
     private Collection<Role> roles;

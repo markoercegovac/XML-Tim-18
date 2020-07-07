@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -13,7 +14,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 
 @SpringBootApplication
 @EnableEurekaClient
-//@EnableFeignClients
 @EnableZuulProxy
 @EnableOAuth2Sso
 @EnableResourceServer
@@ -28,35 +28,19 @@ public class GatewayApplication extends ResourceServerConfigurerAdapter  {
     public void configure(final HttpSecurity http) throws Exception {
         http
                 .anonymous().and()
-                .authorizeRequests().
-                antMatchers("/oauth/**", "/").
-                permitAll().
-                and().anonymous().and().authorizeRequests()
-                .antMatchers(HttpMethod.GET,"/advert-manager/advert/**").
-                permitAll();
-//                antMatchers("/**").
-//                authenticated().and().cors();
+                .authorizeRequests()
+                .antMatchers("/oauth/**", "/")
+                .permitAll()
+                .and().anonymous().and().authorizeRequests()
+                .antMatchers(HttpMethod.GET,"/advert-manager/advert/**")
+                .permitAll()
+                .and().anonymous().and().authorizeRequests()
+                .antMatchers(HttpMethod.POST, "/agent")
+                .permitAll();
+//                .antMatchers("/**").
+//                authenticated().and().cors().disable();
 
     }
-
-
-//    @Bean
-//    public CorsFilter corsFilter() {
-//        final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-//        final CorsConfiguration config = new CorsConfiguration();
-//        config.setAllowCredentials(true);
-//        config.addAllowedOrigin("*");
-//        config.addAllowedHeader("*");
-//        config.addAllowedMethod("OPTIONS");
-//        config.addAllowedMethod("HEAD");
-//        config.addAllowedMethod("GET");
-//        config.addAllowedMethod("PUT");
-//        config.addAllowedMethod("POST");
-//        config.addAllowedMethod("DELETE");
-//        config.addAllowedMethod("PATCH");
-//        source.registerCorsConfiguration("/**", config);
-//        return new CorsFilter(source);
-//    }
 }
 
 
