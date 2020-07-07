@@ -17,4 +17,16 @@ public class CheckServiceImplementation implements CheckService {
         ClientCopy clientCopy=clientCopyRepository.findByEmail(email);
         return (clientCopy.getAdverts().size()==3)?true:false;
     }
+
+    @Override
+    public boolean checkUserReservation(String email) {
+        ClientCopy clientCopy=clientCopyRepository.findByEmail(email);
+        return clientCopy.isForbiddenAdvert();
+    }
+
+    @Override
+    public boolean checkCreationEnable(String email) {
+        ClientCopy clientCopy=clientCopyRepository.findByEmail(email);
+        return clientCopy.isCreationEnabled();
+    }
 }

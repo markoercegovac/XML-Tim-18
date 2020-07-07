@@ -5,6 +5,8 @@ import {MatPaginator} from '@angular/material/paginator';
 import {UserBan} from '../model/UserBan';
 import {HttpClient} from "@angular/common/http";
 import {UserBanService} from "../services/user-ban-service";
+import {ClientCopyService} from "../services/client-copy-service";
+import {ClientCopy} from "../model/ClientCopy";
 
 
 @Component({
@@ -15,7 +17,7 @@ import {UserBanService} from "../services/user-ban-service";
 export class AdminBanUsersComponent implements OnInit {
 
 
-  displayColumns: string [] = ['Email', 'Name', 'Surname', 'City' , 'Ban' , 'Unban' , 'Delete' , 'Admin'] ;
+  displayColumns: string [] = ['Email', 'Name', 'Surname', 'City' , 'Ban' , 'Unban' , 'Delete' , 'Admin', 'Forbid Reservation', 'Forbid Creation'] ;
   dataSource: MatTableDataSource<UserBan>;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
@@ -74,4 +76,26 @@ export class AdminBanUsersComponent implements OnInit {
     );
   }
 
+
+
+  public forbiddenReservation(element: UserBan) {
+
+    this.userBanService.forbidReservation(element).subscribe(
+      res=>{
+        alert('Successfully forbid reservation.');
+      },
+      error => { alert('Something went wrong.');
+      }
+    );
+  }
+
+  public forbiddenCreation(element: UserBan){
+    this.userBanService.forbidCreation(element).subscribe(
+      res=>{
+        alert('Successfully forbid creation.');
+      },
+      error => {alert('Something went wrong.');
+      }
+    )
+  }
 }

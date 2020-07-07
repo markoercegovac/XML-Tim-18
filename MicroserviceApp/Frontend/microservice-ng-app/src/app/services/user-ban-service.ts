@@ -6,6 +6,7 @@ import {Observable} from 'rxjs';
 import {UserBan} from "../model/UserBan";
 
 const BASE_URl = environment.zuul + '/user-manager/admin';
+const ForbiddenUserURL=environment.zuul+'/advert-manager/forbid'
 
 @Injectable({providedIn: 'root'})
 export class UserBanService {
@@ -14,7 +15,7 @@ export class UserBanService {
     private http: HttpClient
   ) {}
 
-  public getAllUsers()  {
+  public getAllUsers():Observable<UserBan[]>  {
     return this.http.get<UserBan[]>(BASE_URl + '/all');
   }
 
@@ -33,5 +34,13 @@ export class UserBanService {
 
   public changeAdmin(element: UserBan) {
     return this.http.post(BASE_URl + '/make-admin' , element);
+  }
+
+  public forbidReservation(userBan:UserBan){
+    return this.http.post(ForbiddenUserURL,userBan);
+  }
+
+  public forbidCreation(userBan:UserBan){
+    return this.http.post(ForbiddenUserURL+"/creation",userBan);
   }
 }

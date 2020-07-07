@@ -1,5 +1,6 @@
 package com.example.advertmanagerapp.service.impl;
 
+import com.example.advertmanagerapp.dto.ForbidReservationDto;
 import com.example.advertmanagerapp.model.ClientCopy;
 import com.example.advertmanagerapp.repository.ClientCopyRepository;
 import com.example.advertmanagerapp.service.ClientCopyService;
@@ -22,6 +23,20 @@ public class ClientCopyServiceImpl implements ClientCopyService {
     @Override
     public void delete(ClientCopy clientCopy) {
         clientCopy.setRemoved(false);
+        repository.save(clientCopy);
+    }
+
+    @Override
+    public void forbidReservation(ForbidReservationDto dto) {
+        ClientCopy clientCopy=repository.findByEmail(dto.getEmail());
+        clientCopy.setForbiddenAdvert(true);
+        repository.save(clientCopy);
+    }
+
+    @Override
+    public void forbidCreation(ForbidReservationDto dto) {
+        ClientCopy clientCopy=repository.findByEmail(dto.getEmail());
+        clientCopy.setCreationEnabled(false);
         repository.save(clientCopy);
     }
 

@@ -1,11 +1,14 @@
 package com.user.manager.controller;
 
 
+import com.user.manager.dto.BanUserDto;
 import com.user.manager.dto.UserDto;
+import com.user.manager.mapper.DtoEntity;
 import com.user.manager.model.Role;
 import com.user.manager.model.User;
 import com.user.manager.services.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,10 +16,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@RequestMapping("/user-manager/admin")
+@RequestMapping("/admin")
 @RequiredArgsConstructor
 @RestController
-@CrossOrigin
+//@CrossOrigin
 public class BanController {
 
     private final UserService userService;
@@ -24,25 +27,30 @@ public class BanController {
 
 
     @GetMapping("/all")
-    public List<UserDto> getUsers(@RequestBody UserDto userDto){
-        return userService.allUsers();
+    public ResponseEntity<List<DtoEntity>> getUsers(){
+        List<DtoEntity> dtoEntities=userService.allUsers();
+        return new ResponseEntity<>(userService.allUsers(),HttpStatus.OK);
+
     }
 
     @PostMapping("/ban")
     public void banUser (@RequestBody User user) {
-        user.setBanned(true);
-        userService.saveUser(user);
+        User temp=userService.getUser(user.getEmail());
+        temp.setBanned(true);
+        userService.saveUser(temp);
     }
 
     @PostMapping("/unban")
     public void unBanUser (@RequestBody User user) {
-        user.setBanned(false);
-        userService.saveUser(user);
+        User temp=userService.getUser(user.getEmail());
+        temp.setBanned(false);
+        userService.saveUser(temp);
     }
 
     @PostMapping("/delete")
     public void deleteUser(@RequestBody User user) {
-        userService.deleteUser(user);
+        User temp=userService.getUser(user.getEmail());
+        userService.deleteUser(temp);
     }
 
     @PostMapping("/make-admin")

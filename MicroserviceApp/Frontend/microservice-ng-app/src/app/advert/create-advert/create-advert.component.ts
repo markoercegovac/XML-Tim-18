@@ -88,7 +88,12 @@ export class CreateAdvertComponent implements OnInit {
       data => {
         if(data==="success"){
           alert('SUCCESSFULY CREATED')
-        }else {
+        }
+        else if(data==="notCreation"){
+          alert('YOUR ACCOUNT IS FORBID FOR ADVERT CREATION! Please contact supports.')
+        }
+
+        else {
           alert('YOU CAN ONLY CREATE 3 ADVERTS!')
         }
           },

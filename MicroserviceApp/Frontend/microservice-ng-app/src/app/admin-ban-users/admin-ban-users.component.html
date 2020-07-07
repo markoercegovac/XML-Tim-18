@@ -13,7 +13,7 @@
 
 
     <!-- Position Column -->
-    <ng-container matColumnDef="Subject">
+    <ng-container matColumnDef="Email">
       <th colspan="2" mat-header-cell *matHeaderCellDef> Email </th>
       <td colspan="2" mat-cell *matCellDef="let element"> {{element.email}} </td>
     </ng-container>
@@ -61,7 +61,7 @@
 
 
     <ng-container matColumnDef="Delete">
-      <th colspan="2" mat-header-cell *matHeaderCellDef>UnBan</th>
+      <th colspan="2" mat-header-cell *matHeaderCellDef>Delete</th>
       <td colspan="2" mat-cell *matCellDef="let element">
 
         <tr> <button mat-raised-button (click)="delete(element)"  class="btn btn-primary" matTooltip="Click to Delete" >
@@ -70,8 +70,6 @@
         </button></tr>
       </td>
     </ng-container>
-
-
 
     <ng-container matColumnDef="Admin">
       <th colspan="2" mat-header-cell *matHeaderCellDef>Make admin</th>
@@ -84,6 +82,31 @@
         </button></tr>
       </td>
     </ng-container>
+
+    <ng-container matColumnDef="Forbid Reservation">
+      <th colspan="2" mat-header-cell *matHeaderCellDef>Forbid Reservation</th>
+      <td colspan="2" mat-cell *matCellDef="let element">
+
+
+        <tr> <button mat-raised-button (click)="forbiddenReservation(element)"   class="btn btn-info" matTooltip="Click to Delete" >
+
+          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+        </button></tr>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Forbid Creation">
+      <th colspan="2" mat-header-cell *matHeaderCellDef>Forbid Creation</th>
+      <td colspan="2" mat-cell *matCellDef="let element">
+
+
+        <tr> <button mat-raised-button (click)="forbiddenCreation(element)"   class="btn btn-info" matTooltip="Click to Delete" >
+
+          <i class="fa fa-lock" aria-hidden="true"></i>
+        </button></tr>
+      </td>
+    </ng-container>
+
 
     <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
