@@ -12,7 +12,7 @@ import javax.validation.constraints.Min;
 public class CarClass {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column

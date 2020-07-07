@@ -41,7 +41,7 @@ public class AdvertController {
 
             AdvertCartDTO found = advertService.detailAdForCart(advert_id);
 
-            if(checkService.checkUserReservation(principal.getName())){
+            if(principal!= null && checkService.checkUserReservation(principal.getName())){
                 ret = "forbidden";
             } else {
                 ret = found;

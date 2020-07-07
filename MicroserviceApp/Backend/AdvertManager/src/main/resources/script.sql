@@ -1,10 +1,10 @@
 -- -- CLIENT COPY
- insert into client_copy(id, email, city, company_name, company_registration_number, is_banned, is_removed, is_forbidden_advert, name, surname, password, role, state, street, street_number)
- values(101, "pera@com", null, null, null, false, false, false, null, null, null, null, null, null, null);
- insert into client_copy(id, email, city, company_name, company_registration_number, is_banned, is_removed, is_forbidden_advert, name, surname, password, role, state, street, street_number)
- values(102, "marko@com", null, null, null, false, false, false, null, null, null, null, null, null, null);
- insert into client_copy(id, email, city, company_name, company_registration_number, is_banned, is_removed, is_forbidden_advert, name, surname, password, role, state, street, street_number)
- values(103, "zika@com", null, null, null, false, false, false, null, null, null, null, null, null, null);
+ insert into client_copy(id, email, city, company_name, company_registration_number, is_banned, is_removed, is_forbidden_advert, is_creation_enabled, name, surname, password, role, state, street, street_number)
+ values(101, "pera@com", null, null, null, false, false, false, false, null, null, null, null, null, null, null);
+ insert into client_copy(id, email, city, company_name, company_registration_number, is_banned, is_removed, is_forbidden_advert, is_creation_enabled, name, surname, password, role, state, street, street_number)
+ values(102, "marko@com", null, null, null, false, false, false, false, null, null, null, null, null, null, null);
+ insert into client_copy(id, email, city, company_name, company_registration_number, is_banned, is_removed, is_forbidden_advert, is_creation_enabled, name, surname, password, role, state, street, street_number)
+ values(103, "zika@com", null, null, null, false, false, false, false, null, null, null, null, null, null, null);
 
 -- CAR BRAND
 insert into car_brand(id, name, is_removed) values(1, "BMW", FALSE);

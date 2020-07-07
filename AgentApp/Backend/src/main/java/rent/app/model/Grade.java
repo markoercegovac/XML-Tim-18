@@ -12,7 +12,7 @@ import javax.validation.constraints.Min;
 public class Grade {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Max(5)

@@ -69,7 +69,6 @@ export class CartService {
         return null;
     }
 
-<<<<<<< HEAD
     public emptyCart() {
         this.advertsInCart = [];
     }
@@ -79,6 +78,3 @@ export class CartService {
     }
 
 }
-=======
-}
->>>>>>> origin/master

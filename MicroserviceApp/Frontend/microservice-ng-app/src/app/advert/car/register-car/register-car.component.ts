@@ -35,11 +35,17 @@ export class RegisterCarComponent implements OnInit {
     year: "",
     nameOfCar:"",
   };
+  dates: string[] = [];
+
   constructor(private carService: CarService, private router: Router) { }
 
   ngOnInit(): void {
 
-
+    let startDate = (new Date()).getUTCFullYear();
+    for(let i=0; i<30; ++i) {
+      this.dates[i] = (startDate - i).toString();
+    }
+    this.model.year = this.dates[0];
 
     this.carService.getAllCarBrands().subscribe(
       data=>{
@@ -92,6 +98,7 @@ export class RegisterCarComponent implements OnInit {
     this.carService.getAllCarModels(this.model.carBrandId).subscribe(
       data=>{
         this.allCarModel=data;
+        this.model.carModelId = this.allCarModel[0].id;
       },
       error => {
         console.log('Error occurred', error);
