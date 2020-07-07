@@ -22,7 +22,7 @@ public class CarReservedDate {
      * Whe owner manualy reserve car
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="car_reserved_date_id")
     private Long carReservedDateId;
 

@@ -3,6 +3,7 @@ import { MessageService } from 'src/app/services/message.service';
 import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { MessageCreateModel } from '../../model/message-create.model';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-create-message',
@@ -18,12 +19,15 @@ export class CreateMessageComponent implements OnInit {
   header: string;
   me: string;
 
-  constructor(private route: ActivatedRoute, private msgService: MessageService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private msgService: MessageService,
+    private auth: AuthService) { }
 
   ngOnInit(): void {
     this.me = this.route.snapshot.params['email'];
 
-    this.msgService.getListOfUsersForCommunication(this.me, true).subscribe(
+    this.msgService.getListOfUsersForCommunication(this.me, this.auth.getPermissions().includes('PERMISSION_OWNER')).subscribe(
       data => {
         this.contacts = data;
       }
@@ -40,8 +44,8 @@ export class CreateMessageComponent implements OnInit {
       content: form.value.contentInput,
       header: form.value.headerInput,
       receiverEmail: this.receiver,
-      senderEmail: this.me,
-      isOwnerSending: true
+      senderEmail: this.auth.getCurrentUserEmail(),
+      ownerSending: this.auth.getPermissions().includes('PERMISSION_OWNER')
     };
 
     this.msgService.sendMessage(msg).subscribe();

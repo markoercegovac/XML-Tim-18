@@ -1,5 +1,6 @@
 server:
   port: 9090
+
 soap:
   agent:
     url: '"http://localhost:9091/ws"'
@@ -9,30 +10,30 @@ rabbitmq:
     comment: direct.ad.comment
     request: direct.ad.request
     search: direct.ad.search
-  queue:
-    from:
-      request: direct.reques.ad
-      user: queue.user.a
   routingkey:
     comment: key.ad.comment
     request: key.ad.request
     search: key.ad.search
+  queue:
+    from:
+      request: queue.reques.ad # CRVENA VEZA NA SLICI
+      user: queue.user.a
 
 spring:
   rabbitmq:
     host: ${RABBITMQ:localhost}
     password: guest
-    port: 5672
     username: guest
+    port: 5672
   application:
-    name: advert-manager
+    name: ${springboot.app.name:advert-manager}
   datasource:
     data: classpath:script.sql
     driver-class-name: com.mysql.cj.jdbc.Driver
     initialization-mode: always
-    password: root
-    url: jdbc:mysql://localhost:3306/advert_manager_db?sessionVariables=sql_mode='NO_ENGINE_SUBSTITUTION'&jdbcCompliantTruncation=false&useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
-    username: root
+    username: ${DATABASE_USERNAME:agentXML}
+    password: ${DATABASE_PASSWORD:agent1}
+    url: jdbc:mysql://${DATABASE_DOMAIN:localhost}:${DATABASE_PORT:3306}/${DATABASE_SCHEMA:ad_manager_db}?sessionVariables=sql_mode='NO_ENGINE_SUBSTITUTION'&jdbcCompliantTruncation=false&useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
   jpa:
     hibernate:
       ddl-auto: create-drop
@@ -53,3 +54,12 @@ security:
           vAZTiZlVrXMwd9JZsimxh+zJR99MLVgvnH4c43WpEh2FPjqTBqyNnqluMq9HlU74
           jwIDAQAB
           -----END PUBLIC KEY-----
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${REGISTRY_HOST:localhost}:${REGISTRY_PORT:8761}/eureka
+      healthcheck:
+        enabled: true
+  instance:
+    prefer-ip-address: true

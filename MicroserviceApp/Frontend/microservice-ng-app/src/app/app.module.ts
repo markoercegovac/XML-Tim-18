@@ -79,6 +79,11 @@ import { AdminComponent } from './admin/admin.component';
 import { NavigationUserComponent } from './navigation-user/navigation-user.component';
 import { NavigationOwnerComponent } from './navigation-owner/navigation-owner.component';
 import { NavigationUnregistatedComponent } from './navigation-unregistated/navigation-unregistated.component';
+import { RequestsComponent } from './home/requests/requests.component';
+import { RequestsBundleComponent } from './home/requests/requests-bundle/requests-bundle.component';
+import { RequestingAdItemComponent } from './home/requests/requests-bundle/requesting-ad-item/requesting-ad-item.component';
+import { AddingToCartComponent } from './adding-to-cart/adding-to-cart.component';
+import { BundleRequestComponent } from './owner-view-requests/bundle-request/bundle-request.component';
 import { AdminBanUsersComponent } from './admin-ban-users/admin-ban-users.component';
 
 
@@ -143,9 +148,12 @@ import { AdminBanUsersComponent } from './admin-ban-users/admin-ban-users.compon
     NavigationUserComponent,
     NavigationOwnerComponent,
     NavigationUnregistatedComponent,
+    RequestsComponent,
+    RequestsBundleComponent,
+    RequestingAdItemComponent,
+    AddingToCartComponent,
+    BundleRequestComponent,
     AdminBanUsersComponent
-
-
   ],
     imports: [
         BrowserModule,

@@ -18,7 +18,7 @@ public class RequestConsumer {
 	@Autowired
 	private ValidCommunicationRepository validCommunicationRepo;
 
-	@RabbitListener(queues="${rabbitmq.queue.from.advert}")
+	@RabbitListener(queues="${rabbitmq.queue.from.request}")
     public void recievedMessage(String msg) {
 	    System.out.println("MQ>> Got from user manager" +msg);
 

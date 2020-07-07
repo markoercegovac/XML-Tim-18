@@ -2,7 +2,7 @@ package com.example.request.dto;
 
 import lombok.Data;
 
-import java.util.List;
+import java.util.Set;
 
 @Data
 public class AdRequestDetailedDTO {
@@ -11,6 +11,6 @@ public class AdRequestDetailedDTO {
     private String advertOwnerEmail;
     private String status;
     private double priceWithDiscount;
-    private List<AdRequestDTO> advertRequests;
+    private Set<AdRequestDTO> advertRequests;
 
 }

@@ -28,6 +28,10 @@ public class SendEmailAspect {
 			sendMessage.getHeader(),
 			sendMessage.getContent());
 
-		mailProducer.produceMsg(msg);
+		try {
+			mailProducer.produceMsg(msg);
+		}catch (Exception e) {
+			System.out.println("!!!MQ IS NOT AVAILABLE!!!");
+		}
 	}
 }

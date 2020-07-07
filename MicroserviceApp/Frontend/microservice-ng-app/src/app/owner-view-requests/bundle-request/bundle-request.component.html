@@ -1,0 +1,34 @@
+<div class="container-fluid bg-secondary">
+	
+	<div class="row justify-content-start">
+		<div class="col-3">
+			<h3 class="text-light">Bundle state:{{bundle.status}}</h3>
+		</div>
+		<div class="col-2">
+			<span *ngIf="bundle.status == 'PENDING'">
+				<button class="btn btn-success" (click)="onApprove()">
+					<i class="fa fa-check"></i>
+				</button>
+			</span>
+			<span *ngIf="bundle.status == 'PENDING'">
+				<button class="btn btn-warning" (click)="onCancel()">
+					<i class="fa fa-times"></i>
+				</button>
+			</span>
+			<span>
+				<button class="btn btn-primary" (click)="onDetailView()">
+					<i class="fa fa-search"></i>
+				</button>
+			</span>
+		</div>
+	</div>
+	
+
+	<div class="row justify-content-center">
+		<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 ml-2" *ngFor="let request of bundle.requests">
+			<app-ad-request-item [ad]="request"></app-ad-request-item>
+		</div>
+	</div>
+	<br>
+
+</div>

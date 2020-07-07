@@ -2,7 +2,7 @@ export interface MessageCreateModel {
 
 	receiverEmail: string;
     senderEmail: string;
-    isOwnerSending: boolean;
+    ownerSending: boolean;
     header: string;
     content: string;
 }

@@ -1,22 +1,24 @@
 package com.example.advert_search.controller;
 
-import com.example.advert_search.dto.AdvertCopyDto;
-import com.example.advert_search.dto.CarReservedDateDto;
-import com.example.advert_search.repository.CarReservedDateRepository;
-import com.example.advert_search.service.SearchService;
-import lombok.RequiredArgsConstructor;
-import org.hibernate.dialect.identity.HSQLIdentityColumnSupport;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Set;
+
+import com.example.advert_search.dto.AdvertCopyDto;
+import com.example.advert_search.repository.CarReservedDateRepository;
+import com.example.advert_search.service.SearchService;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @RequestMapping("/search-manager")

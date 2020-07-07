@@ -21,7 +21,7 @@ public class AdvertConsumer {
 	@Autowired
 	private SearchRepository adRepo;
 
-	@RabbitListener(queues="${abbitmq.queue.from.advert}")
+	@RabbitListener(queues="${rabbitmq.queue.from.advert}")
     public void recievedMessage(String msg) {
 		System.out.println("MQ>>Recieved Message from ad manager: " + msg);
 		

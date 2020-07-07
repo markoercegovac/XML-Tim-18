@@ -1,0 +1,58 @@
+server:
+  port: 8080
+
+rabbitmq:
+  exchange:
+    mail: direct.mail
+    chat: direct.request.chat
+  routingkey:
+    mail: key.mail
+    chat: key.request.chat
+  queue:
+    from:
+      advert: queue.ad.request
+
+spring:
+  rabbitmq:
+    host: ${RABBITMQ:localhost}
+    password: guest
+    username: guest
+    port: 5672
+  application:
+    name: ${springboot.app.name:request-manager}
+  datasource:
+    data: classpath:data.sql
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initialization-mode: always
+    username: ${DATABASE_USERNAME:agentXML}
+    password: ${DATABASE_PASSWORD:agent1}
+    url: jdbc:mysql://${DATABASE_DOMAIN:localhost}:${DATABASE_PORT:3306}/${DATABASE_SCHEMA:request_db}?sessionVariables=sql_mode='NO_ENGINE_SUBSTITUTION'&jdbcCompliantTruncation=false&useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    show-sql: true
+security:
+  oauth2:
+    resource:
+      jwt:
+        key-value: -----BEGIN PUBLIC KEY-----
+          MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAu/4M3DMubZIrjhyUqyLC
+          PjMtzxB6AHZn8dKYMSe8F78dtm9tLFZmTRoIJ5vZsoQkgoKHHVu0WcwaI+O0UXQd
+          MFfNri8kkDWthlpf/2qPvs0ohC422r3hgRj1mbzFVMX4MZS6ujHgoBIe2H7xCoDR
+          m4btJYUNlRSfKsumyXIYkPAJyXauquAgu9XGQl3+UX52nFl5KWpNxTDJegjEMPfY
+          lWK4/zjsT/eAm2dLwIWb6fJ/Ba0B4HKXuG4uFEPU53yVUx1DUWpjCrEj3Kv55GaF
+          vAZTiZlVrXMwd9JZsimxh+zJR99MLVgvnH4c43WpEh2FPjqTBqyNnqluMq9HlU74
+          jwIDAQAB
+          -----END PUBLIC KEY-----
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${REGISTRY_HOST:localhost}:${REGISTRY_PORT:8761}/eureka
+      healthcheck:
+        enabled: true
+  instance:
+    prefer-ip-address: true

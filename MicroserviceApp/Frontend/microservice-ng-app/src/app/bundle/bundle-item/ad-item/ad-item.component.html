@@ -22,7 +22,7 @@
             </div>
         </div>
     </div>
-    <img class="card-img-top" src="..." alt={{ad.profileImage}}>
+    <img class="card-img-top" src="{{'data:image/jpg;base64,' + ad.profileImage}}" alt="profile image">
     <div class="card-body">
       <p class="card-text">
           {{ad.startDate | date: 'shortDate'}}-{{ad.endDate | date: 'shortDate'}}

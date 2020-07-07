@@ -1,32 +1,11 @@
-<div class="card" style="width: 18rem;">
-	<div class="card-header">
-	  Bundle state:{{bundle.status}}
+<div class="card">
+	<div class="card-img-top">
+		<img class="card-img-top" src="{{'data:image/jpg;base64,' + profileImg}}" alt="profile image">
 	</div>
-	<ul class="list-group list-group-flush" *ngFor="let request of bundle.requests">
-	  <li class="list-group-item">
-		  advert&nbsp;
-		  {{request.advertId}}&nbsp;
-		  requesting&nbsp;
-		  {{request.startDate | date:'short'}}
-		  -{{request.endDate | date:'short'}}</li>
-	</ul>
-	<div class="card-footer">
-		<div class="row justify-content-end">
-			<div class="col" *ngIf="bundle.status == 'PENDING'">
-				<button class="btn btn-success" (click)="onApprove()">
-					<i class="fa fa-check"></i>
-				</button>
-			</div>
-			<div class="col" *ngIf="bundle.status == 'PENDING'">
-				<button class="btn btn-warning" (click)="onCancel()">
-					<i class="fa fa-times"></i>
-				</button>
-			</div>
-			<div class="col">
-				<button class="btn btn-primary" (click)="onDetailView()">
-					<i class="fa fa-search"></i>
-				</button>
-			</div>
-		</div>
+	<div class="card-content">
+		<h3>
+			requesting dates&nbsp;
+		  {{ad.startDate | date:'short'}}-{{ad.endDate | date:'short'}}
+		</h3>
 	</div>
-  </div>
+</div>

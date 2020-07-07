@@ -29,28 +29,46 @@ public class AdvertController {
     private final CaptureService captureService;
     private final AdvertService advertService;
 
-
-    @GetMapping ("/{advert_id}")
+    @GetMapping (value = "/{advert_id}", produces = "application/json")
     public ResponseEntity<?> getAdvertInfo(
             @PathVariable(value="advert_id") Long advert_id,
-            @RequestParam(value = "details", required = false) String details ,Principal principal){
+            @RequestParam(value = "details", required = true) String details, Principal principal){
 
-        if(details!=null && details.equals("cart")) {
-            AdvertCartDTO ret = advertService.detailAdForCart(advert_id);
-            if(checkService.checkUserReservation(principal.getName())){
-                return new ResponseEntity<String>("forbidden",HttpStatus.OK);
+        Object ret = null;
+        HttpStatus status = HttpStatus.OK;
+
+        if(details.equals("cart")) {
+
+            AdvertCartDTO found = advertService.detailAdForCart(advert_id);
+
+            if(principal!= null && checkService.checkUserReservation(principal.getName())){
+                ret = "forbidden";
+            } else {
+                ret = found;
             }
 
-            return new ResponseEntity<AdvertCartDTO>(ret, HttpStatus.OK);
-        } else if(details!=null && details.equals("client")) {
-            AdvertDetailDTO ret = advertService.detailAdForClient(advert_id);
+        } else if(details.equals("client")) {
 
-            return new ResponseEntity<AdvertDetailDTO>(ret, HttpStatus.OK);
+            AdvertDetailDTO found = advertService.detailAdForClient(advert_id);
+            ret = found;
+        } else if(details.equals("profile-img")) {
+
+            String profile = "";
+            try {
+                profile = advertService.getProfileImg(advert_id);
+            } catch(Exception e) {
+                profile = "ERROR, ADVERT DOSE NOT EXIST";
+                status = HttpStatus.BAD_REQUEST;
+            }
+
+            ret = profile;
         } else {
-            return new ResponseEntity<AdvertDto>(HttpStatus.OK);
-        }
-    }
 
+            status = HttpStatus.BAD_REQUEST;
+        }
+
+        return new ResponseEntity<Object>(ret, status);
+    }
 
     @PostMapping
     public String createAdvert (@RequestBody AdvertDto advertDto, Principal principal) throws IOException {

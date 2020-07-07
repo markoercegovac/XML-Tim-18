@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders, HttpResponse} from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import * as jwt_decode from 'jwt-decode';
 import { Router } from '@angular/router';
+import { CartService } from './cart.service';
 
 const BASE_URL = environment.zuul;
 const NAVIGATION = ['USER', 'OWNER', 'UNREGISTRATED'];
@@ -11,7 +12,10 @@ const NAVIGATION = ['USER', 'OWNER', 'UNREGISTRATED'];
 export class AuthService {
 
     public navigation: string = NAVIGATION[2];
-    constructor(private http: HttpClient, private router: Router) {}
+    constructor(
+        private http: HttpClient,
+        private router: Router,
+        private cart: CartService) {}
 
     login(username:string, password:string ) {
         this.logout();
@@ -40,6 +44,11 @@ export class AuthService {
                 } else {
                     this.onLoadNavigation();
                     this.router.navigate(['/home']);
+
+                    let cartItems = window.localStorage.getItem('cart');
+                    if(cartItems != null && cartItems != '') {
+                        this.cart.onLoad(cartItems);
+                    }
                 }
             }, error => {
                 alert('EMAIL OR PASSWORD IS INCORECT');

@@ -1,7 +1,7 @@
 --PREDEFINED REQUESTS
 
 insert into advert_copy(advert_copy_id, advert_end_date, owner_email) values
-    (101, '2021-05-10 00:00:00', 'pera@maildrop.cc'),
+    (6, '2021-05-10 00:00:00', 'zika@com'),
     (102, '2021-06-10 00:00:00', 'pera@maildrop.cc'),
     (103, '2021-06-10 00:00:00', 'pera@maildrop.cc'),
     (104, '2021-06-10 00:00:00', 'pera@maildrop.cc'),
@@ -52,7 +52,6 @@ insert into request_bundle_requests(request_bundle_request_bundle_id, requests_r
     (306, 408);
 
 insert into advert_copy_requests(advert_copy_advert_copy_id, requests_request_id) values
-    (101, 401),
     (102, 402),
     (103, 403),
     (104, 404),

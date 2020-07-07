@@ -4,10 +4,11 @@ import { CartService } from './cart.service';
 import { AdvertInCartModel } from '../model/advert-in-cart.model';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { ResolvedStaticSymbol } from '@angular/compiler';
-import { stringify } from 'querystring';
+import { AuthService } from './auth.service';
+import { Router } from '@angular/router';
 
-const BASE_URL = environment.requestManagerUrl;
+// const BASE_URL = environment.requestManagerUrl;
+const BASE_URl = environment.zuul+ '/advert-request';
 
 @Injectable({providedIn: 'root'})
 export class BundleSerivce {
@@ -15,7 +16,12 @@ export class BundleSerivce {
     private bundles: BundleModel[] = [];
     private lastTouchedAdId: number = 0;
 
-    constructor(private cart: CartService, private http: HttpClient) {}
+    constructor(
+        private cart: CartService,
+        private http: HttpClient,
+        private auth: AuthService,
+        private router: Router
+    ) {}
 
     public createBundleRequest() {
         //sends http request and creates advert request on backend
@@ -27,7 +33,7 @@ export class BundleSerivce {
 
             let dto = {
                 advertOwnerEmail: b.ownerEmail,
-                requestingUserEmail: 'test@mail',
+                requestingUserEmail: this.auth.getCurrentUserEmail(),
                 priceWithDiscount: 0,
                 requestedAdverts: []
             };
@@ -40,9 +46,12 @@ export class BundleSerivce {
                 });
             }
             
-            this.http.post(BASE_URL+'/client', dto, { responseType: 'text' }).subscribe(
+            this.http.post(BASE_URl+'/client', dto, { responseType: 'text' }).subscribe(
                 data => {
                     alert('SECCESFULLY CREATED REQUEST');
+                    this.bundles = [];
+                    this.cart.emptyCart();
+                    this.router.navigate(['/home/advert/all']);
                 },
                 error => {
                     alert('SOMETHING WENT WRONG\n' + error.error);

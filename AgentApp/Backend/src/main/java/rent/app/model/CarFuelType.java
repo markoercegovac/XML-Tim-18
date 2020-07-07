@@ -11,7 +11,7 @@ import javax.validation.constraints.Min;
 @Table(name="CarFuelType")
 public class CarFuelType {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column

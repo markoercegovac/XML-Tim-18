@@ -27,6 +27,10 @@ export class NavigationUserComponent implements OnInit {
     this.router.navigate(['/home/advert/all']);
   }
 
+  onRequests() {
+    this.router.navigate(['/home/requests']);
+  }
+
   onMessages() {
     this.router.navigate(['/home/message', this.authService.getCurrentUserEmail()]);
   }
