@@ -25,10 +25,8 @@
 	<br>
 
 	<div *ngIf="requestSerivice.bundles.length != 0">
-		<div class="row justify-content-center">
-			<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let b of requestSerivice.bundles">
-				<app-ad-request-item [bundle]="b" class="mb-2 mr-1" ></app-ad-request-item>
-			</div>
+		<div class="row mb-2 mr-1" *ngFor="let b of requestSerivice.bundles">
+			<app-bundle-request [bundle]="b" ></app-bundle-request>
 		</div>
 	</div>
 	<div *ngIf="requestSerivice.bundles.length == 0">

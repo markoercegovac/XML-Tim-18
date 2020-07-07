@@ -26,6 +26,7 @@ public class ClientRequestServiceImpl implements ClientRequestService {
     private final RequestRepository requestRepository;
     private final RequestBundleRepository requestBundleRepository;
     private final AdvertCopyRepository advertCopyRepository;
+    private final AdRequestDetailConverter adRequestDetailConverter;
 
     @Transactional(rollbackFor = Exception.class)
     public void createNewRequestBundle(CreateAdBundleRequestDTO createBundle) throws RuntimeException, Exception {
@@ -107,7 +108,7 @@ public class ClientRequestServiceImpl implements ClientRequestService {
 
         if(foundBundles != null) {
             foundBundles.forEach(bundle -> {
-                retBundles.add(AdRequestDetailConverter.fromBundleToAdRequestDetail(bundle));
+                retBundles.add(adRequestDetailConverter.fromBundleToAdRequestDetail(bundle));
             });
         }
 

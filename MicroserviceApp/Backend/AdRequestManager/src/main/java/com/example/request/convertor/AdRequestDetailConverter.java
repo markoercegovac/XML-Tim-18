@@ -2,14 +2,23 @@ package com.example.request.convertor;
 
 import com.example.request.dto.AdRequestDTO;
 import com.example.request.dto.AdRequestDetailedDTO;
+import com.example.request.model.AdvertCopy;
 import com.example.request.model.RequestBundle;
+import com.example.request.repository.AdvertCopyRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public abstract   class AdRequestDetailConverter {
+@Component
+@RequiredArgsConstructor
+public class AdRequestDetailConverter {
 
-    public static AdRequestDetailedDTO fromBundleToAdRequestDetail(RequestBundle bundle) throws NullPointerException {
+    private final AdvertCopyRepository advertRepository;
+
+    public AdRequestDetailedDTO fromBundleToAdRequestDetail(RequestBundle bundle) throws NullPointerException {
 
         AdRequestDetailedDTO dto = new AdRequestDetailedDTO();
         dto.setPriceWithDiscount(bundle.getPriceWithDiscount());
@@ -21,7 +30,9 @@ public abstract   class AdRequestDetailConverter {
         if(bundle.getRequests().size() != 0) {
             bundle.getRequests().forEach(request -> {
                 AdRequestDTO r = new AdRequestDTO();
-                r.setAdvertId(request.getRequestId());
+                AdvertCopy ad = advertRepository.findByRequestsRequestId(request.getRequestId())
+                        .orElseThrow(NullPointerException::new);
+                r.setAdvertId(ad.getAdvertCopyId());
                 r.setEndDate(request.getStartReservationDate());
                 r.setStartDate(request.getEndReservationDate());
 

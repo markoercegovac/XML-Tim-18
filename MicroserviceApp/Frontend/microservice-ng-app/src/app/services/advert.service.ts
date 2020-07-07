@@ -15,6 +15,6 @@ export class AdvertService {
     }
 
     public getProfileImg(adId: number) {
-        return this.http.get<string>(BASE_URL+'/advert/'+adId+'?details=profile-img');
+        return this.http.get(BASE_URL+'/advert/'+adId+'?details=profile-img',{responseType:"text"});
     }
 }

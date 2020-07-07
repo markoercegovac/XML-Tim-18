@@ -6,11 +6,19 @@ import java.util.Set;
 
 import com.example.request.dto.AdRequestDTO;
 import com.example.request.dto.AdRequestForOwnerDTO;
+import com.example.request.model.AdvertCopy;
 import com.example.request.model.RequestBundle;
+import com.example.request.repository.AdvertCopyRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
-public abstract class AdRequestOwnerConvertor {
+@Component
+@RequiredArgsConstructor
+public class AdRequestOwnerConverter {
 
-	public static AdRequestForOwnerDTO fromBundleToAdRequestForOwner(RequestBundle bundle) throws NullPointerException {
+	private final AdvertCopyRepository advertRepository;
+
+	public AdRequestForOwnerDTO fromBundleToAdRequestForOwner(RequestBundle bundle) throws NullPointerException {
 		
 		AdRequestForOwnerDTO dto = new AdRequestForOwnerDTO();
 		dto.setPriceWithDiscount(bundle.getPriceWithDiscount());
@@ -22,7 +30,9 @@ public abstract class AdRequestOwnerConvertor {
 		if(bundle.getRequests().size() != 0) {
 			 bundle.getRequests().forEach(request -> {
 			 	AdRequestDTO r = new AdRequestDTO();
-			 	r.setAdvertId(request.getRequestId());
+				 AdvertCopy ad = advertRepository.findByRequestsRequestId(request.getRequestId())
+						 .orElseThrow(NullPointerException::new);
+			 	r.setAdvertId(ad.getAdvertCopyId());
 			 	r.setEndDate(request.getStartReservationDate());
 			 	r.setStartDate(request.getEndReservationDate());
 

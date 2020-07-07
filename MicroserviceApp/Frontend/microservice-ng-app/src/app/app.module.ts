@@ -83,6 +83,7 @@ import { RequestsComponent } from './home/requests/requests.component';
 import { RequestsBundleComponent } from './home/requests/requests-bundle/requests-bundle.component';
 import { RequestingAdItemComponent } from './home/requests/requests-bundle/requesting-ad-item/requesting-ad-item.component';
 import { AddingToCartComponent } from './adding-to-cart/adding-to-cart.component';
+import { BundleRequestComponent } from './owner-view-requests/bundle-request/bundle-request.component';
 
 
 @NgModule({
@@ -149,7 +150,8 @@ import { AddingToCartComponent } from './adding-to-cart/adding-to-cart.component
     RequestsComponent,
     RequestsBundleComponent,
     RequestingAdItemComponent,
-    AddingToCartComponent
+    AddingToCartComponent,
+    BundleRequestComponent
 
 
   ],

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import com.example.request.convertor.AdRequestOwnerConvertor;
+import com.example.request.convertor.AdRequestOwnerConverter;
 import com.example.request.dto.AdRequestForOwnerDTO;
 import com.example.request.model.AdvertStateEnum;
 import com.example.request.model.RequestBundle;
@@ -20,7 +20,8 @@ import lombok.RequiredArgsConstructor;
 public class OwnerServiceImpl implements OwnerService {
 	
 	private final RequestBundleRepository bundleRepository;
-	
+	private final AdRequestOwnerConverter adRequestOwnerConverter;
+
 	@Override
 	public void approveBundle(Long bundleId) throws Exception {
 		RequestBundle bundle = bundleRepository.getOne(bundleId);
@@ -57,7 +58,7 @@ public class OwnerServiceImpl implements OwnerService {
 		if(foundRequest != null && !foundRequest.isEmpty()) {
 			foundRequest.forEach(bundle -> {
 				try {
-					foundAdRequests.add(AdRequestOwnerConvertor.fromBundleToAdRequestForOwner(bundle));
+					foundAdRequests.add(adRequestOwnerConverter.fromBundleToAdRequestForOwner(bundle));
 				} catch(Exception e) {
 					e.printStackTrace();
 					System.out.println("DATA BASE IS NOT CONSISTENT");
@@ -76,7 +77,7 @@ public class OwnerServiceImpl implements OwnerService {
 		if(foundRequest != null && !foundRequest.isEmpty()) {
 			foundRequest.forEach(bundle -> {
 				try {
-					foundAdRequests.add(AdRequestOwnerConvertor.fromBundleToAdRequestForOwner(bundle));
+					foundAdRequests.add(adRequestOwnerConverter.fromBundleToAdRequestForOwner(bundle));
 				} catch(NullPointerException e) {
 					System.out.println("DATA BASE IS NOT CONSISTENT");
 				}

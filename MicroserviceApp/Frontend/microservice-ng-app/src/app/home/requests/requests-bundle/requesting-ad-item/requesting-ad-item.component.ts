@@ -17,10 +17,9 @@ export class RequestingAdItemComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.profileImg = 'data:image/jpg;base64,';
     this.adService.getProfileImg(this.ad.advertId).subscribe(
       data => {
-        this.profileImg += data;
+        this.profileImg = data;
       }
     );
   }
