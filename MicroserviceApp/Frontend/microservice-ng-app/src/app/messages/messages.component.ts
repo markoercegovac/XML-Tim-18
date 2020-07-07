@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MessageItemModel } from '../model/message-item.model';
 import { MessageService } from '../services/message.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-messages',
@@ -18,7 +19,11 @@ export class MessagesComponent implements OnInit {
   bodyEnum: string[] = ['inbox', 'compose', 'detail'];
   predefinedMsg : {header: string, receiver: string};
 
-  constructor(private route: ActivatedRoute, private msgService: MessageService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private msgService: MessageService,
+    private auth: AuthService
+    ) { }
 
   ngOnInit(): void {
     this.messageId = 0;
@@ -50,12 +55,13 @@ export class MessagesComponent implements OnInit {
   }
 
   seeInbox() {
-    this.showBody = this.bodyEnum[0];
     this.reload();
+    this.showBody = this.bodyEnum[0];
   }
 
   reload() {
-    this.msgService.getAllMessages(this.activeEmail, true).subscribe(
+    console.log('RELOAD MSG');
+    this.msgService.getAllMessages(this.activeEmail, this.auth.getPermissions().includes('PERMISSION_OWNER')).subscribe(
       data => {
         this.messages = data;
       }, error => {

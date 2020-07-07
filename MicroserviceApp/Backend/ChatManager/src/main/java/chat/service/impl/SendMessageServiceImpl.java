@@ -26,7 +26,7 @@ public class SendMessageServiceImpl implements SendMessageService {
 
         String sender = sendMessage.getSenderEmail();
         String receiver = sendMessage.getReceiverEmail();
-        DirectionEnum direction = sendMessage.isOwnerSending()? DirectionEnum.FOR_USER:DirectionEnum.FOR_OWNER;
+        DirectionEnum direction = sendMessage.isOwnerSending()? DirectionEnum.FOR_OWNER:DirectionEnum.FOR_USER;
 
         ValidUserOwnerCommunication communication;
         if(direction.equals(DirectionEnum.FOR_OWNER)) {

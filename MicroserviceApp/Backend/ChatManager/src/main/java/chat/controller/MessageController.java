@@ -108,13 +108,15 @@ public class MessageController {
      * */
     @PostMapping(value = "/message")
     public ResponseEntity postNewMessages(@RequestBody SendMessageDTO sendMessage) {
+        HttpStatus status = HttpStatus.CREATED;
 
         try {
             sendMessageService.send(sendMessage);
-
-            return new ResponseEntity(HttpStatus.CREATED);
         } catch(Exception e) {
-            return new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
+            e.printStackTrace();
+            status = HttpStatus.NOT_ACCEPTABLE;
         }
+
+        return new ResponseEntity(status);
     }
 }

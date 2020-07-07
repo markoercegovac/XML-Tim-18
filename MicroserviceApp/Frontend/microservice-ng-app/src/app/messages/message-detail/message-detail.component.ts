@@ -12,7 +12,7 @@ export class MessageDetailComponent implements OnInit {
 
   @Input('messageId') msgId: number;
   @Output('replay') replay = new EventEmitter<{header: string, receiver: string}>();
-  msg: MessageDetailModel;
+  msg: MessageDetailModel ={content: '', creationDate: new Date(), header: '', messageId: 0, receiverEmail: '', senderEmail: ''}
   amISender: boolean;
   error: boolean;
 

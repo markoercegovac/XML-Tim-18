@@ -7,7 +7,7 @@ public class SendMessageDTO {
 
     private String receiverEmail;
     private String senderEmail;
-    private boolean isOwnerSending;
+    private boolean ownerSending;
     private String header;
     private String content;
 }
