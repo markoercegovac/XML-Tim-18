@@ -36,13 +36,13 @@ public class GatewayApplication extends ResourceServerConfigurerAdapter  {
         http
                 .anonymous().and()
                 .authorizeRequests()
-                .antMatchers("/oauth/**", "/")
+                .antMatchers("/oauth/**", "/") //oauth
                 .permitAll()
                 .and().anonymous().and().authorizeRequests()
-                .antMatchers(HttpMethod.GET,"/advert-manager/advert/**")
+                .antMatchers(HttpMethod.POST,"/agent", "/user") //for registration
                 .permitAll()
                 .and().anonymous().and().authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/agent")
+                .antMatchers(HttpMethod.GET,"/advert-manager/advert/**") //for unregistered user to se adverts
                 .permitAll();
 //                .antMatchers("/**")
 //                .authenticated();

@@ -10,13 +10,18 @@
       <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm)">
 
         <div class="form-group">
-          <label>Company name</label>
-          <input sanitaze type="text" formControlName="company" class="form-control" [ngClass]="{'is-invalid': submitted && f.company.errors }"/>
+          <label>Name</label>
+          <input sanitaze type="text" formControlName="name" class="form-control" [ngClass]="{'is-invalid': submitted && f.name.errors }"/>
         </div>
 
         <div class="form-group">
-          <label>Company registration number</label>
-          <input sanitaze type="text" formControlName="registrationNumber" class="form-control" [ngClass]="{'is-invalid': submitted && f.registrationNumber.errors}"/>
+          <label>Surname</label>
+          <input sanitaze type="text" formControlName="surname" class="form-control" [ngClass]="{'is-invalid': submitted && f.surname.errors }"/>
+        </div>
+
+        <div class="form-group">
+          <label>User name</label>
+          <input sanitaze type="text" formControlName="username" class="form-control" [ngClass]="{'is-invalid': submitted && f.username.errors }"/>
         </div>
 
         <div class="form-group">
@@ -66,15 +71,6 @@
           <input sanitaze type="text" formControlName="streetNumber" class="form-control" [ngClass]="{'is-invalid': submitted && f.streetNumber.errors}"/>
         </div>
 
-        <hr>
-        <p>If you want to sinc your application with ours than please enter you application addres below.</p>
-        <p class="text-secondary">Before you enter the field below please check our terms.</p>
-
-        <div class="form-group">
-          <label>Application addres</label>
-          <input sanitaze type="text" formControlName="url" placeholder="http://you-ip-address:port" class="form-control"/>
-        </div>
-
         <div class="form-group">
           <div class="row justify-content-end">
             <button class="btn btn-dark">Register</button>
@@ -84,4 +80,3 @@
   </div>
   </div>
 </div>
-

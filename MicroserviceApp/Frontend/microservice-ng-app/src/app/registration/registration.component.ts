@@ -16,4 +16,8 @@ export class RegistrationComponent {
   onAgent() {
     this.router.navigate(['home','register','agent']);
   }
+
+  onUser() {
+    this.router.navigate(['home','register','user']);
+  }
 }

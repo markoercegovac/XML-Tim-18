@@ -39,6 +39,8 @@ import { OwnerGuard } from './guard/owner.guard';
 import { RequestsComponent } from './home/requests/requests.component';
 import {AdminBanUsersComponent} from "./admin-ban-users/admin-ban-users.component";
 import { RegisterAgentComponent } from './registration/register-agent/register-agent.component';
+import { RegisterUserComponent } from './registration/register-user/register-user.component';
+import { AdminRegisterRequestsComponent } from './admin-register-requests/admin-register-requests.component';
 
 
 
@@ -52,6 +54,7 @@ const routes: Routes = [
     { path: 'fuel-type', component: CarFuelTypeComponent},
     { path: 'transmission', component: CarTranssmisionTypeComponent},
     { path: 'comment', component: AdminCommentsAllowComponent},
+    { path: 'registration-requests', component: AdminRegisterRequestsComponent},
     { path: 'ban', component: UsersBanListComponent},
       {path: 'ban/user' , component: AdminBanUsersComponent}
   ] },
@@ -64,6 +67,7 @@ const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegistrationComponent},
       {path: 'register/agent', component: RegisterAgentComponent},
+      {path: 'register/user', component: RegisterUserComponent},
     
     { path: 'bundle', component: BundleComponent, canActivate: [UserGuard]},
     { path: 'requests', component: RequestsComponent, canActivate: [UserGuard] },

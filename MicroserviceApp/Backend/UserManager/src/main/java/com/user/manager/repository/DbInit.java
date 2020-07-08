@@ -27,6 +27,7 @@ public class DbInit implements CommandLineRunner {
         Permission p1=new Permission();
         Permission p2=new Permission();
         Permission p3=new Permission();
+        Permission p4=new Permission();
 
         p1.setName("OWNER");
         permissionRepository.save(p1);
@@ -34,6 +35,8 @@ public class DbInit implements CommandLineRunner {
         permissionRepository.save(p2);
         p3.setName("USER");
         permissionRepository.save(p3);
+        p4.setName("AGENT");
+        permissionRepository.save(p4);
 
         List<Permission> ownerList=new ArrayList<Permission>();
         ownerList.add(p1);
@@ -41,11 +44,14 @@ public class DbInit implements CommandLineRunner {
         adminList.add(p2);
         List<Permission> userList=new ArrayList<Permission>();
         userList.add(p3);
+        List<Permission> agentList=new ArrayList<Permission>();
+        userList.add(p4);
 
         //USER_ROLE
         Role role1=new Role();
         Role role2=new Role();
         Role role3=new Role();
+        Role role4=new Role();
 
         role1.setName("OWNER");
         role1.setPermissions(ownerList);
@@ -58,6 +64,10 @@ public class DbInit implements CommandLineRunner {
         role3.setName("USER");
         role3.setPermissions(userList);
         roleRepository.save(role3);
+
+        role4.setName("AGENT");
+        role4.setPermissions(agentList);
+        roleRepository.save(role4);
 
         List<Role> roleList1=new ArrayList<Role>();
         roleList1.add(role1);
@@ -72,18 +82,29 @@ public class DbInit implements CommandLineRunner {
         User user3= new User();
         user1.setEmail("marko@com");
         user1.setUsername("marko");
+        user1.setRemoved(false);
+        user1.setAdminApproved(true);
+        user1.setBanned(false);
         user1.setPassword(passwordEncoder.encode("admin123"));
         user1.setRoles(roleList2);
 
         //PERA USER
         user2.setEmail("pera@com");
         user2.setUsername("pera");
+        user2.setRemoved(false);
+        user2.setAdminApproved(true);
+        user2.setBanned(false);
+        user2.setForbiddenAdvert(false);
         user2.setPassword(passwordEncoder.encode("user123"));
         user2.setRoles(roleList3);
 
         //ZIKA VLASNIK
         user3.setEmail("zika@com");
         user3.setUsername("zika");
+        user3.setRemoved(false);
+        user3.setAdminApproved(true);
+        user3.setBanned(false);
+        user3.setForbiddenAdvert(false);
         user3.setPassword(passwordEncoder.encode("user123"));
         user3.setRoles(roleList1);
 

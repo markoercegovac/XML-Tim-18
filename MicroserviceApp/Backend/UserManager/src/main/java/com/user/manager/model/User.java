@@ -13,8 +13,8 @@ public class User {
     @Id
     private String email;
 
-    @Column(nullable=false)
-    private String username; //orCompany name
+    @Column(nullable=true)
+    private String username;
 
     @Column(nullable = true)
     private String name;
@@ -48,6 +48,9 @@ public class User {
 
     @Column
     private boolean adminApproved; //true znaci da je odobren, false ja da treba da se odobri
+
+    @Column(nullable=true)
+    private String companyName;
 
     @Column(nullable = true)
     private String companyRegistrationNumber; //if not null we have a company(AGENT)

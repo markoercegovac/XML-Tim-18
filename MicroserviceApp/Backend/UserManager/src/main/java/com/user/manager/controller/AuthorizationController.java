@@ -14,7 +14,6 @@ import java.security.Principal;
 @RequestMapping()
 @RequiredArgsConstructor
 @RestController
-@CrossOrigin
 public class AuthorizationController {
 
 

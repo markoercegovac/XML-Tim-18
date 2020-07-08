@@ -1,12 +1,12 @@
 package com.user.manager.services.impl;
 
-import com.user.manager.dto.AgentDTO;
+import com.user.manager.dto.CreateUserDTO;
 import com.user.manager.model.Permission;
 import com.user.manager.model.Role;
 import com.user.manager.model.User;
 import com.user.manager.repository.RoleRepository;
 import com.user.manager.repository.UserRepository;
-import com.user.manager.services.AgentRegistrationService;
+import com.user.manager.services.UserRegistrationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -15,9 +15,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
 @RequiredArgsConstructor
-public class AgentRegistrationServiceImpl implements AgentRegistrationService {
+@Service
+public class UserRegisterServiceImpl implements UserRegistrationService {
 
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
@@ -25,34 +25,25 @@ public class AgentRegistrationServiceImpl implements AgentRegistrationService {
 
     @Override
     @Transactional(rollbackFor = NullPointerException.class)
-    public void register(AgentDTO dto) throws NullPointerException{
-        User user = new User();
+    public void register(CreateUserDTO dto) throws NullPointerException {
 
-        Role owner = roleRepository.findByName("OWNER");
-        Role agent = roleRepository.findByName("AGENT");
-        if(owner == null) {
-            owner = createRole("OWNER");
-        }
-        if(agent == null) {
-            agent = createRole("AGRNT");
+        Role userR = roleRepository.findByName("USER");
+        if(userR == null) {
+            userR = createRole("USER");
         }
 
         List<Role> roleList=new ArrayList<Role>();
-        roleList.add(owner);
+        roleList.add(userR);
 
-        //OWNER IS ACTUALLY AN AGENT
-        if(dto.getUrl() != null && !dto.getUrl().trim().isEmpty()) {
-            user.setAgentUrl(dto.getUrl());
-            roleList.add(agent);
-        }
-
+        User user = new User();
         user.setEmail(dto.getEmail());
-        user.setCompanyName(dto.getCompany());
+        user.setUsername(dto.getUsername());
+        user.setName(dto.getName());
+        user.setSurname(dto.getSurname());
         user.setState(dto.getState());
         user.setCity(dto.getCity());
         user.setStreet(dto.getStreet());
         user.setStreetNumber(dto.getStreetNumber());
-        user.setCompanyRegistrationNumber(dto.getRegistrationNumber());
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
         user.setBanned(true);
         user.setForbiddenAdvert(false);

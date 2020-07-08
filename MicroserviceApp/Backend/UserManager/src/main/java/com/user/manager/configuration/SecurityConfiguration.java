@@ -43,13 +43,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/agent")
-                .permitAll()
-                .and()
-                .antMatcher("/**")
-                .authorizeRequests()
-                .anyRequest().authenticated().and().sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.NEVER);
+                .antMatchers(HttpMethod.POST, "/agent", "/user") //registration
+                .permitAll();
+//                .and()
+//                .antMatcher("/**")
+//                .authorizeRequests()
+//                .anyRequest().authenticated().and().sessionManagement()
+//                .sessionCreationPolicy(SessionCreationPolicy.NEVER);
     }
 
     @Override

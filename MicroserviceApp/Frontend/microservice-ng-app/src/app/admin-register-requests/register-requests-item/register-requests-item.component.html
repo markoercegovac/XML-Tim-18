@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+<div class="card big-card">
+	<div class="card-header bg-secondary">
+		<div class="row justify-content-around">
+			<div class="col-3">
+				<h2 class="text-light">
+					{{request.role | titlecase}}
+					{{request.email}}
+				</h2>
+			</div>
+			<div class="col-3">
+				<span (click)="onBless()">
+					<i class="fa fa-plus-circle text-success pointer"></i>
+				</span>
+				&nbsp;&nbsp;
+				<span (click)="onDecline()">
+					<i class="fa fa-minus-circle text-warning pointer"></i>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="card-body">
+		<div class="row justify-content-between">
+			<div class="col-4">
+				<p>email: {{request.email}}</p>
+				<p *ngIf="request.name!=''">name: {{request.name}}</p>
+				<p *ngIf="request.surname!=''">surname: {{request.surname}}</p>
+				<p *ngIf="request.username!=''">user name: {{request.username}}</p>
+				<p *ngIf="request.companyName!=''">firm name: {{request.companyName}}</p>
+				<p *ngIf="request.companyRegistrationNumber!=''">firm registration number: {{request.companyRegistrationNumber}}</p>
+				<p *ngIf="request.url!=''">firm web address: {{request.url}}</p>
+			</div>
+			<div class="col-4">
+				<p>state: {{request.state}}</p>
+				<p>city: {{request.city}}</p>
+				<p>street: {{request.street}}</p>
+				<p>street number: {{request.streetNumber}}</p>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
