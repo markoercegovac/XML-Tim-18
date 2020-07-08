@@ -76,7 +76,7 @@ export class CarTranssmisionTypeComponent implements OnInit {
 
     this.http.delete(urlDelete).subscribe(res => {
       this.getAllCarTranssmisionType();
-        alert('Uspesno obrisan brend.');
+      alert('Uspesno obrisan brend.');
       },
       error => {
         alert('error');

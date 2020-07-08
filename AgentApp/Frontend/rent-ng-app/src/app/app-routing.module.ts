@@ -22,7 +22,9 @@ import {InboxComponent} from './inbox/inbox.component';
 import {DriveReportCreateComponent} from './drive-report-create/drive-report-create.component';
 import {DriveReportListComponent} from './drive-report-list/drive-report-list.component';
 import {DriveReportUpdateComponent} from './drive-report-update/drive-report-update.component';
-import {AllRegistrationRequestComponent} from "./all-registration-request/all-registration-request.component";
+import {AllRegistrationRequestComponent} from './all-registration-request/all-registration-request.component';
+import {StatisticsComponent} from './statistics/statistics.component';
+
 
 
 
@@ -80,6 +82,10 @@ const routes: Routes = [
     path: 'inbox',
     component: InboxComponent
   },
+   {
+     path: 'statistics',
+     component: StatisticsComponent
+   },
   { path: '**', component: NotFoundComponent }
 ];
 

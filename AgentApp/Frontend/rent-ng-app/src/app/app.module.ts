@@ -35,7 +35,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 
 import { RegisterCarComponent } from './register-car/register-car.component';
 import { DefinePriceComponent } from './define-price/define-price.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ReservedCarComponent } from './reserved-car/reserved-car.component';
 import { MyAdvertComponent } from './my-advert/my-advert.component';
 import { ChatComponent } from './chat/chat.component';
@@ -46,12 +46,15 @@ import { DriveReportCreateComponent } from './drive-report-create/drive-report-c
 import { DriveReportListComponent } from './drive-report-list/drive-report-list.component';
 import { DriveReportUpdateComponent } from './drive-report-update/drive-report-update.component';
 import { AllRegistrationRequestComponent } from './all-registration-request/all-registration-request.component';
+import { StatisticsComponent } from './statistics/statistics.component';
+import {ChartsModule} from 'ng2-charts';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SignInComponent,
+    SearchComponent,
     RegisterComponent,
     NotFoundComponent,
     HomeComponent,
@@ -59,7 +62,6 @@ import { AllRegistrationRequestComponent } from './all-registration-request/all-
     AdvertsComponent,
     AdvertMiniComponent,
     FullAdvertComponent,
-    SearchComponent,
     BasicSearchComponent,
     AdvanceSearchComponent,
     FooterComponent,
@@ -84,14 +86,18 @@ import { AllRegistrationRequestComponent } from './all-registration-request/all-
     ChatHeaderComponent,
     InboxComponent,
     MesagesComponent,
-    AllRegistrationRequestComponent
+    AllRegistrationRequestComponent,
+    StatisticsComponent,
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    MDBBootstrapModule
+    MDBBootstrapModule,
+    ReactiveFormsModule,
+    ChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

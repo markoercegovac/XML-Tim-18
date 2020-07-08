@@ -31,6 +31,7 @@ import {HomeComponent} from "./home/home.component";
 import {AdvertsComponent} from "./home/adverts/adverts.component";
 import {FullAdvertComponent} from "./home/full-advert/full-advert.component";
 import {AdminCommentsAllowComponent} from "./admin-comments-allow/admin-comments-allow.component";
+import {SearchAdvancedComponent} from "./search-advanced/search-advanced.component";
 
 
 
@@ -98,6 +99,10 @@ const routes: Routes = [
   {
     path: 'search',
     component: SearchComponent
+  },
+  {
+    path: 'searchAdvanced',
+    component: SearchAdvancedComponent
   },
   {
     path: 'my/advert/:id',

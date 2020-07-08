@@ -1,7 +1,6 @@
 package com.example.advert_search.service.impl;
 
-import com.example.advert_search.dto.AdvertCopyDto;
-import com.example.advert_search.dto.CarReservedDateDto;
+import com.example.advert_search.dto.*;
 import com.example.advert_search.dto.mapper.AdvertCopyMapper;
 import com.example.advert_search.dto.mapper.CarReservedDateMapper;
 import com.example.advert_search.dto.mapperGenericki.DtoUtils;
@@ -71,11 +70,13 @@ public class SearchServiceImpl implements SearchService {
     }
 
     @Override
-    public Set<AdvertCopyDto> findFreeAdverts(Date start, Date end) {
+    public Set<AdvertCopyDto> findFreeAdverts(String city, Date start, Date end) {
         List<AdvertCopyDto> advertCopyD = this.findAll();
 
         Set<AdvertCopyDto> konacna = new HashSet<>();
+        Set<AdvertCopyDto> listaSlobodnihDatuma = new HashSet<>();
         boolean prekinuto = false;
+        boolean cityHelp = false;
 
         for (AdvertCopyDto aa: advertCopyD) {
             label1:
@@ -87,9 +88,15 @@ public class SearchServiceImpl implements SearchService {
                 }
             }
             if(!prekinuto){
-                konacna.add(aa);
+                listaSlobodnihDatuma.add(aa);
             }
             prekinuto=false;
+        }
+
+        for (AdvertCopyDto a: listaSlobodnihDatuma) {
+            if(a.getCity().equals(city)){
+                konacna.add(a);
+            }
         }
 
         return konacna;
@@ -131,15 +138,15 @@ public class SearchServiceImpl implements SearchService {
         List<CarReservedDate> lista2 = new ArrayList<>();
         List<CarReservedDate> lista3 = new ArrayList<>();
 
-        AdvertCopy advertCopy1 = new AdvertCopy("Sabac", lista1);
-        AdvertCopy advertCopy2 = new AdvertCopy("Sabac", lista2);
-        AdvertCopy advertCopy3 = new AdvertCopy("Sabac", lista3);
+        AdvertCopy advertCopy1 = new AdvertCopy("Sabac", "Audi", "A8", "Dizel", "Manuelni", "Visoka", 500,500,300,"YES",5,5,lista1);
+        AdvertCopy advertCopy2 = new AdvertCopy("Beograd", "BMW", "X5", "Dizel", "Automatski", "Visoka", 550,400,200,"YES",5,5,lista2);;
+        AdvertCopy advertCopy3 = new AdvertCopy("Sabac", "Citroen", "C5", "Benzin", "Manuelni", "Srednja",400,900,150,"NO",4,4,lista3);;
 
-        CarReservedDate carReservedDate1 = new CarReservedDate(datep1, datek1, advertCopy1);
-        CarReservedDate carReservedDate2 = new CarReservedDate(datep2, datek2, advertCopy1);
-        CarReservedDate carReservedDate3 = new CarReservedDate(datep3, datek3, advertCopy2);
-        CarReservedDate carReservedDate4 = new CarReservedDate(datep4, datek4, advertCopy2);
-        CarReservedDate carReservedDate5 = new CarReservedDate(datep5, datek5, advertCopy3);
+        CarReservedDate carReservedDate1 = new CarReservedDate(datep1, datek1);
+        CarReservedDate carReservedDate2 = new CarReservedDate(datep2, datek2);
+        CarReservedDate carReservedDate3 = new CarReservedDate(datep3, datek3);
+        CarReservedDate carReservedDate4 = new CarReservedDate(datep4, datek4);
+        CarReservedDate carReservedDate5 = new CarReservedDate(datep5, datek5);
 
         lista1.add(carReservedDate1);
         lista1.add(carReservedDate2);
@@ -167,5 +174,170 @@ public class SearchServiceImpl implements SearchService {
     public AdvertCopyDto findById(Long id) {
         AdvertCopyDto advertCopyDto = (AdvertCopyDto) dtoUtils.convertToDto(searchRepository.findByAdvertCopyId(id), new AdvertCopyDto());
         return advertCopyDto;
+    }
+
+    @Override
+    public Set<AdvertCopyDto> findAdvertsByParameters(Set<AdvertCopyDto> freeAdverts) {
+        return null;
+    }
+
+
+    @Override
+    public Set<CarBrandPomocnaDto> findAllMarks() {
+
+        List<AdvertCopyDto> advertCopyD = this.findAll();
+
+        Set<CarBrandPomocnaDto> list = new HashSet<>();
+        for (AdvertCopyDto a: advertCopyD) {
+            CarBrandPomocnaDto c = new CarBrandPomocnaDto();
+            c.setName(a.getCarMark());
+            list.add(c);
+        }
+
+        return list;
+    }
+
+    @Override
+    public Set<CarClassPomocnaDto> findAllClasses() {
+
+        List<AdvertCopyDto> advertCopyD = this.findAll();
+
+        Set<CarClassPomocnaDto> list = new HashSet<>();
+        for (AdvertCopyDto a: advertCopyD) {
+            CarClassPomocnaDto c = new CarClassPomocnaDto();
+            c.setClassName(a.getCarClass());
+            list.add(c);
+        }
+        return list;
+    }
+
+    @Override
+    public Set<CarFuelTypePomocnaDto> findAllFuel() {
+
+        List<AdvertCopyDto> advertCopyD = this.findAll();
+
+        Set<CarFuelTypePomocnaDto> list = new HashSet<>();
+        for (AdvertCopyDto a: advertCopyD) {
+            CarFuelTypePomocnaDto c = new CarFuelTypePomocnaDto();
+            c.setFuelType(a.getCarFuelType());
+            list.add(c);
+        }
+        return list;
+    }
+
+    @Override
+    public Set<CarModelPomocnaDto> findAllModels() {
+
+        List<AdvertCopyDto> advertCopyD = this.findAll();
+
+        Set<CarModelPomocnaDto> list = new HashSet<>();
+        for (AdvertCopyDto a: advertCopyD) {
+            CarModelPomocnaDto c = new CarModelPomocnaDto();
+            c.setModelName(a.getModelMark());
+            list.add(c);
+        }
+        return list;
+    }
+
+    @Override
+    public Set<CarTransmissionTypePomocnaDto> findAllTransmission() {
+
+        List<AdvertCopyDto> advertCopyD = this.findAll();
+
+        Set<CarTransmissionTypePomocnaDto> list = new HashSet<>();
+        for (AdvertCopyDto a: advertCopyD) {
+            CarTransmissionTypePomocnaDto c = new CarTransmissionTypePomocnaDto();
+            c.setTransmissionType(a.getCarTransmissionType());
+            list.add(c);
+        }
+        return list;
+    }
+
+    @Override
+    public Set<AdvertCopyDto> findAdvertsByParameters(String city, Date start, Date end, String carMark, String modelMark, String carFuelType, String carTransmissionType, String carClass,String priceFrom2, String priceTo2, String traveledKm2, String insurance, String numberOfSeats2, String mark2) {
+
+        Set<AdvertCopyDto> konacnaLista = new HashSet<>();
+        Set<AdvertCopyDto> list = this.findFreeAdverts(city, start, end);
+
+
+
+            if(priceFrom2.equals("") && priceTo2.equals("") && traveledKm2.equals("")){
+                for (AdvertCopyDto a: list) {
+                    if (a.getCarMark().contains(carMark) && a.getModelMark().contains(modelMark) && a.getCarFuelType().contains(carFuelType) && a.getCarTransmissionType().contains(carTransmissionType) && a.getCarClass().contains(carClass) && a.getInsurance().contains(insurance) && Float.toString(a.getMark()).contains(mark2) && Integer.toString(a.getNumberOfSeats()).contains(numberOfSeats2)) {
+                        konacnaLista.add(a);
+                    }
+                }
+            }
+
+           if(!priceFrom2.equals("") && !priceTo2.equals("") && !traveledKm2.equals("")){
+               for (AdvertCopyDto a: list) {
+                   if(a.getPrice() >= Float.parseFloat(priceFrom2) && a.getPrice() <= Float.parseFloat(priceTo2) && a.getTraveledKm() <= Float.parseFloat(traveledKm2)) {
+                       if (a.getCarMark().contains(carMark) && a.getModelMark().contains(modelMark) && a.getCarFuelType().contains(carFuelType) && a.getCarTransmissionType().contains(carTransmissionType) && a.getCarClass().contains(carClass) && a.getInsurance().contains(insurance) && Float.toString(a.getMark()).contains(mark2) && Integer.toString(a.getNumberOfSeats()).contains(numberOfSeats2)) {
+                           konacnaLista.add(a);
+                       }
+                   }
+            }
+        }
+
+        if(priceFrom2.equals("") && !priceTo2.equals("") && !traveledKm2.equals("")){
+            for (AdvertCopyDto a: list) {
+                if(a.getPrice() <= Float.parseFloat(priceTo2) && a.getTraveledKm() <= Float.parseFloat(traveledKm2)) {
+                    if (a.getCarMark().contains(carMark) && a.getModelMark().contains(modelMark) && a.getCarFuelType().contains(carFuelType) && a.getCarTransmissionType().contains(carTransmissionType) && a.getCarClass().contains(carClass) && a.getInsurance().contains(insurance) && Float.toString(a.getMark()).contains(mark2) && Integer.toString(a.getNumberOfSeats()).contains(numberOfSeats2)) {
+                        konacnaLista.add(a);
+                    }
+                }
+            }
+        }
+
+        if(!priceFrom2.equals("") && priceTo2.equals("") && !traveledKm2.equals("")){
+            for (AdvertCopyDto a: list) {
+                if(a.getPrice() >= Float.parseFloat(priceFrom2) && a.getTraveledKm() <= Float.parseFloat(traveledKm2)) {
+                    if (a.getCarMark().contains(carMark) && a.getModelMark().contains(modelMark) && a.getCarFuelType().contains(carFuelType) && a.getCarTransmissionType().contains(carTransmissionType) && a.getCarClass().contains(carClass) && a.getInsurance().contains(insurance) && Float.toString(a.getMark()).contains(mark2) && Integer.toString(a.getNumberOfSeats()).contains(numberOfSeats2)) {
+                        konacnaLista.add(a);
+                    }
+                }
+            }
+        }
+
+        if(!priceFrom2.equals("") && !priceTo2.equals("") && traveledKm2.equals("")){
+            for (AdvertCopyDto a: list) {
+                if(a.getPrice() >= Float.parseFloat(priceFrom2) && a.getPrice() <= Float.parseFloat(priceTo2) ) {
+                    if (a.getCarMark().contains(carMark) && a.getModelMark().contains(modelMark) && a.getCarFuelType().contains(carFuelType) && a.getCarTransmissionType().contains(carTransmissionType) && a.getCarClass().contains(carClass) && a.getInsurance().contains(insurance) && Float.toString(a.getMark()).contains(mark2) && Integer.toString(a.getNumberOfSeats()).contains(numberOfSeats2)) {
+                        konacnaLista.add(a);
+                    }
+                }
+            }
+        }
+
+        if(priceFrom2.equals("") && priceTo2.equals("") && !traveledKm2.equals("")){
+            for (AdvertCopyDto a: list) {
+                if(a.getTraveledKm() <= Float.parseFloat(traveledKm2)) {
+                    if (a.getCarMark().contains(carMark) && a.getModelMark().contains(modelMark) && a.getCarFuelType().contains(carFuelType) && a.getCarTransmissionType().contains(carTransmissionType) && a.getCarClass().contains(carClass) && a.getInsurance().contains(insurance) && Float.toString(a.getMark()).contains(mark2) && Integer.toString(a.getNumberOfSeats()).contains(numberOfSeats2)) {
+                        konacnaLista.add(a);
+                    }
+                }
+            }
+        }
+
+        if(priceFrom2.equals("") && !priceTo2.equals("") && traveledKm2.equals("")){
+            for (AdvertCopyDto a: list) {
+                if(a.getPrice() <= Float.parseFloat(priceTo2)) {
+                    if (a.getCarMark().contains(carMark) && a.getModelMark().contains(modelMark) && a.getCarFuelType().contains(carFuelType) && a.getCarTransmissionType().contains(carTransmissionType) && a.getCarClass().contains(carClass) && a.getInsurance().contains(insurance) && Float.toString(a.getMark()).contains(mark2) && Integer.toString(a.getNumberOfSeats()).contains(numberOfSeats2)) {
+                        konacnaLista.add(a);
+                    }
+                }
+            }
+        }
+
+        if(!priceFrom2.equals("") && priceTo2.equals("") && traveledKm2.equals("")){
+            for (AdvertCopyDto a: list) {
+                if(a.getPrice() >= Float.parseFloat(priceFrom2) && a.getPrice() <= Float.parseFloat(priceTo2) && a.getTraveledKm() <= Float.parseFloat(traveledKm2)) {
+                    if (a.getCarMark().contains(carMark) && a.getModelMark().contains(modelMark) && a.getCarFuelType().contains(carFuelType) && a.getCarTransmissionType().contains(carTransmissionType) && a.getCarClass().contains(carClass) && a.getInsurance().contains(insurance) && Float.toString(a.getMark()).contains(mark2) && Integer.toString(a.getNumberOfSeats()).contains(numberOfSeats2)) {
+                        konacnaLista.add(a);
+                    }
+                }
+            }
+        }
+        return konacnaLista;
     }
 }

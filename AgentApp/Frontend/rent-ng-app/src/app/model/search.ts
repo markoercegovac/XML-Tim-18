@@ -1,5 +1,4 @@
 export class Search {
-  advertCopyId: number;
   city: string;
   startOfAdvert: Date;
   endOfAdvert: Date;

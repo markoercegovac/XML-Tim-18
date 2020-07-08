@@ -25,4 +25,58 @@
 
     </form>
   </div>
+
+  <div *ngIf=" oglasi?.length > 0 ">
+
+    <hr/>
+    <table class="table table-bordered table-hover">
+      <thead>
+      <th>City: </th>
+      <th>Car Mark: </th>
+      <th>Car Model: </th>
+      <th>Car Fuel Type: </th>
+      <th>Car Transmission Type: </th>
+      <th>Car Class: </th>
+      <th>Traveled Km: </th>
+      <th>Planned Km: </th>
+      <th>Insurance: </th>
+      <th>Number Of Seats: </th>
+      <th>Mark: </th>
+      <th>Price: </th>
+      </thead>
+
+      <tbody>
+      <tr *ngFor=" let dr of oglasi ">
+        <td>{{dr.city }}</td>
+        <td>{{dr.carMark }}</td>
+        <td>{{dr.modelMark }}</td>
+        <td>{{dr.carFuelType }}</td>
+        <td>{{dr.carTransmissionType }}</td>
+        <td>{{dr.carClass }}</td>
+        <td>{{dr.traveledKm }}</td>
+        <td>{{dr.plannedKm }}</td>
+        <td>{{dr.insurance }}</td>
+        <td>{{dr.numberOfSeats }}</td>
+        <td>{{dr.mark }}</td>
+        <td>{{dr.price }}</td>
+
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <div>
+    <br/>
+    Price sort: &nbsp; Ascending <input type="radio" name = "sortCene" id="cenaRastuce" (click)="sortirajCeneRastuce()"/> &nbsp; &nbsp;
+    Descending <input type="radio" id="cenaOpadajuce"  name = "sortCene" (click)="sortirajCeneOpadajuce()"/>
+    <br/>
+    Mark sort: &nbsp; Ascending <input type="radio" name = "sortOcene" id="oceneRastuce" (click)="sortirajOceneRastuce()"/> &nbsp; &nbsp;
+    Descending <input type="radio" id="oceneOpadajuce"  name = "sortOcene" (click)="sortirajOceneOpadajuce()"/>
+    <br/>
+    Traveled Km sort: &nbsp; Ascending <input type="radio" name = "sortKil" id="kilometrazaRastuce" (click)="sortirajKilometrazuRastuce()"/> &nbsp; &nbsp;
+    Descending <input type="radio" id="kilometrazaOpadajuce"  name = "sortKil" (click)="sortirajKilometrazuOpadajuce()"/>
+    <br/>
+  </div>
+
   </div>

@@ -10,4 +10,8 @@ public interface SearchRepository extends JpaRepository<AdvertCopy, Long> {
 
     List<AdvertCopy> findAll();
     AdvertCopy findByAdvertCopyId(Long id);
+
+
+    List<AdvertCopy> findAllByCarMark(String s);
+
 }

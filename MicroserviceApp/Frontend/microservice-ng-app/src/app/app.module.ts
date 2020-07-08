@@ -41,7 +41,7 @@ import { CarTranssmisionTypeComponent } from './car-transsmision-type/car-transs
 import { NavigationAdminComponent } from './navigation-admin/navigation-admin.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreateCarBrandComponent } from './car-brand/create-car-brand/create-car-brand.component';
-import {MatDialogModule} from "@angular/material/dialog";
+import {MatDialogModule} from '@angular/material/dialog';
 import { CreateCarClassComponent } from './car-class/create-car-class/create-car-class.component';
 import { CreateFuelTypeComponent } from './car-fuel-type/create-fuel-type/create-fuel-type.component';
 import { CreateCarModelComponent } from './car-model/create-car-model/create-car-model.component';
@@ -75,6 +75,8 @@ import { CommentsComponent } from './home/full-advert/comments/comments.componen
 import { HomeHeaderComponent } from './home/home-header/home-header.component';
 import { CommentComponent } from './home/full-advert/comments/comment/comment.component';
 import { AdminCommentsAllowComponent } from './admin-comments-allow/admin-comments-allow.component';
+import { SearchAdvancedComponent } from './search-advanced/search-advanced.component';
+
 
 
 @NgModule({
@@ -138,7 +140,10 @@ import { AdminCommentsAllowComponent } from './admin-comments-allow/admin-commen
     CommentsComponent,
     HomeHeaderComponent,
     CommentComponent,
-    AdminCommentsAllowComponent
+    AdminCommentsAllowComponent,
+    SearchAdvancedComponent,
+
+
 
 
   ],

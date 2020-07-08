@@ -22,15 +22,27 @@ public class AdvertCopyDto implements DtoEntity {
     private float priceTo;
     private float traveledKm;
     private float plannedKm;
-    private boolean insurance;
+    private String insurance;
     private int numberOfSeats;
     private String profilePicture;
     private float mark;
     private float price;
     private List<CarReservedDate> carReservedDate;
 
-    public AdvertCopyDto(String city, List<CarReservedDate> listaZauzeca) {
+    public AdvertCopyDto(String city, String carMark, String modelMark, String carFuelType, String carTransmissionType, String carClass, float priceFrom, float priceTo, float traveledKm, float plannedKm, String insurance, int numberOfSeats, float mark, List<CarReservedDate> listaZauzeca) {
         this.city=city;
+        this.carMark=carMark;
+        this.modelMark=modelMark;
+        this.carFuelType=carFuelType;
+        this.carTransmissionType=carTransmissionType;
+        this.carClass=carClass;
+        this.priceFrom=priceFrom;
+        this.priceTo=priceTo;
+        this.traveledKm=traveledKm;
+        this.plannedKm=plannedKm;
+        this.insurance=insurance;
+        this.numberOfSeats=numberOfSeats;
+        this.mark=mark;
         this.carReservedDate= listaZauzeca;
 
     }

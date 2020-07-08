@@ -14,6 +14,8 @@ export class SearchComponent implements OnInit {
   searchFormGroup: FormGroup;
   oglasi: Search [];
 
+
+
   form = new FormGroup({
     city: new FormControl(),
     // tslint:disable-next-line:max-line-length
@@ -26,8 +28,8 @@ export class SearchComponent implements OnInit {
 
 
 
-ngOnInit(): void {
-  }
+ngOnInit(): void {}
+
 
 
   onSubmit(pretrazi) {
@@ -43,6 +45,7 @@ ngOnInit(): void {
         .subscribe(
           (response: Search[]) => {
             this.oglasi = response;
+            console.log(this.oglasi);
           }
         );
     } else {
@@ -132,6 +135,30 @@ ngOnInit(): void {
     }
     const todayStr = yyyy + '-' + pm + '-' + pd ;
     return todayStr;
+  }
+
+  sortirajCeneRastuce(){
+    this.oglasi.sort((a, b) => a.price - b.price);
+  }
+
+  sortirajCeneOpadajuce(){
+    this.oglasi.sort((a, b) => b.price - a.price);
+  }
+
+  sortirajOceneRastuce(){
+    this.oglasi.sort((a, b) => a.mark - b.mark);
+  }
+
+  sortirajOceneOpadajuce(){
+    this.oglasi.sort((a, b) => b.mark - a.mark);
+  }
+
+  sortirajKilometrazuRastuce(){
+    this.oglasi.sort((a, b) => a.traveledKm - b.traveledKm);
+  }
+
+  sortirajKilometrazuOpadajuce(){
+    this.oglasi.sort((a, b) => b.traveledKm - a.traveledKm);
   }
 
 
