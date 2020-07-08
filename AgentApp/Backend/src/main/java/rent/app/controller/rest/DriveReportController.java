@@ -1,4 +1,4 @@
-package rent.app.controller;
+package rent.app.controller.rest;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 
 @RequiredArgsConstructor
 @RestController
@@ -60,4 +61,3 @@ public class DriveReportController {
 
     }
 }
-

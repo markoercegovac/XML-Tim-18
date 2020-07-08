@@ -30,14 +30,4 @@ public class Role {
     private Collection<Permission> permissions;
 
 
-    @ManyToMany(mappedBy = "roles")
-    private Collection<Client> clients;
-
-    public Collection<Client> getClients() {
-        return clients;
-    }
-
-    public void setClients(Collection<Client> clients) {
-        this.clients = clients;
-    }
 }

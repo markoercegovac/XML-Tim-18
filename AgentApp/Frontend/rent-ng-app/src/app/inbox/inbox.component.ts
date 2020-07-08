@@ -11,42 +11,16 @@ import {MessageService} from '../service/message-service';
 export class InboxComponent implements OnInit {
 
   messages: MessageModel[] = [];
-  change: boolean;
+
 
   constructor(private messageService: MessageService) { }
 
   ngOnInit(): void {
-    this.change=true;
-    this.changeUser();
+    this.messageService.getInbox().subscribe(
+      data=>{
+        this.messages = data;
+      }
+    );
   }
 
-
-  changeUser() {
-
-    if (this.change == true){
-      this.change = false;
-      this.loadUser(this.change);
-    }
-    else {
-      this.change = true;
-      this.loadUser(this.change);
-    }
-  }
-
-  loadUser(change: boolean){
-    if(change){
-      this.messageService.getInbox().subscribe(
-        data=>{
-          this.messages = data;
-        }
-      );
-    }
-    else {
-      this.messageService.getInboxTest().subscribe(
-        data=>{
-          this.messages=data;
-        }
-      );
-    }
-  }
 }
