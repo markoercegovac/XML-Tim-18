@@ -12,6 +12,7 @@ services:
 
   zuul:
     build: ./GatewayService
+    image: zuul
     container_name: zuul
     networks:
       - demo
@@ -19,6 +20,9 @@ services:
       - 8662:8662
     environment:
       REGISTRY_HOST: eureka
+      REGISTRY_PORT: 8761
+      AUTH_ADR: user-manager
+      AUTH_PORT: 8097
     depends_on:
       - eureka
       - user-manager
@@ -69,7 +73,7 @@ services:
       - mysql-db
       - eureka
       - rabbitmq
-#
+
 #  comment-manager:
 #    build: ./CommentManager
 #    image: comment-manager
@@ -173,6 +177,7 @@ services:
   rabbitmq:
     build: ./RabbitMQ
     image: rabbitmq
+    container_name: rabbitmq
     ports:
       - 4369:4369
       - 5671:5671

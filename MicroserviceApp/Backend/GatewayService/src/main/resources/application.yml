@@ -1,23 +1,19 @@
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 60000
-ribbon:
-  ReadTimeout: 60000
-  eureka:
-    enabled: true
 server:
   port: 8662
 spring:
   application:
-    name: gateway-service
+    name: ${SPRINGBOOT_APP_NAME:zuul}
 zuul:
+  sensitive-headers: Cookie,Set-Cookie, Access-Control-Allow-Credentials, Access-Control-Allow-Origin
+  ignored-headers: Access-Control-Allow-Credentials, Access-Control-Allow-Origin
+  add-host-header: true
   host:
     connect-timeout-millis: 5000000
     socket-timeout-millis: 5000000
+    max-total-connections: 5000
+    max-per-route-connections: 10000
+  semaphore:
+    max-semaphores: 500
   ignored-services: '''*'''
   routes:
 
@@ -50,15 +46,35 @@ zuul:
       path: /**
       service-id: user-manager
       strip-prefix: true
-  sensitive-headers: Cookie,Set-Cookie
-  add-host-header: true
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 90000
+ribbon:
+  ReadTimeout: 30000
+  ConnectTimeout: 15000
+  eureka:
+    enabled: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${REGISTRY_HOST:localhost}:${REGISTRY_PORT:8761}/eureka
+      healthcheck:
+        enabled: true
+  instance:
+    prefer-ip-address: true
 
 security:
   oauth2:
     client:
       client-id: user-manager
       client-secret: user123
-      access-token-uri: http://${ACCESS_ADR:localhost}:${ACCESS_PORT:8081}/oauth/token
+      access-token-uri: http://${AUTH_ADR:localhost}:${AUTH_PORT:8081}/oauth/token
       user-authorization-uri: http://${AUTH_ADR:localhost}:${AUTH_PORT:8081}/oauth/authorize
     resource:
       jwt:

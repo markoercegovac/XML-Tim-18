@@ -23,6 +23,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/advert-manager/advert")
 @RestController
+//@CrossOrigin("http://localhost:4200")
 public class AdvertController {
 
     private final CheckService checkService;
