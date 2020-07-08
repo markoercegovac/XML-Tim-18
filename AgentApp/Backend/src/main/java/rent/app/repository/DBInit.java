@@ -53,12 +53,12 @@ class DbInit implements CommandLineRunner {
         Client user1= new Client();
         Client user2= new Client();
         user1.setEmail("marko@com");
-        user1.setUsername("admin");
+        user1.setUsername("marko@com");
         user1.setPassword(passwordEncoder.encode("admin123"));
         user1.setRoles(roleList);
 
         user2.setEmail("bla@com");
-        user2.setUsername("user");
+        user2.setUsername("bla@com");
         user2.setPassword(passwordEncoder.encode("user123"));
 
         userRepository.save(user1);
