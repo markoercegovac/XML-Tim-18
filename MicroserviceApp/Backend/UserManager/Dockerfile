@@ -7,4 +7,4 @@ RUN ["mvn", "package", "-DskipTests"]
 FROM openjdk:11
 COPY --from=userMaven /usr/src/servers/user/target/user-manager.jar ./
 EXPOSE 8081
-CMD ["java", "-jar", "user-manager.jar", "--spring.profiles.active=prod"]
+CMD ["java", "-jar", "user-manager.jar"]

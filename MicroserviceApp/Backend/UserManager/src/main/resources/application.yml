@@ -1,7 +1,6 @@
 server:
   port: 8081
 
-
 rabbitmq:
   exchange:
     ad: direct.user.ad

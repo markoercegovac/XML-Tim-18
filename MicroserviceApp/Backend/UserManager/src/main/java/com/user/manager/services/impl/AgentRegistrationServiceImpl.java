@@ -3,7 +3,6 @@ package com.user.manager.services.impl;
 import com.user.manager.dto.AgentDTO;
 import com.user.manager.model.Role;
 import com.user.manager.model.User;
-import com.user.manager.repository.PermissionRepository;
 import com.user.manager.repository.RoleRepository;
 import com.user.manager.repository.UserRepository;
 import com.user.manager.services.AgentRegistrationService;
@@ -45,7 +44,7 @@ public class AgentRegistrationServiceImpl implements AgentRegistrationService {
         user.setCompanyRegistrationNumber(dto.getRegistrationNumber());
         user.setAgentUrl(dto.getUrl());
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
-        user.setBanned(false);
+        user.setBanned(true);
         user.setForbiddenAdvert(false);
         user.setRemoved(false);
         user.setAdminApproved(false);

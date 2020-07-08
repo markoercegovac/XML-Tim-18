@@ -17,7 +17,7 @@ rabbitmq:
   queue:
     from:
       request: queue.reques.ad # CRVENA VEZA NA SLICI
-      user: queue.user.a
+      user: queue.user.ad
 
 spring:
   rabbitmq:
