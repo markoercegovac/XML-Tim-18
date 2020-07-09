@@ -5,11 +5,7 @@
     <br>
     <form (ngSubmit)="onAddAd(f)" #f="ngForm">
 
-        <!--CAR INFO-->
-        <p>form for add car</p>
-        <button class="btn btn-success">add car specifik data</button>
-        <hr>
-        <br>
+
 
         <!--PROFILE IMAGE-->
         <label>
@@ -56,7 +52,7 @@
         <!--PRICE-->
         <hr>
         <div class="form-group row">
-            <label class="col-4 col-form-label" for="inputPrice">Select price</label>
+            <label class="col-4 col-form-label" for="inputPrice">Select Price</label>
             <div class="col-8">
 
                 <select class="browser-default custom-select" name="inputPrice" id="inputPrice" ngModel required #a="ngModel">
@@ -66,7 +62,7 @@
             </div>
         </div>
       <div class="form-group row">
-        <label class="col-4 col-form-label" for="inputPrice">Select price</label>
+        <label class="col-4 col-form-label" for="inputPrice">Select Car</label>
         <div class="col-8">
 
           <select class="browser-default custom-select" name="inputCar" id="inputCar" ngModel required #inputCar="ngModel">
@@ -78,19 +74,7 @@
 
         <!--DISSCOUNT-->
         <hr>
-        <div class="form-group row">
-            <label class="col-4 col-form-label" for="inputDisscount">Select discount</label>
-            <div class="col-8">
 
-                <select class="browser-default custom-select" name="inputDisscount" id="inputDisscount">
-                    <option value="0" disabled selected>no disscount</option>
-                    <option value="1">diss 10% for 25km</option>
-                    <option value="2">diss 10% for 3 days</option>
-                    <option value="3">diss 5% for senior citizens</option>
-                </select>
-
-            </div>
-        </div>
 
         <!--ADVERT EXPIRE DATE-->
         <hr>

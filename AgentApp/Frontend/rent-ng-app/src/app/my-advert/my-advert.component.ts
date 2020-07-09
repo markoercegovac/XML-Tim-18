@@ -15,9 +15,10 @@ export class MyAdvertComponent implements OnInit {
   constructor(private advertService: AdvertService, private router: Router) { }
 
   ngOnInit(): void {
-    this.advertService.getAllAdverts().subscribe(
+    this.advertService.getMyAdverts().subscribe(
       data => {
         this.allAdverts = data;
+        console.log(this.allAdverts)
       }
     );
   }

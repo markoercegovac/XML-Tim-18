@@ -36,6 +36,11 @@ export class AdvertService {
 
   }
 
+  public getMyAdverts(): Observable<AdvertMiniModel[]> {
+    return this.http.get<AdvertMiniModel[]>(URL + '/myAdverts');
+
+  }
+
   public allReservationForAdvert(id: number): Observable<Reservation[]>{
     return this.http.get<Reservation[]>(URL + '/reservation/' + id);
   }

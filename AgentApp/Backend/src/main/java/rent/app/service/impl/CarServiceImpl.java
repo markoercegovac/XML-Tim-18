@@ -22,6 +22,7 @@ public class CarServiceImpl implements CarService {
     private final CarFuelRepository carFuelRepository;
     private final CarRepository carRepository;
     private final DtoUtils dtoUtils;
+    private final ClientRepository clientRepository;
 
     @Override
     public List<DTOEntity> getCarBrands() {
@@ -49,7 +50,8 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public void createCar(CarDto carDto) {
+    public void createCar(CarDto carDto,String ownerEmail) {
+        Client owner=clientRepository.findById(ownerEmail).get();
         CarBrand carBrand=carBrandRepository.findById(carDto.getCarBrand()).get();
         CarFuelType carFuelType=carFuelRepository.findById(carDto.getCarFuelType()).get();
         CarModel carModel=carModelRepository.findById(carDto.getCarModel()).get();
@@ -57,19 +59,24 @@ public class CarServiceImpl implements CarService {
         CarClass carClass=carClassRepository.findById(carDto.getCarClass()).get();
 
         Car car= (Car) dtoUtils.convertToEntity(new Car(),carDto);
+        car.setId(null);
         car.setCarBrand(carBrand);
         car.setCarClass(carClass);
         car.setCarFuelType(carFuelType);
         car.setCarModel(carModel);
         car.setCarTransmissionType(carTransmissionType);
+        car.setTravelDistanceConstraint((long) carDto.getTravelDistance());
         carRepository.save(car);
+        owner.getCarList().add(car);
+        clientRepository.save(owner);
+
     }
 
     @Override
-    public List<CarDtoMini> allCars() {
+    public List<CarDtoMini> allCars(String ownerEmail) {
         List<CarDtoMini> cars=new ArrayList<>();
-        List<Car>carList=carRepository.findAll();
-        for(Car c: carList){
+        Client owner= clientRepository.findById(ownerEmail).get();
+        for(Car c: owner.getCarList()){
             CarDtoMini carDtoMini=new CarDtoMini();
             carDtoMini.setId(c.getId());
             carDtoMini.setCarName(c.getCarModel().getModelName()+":"+c.getCarBrand().getName());

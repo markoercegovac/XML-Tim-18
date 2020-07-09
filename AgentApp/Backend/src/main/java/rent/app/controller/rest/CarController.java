@@ -8,6 +8,7 @@ import rent.app.dto.*;
 import rent.app.model.*;
 import rent.app.service.CarService;
 
+import java.security.Principal;
 import java.util.List;
 
 @RequestMapping("/api/car")
@@ -44,12 +45,12 @@ public class CarController {
     }
 
     @PostMapping("/registerCar")
-    public void registerCar(@RequestBody CarDto car){
-        carService.createCar(car);
+    public void registerCar(@RequestBody CarDto car, Principal principal){
+        carService.createCar(car,principal.getName());
     }
 
     @GetMapping("/allCars")
-    public ResponseEntity<List<CarDtoMini>> getAllCars(){
-        return new ResponseEntity<>(carService.allCars(),HttpStatus.OK);
+    public ResponseEntity<List<CarDtoMini>> getAllCars(Principal principal){
+        return new ResponseEntity<>(carService.allCars(principal.getName()),HttpStatus.OK);
     }
 }

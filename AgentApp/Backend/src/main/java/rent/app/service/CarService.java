@@ -13,6 +13,6 @@ public interface CarService {
     List<DTOEntity> getFuelTypes();
     List<DTOEntity> getCarClasses();
     List<DTOEntity> getTransmissions();
-    void createCar(CarDto car);
-    List<CarDtoMini> allCars();
+    void createCar(CarDto car,String ownerEmail);
+    List<CarDtoMini> allCars(String ownerEmail);
 }
