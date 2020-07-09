@@ -1,5 +1,6 @@
 package com.example.advertmanagerapp.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -55,6 +56,10 @@ public class ConcreteCar implements Serializable {
 
     @Column
     private int childrenSitNumber;
+
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JsonBackReference
+    private Set<DriveReport> reports;
 
 
 

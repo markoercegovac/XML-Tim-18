@@ -5,5 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ConcreteCarRepository extends JpaRepository<ConcreteCar,Long> {
 
+    ConcreteCar findAllById(Long carId);
+    ConcreteCar findByReportsId(Long driverReportId);
 
 }

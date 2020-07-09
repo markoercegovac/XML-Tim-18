@@ -74,4 +74,17 @@ public class CarServiceImplement implements CarService {
     public List<DtoEntity> getAllCars() {
         return concreteCarRepository.findAll().stream().map(c->dtoUtils.convertToDto(c,new CarDto())).collect(Collectors.toList());
     }
+
+    @Override
+    public List<CarDto> getAllConcreteCar() {
+        List<ConcreteCar> cars = this.concreteCarRepository.findAll();
+        List<CarDto> konacna = new ArrayList<>();
+        for (ConcreteCar c: cars) {
+            CarDto carDto = new CarDto();
+            carDto.setId(c.getId());
+            carDto.setNameOfCar(c.getNameOfCar());
+            konacna.add(carDto);
+        }
+        return konacna;
+    }
 }
