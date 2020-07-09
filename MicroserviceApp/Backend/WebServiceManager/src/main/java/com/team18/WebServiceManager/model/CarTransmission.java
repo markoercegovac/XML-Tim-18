@@ -11,15 +11,17 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @Table
-public class Agent {
-
+public class CarTransmission {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long agentId;
-
-	@Column(nullable = false, unique = true)
-	private String agentEmail;
+	private Long id;
 
 	@Column(nullable = false)
-	private String agentUrl;
+	private Long keyMS;
+
+	@Column(nullable = false)
+	private Long keyAG;
+
+	@ManyToOne
+	private Agent agent;
 }

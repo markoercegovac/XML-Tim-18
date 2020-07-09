@@ -11,10 +11,9 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @Table
-public class Binding {
-
+public class Capture {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
 	@Column(nullable = false)
@@ -23,4 +22,6 @@ public class Binding {
 	@Column(nullable = false)
 	private Long keyAG;
 
+	@ManyToOne
+	private Agent agent;
 }

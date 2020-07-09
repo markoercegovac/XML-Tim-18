@@ -1,4 +1,4 @@
-package com.team18.WebServiceManager.mq.service;
+package com.team18.WebServiceManager.mq.service.consumer;
 
 import com.google.gson.Gson;
 import com.team18.WebServiceManager.model.Agent;
