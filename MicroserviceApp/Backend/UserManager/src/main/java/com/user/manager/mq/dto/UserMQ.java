@@ -10,9 +10,8 @@ import lombok.NoArgsConstructor;
 public class UserMQ {
 
     private String email;
-    private String name;
-    private String surname;
-    private String companyName;
-    private boolean isForbiddenAdvert;
+    private boolean isBanned;
+    private boolean isRemoved;
     private boolean isCreationEnabled;
+    private boolean isForbiddenAdvert;
 }

@@ -5,9 +5,11 @@ rabbitmq:
   exchange:
     ad: direct.user.ad
     mail: direct.user.mail
+    soap: direct.user.soap
   routingkey:
     ad: key.user.ad
     mail: key.user.mail
+    soap: key.user.soap
 
 
 spring:

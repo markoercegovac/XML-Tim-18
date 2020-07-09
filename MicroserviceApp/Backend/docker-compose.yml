@@ -188,6 +188,23 @@ services:
     networks:
       - demo
 
+  soap:
+    build: ./WebServiceManager
+    image: soap
+    container_name: soap
+    restart: on-failure
+    networks:
+        - demo
+    environment:
+      RABBITMQ: rabbitmq
+      DATABASE_USERNAME: us_soap
+      DATABASE_PASSWORD: password-soap
+      DATABASE_DOMAIN: mysql-db
+      DATABASE_SCHEMA: soap_db
+    depends_on:
+        - mysql-db
+        - rabbitmq
+
   mysql-db:
     image: mysql:8.0.19
     command: --default-authentication-plugin=mysql_native_password
