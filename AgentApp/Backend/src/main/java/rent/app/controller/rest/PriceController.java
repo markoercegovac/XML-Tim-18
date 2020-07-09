@@ -1,4 +1,4 @@
-package rent.app.controller;
+package rent.app.controller.rest;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -8,6 +8,7 @@ import rent.app.dto.DTOEntity;
 import rent.app.dto.PriceDto;
 import rent.app.service.PriceService;
 
+import java.security.Principal;
 import java.util.List;
 
 @RequestMapping("/api/price")
@@ -19,7 +20,7 @@ public class PriceController {
     private final PriceService priceService;
 
     @PostMapping
-    public void createPrice(@RequestBody PriceDto priceDto){
+    public void createPrice(@RequestBody PriceDto priceDto, Principal principal){
         priceService.createPrice(priceDto);
     }
 

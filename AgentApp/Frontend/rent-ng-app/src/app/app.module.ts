@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {MDBBootstrapModule} from 'angular-bootstrap-md';
 // @ts-ignore
-import { HttpClientModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { RegisterComponent } from './register/register.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -46,6 +46,7 @@ import { DriveReportCreateComponent } from './drive-report-create/drive-report-c
 import { DriveReportListComponent } from './drive-report-list/drive-report-list.component';
 import { DriveReportUpdateComponent } from './drive-report-update/drive-report-update.component';
 import { AllRegistrationRequestComponent } from './all-registration-request/all-registration-request.component';
+import {AuthInterceptor} from './interceptor/AuthInterceptor';
 
 
 @NgModule({
@@ -93,7 +94,11 @@ import { AllRegistrationRequestComponent } from './all-registration-request/all-
     FormsModule,
     MDBBootstrapModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

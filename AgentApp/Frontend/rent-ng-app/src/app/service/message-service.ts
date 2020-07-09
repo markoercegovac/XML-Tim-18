@@ -22,18 +22,12 @@ export class MessageService {
   }
 
 
-  // IZMENITI KAD DODJE SECURITY
   public getInbox(): Observable<MessageModel[]> {
     return this.http.get<MessageModel[]>(URL + '/inbox');
   }
   public getSent(): Observable<MessageModel[]> {
     return this.http.get<MessageModel[]>(URL + '/sent');
   }
-  public getInboxTest(): Observable<MessageModel[]> {
-    return this.http.get<MessageModel[]>(URL + '/inbox/test');
-  }
-  public getSentTest(): Observable<MessageModel[]> {
-    return this.http.get<MessageModel[]>(URL + '/sent/test');
-  }
+
 
 }
