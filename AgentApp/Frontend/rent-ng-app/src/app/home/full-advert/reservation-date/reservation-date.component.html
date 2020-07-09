@@ -1,0 +1,22 @@
+<head>
+
+</head>
+<body>
+<h1 mat-dialog-title><i class="fa fa-plus" aria-hidden="true"></i></h1>
+<div mat-dialog-content>
+<h4>Reservation</h4>
+  <mat-form-field>
+    Select start date: <br>
+    <mat-label></mat-label>
+    <input type="date" [ngModel]="AdvReq.dateStart" >
+
+    Select end date: <br>
+    <mat-label></mat-label>
+    <input type="date"  [ngModel]="AdvReq.dateEnd" >
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button class="btn btn-danger" (click)="onNoClick()"><i class="fa fa-times" aria-hidden="true"></i> Close</button>
+  <button mat-button class="btn btn-success" (click)="onYesClick()" cdkFocusInitial><i class="fa fa-paper-plane" aria-hidden="true"></i> Send </button>
+</div>
+</body>

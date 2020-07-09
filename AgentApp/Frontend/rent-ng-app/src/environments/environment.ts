@@ -11,7 +11,8 @@ export const environment = {
   comm: 'http://localhost:9090/comment/',
   report: 'http://localhost:9090/crud',
   message: 'http://localhost:9090/api/message',
-  registration: 'http://localhost:9090/admin'
+  registration: 'http://localhost:9090/admin',
+  advert_request: 'http://localhost:9090/advert-request'
 };
 
 /*

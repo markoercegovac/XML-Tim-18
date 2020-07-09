@@ -46,6 +46,11 @@ import { DriveReportCreateComponent } from './drive-report-create/drive-report-c
 import { DriveReportListComponent } from './drive-report-list/drive-report-list.component';
 import { DriveReportUpdateComponent } from './drive-report-update/drive-report-update.component';
 import { AllRegistrationRequestComponent } from './all-registration-request/all-registration-request.component';
+import { ReservationDateComponent } from './home/full-advert/reservation-date/reservation-date.component';
+
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDialogModule} from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -84,14 +89,18 @@ import { AllRegistrationRequestComponent } from './all-registration-request/all-
     ChatHeaderComponent,
     InboxComponent,
     MesagesComponent,
-    AllRegistrationRequestComponent
+    AllRegistrationRequestComponent,
+    ReservationDateComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    MDBBootstrapModule
+    MatFormFieldModule,
+    MatDialogModule,
+    MDBBootstrapModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
