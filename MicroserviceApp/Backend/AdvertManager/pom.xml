@@ -141,12 +141,6 @@
             <artifactId>jakarta.xml.bind-api</artifactId>
         </dependency>
 
-        <!--ASPECT-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
-        </dependency>
-
     </dependencies>
     <dependencyManagement>
         <dependencies>

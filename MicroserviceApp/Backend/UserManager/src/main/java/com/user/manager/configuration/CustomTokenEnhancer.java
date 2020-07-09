@@ -1,6 +1,5 @@
 package com.user.manager.configuration;
 
-import com.user.manager.model.User;
 import com.user.manager.principal.UserPrincipal;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;

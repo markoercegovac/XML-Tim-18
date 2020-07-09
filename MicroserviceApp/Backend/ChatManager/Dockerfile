@@ -7,5 +7,5 @@ RUN ["mvn", "package", "-DskipTests"]
 FROM openjdk:11
 COPY --from=chatMaven /usr/src/servers/chat/target/chat.jar ./
 EXPOSE 8080
-CMD ["java", "-jar", "chat.jar", "--spring.profiles.active=prod"]
+CMD ["java", "-jar", "chat.jar"]
 

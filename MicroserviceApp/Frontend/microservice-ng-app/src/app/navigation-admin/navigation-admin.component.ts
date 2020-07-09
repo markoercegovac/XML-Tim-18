@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class NavigationAdminComponent implements OnInit {
 
+  navbarCollapsed: boolean = false;
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
@@ -50,6 +51,9 @@ export class NavigationAdminComponent implements OnInit {
     this.authService.logout();
   }
 
+  onRegistration() {
+    this.router.navigate(["/admin/registration-requests"]);
+  }
 
   onUserList() {
     this.router.navigate(["/admin/ban/user"])

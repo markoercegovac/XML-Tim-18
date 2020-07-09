@@ -20,18 +20,19 @@ public class UserService {
 
 		UserMail user = (UserMail) gson.fromJson(msg, UserMail.class);
 
-		if(user.getUserEmail().isEmpty()) {
-			String content = "Dear " + user.getCompanyName()
-				+ ", You have successfully sign in to RENT IT application. Your token for DataBase synchronisation is: "
-				+ user.getToken()
-				+ " .";
-
-			mailSender.send(user.getCompanyName(), "RENT IT REQISTRATION", content);
+		String content;
+		if(user.getCompanyName()==null || user.getCompanyName().isEmpty()) {
+			//imamo obicnog korisnika
+			content = "Dear " + user.getName() + " "+ user.getSurname()
+					+ ", You have successfully sign in to RENT IT application.";
+		} else if(user.isAgent()) {
+			content = "Dear " + user.getCompanyName()
+					+ ", You have successfully sign in to RENT IT application. Your can download WSDL from http://rent-a-car/ws/team18-agent.wsdl .";
 		} else {
-			String content = "Dear " + user.getUserEmail()
-				+ ", You have successfully sign in to RENT IT application.";
-
-			mailSender.send(user.getUserEmail(), "RENT IT REQISTRATION", content);
+			content = "Dear " + user.getCompanyName()
+					+ ", You have successfully sign in to RENT IT application.";
 		}
-	}
+
+			mailSender.send(user.getEmail(), "RENT IT REGISTRATION", content);
+		}
 }

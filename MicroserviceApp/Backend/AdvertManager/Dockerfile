@@ -6,5 +6,6 @@ RUN ["mvn", "package", "-DskipTests"]
 
 FROM openjdk:11
 COPY --from=requestMaven /usr/src/servers/request/target/advert-manager.jar ./
+COPY --from=requestMaven /usr/src/servers/request/images ./images
 EXPOSE 8080
-CMD ["java", "-jar", "advert-manager.jar", "--spring.profiles.active=prod"]
+CMD ["java", "-jar", "advert-manager.jar"]

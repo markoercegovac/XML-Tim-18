@@ -1,30 +1,22 @@
 package com.user.manager.controller;
 
 
-import com.user.manager.dto.BanUserDto;
-import com.user.manager.dto.UserDto;
 import com.user.manager.mapper.DtoEntity;
-import com.user.manager.model.Role;
 import com.user.manager.model.User;
 import com.user.manager.services.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RequestMapping("/admin")
 @RequiredArgsConstructor
 @RestController
-//@CrossOrigin
 public class BanController {
 
     private final UserService userService;
-
-
 
     @GetMapping("/all")
     public ResponseEntity<List<DtoEntity>> getUsers(){

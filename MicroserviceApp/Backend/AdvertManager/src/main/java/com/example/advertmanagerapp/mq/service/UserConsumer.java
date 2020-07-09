@@ -26,15 +26,17 @@ public class UserConsumer {
 
 		try {
 			UserMQ u = gson.fromJson(msg, UserMQ.class);
-			
-			ClientCopy c = new ClientCopy();
+			ClientCopy c = clientCopyRepository.findByEmail(u.getEmail());
+			if(c == null) {
+			 	c = new ClientCopy();
+			}
+
 			c.setEmail(u.getEmail());
-			c.setName(u.getName());
-			c.setSurname(u.getSurname());
-			c.setCompanyName(u.getCompanyName());
 			c.setAdverts(new ArrayList<>());
 			c.setForbiddenAdvert(u.isForbiddenAdvert());
 			c.setCreationEnabled(u.isCreationEnabled());
+			c.setRemoved(u.isRemoved());
+			c.setBanned(u.isBanned());
 		
 			clientCopyRepository.save(c);
 		} catch(Exception e) {

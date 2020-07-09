@@ -85,6 +85,10 @@ import { RequestingAdItemComponent } from './home/requests/requests-bundle/reque
 import { AddingToCartComponent } from './adding-to-cart/adding-to-cart.component';
 import { BundleRequestComponent } from './owner-view-requests/bundle-request/bundle-request.component';
 import { AdminBanUsersComponent } from './admin-ban-users/admin-ban-users.component';
+import { RegisterAgentComponent } from './registration/register-agent/register-agent.component';
+import { RegisterUserComponent } from './registration/register-user/register-user.component';
+import { AdminRegisterRequestsComponent } from './admin-register-requests/admin-register-requests.component';
+import { RegisterRequestsItemComponent } from './admin-register-requests/register-requests-item/register-requests-item.component';
 
 
 @NgModule({
@@ -153,7 +157,11 @@ import { AdminBanUsersComponent } from './admin-ban-users/admin-ban-users.compon
     RequestingAdItemComponent,
     AddingToCartComponent,
     BundleRequestComponent,
-    AdminBanUsersComponent
+    AdminBanUsersComponent,
+    RegisterAgentComponent,
+    RegisterUserComponent,
+    AdminRegisterRequestsComponent,
+    RegisterRequestsItemComponent
   ],
     imports: [
         BrowserModule,

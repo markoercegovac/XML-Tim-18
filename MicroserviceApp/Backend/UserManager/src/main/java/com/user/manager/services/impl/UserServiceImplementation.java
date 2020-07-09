@@ -2,10 +2,8 @@ package com.user.manager.services.impl;
 
 
 import com.user.manager.dto.BanUserDto;
-import com.user.manager.dto.UserDto;
 import com.user.manager.mapper.DtoEntity;
 import com.user.manager.mapper.DtoUtils;
-import com.user.manager.model.Permission;
 import com.user.manager.model.Role;
 import com.user.manager.model.User;
 import com.user.manager.repository.PermissionRepository;
@@ -15,7 +13,6 @@ import com.user.manager.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,7 +28,11 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public List<DtoEntity> allUsers() {
-        return userRepository.findAll().stream().map(user->dtoUtils.convertToDto(user,new BanUserDto())).collect(Collectors.toList());
+        return userRepository
+                .findAllByAdminApprovedTrueAndIsRemovedFalse()
+                .stream()
+                .map(user->dtoUtils.convertToDto(user,new BanUserDto()))
+                .collect(Collectors.toList());
     }
 
     @Override
