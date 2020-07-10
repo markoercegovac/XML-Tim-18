@@ -41,6 +41,10 @@ public class Advert {
     @Column(name="isActive")
     private boolean isActive;
 
+    @Column
+    private String city;
+
+
     @OneToOne(fetch = FetchType.LAZY)
     private Price price;
 
@@ -53,4 +57,6 @@ public class Advert {
 
     @OneToMany
     private List<Reservation> reservations;
+
+
 }

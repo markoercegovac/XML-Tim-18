@@ -22,7 +22,7 @@ public class AdvertCopyMapper {
         advertCopyDto.setPriceTo(advertCopy.getPriceTo());
         advertCopyDto.setTraveledKm(advertCopy.getTraveledKm());
         advertCopyDto.setPlannedKm(advertCopy.getPlannedKm());
-        advertCopyDto.setInsurance(advertCopy.isInsurance());
+        advertCopyDto.setInsurance(advertCopy.getInsurance());
         advertCopyDto.setNumberOfSeats(advertCopy.getNumberOfSeats());
         advertCopyDto.setProfilePicture(advertCopy.getProfilePicture());
         advertCopyDto.setMark(advertCopy.getMark());
@@ -45,7 +45,7 @@ public class AdvertCopyMapper {
         advertCopy.setPriceTo(advertCopyDto.getPriceTo());
         advertCopy.setTraveledKm(advertCopyDto.getTraveledKm());
         advertCopy.setPlannedKm(advertCopyDto.getPlannedKm());
-        advertCopy.setInsurance(advertCopyDto.isInsurance());
+        advertCopy.setInsurance(advertCopyDto.getInsurance());
         advertCopy.setNumberOfSeats(advertCopyDto.getNumberOfSeats());
         advertCopy.setProfilePicture(advertCopyDto.getProfilePicture());
         advertCopy.setMark(advertCopyDto.getMark());

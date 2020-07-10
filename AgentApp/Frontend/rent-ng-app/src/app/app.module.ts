@@ -35,7 +35,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 
 import { RegisterCarComponent } from './register-car/register-car.component';
 import { DefinePriceComponent } from './define-price/define-price.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ReservedCarComponent } from './reserved-car/reserved-car.component';
 import { MyAdvertComponent } from './my-advert/my-advert.component';
 import { ChatComponent } from './chat/chat.component';
@@ -48,12 +48,15 @@ import { DriveReportUpdateComponent } from './drive-report-update/drive-report-u
 import { AllRegistrationRequestComponent } from './all-registration-request/all-registration-request.component';
 import { RegisterApprovedComponent } from './register-approved/register-approved.component';
 import {AuthInterceptor} from './interceptor/AuthInterceptor';
+import { StatisticsComponent } from './statistics/statistics.component';
+import {ChartsModule} from 'ng2-charts';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SignInComponent,
+    SearchComponent,
     RegisterComponent,
     NotFoundComponent,
     HomeComponent,
@@ -61,7 +64,6 @@ import {AuthInterceptor} from './interceptor/AuthInterceptor';
     AdvertsComponent,
     AdvertMiniComponent,
     FullAdvertComponent,
-    SearchComponent,
     BasicSearchComponent,
     AdvanceSearchComponent,
     FooterComponent,
@@ -87,14 +89,18 @@ import {AuthInterceptor} from './interceptor/AuthInterceptor';
     InboxComponent,
     MesagesComponent,
     AllRegistrationRequestComponent,
-    RegisterApprovedComponent
+    RegisterApprovedComponent,
+    StatisticsComponent,
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    MDBBootstrapModule
+    MDBBootstrapModule,
+    ReactiveFormsModule,
+    ChartsModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

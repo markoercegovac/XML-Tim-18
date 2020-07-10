@@ -41,23 +41,32 @@ import {AdminBanUsersComponent} from "./admin-ban-users/admin-ban-users.componen
 import { RegisterAgentComponent } from './registration/register-agent/register-agent.component';
 import { RegisterUserComponent } from './registration/register-user/register-user.component';
 import { AdminRegisterRequestsComponent } from './admin-register-requests/admin-register-requests.component';
+import {SearchAdvancedComponent} from "./search-advanced/search-advanced.component";
 
 
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/home' },
+  { path: '', pathMatch: 'full', redirectTo: '/login' },
+  { path: 'search',    component: SearchComponent},
+  { path: 'searchAdvanced', component: SearchAdvancedComponent},
 
   { path: 'admin', component: AdminComponent, canActivate: [AdminGuard], children: [
-    { path: 'brand', component: CarBrandComponent},
-    { path: 'class', component: CarClassComponent},
-    { path: 'model', component: CarModelComponent},
-    { path: 'fuel-type', component: CarFuelTypeComponent},
-    { path: 'transmission', component: CarTranssmisionTypeComponent},
-    { path: 'comment', component: AdminCommentsAllowComponent},
-    { path: 'registration-requests', component: AdminRegisterRequestsComponent},
-    { path: 'ban', component: UsersBanListComponent},
-      {path: 'ban/user' , component: AdminBanUsersComponent}
-  ] },
+      { path: 'brand', component: CarBrandComponent},
+      { path: 'class', component: CarClassComponent},
+      { path: 'model', component: CarModelComponent},
+      { path: 'fuel-type', component: CarFuelTypeComponent},
+      { path: 'transmission', component: CarTranssmisionTypeComponent},
+      { path: 'comment', component: AdminCommentsAllowComponent},
+      { path: 'registration-requests', component: AdminRegisterRequestsComponent},
+      { path: 'ban', component: UsersBanListComponent},
+      {path: 'ban/user' , component: AdminBanUsersComponent},
+      { path: 'aprove', component: AdminCommentsAllowComponent}
+    ] },
+
+  // {
+  //   path: 'advert-manager/client-copy',
+  //   component: UsersBanListComponent
+  // },
 
   { path: 'home', component: HomeComponent, children: [
     { path: 'advert/all', component: AdvertsComponent }, //LISTA SVIH OGLASA
@@ -68,7 +77,7 @@ const routes: Routes = [
     { path: 'register', component: RegistrationComponent},
       {path: 'register/agent', component: RegisterAgentComponent},
       {path: 'register/user', component: RegisterUserComponent},
-    
+
     { path: 'bundle', component: BundleComponent, canActivate: [UserGuard]},
     { path: 'requests', component: RequestsComponent, canActivate: [UserGuard] },
     { path: 'comment/create', component: CreateCommentComponent, canActivate: [LoggedInGuard] },

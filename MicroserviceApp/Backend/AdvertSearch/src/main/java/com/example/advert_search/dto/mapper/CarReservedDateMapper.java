@@ -15,7 +15,7 @@ public class CarReservedDateMapper {
         carReservedDateDto.setCarReservedDateId(carReservedDate.getCarReservedDateId());
         carReservedDateDto.setStartOfAdvert(carReservedDate.getStartOfAdvert());
         carReservedDateDto.setEndOfAdvert(carReservedDate.getEndOfAdvert());
-        carReservedDateDto.setAdvertCopy(carReservedDate.getAdvertCopy());
+     //   carReservedDateDto.setAdvertCopy(carReservedDate.getAdvertCopy());
 
         return carReservedDateDto;
     }
@@ -25,7 +25,7 @@ public class CarReservedDateMapper {
         carReservedDate.setCarReservedDateId(carReservedDateDto.getCarReservedDateId());
         carReservedDate.setStartOfAdvert(carReservedDateDto.getStartOfAdvert());
         carReservedDate.setEndOfAdvert(carReservedDateDto.getEndOfAdvert());
-        carReservedDate.setAdvertCopy(carReservedDateDto.getAdvertCopy());
+    //    carReservedDate.setAdvertCopy(carReservedDateDto.getAdvertCopy());
 
         return carReservedDate;
     }

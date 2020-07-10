@@ -12,9 +12,10 @@ export class Search {
   priceTo: number;
   traveledKm: number;
   plannedKm: number;
-  insurance: boolean;
+  insurance: string;
   numberOfSeats: number;
   profilePicture: string;
   mark: number;
   price: number;
+
 }
