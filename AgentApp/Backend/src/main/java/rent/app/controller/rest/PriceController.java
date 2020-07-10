@@ -21,11 +21,11 @@ public class PriceController {
 
     @PostMapping
     public void createPrice(@RequestBody PriceDto priceDto, Principal principal){
-        priceService.createPrice(priceDto);
+        priceService.createPrice(priceDto,principal.getName());
     }
 
     @GetMapping("/allPrices")
-    public ResponseEntity<List<DTOEntity>> getAllPrices(){
-        return new ResponseEntity<>(priceService.allPrices(), HttpStatus.OK);
+    public ResponseEntity<List<DTOEntity>> getAllPrices(Principal principal){
+        return new ResponseEntity<>(priceService.allPrices(principal.getName()), HttpStatus.OK);
     }
 }

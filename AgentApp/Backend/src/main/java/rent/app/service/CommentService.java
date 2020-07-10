@@ -10,5 +10,5 @@ public interface CommentService {
 
     List<CommentDTO> getAllCommentsOfAd(Long adId);
 
-    void addNewComment(CommentDTO newComment);
+    void addNewComment(CommentDTO newComment,String author);
 }

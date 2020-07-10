@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import {CommentModel} from '../../../../model/comment.model';
 import {CommentService} from '../../../../service/comment.service';
 import {error} from "@angular/compiler/src/util";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-comment',
@@ -14,7 +15,7 @@ export class AddCommentComponent implements OnInit {
 
 
   @Input('ad-id') adId: number;
-  constructor(private commentService: CommentService) { }
+  constructor(private commentService: CommentService,private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -31,8 +32,10 @@ export class AddCommentComponent implements OnInit {
       },
       // tslint:disable-next-line:no-shadowed-variable
       error => {
-      alert('Error');
-        }
+      alert('Please login to post comment');
+        this.router.navigate(['/sign-in']);
+
+      }
         );
   }
 

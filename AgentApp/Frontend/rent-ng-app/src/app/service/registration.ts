@@ -22,4 +22,8 @@ export class Registration{
   public accept(request: UserRegister){
     return this.http.post(URL + '/request/approve', request);
   }
+
+  public reject(request: UserRegister) {
+    return this.http.post('http://localhost:9090/admin/reject' , request);
+  }
 }

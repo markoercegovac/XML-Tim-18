@@ -26,6 +26,14 @@ export class DefinePriceComponent implements OnInit {
   }
 
   createPrice() {
-    this.priceService.createPrice(this.model).subscribe();
+    this.priceService.createPrice(this.model).subscribe(
+      data=>{
+
+        alert("Price succesfully created")
+        console.log(this.model);
+      },error => {
+        alert("Error occured");
+      }
+    );
   }
 }

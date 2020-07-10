@@ -1,9 +1,15 @@
+
+<h1>My Cars</h1>
+<br>
 <table class="table table-hover">
   <thead>
   <tr>
     <th scope="col">Number</th>
     <th scope="col">Car Brand</th>
     <th scope="col">Car Model</th>
+    <th scope="col">Profile Picture</th>
+    <th scope="col">Distance Traveled</th>
+
 
 
   </tr>
@@ -13,6 +19,13 @@
     <td>{{advert.advertId}}</td>
     <td>{{advert.carBrand}}</td>
     <td>{{advert.carModel}}</td>
+    <td>
+      <div>
+        <img class="d-block w-50" src="{{'data:image/jpg;base64,' + advert.profilePicture}}" alt="profile image">
+      </div>
+
+    </td>
+    <td>{{advert.distanceUnit}}</td>
     <td><button class="btn btn-danger" (click)="reserved(advert)">Capture Date</button></td>
   </tr>
 

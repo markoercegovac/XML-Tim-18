@@ -15,4 +15,6 @@ public interface RegistrationRequestService {
 
    void removeRequestEmail(RequestDto rq);
 
+   RegistrationRequest getByEmail(String email);
+
 }

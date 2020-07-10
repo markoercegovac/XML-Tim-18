@@ -29,7 +29,7 @@ public class CommentServiceImpl  implements CommentService {
             CommentDTO com = new CommentDTO();
             com.setCommentId(comment.getId());
             com.setAdvertId(comment.getAdvert().getId());
-//            com.setAuthor(comment.getClient().getEmail());
+            com.setAuthor(comment.getAuthor());
             com.setContent(comment.getContent());
 
             commentsDTO.add(com);
@@ -39,12 +39,13 @@ public class CommentServiceImpl  implements CommentService {
     }
 
     @Override
-    public void addNewComment(CommentDTO newComment) {
+    public void addNewComment(CommentDTO newComment,String author) {
 
         Comment comment = new Comment();
         Advert advert = advertRepository.findAllById(newComment.getAdvertId());
         comment.setId(newComment.getCommentId());
         comment.setAdvert(advert);
+        comment.setAuthor(author);
         comment.setContent(newComment.getContent());
         commentRepository.save(comment);
 

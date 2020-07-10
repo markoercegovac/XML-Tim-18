@@ -28,8 +28,7 @@ public class Price {
     @Column
     private float distanceOverflowPrice;
 
-    @Max(1)
-    @Min(0)
+
     @Column
     private float discount;
 
