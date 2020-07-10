@@ -27,6 +27,7 @@ public class AdvertServiceImpl implements AdvertService {
     private final AdvertRepository advertRepository;
     private final GradeService gradeService;
     private final DtoUtils dtoUtils;
+    private final GradeRepository gradeRepository;
 
     @Override
     public void saveAdvert(AdvertDto advertDto,String ownerEmail) throws IOException {
@@ -48,9 +49,16 @@ public class AdvertServiceImpl implements AdvertService {
         pictureRepository.save(profilePicture);
         advert.setProfilePicture(profilePicture);
         advert.setCity(owner.getCity());
+
         Advert advert1=advertRepository.save(advert);
         advert.setOwner(ownerEmail);
         owner.getAdvertList().add(advert);
+
+        Grade grade=new Grade();
+        grade.setAdvert(advert1);
+        grade.setGrade(0);
+        gradeRepository.save(grade);
+
         clientRepository.save(owner);
 
     }

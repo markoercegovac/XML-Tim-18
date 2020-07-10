@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { AdvertFullModel } from '../../model/advert-full.model';
 import {AdvertService} from '../../service/advert-service';
+import {ReservationDateComponent} from './reservation-date/reservation-date.component';
 
 @Component({
   selector: 'app-full-advert',
@@ -16,25 +19,42 @@ export class FullAdvertComponent implements OnInit {
   advert: AdvertFullModel;
   grade: number;
 
-  constructor(private currentUrl: ActivatedRoute,private advertService: AdvertService) { }
+
+  constructor(private currentUrl: ActivatedRoute, public advertService: AdvertService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    //uzmi selektovani oglas
-    this.adId = +this.currentUrl.snapshot.params['id'];
+
+    this.adId = +this.currentUrl.snapshot.params.id;
     this.advertService.getGradeForAdvert(this.adId).subscribe(
-      data=>{
-        this.grade=data;
+      data => {
+        this.grade = data;
       }
     );
 
     this.advertService.getAdvert(this.adId).subscribe(
-      data=>{
-        this.advert=data;
+      data => {
+        this.advert = data;
         console.log(this.advert);
       }
     );
+
+    console.log(this.adId);
+
   }
 
+
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ReservationDateComponent, {
+      width: '250px',
+      data: {advertId: this.adId}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+
+    });
+  }
   createGrade() {
 
   }

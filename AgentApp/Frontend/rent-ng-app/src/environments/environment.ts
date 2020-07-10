@@ -15,6 +15,7 @@ export const environment = {
   registration: 'http://localhost:9090/admin',
   statistics: 'http://localhost:9090/',
   client: 'http://localhost:9090/api/client',
+  advert_request: 'http://localhost:9090/advert-request'
 };
 
 /*

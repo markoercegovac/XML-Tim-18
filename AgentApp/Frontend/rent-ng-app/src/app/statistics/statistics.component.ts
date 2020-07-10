@@ -20,7 +20,7 @@ export class StatisticsComponent implements OnInit {
 
 
   lineChartData: ChartDataSets[] = [
-    { data: [850 , 50, 4.5], label: 'Car 1' },
+    { data: [], label: 'Car 1' },
   ];
 
 
@@ -71,16 +71,19 @@ export class StatisticsComponent implements OnInit {
     let p;
     p = 0;
     // tslint:disable-next-line:prefer-for-of
-    for (let i = 0; i < this.lista?.length; ++i){
-      // tslint:disable-next-line:triple-equals
-      if (this.lista[i].comment != 0){
-        // tslint:disable-next-line:max-line-length
-        this.lineChartData.push({ data: [this.lista[i].traveledKm, this.lista[i].comment, this.lista[i].mark] , label: this.lista[i].nameCar });
-      }else{
-        this.lineChartData.push({ data: [this.lista[i].traveledKm, 0, this.lista[i].mark] , label: this.lista[i].nameCar });
-      }
-      // tslint:disable-next-line:max-line-length
+    if(this.lista.length!=0){
 
+
+      for (let i = 0; i < this.lista?.length; ++i){
+        // tslint:disable-next-line:triple-equals
+        if (this.lista[i].comment != 0){
+          // tslint:disable-next-line:max-line-length
+          this.lineChartData.push({ data: [this.lista[i].traveledKm, this.lista[i].comment, this.lista[i].mark] , label: this.lista[i].nameCar });
+        }else{
+          this.lineChartData.push({ data: [this.lista[i].traveledKm, 0, this.lista[i].mark] , label: this.lista[i].nameCar });
+        }
+        // tslint:disable-next-line:max-line-length
+    }
   }
 }
 

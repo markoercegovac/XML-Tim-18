@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import static com.auth0.jwt.algorithms.Algorithm.HMAC512;
+import java.util.List;
 
 public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilter{
 
@@ -68,9 +69,17 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         // Grab principal
         UserPrincipal principal = (UserPrincipal) authResult.getPrincipal();
 
+        List<String> claim = new ArrayList<String>();
+
+        principal.getAuthorities().forEach(a -> {
+            claim.add(a.getAuthority());
+        });
+
         // Create JWT Token
         String token = JWT.create()
                 .withSubject(principal.getUsername())
+                .withArrayClaim("authorities",
+                        claim.toArray(new String[claim.size()]))
                 .withExpiresAt(new Date(System.currentTimeMillis() + JwtProperties.EXPIRATION_TIME))
                 .sign(HMAC512(JwtProperties.SECRET.getBytes()));
 

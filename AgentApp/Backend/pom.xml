@@ -101,11 +101,19 @@
             </exclusions>
         </dependency>
 
-        <!--SOAP -->
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web-services</artifactId>
         </dependency>
+
+        <!--ASPECT-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
+        <!--SOAP:START-->
         <dependency>
             <groupId>wsdl4j</groupId>
             <artifactId>wsdl4j</artifactId>
@@ -123,8 +131,9 @@
             <groupId>javax.activation</groupId>
             <artifactId>javax.activation-api</artifactId>
         </dependency>
-    </dependencies>
+        <!--SOAP:END-->
 
+    </dependencies>
     <build>
         <plugins>
             <plugin>
@@ -132,7 +141,31 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
-            <!--SOAP-->
+<!--            &lt;!&ndash;GENERATE FROM WSDL:START&ndash;&gt;-->
+<!--            <plugin>-->
+<!--                <groupId>org.jvnet.jaxb2.maven2</groupId>-->
+<!--                <artifactId>maven-jaxb2-plugin</artifactId>-->
+<!--                <version>0.14.0</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <goals>-->
+<!--                            <goal>generate</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--                <configuration>-->
+<!--                    <schemaLanguage>WSDL</schemaLanguage>-->
+<!--                    <generateDirectory>${project.basedir}/src/main/java</generateDirectory>-->
+<!--                    <generatePackage>rent.app.controller.ws.generate</generatePackage>-->
+<!--                    <schemaDirectory>${project.basedir}/src/main/resources</schemaDirectory>-->
+<!--                    <schemaIncludes>-->
+<!--                        <include>team18.wsdl.wsdl</include>-->
+<!--                    </schemaIncludes>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+<!--            &lt;!&ndash;GENERATE FROM WSDL:END&ndash;&gt;-->
+
+            <!--XSD:START-->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>jaxb2-maven-plugin</artifactId>
@@ -147,18 +180,19 @@
                 </executions>
                 <configuration>
                     <sources>
-                        <source>${project.basedir}/src/main/java/rent/app/controller/ws</source>
+                        <source>${project.basedir}/src/main/java/rent/app/controller/ws/generate</source>
                     </sources>
                     <outputDirectory>${project.build.directory}/classes</outputDirectory>
                     <transformSchemas>
                         <transformSchema>
-                            <uri>http://uns.ac.rs/xml/team18/agent</uri>
-                            <toPrefix>ta</toPrefix>
+                            <uri>http://uns.ac.rs/xml/team18</uri>
+                            <toPrefix>t</toPrefix>
                             <toFile>team18agent.xsd</toFile>
                         </transformSchema>
                     </transformSchemas>
                 </configuration>
             </plugin>
+            <!--XSD:END-->
         </plugins>
     </build>
 

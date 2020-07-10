@@ -48,6 +48,15 @@ import { DriveReportUpdateComponent } from './drive-report-update/drive-report-u
 import { AllRegistrationRequestComponent } from './all-registration-request/all-registration-request.component';
 import { RegisterApprovedComponent } from './register-approved/register-approved.component';
 import {AuthInterceptor} from './interceptor/AuthInterceptor';
+import { ReservationDateComponent } from './home/full-advert/reservation-date/reservation-date.component';
+
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDialogModule} from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavAdminComponent } from './navigation/nav-admin/nav-admin.component';
+import { NavUserComponent } from './navigation/nav-user/nav-user.component';
+import { NavOwnerComponent } from './navigation/nav-owner/nav-owner.component';
+import { NavNoComponent } from './navigation/nav-no/nav-no.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import {ChartsModule} from 'ng2-charts';
 
@@ -64,6 +73,7 @@ import {ChartsModule} from 'ng2-charts';
     AdvertsComponent,
     AdvertMiniComponent,
     FullAdvertComponent,
+    SearchComponent,
     BasicSearchComponent,
     AdvanceSearchComponent,
     FooterComponent,
@@ -90,6 +100,12 @@ import {ChartsModule} from 'ng2-charts';
     MesagesComponent,
     AllRegistrationRequestComponent,
     RegisterApprovedComponent,
+    ReservationDateComponent,
+    NavAdminComponent,
+    NavUserComponent,
+    NavOwnerComponent,
+    NavNoComponent,
+    RegisterApprovedComponent,
     StatisticsComponent,
 
   ],
@@ -101,6 +117,10 @@ import {ChartsModule} from 'ng2-charts';
     MDBBootstrapModule,
     ReactiveFormsModule,
     ChartsModule,
+    MatFormFieldModule,
+    MatDialogModule,
+    MDBBootstrapModule,
+    BrowserAnimationsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

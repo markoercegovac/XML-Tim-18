@@ -32,61 +32,30 @@ import {StatisticsComponent} from './statistics/statistics.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home/ads' },
-  { path: 'admin', pathMatch: 'full', redirectTo: '/admin/home' },
-  { path: 'home', component: HomeComponent, children: [
-      { path: 'ads', component: AdvertsComponent },
-      { path: 'ad/add', component: AddAdvertComponent },
-      { path: 'ad/:id', component: FullAdvertComponent }
-    ]},
-  {path : 'admin/register/aprove', component: AllRegistrationRequestComponent},
   { path: 'sign-in', component: SignInComponent },
   { path: 'register', component: RegisterComponent },
-  {
-    path: 'admin', component: AdminComponent, children: [
-      { path: 'home', component: AdminHomeComponent },
-      { path: 'comment', component: AdminCommentsComponent }
-    ]
-  },
-  {
-    path: 'registerCar',
-    component: RegisterCarComponent
-  },
-  {
-    path: 'definePrice',
-    component: DefinePriceComponent
-  },
-  {
-    path: 'kreirajDR',
-    component: DriveReportCreateComponent
-  },
-  {
-    path: 'listaDR/:id',
-    component: DriveReportListComponent
-  },{
-    path: 'create-client/:email',
-    component: RegisterApprovedComponent
-  },
-  {
-    path: 'updateDR/:id',
-    component: DriveReportUpdateComponent
-  },
-  {
-    path: 'car/reserved/:id',
-    component: ReservedCarComponent
-  },
-  {
-    path: 'my/adverts',
-    component: MyAdvertComponent
-  },
+  { path: 'create-client/:email', component: RegisterApprovedComponent },
+  { path: 'home', component: HomeComponent, children: [
+    { path: 'ads', component: AdvertsComponent },
+    { path: 'ad/add', component: AddAdvertComponent },
+    { path: 'ad/:id', component: FullAdvertComponent }
+  ]},
+  { path: 'admin', pathMatch: 'full', redirectTo: '/admin/home' },
+  { path: 'admin', component: AdminComponent, children: [
+    { path: 'home', component: AdminHomeComponent },
+    { path: 'comment', component: AdminCommentsComponent },
+    { path : 'register/aprove', component: AllRegistrationRequestComponent},
+  ]},
+  { path: 'registerCar', component: RegisterCarComponent },
+  { path: 'definePrice', component: DefinePriceComponent },
+  { path: 'kreirajDR', component: DriveReportCreateComponent },
+  { path: 'listaDR/:id', component: DriveReportListComponent },
+  { path: 'updateDR/:id', component: DriveReportUpdateComponent },
+  { path: 'my/adverts', component: MyAdvertComponent },
 
-  {
-    path: 'chat',
-    component: ChatComponent
-  },
-  {
-    path: 'inbox',
-    component: InboxComponent
-  },
+  { path: 'car/reserved/:id', component: ReservedCarComponent },
+  { path: 'chat', component: ChatComponent },
+  { path: 'inbox', component: InboxComponent },
    {
      path: 'statistics',
      component: StatisticsComponent

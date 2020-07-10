@@ -95,7 +95,6 @@ export class RegisterCarComponent implements OnInit {
     this.carService.registerCar(this.model).subscribe(
 
       res => {
-        location.reload();
         console.log(this.model);
         alert('Car created');
       },
