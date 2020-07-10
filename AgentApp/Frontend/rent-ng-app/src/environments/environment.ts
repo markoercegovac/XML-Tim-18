@@ -12,7 +12,8 @@ export const environment = {
   report: 'http://localhost:9090/crud',
   searchUrl: 'http://localhost:9090/',
   message: 'http://localhost:9090/api/message',
-  registration: 'http://localhost:9090/admin'
+  registration: 'http://localhost:9090/admin',
+  statistics: 'http://localhost:9090/'
 };
 
 /*
