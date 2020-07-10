@@ -60,6 +60,7 @@ class DbInit implements CommandLineRunner {
         user2.setEmail("bla@com");
         user2.setUsername("bla@com");
         user2.setPassword(passwordEncoder.encode("user123"));
+        user2.setCity("Sabac");
 
         userRepository.save(user1);
         userRepository.save(user2);

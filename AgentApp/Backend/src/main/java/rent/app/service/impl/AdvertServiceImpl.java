@@ -47,8 +47,9 @@ public class AdvertServiceImpl implements AdvertService {
         Picture profilePicture= (Picture) dtoUtils.convertToEntity(new Picture(),advertDto.getProfilePicture());
         pictureRepository.save(profilePicture);
         advert.setProfilePicture(profilePicture);
-
+        advert.setCity(owner.getCity());
         Advert advert1=advertRepository.save(advert);
+        advert.setOwner(ownerEmail);
         owner.getAdvertList().add(advert);
         clientRepository.save(owner);
 
@@ -86,14 +87,7 @@ public class AdvertServiceImpl implements AdvertService {
         advertFullDto.setDescription(advert.getDescription());
 
         List<Client> clients=clientRepository.findAll();
-        for(Client client:clients){
-            for(Advert advert1: client.getAdvertList()){
-
-                if(advert1.getId().equals(advert.getId())){
-                    advertFullDto.setOwnerEmail(client.getEmail());
-                }
-            }
-        }
+        advertFullDto.setOwnerEmail(advert.getOwner());
 
 
         advertFullDto.setProfileImage(pictureService.getProfilePicture(advert.getProfilePicture()));

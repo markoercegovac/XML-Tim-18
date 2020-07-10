@@ -9,5 +9,5 @@ import java.util.Set;
 @Service
 public interface StatisticsService {
 
-    List<StatisticsDto> getStatistic();
+    List<StatisticsDto> getStatistic(String ownerEmail);
 }

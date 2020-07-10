@@ -64,7 +64,6 @@ public class SearchServiceImpl implements SearchService {
             AdvertSearchDto model = new AdvertSearchDto();
             Car auto = new Car();
             Price cena = new Price();
-
             auto = this.carRepository.findAllById(a.getCar().getId());
             cena = this.priceRepository.findAllById(a.getPrice().getId());
             model.setModelMark(auto.getCarModel().getModelName());
@@ -74,6 +73,7 @@ public class SearchServiceImpl implements SearchService {
             model.setCarMark(auto.getCarModel().getModelName());
             model.setPrice(cena.getPricePerDay());
             model.setCity(a.getCity());
+            model.setCarReservedDate(a.getReservations());
             konacna.add(model);
 
         }

@@ -35,6 +35,9 @@ public class RegistrationRequest {
     private String role;
 
     @Column
+    private String city;
+
+    @Column
     private RequestStatus status;
 
 }

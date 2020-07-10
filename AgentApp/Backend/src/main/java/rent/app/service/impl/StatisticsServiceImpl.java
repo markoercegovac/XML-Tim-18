@@ -9,6 +9,7 @@ import rent.app.model.DriveReport;
 import rent.app.model.Grade;
 import rent.app.repository.AdvertRepository;
 import rent.app.repository.CarRepository;
+import rent.app.repository.ClientRepository;
 import rent.app.repository.GradeRepository;
 import rent.app.service.StatisticsService;
 
@@ -24,12 +25,13 @@ public class StatisticsServiceImpl implements StatisticsService {
     private final AdvertRepository advertRepository;
     private final GradeRepository gradeRepository;
     private final CarRepository carRepository;
+    private final ClientRepository clientRepository;
 
 
     @Override
-    public List<StatisticsDto> getStatistic() {
+    public List<StatisticsDto> getStatistic(String owner) {
 
-        List<Advert> sviOglasi = this.advertRepository.findAll();
+        List<Advert> sviOglasi = clientRepository.findByUsername(owner).getAdvertList();
         List<StatisticsDto> statistika = new ArrayList<>();
         List<Grade> sveOceneOglasa = new ArrayList<>();
 
