@@ -3,6 +3,7 @@ package rent.app.model;
 
 
 import lombok.Data;
+import rent.app.model.enums.RequestStatus;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -31,6 +32,9 @@ public class RegistrationRequest {
     private String password;
 
     @Column
-    private String Role;
+    private String role;
+
+    @Column
+    private RequestStatus status;
 
 }

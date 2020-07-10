@@ -15,5 +15,6 @@ public class AdvertFullDto implements DTOEntity{
     private String firmName;
     private String carBrand;
     private String carModel;
+    private String description;
 }
 

@@ -15,7 +15,7 @@ export class CommentService {
   constructor(private http: HttpClient) { }
 
   public createComment(comment: CommentModel){
-    return this.http.post(commUrl + '/add', comment);
+    return this.http.post(commUrl + 'add', comment);
   }
 
   public getAllCommentsForAd(adId: number): any{

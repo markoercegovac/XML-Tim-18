@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import rent.app.dto.RequestDto;
 import rent.app.model.RegistrationRequest;
+import rent.app.model.enums.RequestStatus;
 import rent.app.repository.RegistrationRequestRepository;
 import rent.app.service.RegistrationRequestService;
 
@@ -22,18 +23,24 @@ public class RegistrationRequestServiceImpl implements RegistrationRequestServic
     public void saveRequest(RegistrationRequest rq) {
 
             rq.setUsername(rq.getEmail());
+
             repository.save(rq);
 
     }
 
     @Override
     public List<RegistrationRequest> getAll() {
-        return repository.findAll();
+        return repository.findAllByStatus(RequestStatus.NEW);
     }
 
 
     @Override
     public void removeRequestEmail(RequestDto rq) {
         repository.deleteById(rq.getEmail());
+    }
+
+    @Override
+    public RegistrationRequest getByEmail(String email) {
+        return repository.findByEmail(email);
     }
 }

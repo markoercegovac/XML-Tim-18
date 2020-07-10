@@ -4,5 +4,5 @@ export interface UserRegister {
       password: string;
       name: string;
       surname: string;
-      Role: string;
+      role: string;
 }

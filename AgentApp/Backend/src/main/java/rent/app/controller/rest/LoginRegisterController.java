@@ -9,9 +9,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import rent.app.dto.RequestDto;
 import rent.app.model.RegistrationRequest;
+import rent.app.model.enums.RequestStatus;
+import rent.app.service.ClientService;
 import rent.app.service.EmailService;
 import rent.app.service.RegistrationRequestService;
 
+import javax.websocket.server.PathParam;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,12 +26,15 @@ public class LoginRegisterController {
 
     private final EmailService emailService;
 
-    private final RegistrationRequestService service;
+    private final RegistrationRequestService RQservice;
+
+    private final ClientService clientService;
 
     @PostMapping("/register")
     public ResponseEntity registrujSe (@RequestBody RegistrationRequest rq) {
 
-            service.saveRequest(rq);
+            rq.setStatus(RequestStatus.NEW);
+            RQservice.saveRequest(rq);
 
             return new ResponseEntity(HttpStatus.OK);
 
@@ -37,22 +43,35 @@ public class LoginRegisterController {
     @GetMapping("/admin/all/registration")
     public List<RegistrationRequest> getAll() {
 
-            return service.getAll();
+            return RQservice.getAll();
     }
 
     @PostMapping("/admin/reject")
-    public void deleteRequest (@RequestBody RequestDto rq) {
+    public void deleteRequest (@RequestBody RegistrationRequest rq) {
+
+            rq.setStatus(RequestStatus.REJECTED);
+            RQservice.saveRequest(rq);
             emailService.sendMail(rq.getEmail(),"Vas zahtev je nazalost odbijen.","Odbijenica");
-            service.removeRequestEmail(rq);
+
 
     }
 
     @PostMapping("/admin/request/approve")
-    public void aproveRequest(@RequestBody RequestDto rq) {
+    public void aproveRequest(@RequestBody RegistrationRequest rq) {
 
-
-            String url = "http://localhost:9090/create-client/"+rq.getEmail();
+            rq.setStatus(RequestStatus.APPROVED);
+            RQservice.saveRequest(rq);
+            String url = "http://localhost:4200/create-client/"+rq.getEmail();
             emailService.sendMail(rq.getEmail(),"Vas aktivacioni link je: " + url, "Uspesno prihvacen zahtev." );
+
+    }
+
+    @PostMapping("/create-client/{email}")
+    public void createClient(@PathVariable(value ="email") String email) {
+
+        RegistrationRequest rq = RQservice.getByEmail(email);
+        clientService.createClientFromRegistration(rq);
+
 
     }
 

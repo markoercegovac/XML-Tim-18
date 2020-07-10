@@ -64,9 +64,9 @@ public class AdvertServiceImpl implements AdvertService {
             advertMiniDto.setGrade(gradeService.getGradeForAd(a.getId()));
             advertMiniDto.setAdvertId(a.getId());
             advertMiniDto.setCarBrand(a.getCar().getCarBrand().getName());
-            //advertMiniDto.setCarModel(a.getCar().getCarModel().getModelName());
-            //advertMiniDto.setDistanceUnit(a.getCar().getTravelDistanceConstraint().toString());
-//            advertMiniDto.setPrice(a.getPrice().getPricePerDay());
+            advertMiniDto.setCarModel(a.getCar().getCarModel().getModelName());
+            advertMiniDto.setDistanceUnit(a.getCar().getTravelDistanceConstraint().toString());
+            advertMiniDto.setPrice(a.getPrice().getPricePerDay());
             advertMiniDto.setProfilePicture(pictureService.getProfilePicture(a.getProfilePicture()));
             advertMiniDtos.add(advertMiniDto);
         }
@@ -83,6 +83,19 @@ public class AdvertServiceImpl implements AdvertService {
         advertFullDto.setCarBrand(advert.getCar().getCarBrand().getName());
         advertFullDto.setCarModel(advert.getCar().getCarModel().getModelName());
         advertFullDto.setPrice(advert.getPrice().getPricePerDay());
+        advertFullDto.setDescription(advert.getDescription());
+
+        List<Client> clients=clientRepository.findAll();
+        for(Client client:clients){
+            for(Advert advert1: client.getAdvertList()){
+
+                if(advert1.getId().equals(advert.getId())){
+                    advertFullDto.setOwnerEmail(client.getEmail());
+                }
+            }
+        }
+
+
         advertFullDto.setProfileImage(pictureService.getProfilePicture(advert.getProfilePicture()));
         List<String> pictures=new ArrayList<>();
         for(Picture p : advert.getPictureSet()){
@@ -103,7 +116,7 @@ public class AdvertServiceImpl implements AdvertService {
             advertMiniDto.setCarBrand(a.getCar().getCarBrand().getName());
             advertMiniDto.setCarModel(a.getCar().getCarModel().getModelName());
             advertMiniDto.setDistanceUnit(a.getCar().getTravelDistanceConstraint().toString());
-            //advertMiniDto.setPrice(a.getPrice().getPricePerDay());
+            //aadvertMiniDto.setPrice(a.getPrice().getPricePerDay());
             advertMiniDto.setProfilePicture(pictureService.getProfilePicture(a.getProfilePicture()));
             advertMiniDtos.add(advertMiniDto);
         }

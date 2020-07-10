@@ -54,8 +54,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .antMatchers("/", "/login").permitAll()
+                .antMatchers(HttpMethod.GET,"/api/advert/allAdverts").permitAll()
                 .antMatchers("/registration/*").permitAll()
-                .antMatchers("/admin/all/registration").permitAll()
+                .antMatchers("/create-client/*").permitAll()
+                .antMatchers("/admin/all/registration").permitAll() // i ovo
+                .antMatchers("/admin/reject").permitAll() //ovo posle zakomentarisati
                 .antMatchers("/admin/*").hasAuthority("PERMISSION_ADMIN")
                 .antMatchers("/agent/*").hasAuthority("PERMISSION_AGENT")
                 .antMatchers("/user/*").hasAuthority("PERMISSION_USER");

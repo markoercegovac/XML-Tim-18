@@ -22,6 +22,9 @@ public class Comment {
     private Advert advert;
 
     @Column
+    private String author;
+
+    @Column
     private boolean isApproved; //verovatno enum{NOV, ODOBREN, ODBIJEN}
 
 }

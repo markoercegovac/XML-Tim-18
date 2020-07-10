@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import rent.app.dto.CommentDTO;
 import rent.app.service.CommentService;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -25,9 +26,9 @@ public class CommentController {
     }
 
     @PostMapping(value = "/add", consumes = "application/json")
-    public ResponseEntity<?> createComment(@RequestBody CommentDTO comment) {
+    public ResponseEntity<?> createComment(@RequestBody CommentDTO comment, Principal principal) {
 
-        commentService.addNewComment(comment);
+        commentService.addNewComment(comment,principal.getName());
 
             return new ResponseEntity<>( HttpStatus.OK);
 
