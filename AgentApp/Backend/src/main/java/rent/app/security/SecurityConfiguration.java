@@ -59,6 +59,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/create-client/*").permitAll()
                 .antMatchers("/admin/all/registration").permitAll() // i ovo
                 .antMatchers("/admin/reject").permitAll() //ovo posle zakomentarisati
+                .antMatchers("/home/*").permitAll()
+                // .antMatchers("/admin/all/registration").permitAll()
+                .antMatchers("/advert-request/").permitAll()
                 .antMatchers("/admin/*").hasAuthority("PERMISSION_ADMIN")
                 .antMatchers("/agent/*").hasAuthority("PERMISSION_AGENT")
                 .antMatchers("/user/*").hasAuthority("PERMISSION_USER");

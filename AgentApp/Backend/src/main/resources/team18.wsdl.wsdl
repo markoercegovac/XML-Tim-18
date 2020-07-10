@@ -1,0 +1,971 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://uns.ac.rs/xml/team18" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://uns.ac.rs/xml/team18" targetNamespace="http://uns.ac.rs/xml/team18">
+  <wsdl:types>
+    <xs:schema xmlns:t="http://uns.ac.rs/xml/team18" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://uns.ac.rs/xml/team18" version="1.0">
+        
+  
+  
+  <xs:element name="advertRequest" type="t:advertRequest"/>
+        
+  
+  
+  <xs:element name="captureRequest" type="t:captureRequest"/>
+        
+  
+  
+  <xs:element name="carBrandRequest" type="t:carBrandRequest"/>
+        
+  
+  
+  <xs:element name="carClassRequest" type="t:carClassRequest"/>
+        
+  
+  
+  <xs:element name="carFuelTypeRequest" type="t:carFuelTypeRequest"/>
+        
+  
+  
+  <xs:element name="carModelRequest" type="t:carModelRequest"/>
+        
+  
+  
+  <xs:element name="carRequest" type="t:carRequest"/>
+        
+  
+  
+  <xs:element name="carTransmissionRequest" type="t:carTransmissionRequest"/>
+        
+  
+  
+  <xs:element name="clientRequest" type="t:clientRequest"/>
+        
+  
+  
+  <xs:element name="commentRequest" type="t:commentRequest"/>
+        
+  
+  
+  <xs:element name="driveReportRequest" type="t:driveReportRequest"/>
+        
+  
+  
+  <xs:element name="gradeReport" type="t:gradeReport"/>
+        
+  
+  
+  <xs:element name="messageRequest" type="t:messageRequest"/>
+        
+  
+  
+  <xs:element name="pictureRequest" type="t:pictureRequest"/>
+        
+  
+  
+  <xs:element name="priceRequest" type="t:priceRequest"/>
+        
+  
+  
+  <xs:element name="reservationRequest" type="t:reservationRequest"/>
+        
+  
+  
+  <xs:element name="soapResponse" type="t:soapResponse"/>
+        
+  
+  
+  <xs:complexType name="advertRequest">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="id" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="token" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="carId" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="profileImgId" type="xs:long"/>
+                        
+      
+      
+      <xs:element maxOccurs="unbounded" name="galleryImgIds" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="start" type="xs:dateTime"/>
+                        
+      
+      
+      <xs:element name="end" type="xs:dateTime"/>
+                        
+      
+      
+      <xs:element name="description" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="priceId" type="xs:long"/>
+                        
+      
+      
+      <xs:element maxOccurs="unbounded" name="captureIds" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="deleted" type="xs:boolean"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="captureRequest">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="id" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="token" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="start" type="xs:dateTime"/>
+                        
+      
+      
+      <xs:element name="end" type="xs:dateTime"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="carBrandRequest">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="id" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="token" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="name" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="deleted" type="xs:boolean"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="carClassRequest">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="id" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="token" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="name" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="deleted" type="xs:boolean"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="carFuelTypeRequest">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="id" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="token" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="name" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="deleted" type="xs:boolean"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="carModelRequest">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="id" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="token" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="name" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="deleted" type="xs:boolean"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="carRequest">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="id" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="token" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="carBrandId" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="carModelId" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="carClassId" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="carFuelTypeId" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="carTransmissionId" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="traveledDistance" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="traveledDistanceConstraint" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="insurance" type="xs:boolean"/>
+                        
+      
+      
+      <xs:element name="childrenSitNumber" type="xs:int"/>
+                        
+      
+      
+      <xs:element name="deleted" type="xs:boolean"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="carTransmissionRequest">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="id" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="token" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="name" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="deleted" type="xs:boolean"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="clientRequest">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="id" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="token" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="email" type="xs:string"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="commentRequest">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="id" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="token" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="advertId" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="content" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="header" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="creationDate" type="xs:dateTime"/>
+                        
+      
+      
+      <xs:element name="userEmail" type="xs:string"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="driveReportRequest">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="id" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="token" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="traveledDistance" type="xs:float"/>
+                        
+      
+      
+      <xs:element name="description" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="dateOfReport" type="xs:dateTime"/>
+                        
+      
+      
+      <xs:element name="carId" type="xs:long"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="gradeReport">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="id" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="token" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="grade" type="xs:float"/>
+                        
+      
+      
+      <xs:element name="advertId" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="deleted" type="xs:boolean"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="messageRequest">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="id" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="token" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="header" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="content" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="creationDate" type="xs:dateTime"/>
+                        
+      
+      
+      <xs:element name="senderEmail" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="receiverEmail" type="xs:long"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="pictureRequest">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="id" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="token" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="name" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="base64" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="deleted" type="xs:boolean"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="priceRequest">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="id" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="token" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="name" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="pricePerDay" type="xs:float"/>
+                        
+      
+      
+      <xs:element name="insurancePrice" type="xs:float"/>
+                        
+      
+      
+      <xs:element name="distanceOverflowPrice" type="xs:float"/>
+                        
+      
+      
+      <xs:element name="discount" type="xs:float"/>
+                        
+      
+      
+      <xs:element name="deleted" type="xs:boolean"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="reservationRequest">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="id" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="token" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="advertId" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="status" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="userEmail" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="start" type="xs:dateTime"/>
+                        
+      
+      
+      <xs:element name="end" type="xs:dateTime"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="soapResponse">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="status" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="agId" type="xs:long"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+      
+
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="carModelRequest">
+    <wsdl:part element="tns:carModelRequest" name="carModelRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pictureRequest">
+    <wsdl:part element="tns:pictureRequest" name="pictureRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="carTransmissionRequest">
+    <wsdl:part element="tns:carTransmissionRequest" name="carTransmissionRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="carRequest">
+    <wsdl:part element="tns:carRequest" name="carRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="commentRequest">
+    <wsdl:part element="tns:commentRequest" name="commentRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="carClassRequest">
+    <wsdl:part element="tns:carClassRequest" name="carClassRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="clientRequest">
+    <wsdl:part element="tns:clientRequest" name="clientRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="carFuelTypeRequest">
+    <wsdl:part element="tns:carFuelTypeRequest" name="carFuelTypeRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="soapResponse">
+    <wsdl:part element="tns:soapResponse" name="soapResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="priceRequest">
+    <wsdl:part element="tns:priceRequest" name="priceRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="reservationRequest">
+    <wsdl:part element="tns:reservationRequest" name="reservationRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="captureRequest">
+    <wsdl:part element="tns:captureRequest" name="captureRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="carBrandRequest">
+    <wsdl:part element="tns:carBrandRequest" name="carBrandRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="driveReportRequest">
+    <wsdl:part element="tns:driveReportRequest" name="driveReportRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="advertRequest">
+    <wsdl:part element="tns:advertRequest" name="advertRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="messageRequest">
+    <wsdl:part element="tns:messageRequest" name="messageRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Team18Port">
+    <wsdl:operation name="carModel">
+      <wsdl:input message="tns:carModelRequest" name="carModelRequest">
+    </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="picture">
+      <wsdl:input message="tns:pictureRequest" name="pictureRequest">
+    </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="carTransmission">
+      <wsdl:input message="tns:carTransmissionRequest" name="carTransmissionRequest">
+    </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="car">
+      <wsdl:input message="tns:carRequest" name="carRequest">
+    </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="comment">
+      <wsdl:input message="tns:commentRequest" name="commentRequest">
+    </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="carClass">
+      <wsdl:input message="tns:carClassRequest" name="carClassRequest">
+    </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="client">
+      <wsdl:input message="tns:clientRequest" name="clientRequest">
+    </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="carFuelType">
+      <wsdl:input message="tns:carFuelTypeRequest" name="carFuelTypeRequest">
+    </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="soap">
+      <wsdl:output message="tns:soapResponse" name="soapResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="price">
+      <wsdl:input message="tns:priceRequest" name="priceRequest">
+    </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="reservation">
+      <wsdl:input message="tns:reservationRequest" name="reservationRequest">
+    </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="capture">
+      <wsdl:input message="tns:captureRequest" name="captureRequest">
+    </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="carBrand">
+      <wsdl:input message="tns:carBrandRequest" name="carBrandRequest">
+    </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="driveReport">
+      <wsdl:input message="tns:driveReportRequest" name="driveReportRequest">
+    </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="advert">
+      <wsdl:input message="tns:advertRequest" name="advertRequest">
+    </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="message">
+      <wsdl:input message="tns:messageRequest" name="messageRequest">
+    </wsdl:input>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Team18PortSoap11" type="tns:Team18Port">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="carModel">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="carModelRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="picture">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="pictureRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="carTransmission">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="carTransmissionRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="car">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="carRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="comment">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="commentRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="carClass">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="carClassRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="client">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="clientRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="carFuelType">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="carFuelTypeRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="soap">
+      <soap:operation soapAction=""/>
+      <wsdl:output name="soapResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="price">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="priceRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="reservation">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="reservationRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="capture">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="captureRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="carBrand">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="carBrandRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="driveReport">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="driveReportRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="advert">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="advertRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="message">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="messageRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Team18PortService">
+    <wsdl:port binding="tns:Team18PortSoap11" name="Team18PortSoap11">
+      <soap:address location="http://localhost:8099/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

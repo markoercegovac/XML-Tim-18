@@ -48,6 +48,15 @@ import { DriveReportUpdateComponent } from './drive-report-update/drive-report-u
 import { AllRegistrationRequestComponent } from './all-registration-request/all-registration-request.component';
 import { RegisterApprovedComponent } from './register-approved/register-approved.component';
 import {AuthInterceptor} from './interceptor/AuthInterceptor';
+import { ReservationDateComponent } from './home/full-advert/reservation-date/reservation-date.component';
+
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDialogModule} from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavAdminComponent } from './navigation/nav-admin/nav-admin.component';
+import { NavUserComponent } from './navigation/nav-user/nav-user.component';
+import { NavOwnerComponent } from './navigation/nav-owner/nav-owner.component';
+import { NavNoComponent } from './navigation/nav-no/nav-no.component';
 
 
 @NgModule({
@@ -87,14 +96,22 @@ import {AuthInterceptor} from './interceptor/AuthInterceptor';
     InboxComponent,
     MesagesComponent,
     AllRegistrationRequestComponent,
-    RegisterApprovedComponent
+    RegisterApprovedComponent,
+    ReservationDateComponent,
+    NavAdminComponent,
+    NavUserComponent,
+    NavOwnerComponent,
+    NavNoComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    MDBBootstrapModule
+    MatFormFieldModule,
+    MatDialogModule,
+    MDBBootstrapModule,
+    BrowserAnimationsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

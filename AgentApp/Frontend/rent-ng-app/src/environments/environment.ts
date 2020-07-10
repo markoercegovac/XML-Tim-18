@@ -13,6 +13,7 @@ export const environment = {
   message: 'http://localhost:9090/api/message',
   registration: 'http://localhost:9090/admin',
   client: 'http://localhost:9090/api/client',
+  advert_request: 'http://localhost:9090/advert-request'
 };
 
 /*

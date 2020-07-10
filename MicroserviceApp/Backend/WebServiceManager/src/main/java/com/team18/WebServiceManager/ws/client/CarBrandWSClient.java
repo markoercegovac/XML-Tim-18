@@ -1,7 +1,6 @@
 package com.team18.WebServiceManager.ws.client;
 
-import com.team18.WebServiceManager.ws.dto.CarBrandRequest;
-import com.team18.WebServiceManager.ws.dto.SoapResponse;
+import com.team18.WebServiceManager.ws.endpoint.dto.*;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 
 import javax.xml.bind.JAXBElement;

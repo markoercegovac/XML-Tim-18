@@ -10,7 +10,7 @@ public class WebClientConfig {
 	@Bean
 	public Jaxb2Marshaller marshaller() {
 		Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
-		marshaller.setContextPath("com.team18.WebServiceManager.ws.dto");
+		marshaller.setContextPath("com.team18.WebServiceManager.ws.endpoint.dto");
 
 		return marshaller;
 	}

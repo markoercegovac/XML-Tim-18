@@ -5,7 +5,7 @@ import com.team18.WebServiceManager.model.*;
 import com.team18.WebServiceManager.mq.dto.*;
 import com.team18.WebServiceManager.repository.*;
 import com.team18.WebServiceManager.ws.client.CarBrandWSClient;
-import com.team18.WebServiceManager.ws.dto.*;
+import com.team18.WebServiceManager.ws.endpoint.dto.*;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -57,7 +57,7 @@ public class AdConsumer {
 				//SVAKOM AGENTU POSLATI SOAP
 				CarBrandRequest request = new CarBrandRequest();
 				CarBrand b = carBrandRepository.findByAgentAgentIdAndKeyMS(ag.getAgentId(), mq.getId());
-				request.setId(b!=null?b.getKeyAG():null);
+				request.setId(b!=null?b.getKeyAG():0);
 				request.setName(mq.getName());
 				request.setToken(ag.getAgentEmail());
 				request.setDeleted(mq.isDeleted());
@@ -85,7 +85,7 @@ public class AdConsumer {
 				//SVAKOM AGENTU POSLATI SOAP
 				CarModelRequest request = new CarModelRequest();
 				CarModel b = carModelRepository.findByAgentAgentIdAndKeyMS(ag.getAgentId(), mq.getId());
-				request.setId(b!=null?b.getKeyAG():null);
+				request.setId(b!=null?b.getKeyAG():0);
 				request.setName(mq.getName());
 				request.setToken(ag.getAgentEmail());
 				request.setDeleted(mq.isDeleted());
@@ -110,7 +110,7 @@ public class AdConsumer {
 				//SVAKOM AGENTU POSLATI SOAP
 				CarClassRequest request = new CarClassRequest();
 				CarClass b = carClassRepository.findByAgentAgentIdAndKeyMS(ag.getAgentId(), mq.getId());
-				request.setId(b!=null?b.getKeyAG():null);
+				request.setId(b!=null?b.getKeyAG():0);
 				request.setName(mq.getName());
 				request.setToken(ag.getAgentEmail());
 				request.setDeleted(mq.isDeleted());
@@ -135,7 +135,7 @@ public class AdConsumer {
 				//SVAKOM AGENTU POSLATI SOAP
 				CarFuelTypeRequest request = new CarFuelTypeRequest();
 				CarFuelType b = carFuelTypeRepository.findByAgentAgentIdAndKeyMS(ag.getAgentId(), mq.getId());
-				request.setId(b!=null?b.getKeyAG():null);
+				request.setId(b!=null?b.getKeyAG():0);
 				request.setName(mq.getName());
 				request.setToken(ag.getAgentEmail());
 				request.setDeleted(mq.isDeleted());
@@ -160,7 +160,7 @@ public class AdConsumer {
 				//SVAKOM AGENTU POSLATI SOAP
 				CarTransmissionRequest request = new CarTransmissionRequest();
 				CarTransmission b = carTransmissionRepository.findByAgentAgentIdAndKeyMS(ag.getAgentId(), mq.getId());
-				request.setId(b!=null?b.getKeyAG():null);
+				request.setId(b!=null?b.getKeyAG():0);
 				request.setName(mq.getName());
 				request.setToken(ag.getAgentEmail());
 				request.setDeleted(mq.isDeleted());
@@ -185,18 +185,18 @@ public class AdConsumer {
 				//SVAKOM AGENTU POSLATI SOAP
 				CarRequest request = new CarRequest();
 				Car b = carRepository.findByAgentAgentIdAndKeyMS(ag.getAgentId(), mq.getId());
-				request.setId(b!=null?b.getKeyAG():null);
+				request.setId(b!=null?b.getKeyAG():0);
 				request.setToken(ag.getAgentEmail());
 				CarBrand cb = carBrandRepository.findByAgentAgentIdAndKeyMS(ag.getAgentId(), mq.getCarBrandId());
-				request.setCarBrandId(cb!=null?cb.getKeyAG():null);
+				request.setCarBrandId(cb!=null?cb.getKeyAG():0);
 				CarModel cm = carModelRepository.findByAgentAgentIdAndKeyMS(ag.getAgentId(), mq.getCarModelId());
-				request.setCarModelId(cm!=null?cm.getKeyAG():null);
+				request.setCarModelId(cm!=null?cm.getKeyAG():0);
 				CarClass cc = carClassRepository.findByAgentAgentIdAndKeyMS(ag.getAgentId(), mq.getCarClassId());
-				request.setCarClassId(cc!=null?cc.getKeyAG():null);
+				request.setCarClassId(cc!=null?cc.getKeyAG():0);
 				CarFuelType cft = carFuelTypeRepository.findByAgentAgentIdAndKeyMS(ag.getAgentId(), mq.getCarFuelTypeId());
-				request.setCarFuelTypeId(cft!=null?cft.getKeyAG():null);
+				request.setCarFuelTypeId(cft!=null?cft.getKeyAG():0);
 				CarTransmission cf = carTransmissionRepository.findByAgentAgentIdAndKeyMS(ag.getAgentId(), mq.getCarTransmissionId());
-				request.setCarTransmissionId(cf!=null?cf.getKeyAG():null);
+				request.setCarTransmissionId(cf!=null?cf.getKeyAG():0);
 				request.setTraveledDistance(mq.getTraveledDistance());
 				request.setTraveledDistanceConstraint(mq.getTraveledDistanceConstraint());
 				request.setInsurance(mq.isInsurance());
@@ -223,7 +223,7 @@ public class AdConsumer {
 				//SVAKOM AGENTU POSLATI SOAP
 				PriceRequest request = new PriceRequest();
 				Price b = priceRepository.findByAgentAgentIdAndKeyMS(ag.getAgentId(), mq.getId());
-				request.setId(b!=null?b.getKeyAG():null);
+				request.setId(b!=null?b.getKeyAG():0);
 				request.setName(mq.getName());
 				request.setToken(ag.getAgentEmail());
 				request.setPricePerDay(mq.getPricePerDay());
@@ -252,7 +252,7 @@ public class AdConsumer {
 				//SVAKOM AGENTU POSLATI SOAP
 				PictureRequest request = new PictureRequest();
 				Picture b = pictureRepository.findByAgentAgentIdAndKeyMS(ag.getAgentId(), mq.getId());
-				request.setId(b!=null?b.getKeyAG():null);
+				request.setId(b!=null?b.getKeyAG():0);
 				request.setName(mq.getName());
 				request.setBase64(mq.getBase64());
 				request.setToken(ag.getAgentEmail());
@@ -278,7 +278,7 @@ public class AdConsumer {
 				//SVAKOM AGENTU POSLATI SOAP
 				CaptureRequest request = new CaptureRequest();
 				Capture b = captureRepository.findByAgentAgentIdAndKeyMS(ag.getAgentId(), mq.getId());
-				request.setId(b!=null?b.getKeyAG():null);
+				request.setId(b!=null?b.getKeyAG():0);
 				request.setEnd(mq.getEnd());
 				request.setStart(mq.getStart());
 				request.setToken(ag.getAgentEmail());
@@ -303,12 +303,12 @@ public class AdConsumer {
 				//SVAKOM AGENTU POSLATI SOAP
 				AdvertRequest request = new AdvertRequest();
 				Advert b = advertRepository.findByAgentAgentIdAndKeyMS(ag.getAgentId(), mq.getId());
-				request.setId(b!=null?b.getKeyAG():null);
+				request.setId(b!=null?b.getKeyAG():0);
 				request.setToken(ag.getAgentEmail());
 				Car c = carRepository.findByAgentAgentIdAndKeyMS(ag.getAgentId(), mq.getCarId());
-				request.setCarId(c!=null?c.getKeyAG():null);
+				request.setCarId(c!=null?c.getKeyAG():0);
 				Picture p = pictureRepository.findByAgentAgentIdAndKeyMS(ag.getAgentId(), mq.getProfileImgId());
-				request.setProfileImgId(p!=null?p.getKeyAG():null);
+				request.setProfileImgId(p!=null?p.getKeyAG():0);
 				mq.getGalleryImgIds().forEach(img -> {
 					Picture g = pictureRepository.findByAgentAgentIdAndKeyMS(ag.getAgentId(), img);
 					request.getGalleryImgIds().add(g.getKeyAG());
@@ -317,7 +317,7 @@ public class AdConsumer {
 				request.setStart(mq.getStart());
 				request.setDescription(mq.getDescription());
 				Price price = priceRepository.findByAgentAgentIdAndKeyMS(ag.getAgentId(), mq.getPriceId());
-				request.setPriceId(price!=null?price.getKeyAG():null);
+				request.setPriceId(price!=null?price.getKeyAG():0);
 				mq.getCaptureIds().forEach(capture -> {
 					Capture cap = captureRepository.findByAgentAgentIdAndKeyMS(ag.getAgentId(), capture);
 					request.getCaptureIds().add(cap.getKeyAG());
