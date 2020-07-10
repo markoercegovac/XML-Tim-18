@@ -22,13 +22,14 @@ public class CommentServiceImpl  implements CommentService {
 
     @Override
     public List<CommentDTO> getAllCommentsOfAd(Long adId) {
-        List<Comment> comments = commentRepository.findAllByAdvertId(adId);
+        Advert advert=advertRepository.findById(adId).get();
+        List<Comment> comments = advert.getComments();
         List<CommentDTO> commentsDTO = new ArrayList<>();
 
         for(Comment comment: comments) {
             CommentDTO com = new CommentDTO();
             com.setCommentId(comment.getId());
-            com.setAdvertId(comment.getAdvert().getId());
+//            com.setAdvertId(comment.getAdvert().getId());
             com.setAuthor(comment.getAuthor());
             com.setContent(comment.getContent());
 
@@ -44,10 +45,12 @@ public class CommentServiceImpl  implements CommentService {
         Comment comment = new Comment();
         Advert advert = advertRepository.findAllById(newComment.getAdvertId());
         comment.setId(newComment.getCommentId());
-        comment.setAdvert(advert);
+//        comment.setAdvert(advert);
         comment.setAuthor(author);
         comment.setContent(newComment.getContent());
+        advert.getComments().add(comment);
         commentRepository.save(comment);
+        advertRepository.save(advert);
 
 
     }

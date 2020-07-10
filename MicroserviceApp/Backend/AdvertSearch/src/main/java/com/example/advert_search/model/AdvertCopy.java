@@ -47,7 +47,7 @@ public class AdvertCopy {
     private float plannedKm;
 
     @Column
-    private boolean insurance;
+    private String insurance;
 
     @Column
     private int numberOfSeats;
@@ -61,12 +61,24 @@ public class AdvertCopy {
     @Column
     private float price;
 
-    @OneToMany(mappedBy = "advertCopy", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<CarReservedDate> carReservedDate;
 
 
-    public AdvertCopy(String sabac, List<CarReservedDate> lista1) {
-        this.city=sabac;
-        this.carReservedDate=lista1;
+    public AdvertCopy(String city, String carMark, String modelMark, String carFuelType, String carTransmissionType, String carClass, float price, float traveledKm, float plannedKm, String insurance, int numberOfSeats, float mark, List<CarReservedDate> listaZauzeca) {
+        this.city=city;
+        this.carMark=carMark;
+        this.modelMark=modelMark;
+        this.carFuelType=carFuelType;
+        this.carTransmissionType=carTransmissionType;
+        this.carClass=carClass;
+        this.price=price;
+        this.traveledKm=traveledKm;
+        this.plannedKm=plannedKm;
+        this.insurance=insurance;
+        this.numberOfSeats=numberOfSeats;
+        this.mark=mark;
+        this.carReservedDate= listaZauzeca;
+
     }
 }

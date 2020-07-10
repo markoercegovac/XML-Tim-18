@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -15,15 +14,12 @@ import java.util.List;
 public class Agent {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long agentId;
 
-	@Column(nullable = false)
+	@Column(nullable = false, unique = true)
 	private String agentEmail;
 
 	@Column(nullable = false)
 	private String agentUrl;
-
-	@OneToMany
-	private List<Binding> bindings;
 }

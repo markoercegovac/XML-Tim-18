@@ -30,7 +30,8 @@ export class AllRegistrationRequestComponent implements OnInit {
 
   public approve(register: UserRegister) {
     let req: UserRegister;
-    req = {email: register.email, password: register.password, name: register.name, surname: register.surname, role: register.role};
+    // @ts-ignore
+    req = {email: register.email, password: register.password, name: register.name, surname: register.surname, role: register.role, city: register.city, username: register.email};
     this.registerService.accept(req).subscribe();
     alert(req.email);
   }

@@ -27,6 +27,7 @@ public class AdvertServiceImpl implements AdvertService {
     private final AdvertRepository advertRepository;
     private final GradeService gradeService;
     private final DtoUtils dtoUtils;
+    private final GradeRepository gradeRepository;
 
     @Override
     public void saveAdvert(AdvertDto advertDto,String ownerEmail) throws IOException {
@@ -47,9 +48,17 @@ public class AdvertServiceImpl implements AdvertService {
         Picture profilePicture= (Picture) dtoUtils.convertToEntity(new Picture(),advertDto.getProfilePicture());
         pictureRepository.save(profilePicture);
         advert.setProfilePicture(profilePicture);
+        advert.setCity(owner.getCity());
 
         Advert advert1=advertRepository.save(advert);
+        advert.setOwner(ownerEmail);
         owner.getAdvertList().add(advert);
+
+        Grade grade=new Grade();
+        grade.setAdvert(advert1);
+        grade.setGrade(0);
+        gradeRepository.save(grade);
+
         clientRepository.save(owner);
 
     }
@@ -86,14 +95,7 @@ public class AdvertServiceImpl implements AdvertService {
         advertFullDto.setDescription(advert.getDescription());
 
         List<Client> clients=clientRepository.findAll();
-        for(Client client:clients){
-            for(Advert advert1: client.getAdvertList()){
-
-                if(advert1.getId().equals(advert.getId())){
-                    advertFullDto.setOwnerEmail(client.getEmail());
-                }
-            }
-        }
+        advertFullDto.setOwnerEmail(advert.getOwner());
 
 
         advertFullDto.setProfileImage(pictureService.getProfilePicture(advert.getProfilePicture()));

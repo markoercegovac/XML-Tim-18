@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.PathParam;
+import java.security.Principal;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -21,8 +22,8 @@ public class PriceController {
     private final PriceService priceService;
 
     @PostMapping
-    public void createPrice (@RequestBody PriceDto price) {
-        priceService.savePrice(price);
+    public void createPrice (@RequestBody PriceDto price,Principal principal) {
+        priceService.savePrice(price,principal.getName());
     }
 
 
@@ -44,8 +45,8 @@ public class PriceController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<PriceDto>> allPrices () {
-        return new ResponseEntity<List<PriceDto>>(priceService.allPrices(),HttpStatus.OK);
+    public ResponseEntity<List<PriceDto>> allPrices (Principal principal) {
+        return new ResponseEntity<List<PriceDto>>(priceService.allPrices(principal.getName()),HttpStatus.OK);
     }
 
 }

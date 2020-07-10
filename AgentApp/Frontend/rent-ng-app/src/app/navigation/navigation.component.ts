@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import { AuthService } from '../service/AuthService';
 
 @Component({
   selector: 'app-navigation',
@@ -8,7 +9,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor() {
+  constructor(public auth: AuthService) {
 
   }
 

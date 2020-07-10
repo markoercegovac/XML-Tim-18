@@ -1,26 +1,45 @@
 package com.example.advertmanagerapp.controller.rest;
 
-
+import com.example.advertmanagerapp.dto.CarDto;
 import com.example.advertmanagerapp.dto.DriveReportDto;
+import com.example.advertmanagerapp.service.CarService;
+import com.example.advertmanagerapp.service.DriveReportService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RequiredArgsConstructor
-@RequestMapping("/advert-manager/car-report")
 @RestController
+@CrossOrigin
+@RequestMapping("/advert-manager")
 public class DriveReportController {
+    private final DriveReportService driveReportService;
+    private final CarService carService;
 
-    @GetMapping("/{car_id}")
-    public ResponseEntity<DriveReportDto> getDriveReport () {
+    @GetMapping("/readDR/{id}")
+    public List<DriveReportDto> getByIdDR(@PathVariable(value = "id") Long drId){
 
-        return new ResponseEntity<DriveReportDto>(HttpStatus.OK);
+        List<DriveReportDto> reports = driveReportService.getAllReportsByCarId(drId);
+        return reports;
     }
 
-    @PostMapping("/{car_id}")
-    public ResponseEntity createDriveReport (@PathVariable(value="car_id") Long car_id){
 
-        return new ResponseEntity(HttpStatus.OK);
+    @PostMapping("/createDR")
+    public ResponseEntity<?> createDR(@RequestBody DriveReportDto report) {
+
+        driveReportService.addNewReport(report);
+
+        return new ResponseEntity<>( HttpStatus.OK);
+
+    }
+
+    @GetMapping("/allCars")
+    public List<CarDto> getAllCars(){
+
+        List<CarDto> cars = carService.getAllConcreteCar();
+        return cars;
     }
 }

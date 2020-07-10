@@ -48,6 +48,7 @@ public class ClientServiceImpl implements ClientService {
         client.setName(rq.getName());
         client.setSurname(rq.getSurname());
         client.setPassword(passwordEncoder.encode(rq.getPassword()));
+        client.setCity(rq.getCity());
 
         //da se sacuvaju permisije i role za kreiranu osobu :)
         Permission p = new Permission();

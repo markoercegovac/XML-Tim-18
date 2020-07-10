@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface CommentRepository extends JpaRepository<Comment,Long> {
 
-    List<Comment> findAllByAdvertId(Long advertId);
+//    List<Comment> findAllByAdvertId(Long advertId);
     List<Comment> findAllByClientEmail(String email);
 
 }

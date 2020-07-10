@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.PathParam;
+import java.security.Principal;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -21,8 +22,8 @@ public class CarController {
         private final CarService carService;
 
         @PostMapping
-        public void createCar (@RequestBody CarDto carDto) {
-            carService.createCar(carDto);
+        public void createCar (@RequestBody CarDto carDto, Principal principal) {
+            carService.createCar(carDto,principal.getName());
         }
 
 
@@ -32,8 +33,8 @@ public class CarController {
         }
 
         @GetMapping("/all")
-        public ResponseEntity<List<DtoEntity>> getCarsFromOwner () {
-            return new ResponseEntity<>(carService.getAllCars(),HttpStatus.OK);
+        public ResponseEntity<List<DtoEntity>> getCarsFromOwner (Principal principal) {
+            return new ResponseEntity<>(carService.getAllCars(principal.getName()),HttpStatus.OK);
         }
 
         @PutMapping("/update")
