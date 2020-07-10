@@ -1,10 +1,10 @@
 -- -- CLIENT COPY
  insert into client_copy(id, email, is_banned, is_removed, is_forbidden_advert, is_creation_enabled)
- values(101, "pera@com", false, false, false, false);
+ values(101, "pera@com", false, false, false, true);
  insert into client_copy(id, email, is_banned, is_removed, is_forbidden_advert, is_creation_enabled)
- values(102, "marko@com", false, false, false, false);
+ values(102, "marko@com", false, false, false, true);
  insert into client_copy(id, email,is_banned, is_removed, is_forbidden_advert, is_creation_enabled)
- values(103, "zika@com", false, false, false, false);
+ values(103, "zika@com", false, false, false, true);
 
 -- CAR BRAND
 insert into car_brand(id, name, is_removed) values(1, "BMW", FALSE);
@@ -52,7 +52,7 @@ values(1, 0, "AUDI:R8", 0, "1993", 2, 1, 2, 1, 1);
 
 insert into price(id, discount, distance_overflow_price, insurance_price, is_removed, name, price_name, price_per_day)
 values(2, 0, 54634, 543, 0, "BEST", "BEST", 4254);
-
+--
 insert into picture(id, is_deleted, path, picture)
 values(5, 0, "Fiat-Panda.jpg", null);
 insert into picture(id, is_deleted, path, picture)

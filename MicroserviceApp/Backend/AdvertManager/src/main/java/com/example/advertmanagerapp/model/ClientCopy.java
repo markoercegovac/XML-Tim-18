@@ -37,4 +37,10 @@ public class ClientCopy  {
     @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private List<Advert> adverts;
 
+    @OneToMany
+    private List<ConcreteCar> cars;
+
+    @OneToMany
+    private List<Price> priceList;
+
 }

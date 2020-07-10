@@ -11,8 +11,8 @@ public interface CarService {
     List<DtoEntity> getFuelTypes();
     List<DtoEntity> getCarClasses();
     List<DtoEntity> getTransmissions();
-    void createCar(CarDto carDto);
+    void createCar(CarDto carDto,String ownerEmail);
 
     //Prilagoditi za usere
-    List<DtoEntity> getAllCars();
+    List<DtoEntity> getAllCars(String ownerEmail);
 }

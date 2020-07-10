@@ -1,1 +1,24 @@
-<p>my-price-list works!</p>
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th scope="col">Name Of Price</th>
+    <th scope="col">Price Per Day</th>
+    <th scope="col">Insurance Price</th>
+    <th scope="col">Distance Overflow Price</th>
+    <th scope="col">Discount</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let price of allMyPrices">
+    <td>{{price.priceName}}</td>
+    <td>{{price.pricePerDay}}</td>
+    <td>{{price.insurancePrice}}</td>
+    <td>{{price.distanceOverflowPrice}}</td>
+  </tr>
+
+
+
+
+  </tbody>
+</table>
