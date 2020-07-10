@@ -15,4 +15,5 @@ public class DriveReportDto {
     private String describe;
     private Date dateOfReport;
     private OwnersCar ownersCarReport;
+    private Long carId;
 }

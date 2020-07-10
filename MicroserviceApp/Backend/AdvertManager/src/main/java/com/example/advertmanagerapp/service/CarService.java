@@ -2,6 +2,7 @@ package com.example.advertmanagerapp.service;
 
 import com.example.advertmanagerapp.dto.CarDto;
 import com.example.advertmanagerapp.dto.mapper.DtoEntity;
+import com.example.advertmanagerapp.model.ConcreteCar;
 
 import java.util.List;
 
@@ -15,4 +16,5 @@ public interface CarService {
 
     //Prilagoditi za usere
     List<DtoEntity> getAllCars(String ownerEmail);
+    List<CarDto> getAllConcreteCar();
 }

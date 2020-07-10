@@ -76,6 +76,8 @@ import { HomeHeaderComponent } from './home/home-header/home-header.component';
 import { CommentComponent } from './home/full-advert/comments/comment/comment.component';
 import { AdminCommentsAllowComponent } from './admin-comments-allow/admin-comments-allow.component';
 import { SearchAdvancedComponent } from './search-advanced/search-advanced.component';
+import { DriveReportCreateComponent } from './drive-report-create/drive-report-create.component';
+import { DriveReportListComponent } from './drive-report-list/drive-report-list.component';
 
 import { AdminComponent } from './admin/admin.component';
 import { NavigationUserComponent } from './navigation-user/navigation-user.component';
@@ -166,6 +168,8 @@ import { RegisterRequestsItemComponent } from './admin-register-requests/registe
     RegisterRequestsItemComponent,
     AdminCommentsAllowComponent,
     SearchAdvancedComponent,
+    DriveReportCreateComponent,
+    DriveReportListComponent,
 
 
 

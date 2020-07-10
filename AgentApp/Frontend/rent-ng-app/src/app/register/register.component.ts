@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
     surname: '',
     password: '',
     email: '',
-    Role: ''
+    role: ''
   };
 
   constructor(private router: Router , public http : HttpClient) { }
