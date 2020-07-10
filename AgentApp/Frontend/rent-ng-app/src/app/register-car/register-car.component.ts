@@ -48,10 +48,9 @@ export class RegisterCarComponent implements OnInit {
     this.carService.getAllCarModels().subscribe(
       data => {
         this.allCarModel = data;
-      },
-      error => {
-        console.log('Error occurred', error);
+
       }
+
     );
 
     this.carService.getAllCarBrands().subscribe(

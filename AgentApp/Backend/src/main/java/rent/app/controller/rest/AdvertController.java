@@ -11,6 +11,7 @@ import rent.app.service.PictureService;
 import rent.app.service.ReservationService;
 
 import java.io.IOException;
+import java.security.Principal;
 import java.util.List;
 
 @RequestMapping("/api/advert")
@@ -23,14 +24,19 @@ public class AdvertController {
     private final ReservationService reservationService;
 
     @PostMapping
-    public void createAdvert(@RequestBody AdvertDto advertDto) throws IOException {
+    public void createAdvert(@RequestBody AdvertDto advertDto,Principal principal) throws IOException {
 
-        advertService.saveAdvert(advertDto);
+        advertService.saveAdvert(advertDto,principal.getName());
     }
 
     @GetMapping("/allAdverts")
     public ResponseEntity<List<AdvertMiniDto>> allAdverts() throws IOException {
         return new ResponseEntity<>(advertService.getAllAdverts(), HttpStatus.OK);
+    }
+
+    @GetMapping("/myAdverts")
+    public ResponseEntity<List<DTOEntity>> myAdverts(Principal principal) throws IOException {
+        return new ResponseEntity<>(advertService.getAllMyAdverts(principal.getName()),HttpStatus.OK);
     }
 
     @PostMapping("/reservation")

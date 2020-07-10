@@ -27,8 +27,6 @@ public class MessageController {
         messageService.saveMessage(messageDto);
     }
 
-
-    // IZMENITI KAD DODJE SECURITY
     @GetMapping("/inbox")
     public ResponseEntity<List<DTOEntity>> getInbox(Authentication authentication){
         return new ResponseEntity<>(messageService.getInbox(authentication.getName()), HttpStatus.OK);

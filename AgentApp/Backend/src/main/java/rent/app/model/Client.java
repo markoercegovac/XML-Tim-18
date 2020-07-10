@@ -7,6 +7,7 @@ import rent.app.model.security.Role;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
 
 
 @Data
@@ -62,4 +63,16 @@ public class Client implements Serializable {
             inverseJoinColumns = @JoinColumn(
                     name = "role_id", referencedColumnName = "id"))
     private Collection<Role> roles;
+
+    @OneToMany
+    private List<Advert> advertList;
+
+    @OneToMany
+    private List<Price> priceList;
+
+    @OneToMany
+    private List<Car> carList;
+
+    @OneToMany
+    private List<Comment> comments;
 }

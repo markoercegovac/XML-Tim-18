@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserRegister} from '../model/UserRegister';
-import {HttpClient} from "@angular/common/http";
 import {Registration} from '../service/registration';
-import {User} from '../model/User';
 
 @Component({
   selector: 'app-all-registration-request',
@@ -15,7 +13,7 @@ export class AllRegistrationRequestComponent implements OnInit {
   constructor(private registerService: Registration) { }
 
   ngOnInit(): void {
-    this.registerService.allRegistrationRequests().subscribe(res=> {
+    this.registerService.allRegistrationRequests().subscribe(res => {
 
         this.zahtevi = res ;
 
@@ -32,12 +30,17 @@ export class AllRegistrationRequestComponent implements OnInit {
 
   public approve(register: UserRegister) {
     let req: UserRegister;
-    req={email:register.email,password:register.password,name:register.name,surname:register.surname,Role:register.Role}
+    req = {email: register.email, password: register.password, name: register.name, surname: register.surname, role: register.role};
     this.registerService.accept(req).subscribe();
     alert(req.email);
   }
 
-  rejected(user: UserRegister) {
+    public rejected(user: UserRegister) {
+
+
+    this.registerService.reject(user).subscribe(
+      res => { alert('Uspesno odbijen zahtv.'); } ,
+        error => { alert('Nesto je krenulo naopacke.'); });
 
   }
 }

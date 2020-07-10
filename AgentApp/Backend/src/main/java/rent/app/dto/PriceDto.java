@@ -9,6 +9,6 @@ public class PriceDto implements DTOEntity {
     private float pricePerDay;
     private float insurancePrice;
     private float distanceOverflowPrice;
-    private float distance;
+    private float discount;
     private boolean isRemoved;
 }

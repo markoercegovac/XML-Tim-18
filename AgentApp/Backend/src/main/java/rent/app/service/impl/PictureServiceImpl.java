@@ -15,6 +15,8 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Base64;
 import java.util.List;
 @Service
@@ -29,7 +31,7 @@ public class PictureServiceImpl implements PictureService {
         byte[] imgBytes = DatatypeConverter.parseBase64Binary(base64Image);
         BufferedImage img = ImageIO.read(new ByteArrayInputStream(imgBytes));
         String path = filePath + picture.getPath();
-
+        Files.createDirectories(Paths.get("images"));
         File file = new File(path);
         ImageIO.write(img, "jpeg", file);
     }
