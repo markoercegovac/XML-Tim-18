@@ -16,7 +16,7 @@ import rent.app.model.CarFuelType;
 public class CarFuelTypeAspect {
     private final CarFuelTypeClient carFuelTypeClient;
 
-   // @AfterReturning(value = "execution(* com.example.advertmanagerapp.service.impl.CarServiceImpl.createCar(..))", returning = "car")
+    @AfterReturning(value = "execution(* com.example.advertmanagerapp.service.impl.CarFuelTypeServiceImpl.saveFuelType(..))", returning = "carFuelType")
     public void afterSavedCarFuel(JoinPoint joinPoint, CarFuelType carFuelType){
         CarFuelTypeRequest request=new CarFuelTypeRequest();
         request.setDeleted(request.isDeleted());

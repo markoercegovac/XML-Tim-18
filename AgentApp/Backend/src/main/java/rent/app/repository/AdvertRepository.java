@@ -9,4 +9,5 @@ import java.util.Optional;
 public interface AdvertRepository extends JpaRepository<Advert,Long> {
      Advert findAllById(Long advertId);
      Advert findByCommentsId(Long commentId);
+     Advert findByReservationsId(Long reservationId);
 }

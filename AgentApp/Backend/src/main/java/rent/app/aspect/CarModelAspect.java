@@ -19,7 +19,7 @@ import javax.persistence.Column;
 public class CarModelAspect {
     private  final CarModelClient carModelClient;
     //cekamo maju
-    //@After(value = "execution(* com.example.advertmanagerapp.service.impl.CarModelServiceImpl.saveCarBrand(..)) and args(carBrand)")
+    @AfterReturning(value = "execution(* com.example.advertmanagerapp.service.impl.CarModelServiceImpl.saveCarModel(..))", returning = "carModel")
     public void afterSavedCarModel(JoinPoint joinPoint, CarModel carModel){
         CarModelRequest request=new CarModelRequest();
         request.setId(carModel.getId());

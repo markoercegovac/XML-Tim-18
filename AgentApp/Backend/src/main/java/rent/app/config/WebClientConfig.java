@@ -105,8 +105,17 @@ public class WebClientConfig {
 	}
 
 	@Bean
-	 public DriverReportClient driverReportClient(Jaxb2Marshaller marshaller){
+	 public DriverReportClient driverReportBean(Jaxb2Marshaller marshaller){
 		DriverReportClient client=new DriverReportClient();
+		client.setDefaultUri("http://localhost:8099/ws");
+		client.setMarshaller(marshaller);
+		client.setUnmarshaller(marshaller);
+		return client;
+	}
+
+	@Bean
+	 public  CaptureClient captureSoapBean(Jaxb2Marshaller marshaller){
+		CaptureClient client=new CaptureClient();
 		client.setDefaultUri("http://localhost:8099/ws");
 		client.setMarshaller(marshaller);
 		client.setUnmarshaller(marshaller);

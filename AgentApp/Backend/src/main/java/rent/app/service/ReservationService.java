@@ -7,6 +7,6 @@ import rent.app.model.Reservation;
 import java.util.List;
 
 public interface ReservationService {
-    void reservation(ReservationDto reservationDto);
+    Reservation reservation(ReservationDto reservationDto);
     List<DTOEntity> allReservationForAdvert(Long advertId);
 }

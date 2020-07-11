@@ -3,6 +3,7 @@ package rent.app.aspect;
 import lombok.RequiredArgsConstructor;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -18,7 +19,7 @@ public class CarBrandAspect {
 
 	private final CarBrandClient carBrandClient;
 
-//	@After(value = "execution(* com.example.advertmanagerapp.service.impl.CarBrandServiceImpl.saveCarBrand(..)) and args(carBrand)")
+	@AfterReturning(value = "execution(* com.example.advertmanagerapp.service.impl.CarBrandServiceImpl.saveCarBrand(..))", returning = "carBrand")
 	public void afterSavedCarBrand(JoinPoint joinPoint, CarBrand carBrand) {
 		CarBrandRequest request = new CarBrandRequest();
 		request.setId(carBrand.getId());

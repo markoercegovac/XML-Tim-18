@@ -2,6 +2,7 @@ package rent.app.aspect;
 
 import lombok.RequiredArgsConstructor;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 import rent.app.controller.ws.client.CarModelClient;
@@ -16,11 +17,11 @@ import rent.app.model.CarTransmissionType;
 public class CarTransmissionAspect {
     private final CarTransmissionClient carTransmissionClient;
 
-    //	@After(value = "execution(* com.example.advertmanagerapp.service.impl.CarBrandServiceImpl.saveCarBrand(..)) and args(carBrand)")
-    public void afterSavedCarTransminssion(JoinPoint joinPoint, CarTransmissionType carTransmissionType){
+    @AfterReturning(value = "execution(* com.example.advertmanagerapp.service.impl.CarTranssmisionTypeServiceImpl.saveCarTranssmisionType(..))", returning = "transmission")
+    public void afterSavedCarTransminssion(JoinPoint joinPoint, CarTransmissionType transmission){
         CarTransmissionRequest request=new CarTransmissionRequest();
-        request.setId(carTransmissionType.getId());
-        request.setName(carTransmissionType.getTransmissionType());
+        request.setId(transmission.getId());
+        request.setName(transmission.getTransmissionType());
         request.setToken("firm@com");
 
         SoapResponse response=carTransmissionClient.handleCarTransmission(request);
