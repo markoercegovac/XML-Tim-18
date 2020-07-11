@@ -4,9 +4,12 @@ server:
 rabbitmq:
   exchange:
     mail: direct.comment.mail
+    soap: direct.soap.comment.soap
   routingkey:
     mail: key.comment.mail
+    soap: kay.soap.comment.soap
   queue:
+    soap: queue.soap.soap.comment
     from:
       advert: queue.ad.comment
 

@@ -1,16 +1,9 @@
 package com.team18.WebServiceManager.ws.endpoint.dto;
 
 import com.team18.WebServiceManager.ws.WsNameSpace;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.xml.bind.annotation.*;
 import java.util.Date;
-
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(namespace = WsNameSpace.namespace)
@@ -46,4 +39,60 @@ public class CommentRequest {
 
 	@XmlElement(required = true)
 	protected String userEmail;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+
+	public Long getAdvertId() {
+		return advertId;
+	}
+
+	public void setAdvertId(Long advertId) {
+		this.advertId = advertId;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public String getHeader() {
+		return header;
+	}
+
+	public void setHeader(String header) {
+		this.header = header;
+	}
+
+	public Date getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
+
+	public String getUserEmail() {
+		return userEmail;
+	}
+
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
+	}
 }

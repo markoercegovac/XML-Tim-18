@@ -1,6 +1,7 @@
 package com.example.advertmanagerapp.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -25,6 +26,6 @@ public class DriveReport implements Serializable {
     @Column(name="CarDateOfReport")
     private Date dateOfReport;
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private OwnersCar ownersCarReport;
+//    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+//    private OwnersCar ownersCarReport;
 }

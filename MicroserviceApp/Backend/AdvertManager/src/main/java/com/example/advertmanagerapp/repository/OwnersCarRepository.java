@@ -4,4 +4,7 @@ import com.example.advertmanagerapp.model.OwnersCar;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface OwnersCarRepository extends JpaRepository<OwnersCar,Long> {
+
+	OwnersCar findByConcreteCarId(Long id);
+	OwnersCar findByReportsId(Long id);
 }

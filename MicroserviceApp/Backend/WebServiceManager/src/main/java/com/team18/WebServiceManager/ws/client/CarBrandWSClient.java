@@ -9,7 +9,6 @@ public class CarBrandWSClient extends WebServiceGatewaySupport {
 
 	public SoapResponse handleCarBrand(CarBrandRequest request) {
 		try {
-
 			JAXBElement<SoapResponse> jax = (JAXBElement<SoapResponse>) getWebServiceTemplate()
 					.marshalSendAndReceive(request);
 

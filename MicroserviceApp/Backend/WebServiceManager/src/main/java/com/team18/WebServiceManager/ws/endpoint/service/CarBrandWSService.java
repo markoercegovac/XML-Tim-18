@@ -51,12 +51,12 @@ public class CarBrandWSService {
 				Long key = sort.get(0).getKeyMS();
 				brand.setKeyMS(++key);
 			}
+			carBrandRepository.save(brand);
 
 			response.setStatus("CREATED");
 		} else {
 			response.setStatus("UPDATED");
 		}
 		return response;
-//		return null;
 	}
 }

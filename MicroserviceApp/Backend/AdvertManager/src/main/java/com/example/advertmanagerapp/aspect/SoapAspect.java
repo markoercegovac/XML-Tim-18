@@ -109,8 +109,9 @@ public class SoapAspect {
 		} catch (Exception e) {}
 
 		soapProducer.produceAdvert(advertRepository.getOne(captureDto.getAdvertId()));
-
 	}
+	//Drive REPORT
+
 
 }
 

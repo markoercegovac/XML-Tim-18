@@ -12,8 +12,6 @@ public enum TypeEnum {
 	Capture,
 	Advert,
 	DriverReport,
-	Grade,
 	Comment,
-	Message,
 	Reservation
 	}

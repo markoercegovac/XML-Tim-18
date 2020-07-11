@@ -90,4 +90,11 @@ public class AdProducer {
 		amqpTemplate.convertAndSend(exchange, routingKey, ms);
 		System.out.println("MQ>> sending advert ");
 	}
+
+	public void produceDriveReport(DriveReportMQ msg){
+		String ms = "DriveReport-";
+		ms += gson.toJson(msg);
+		amqpTemplate.convertAndSend(exchange, routingKey, ms);
+		System.out.println("MQ>> sending drive report ");
+	}
 }

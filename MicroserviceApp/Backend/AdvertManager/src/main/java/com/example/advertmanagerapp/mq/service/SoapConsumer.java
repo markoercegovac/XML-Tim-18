@@ -5,9 +5,13 @@ import com.example.advertmanagerapp.mq.dto.*;
 import com.example.advertmanagerapp.repository.*;
 import com.example.advertmanagerapp.service.PictureService;
 import com.google.gson.Gson;
+import jdk.javadoc.doclet.Reporter;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Component
@@ -37,6 +41,10 @@ public class SoapConsumer {
 	private CaptureRepository captureRepository;
 	@Autowired
 	private AdvertRepository advertRepository;
+	@Autowired
+	private DriveReportRepository driveReportRepository;
+	@Autowired
+	private OwnersCarRepository ownersCarRepository;
 
 	@RabbitListener(queues="${rabbitmq.queue.soap.soap.ad}")
 	public void recievedMessage(String msg) {
@@ -153,6 +161,25 @@ public class SoapConsumer {
 				});
 
 				advertRepository.save(b);
+			} else if(message[0].equals("DriveReport")) {
+				DriveReportMQ mq = gson.fromJson(msg, DriveReportMQ.class);
+				DriveReport b = new DriveReport();
+				b.setId(mq.getId()==0?null:mq.getId());
+				b.setDateOfReport(mq.getDateOfReport());
+				b.setDescribe(mq.getDescription());
+				b.setTraveledDistance(mq.getTraveledDistance());
+
+				OwnersCar car = ownersCarRepository.findByConcreteCarId(mq.getCarId());
+				if(car.getReports() == null) {
+					Set<DriveReport> set = new HashSet<>();
+					set.add(b);
+					car.setReports(set);
+				} else {
+					car.getReports().add(b);
+				}
+
+				driveReportRepository.save(b);
+				ownersCarRepository.save(car);
 			}
 
 		} catch(Exception e) {

@@ -5,10 +5,15 @@ rabbitmq:
   exchange:
     mail: direct.mail
     chat: direct.request.chat
+    search: direct.request.search
+    sopa: direct.soap.request.soap
   routingkey:
     mail: key.mail
     chat: key.request.chat
+    search: key.request.search
+    soap: key.soap.request.soap
   queue:
+    soap: queue.soap.soap.request
     from:
       advert: queue.ad.request
 

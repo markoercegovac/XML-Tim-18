@@ -1,15 +1,8 @@
 package com.team18.WebServiceManager.ws.endpoint.dto;
 
 import com.team18.WebServiceManager.ws.WsNameSpace;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.xml.bind.annotation.*;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(namespace = WsNameSpace.namespace)
@@ -25,4 +18,19 @@ public class SoapResponse {
 	@XmlElement(required = true)
 	protected Long agId;
 
+	public String getStatus() {
+		return status;
+	}
+
+	public Long getAgId() {
+		return agId;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public void setAgId(Long agId) {
+		this.agId = agId;
+	}
 }

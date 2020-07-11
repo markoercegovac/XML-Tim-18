@@ -5,6 +5,7 @@ rabbitmq:
   queue:
     from:
       advert: queue.ad.search
+      request: queue.request.search
 
 spring:
   rabbitmq:

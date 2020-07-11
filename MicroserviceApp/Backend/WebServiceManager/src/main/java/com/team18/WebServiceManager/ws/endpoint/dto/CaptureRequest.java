@@ -1,16 +1,10 @@
 package com.team18.WebServiceManager.ws.endpoint.dto;
 
 import com.team18.WebServiceManager.ws.WsNameSpace;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.xml.bind.annotation.*;
 import java.util.Date;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(namespace = WsNameSpace.namespace)
@@ -36,4 +30,35 @@ public class CaptureRequest {
 	@XmlSchemaType(name = "dateTime")
 	protected Date end;
 
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+
+	public void setStart(Date start) {
+		this.start = start;
+	}
+
+	public void setEnd(Date end) {
+		this.end = end;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public Date getStart() {
+		return start;
+	}
+
+	public Date getEnd() {
+		return end;
+	}
 }

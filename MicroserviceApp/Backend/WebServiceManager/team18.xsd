@@ -1,0 +1,734 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:t="http://uns.ac.rs/xml/team18" targetNamespace="http://uns.ac.rs/xml/team18" version="1.0">
+        
+  
+  
+  <xs:element name="advertRequest" type="t:advertRequest"/>
+        
+  
+  
+  <xs:element name="captureRequest" type="t:captureRequest"/>
+        
+  
+  
+  <xs:element name="carBrandRequest" type="t:carBrandRequest"/>
+        
+  
+  
+  <xs:element name="carClassRequest" type="t:carClassRequest"/>
+        
+  
+  
+  <xs:element name="carFuelTypeRequest" type="t:carFuelTypeRequest"/>
+        
+  
+  
+  <xs:element name="carModelRequest" type="t:carModelRequest"/>
+        
+  
+  
+  <xs:element name="carRequest" type="t:carRequest"/>
+        
+  
+  
+  <xs:element name="carTransmissionRequest" type="t:carTransmissionRequest"/>
+        
+  
+  
+  <xs:element name="clientRequest" type="t:clientRequest"/>
+        
+  
+  
+  <xs:element name="commentRequest" type="t:commentRequest"/>
+        
+  
+  
+  <xs:element name="driveReportRequest" type="t:driveReportRequest"/>
+        
+  
+  
+  <xs:element name="gradeReport" type="t:gradeReport"/>
+        
+  
+  
+  <xs:element name="messageRequest" type="t:messageRequest"/>
+        
+  
+  
+  <xs:element name="pictureRequest" type="t:pictureRequest"/>
+        
+  
+  
+  <xs:element name="priceRequest" type="t:priceRequest"/>
+        
+  
+  
+  <xs:element name="reservationRequest" type="t:reservationRequest"/>
+        
+  
+  
+  <xs:element name="soapResponse" type="t:soapResponse"/>
+        
+  
+  
+  <xs:complexType name="advertRequest">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="id" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="token" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="carId" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="profileImgId" type="xs:long"/>
+                        
+      
+      
+      <xs:element maxOccurs="unbounded" name="galleryImgIds" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="start" type="xs:dateTime"/>
+                        
+      
+      
+      <xs:element name="end" type="xs:dateTime"/>
+                        
+      
+      
+      <xs:element name="description" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="priceId" type="xs:long"/>
+                        
+      
+      
+      <xs:element maxOccurs="unbounded" name="captureIds" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="deleted" type="xs:boolean"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="captureRequest">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="id" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="token" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="start" type="xs:dateTime"/>
+                        
+      
+      
+      <xs:element name="end" type="xs:dateTime"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="carBrandRequest">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="id" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="token" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="name" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="deleted" type="xs:boolean"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="carClassRequest">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="id" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="token" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="name" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="deleted" type="xs:boolean"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="carFuelTypeRequest">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="id" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="token" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="name" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="deleted" type="xs:boolean"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="carModelRequest">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="id" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="token" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="name" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="deleted" type="xs:boolean"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="carRequest">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="id" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="token" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="carBrandId" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="carModelId" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="carClassId" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="carFuelTypeId" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="carTransmissionId" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="traveledDistance" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="traveledDistanceConstraint" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="insurance" type="xs:boolean"/>
+                        
+      
+      
+      <xs:element name="childrenSitNumber" type="xs:int"/>
+                        
+      
+      
+      <xs:element name="deleted" type="xs:boolean"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="carTransmissionRequest">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="id" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="token" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="name" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="deleted" type="xs:boolean"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="clientRequest">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="id" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="token" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="email" type="xs:string"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="commentRequest">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="id" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="token" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="advertId" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="content" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="header" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="creationDate" type="xs:dateTime"/>
+                        
+      
+      
+      <xs:element name="userEmail" type="xs:string"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="driveReportRequest">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="id" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="token" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="traveledDistance" type="xs:float"/>
+                        
+      
+      
+      <xs:element name="description" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="dateOfReport" type="xs:dateTime"/>
+                        
+      
+      
+      <xs:element name="carId" type="xs:long"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="gradeReport">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="id" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="token" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="grade" type="xs:float"/>
+                        
+      
+      
+      <xs:element name="advertId" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="deleted" type="xs:boolean"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="messageRequest">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="id" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="token" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="header" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="content" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="creationDate" type="xs:dateTime"/>
+                        
+      
+      
+      <xs:element name="senderEmail" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="receiverEmail" type="xs:long"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="pictureRequest">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="id" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="token" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="name" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="base64" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="deleted" type="xs:boolean"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="priceRequest">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="id" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="token" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="name" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="pricePerDay" type="xs:float"/>
+                        
+      
+      
+      <xs:element name="insurancePrice" type="xs:float"/>
+                        
+      
+      
+      <xs:element name="distanceOverflowPrice" type="xs:float"/>
+                        
+      
+      
+      <xs:element name="discount" type="xs:float"/>
+                        
+      
+      
+      <xs:element name="deleted" type="xs:boolean"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="reservationRequest">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="id" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="token" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="advertId" type="xs:long"/>
+                        
+      
+      
+      <xs:element name="status" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="userEmail" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="start" type="xs:dateTime"/>
+                        
+      
+      
+      <xs:element name="end" type="xs:dateTime"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+        
+  
+  
+  <xs:complexType name="soapResponse">
+                
+    
+    
+    <xs:sequence>
+                        
+      
+      
+      <xs:element name="status" type="xs:string"/>
+                        
+      
+      
+      <xs:element name="agId" type="xs:long"/>
+                      
+    
+    
+    </xs:sequence>
+              
+  
+  
+  </xs:complexType>
+      
+
+
+</xs:schema>

@@ -1,6 +1,8 @@
 package com.team18.WebServiceManager.config;
 
 import com.team18.WebServiceManager.ws.client.CarBrandWSClient;
+import com.team18.WebServiceManager.ws.client.CommentWSClinet;
+import com.team18.WebServiceManager.ws.client.ReservationWSClinet;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
@@ -18,8 +20,22 @@ public class WebClientConfig {
 	//ISPOD IDE PO JEDAN BEAN ZA SVAKOG CLIENTA
 
 	@Bean
-	public CarBrandWSClient courseClient(Jaxb2Marshaller marshaller) {
+	public CarBrandWSClient carBrandWSClientBean(Jaxb2Marshaller marshaller) {
 		CarBrandWSClient client = new CarBrandWSClient();
+		client.setMarshaller(marshaller);
+		client.setUnmarshaller(marshaller);
+		return client;
+	}
+	@Bean
+	public CommentWSClinet commentWSClinetBean(Jaxb2Marshaller marshaller) {
+		CommentWSClinet client = new CommentWSClinet();
+		client.setMarshaller(marshaller);
+		client.setUnmarshaller(marshaller);
+		return client;
+	}
+	@Bean
+	public ReservationWSClinet reservationWSClinetBean(Jaxb2Marshaller marshaller) {
+		ReservationWSClinet client = new ReservationWSClinet();
 		client.setMarshaller(marshaller);
 		client.setUnmarshaller(marshaller);
 		return client;

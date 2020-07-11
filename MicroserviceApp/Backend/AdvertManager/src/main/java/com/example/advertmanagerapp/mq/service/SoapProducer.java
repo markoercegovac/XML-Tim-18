@@ -2,6 +2,7 @@ package com.example.advertmanagerapp.mq.service;
 
 import com.example.advertmanagerapp.model.*;
 import com.example.advertmanagerapp.mq.dto.*;
+import com.example.advertmanagerapp.repository.OwnersCarRepository;
 import com.example.advertmanagerapp.repository.PictureRepository;
 import com.example.advertmanagerapp.service.PictureService;
 import com.google.gson.Gson;
@@ -24,6 +25,8 @@ public class SoapProducer {
 	private PictureService pictureSerivce;
 	@Autowired
 	private PictureRepository pictureRepository;
+	@Autowired
+	private OwnersCarRepository ownersCarRepository;
 
 	@Value("${rabbitmq.exchange.soap.ad.soap}")
 	private String exchange;
@@ -172,6 +175,20 @@ public class SoapProducer {
 		mq.setTraveledDistanceConstraint((long) car.getTravelDistanceConstraint());
 //		mq.setInsurance(car.get);
 		mq.setDeleted(false);
+		msg += gson.toJson(mq);
+		amqpTemplate.convertAndSend(exchange, routingKey, msg);
+		System.out.println("MQ>>Send to soap: " + msg);
+	}
+
+	public void produceDriveReport(DriveReport driveReport){
+		String msg = "DriveReport-";
+		DriveReportMQ mq = new DriveReportMQ();
+		mq.setId(driveReport.getId());
+		mq.setDateOfReport(driveReport.getDateOfReport());
+		mq.setDescription(driveReport.getDescribe());
+		mq.setTraveledDistance(driveReport.getTraveledDistance());
+		OwnersCar car = ownersCarRepository.findByReportsId(driveReport.getId());
+		mq.setCarId(car.getConcreteCar().getId());
 		msg += gson.toJson(mq);
 		amqpTemplate.convertAndSend(exchange, routingKey, msg);
 		System.out.println("MQ>>Send to soap: " + msg);

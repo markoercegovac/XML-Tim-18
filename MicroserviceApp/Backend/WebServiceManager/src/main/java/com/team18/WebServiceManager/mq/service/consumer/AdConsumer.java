@@ -38,6 +38,8 @@ public class AdConsumer {
 	private CaptureRepository captureRepository;
 	@Autowired
 	private AdvertRepository advertRepository;
+	@Autowired
+	private DriveReportRepository driveReportRepository;
 	//BEANOVI ZA SLANJE SOAP-A
 	@Autowired
 	private CarBrandWSClient carBrandWSClient;
@@ -336,7 +338,34 @@ public class AdConsumer {
 					advertRepository.save(b);
 				}
 			});
+		} else if(message[0].equals("DriveReport")) {
+			DriveReportMQ mq = gson.fromJson(msg, DriveReportMQ.class);
 
+			List<Agent> agents = agentRepository.findAll();
+			agents.forEach(ag -> {
+				//SVAKOM AGENTU POSLATI SOAP
+				DriveReportRequest request = new DriveReportRequest();
+				DriveReport b = driveReportRepository.findByAgentAgentIdAndKeyMS(ag.getAgentId(), mq.getId());
+				request.setId(b!=null?b.getKeyAG():0);
+				request.setToken(ag.getAgentEmail());
+				Car c = carRepository.findByAgentAgentIdAndKeyMS(ag.getAgentId(), mq.getCarId());
+				request.setCarId(c!=null?c.getKeyAG():0);
+				request.setDateOfReport(mq.getDateOfReport());
+				request.setDescription(mq.getDescription());
+				request.setTraveledDistance(mq.getTraveledDistance());
+
+				//POZOVE SE ODGOVARAJUCI KLIENT DA SE POSALJE SOAP
+
+				if(b==null) {
+					//TREBA DA SE KREIRA
+					b = new DriveReport();
+					b.setAgent(ag);
+					b.setKeyMS(mq.getId());
+					//b.setKeyAG();//dobijemo u SOAP RESPONSU, agId
+
+					driveReportRepository.save(b);
+				}
+			});
 		}
 
 	}
