@@ -24,27 +24,27 @@ public class CarBrandWSService {
 	private CarBrandRepository carBrandRepository;
 	@Autowired
 	private AgentRepository agentRepository;
-
-	@PayloadRoot(namespace = WsNameSpace.namespace, localPart = "carBrandRequest") //MORA MALO POCETNO SLOVO iz ARGUMENTA METODE
-	@ResponsePayload
+	
+	@PayloadRoot(namespace = WsNameSpace.namespace, localPart = "carBrandRequest") //ime klase iz argumenta metode ali obavezno ide MALO pocetno slovo
+	@ResponsePayload //ove dve anotacije jako bitne
 	public SoapResponse handleCarBrand(@RequestPayload CarBrandRequest request) {
-		Agent ag = agentRepository.findByAgentEmail(request.getToken());
-		CarBrand b = carBrandRepository.findByAgentAgentIdAndKeyAG(ag.getAgentId(), request.getId());
+		Agent ag = agentRepository.findByAgentEmail(request.getToken()); //nadjem agenta koji je poslao poruku(token uvek agent)
+		CarBrand b = carBrandRepository.findByAgentAgentIdAndKeyAG(ag.getAgentId(), request.getId()); //gledam da li imam kljuc agentski(da li je taj entitet vec bio razmenjivan)
 		System.out.println("WS CAR BRAND GOT"+request);
 		CarBrandMQ mq = new CarBrandMQ();
-		mq.setId(b!=null?b.getKeyMS():null);
+		mq.setId(b!=null?b.getKeyMS():null); //ovde je null, a u Consumeru je 0
 		mq.setName(request.getName());
-		mq.setDeleted(request.isDeleted());
+		mq.setDeleted(request.isDeleted()); //sve dovde konverija iz requesta u mq
 
-		adProducer.produceCarBrand(mq);
+		adProducer.produceCarBrand(mq); //prima mq objekat gore napravljen
 
-		SoapResponse response = new SoapResponse();
-		response.setAgId(ag.getAgentId());
+		SoapResponse response = new SoapResponse(); //formira se porukaa
+		response.setAgId(ag.getAgentId()); //agent koji nam je poslao poruku, njemu cemo i odgovoriti
 		if(b==null) {
 			CarBrand brand = new CarBrand();
 			brand.setAgent(ag);
 			brand.setKeyAG(request.getId());
-			List<CarBrand> sort = carBrandRepository.findByAgentAgentIdOrderByKeyMSDesc(ag.getAgentId());
+			List<CarBrand> sort = carBrandRepository.findByAgentAgentIdOrderByKeyMSDesc(ag.getAgentId()); //pokusavamo da nadjemo sve entitete za tog agenta,ako ne nadjemo, stavljamo id=1, ako lista nije prazna, nadjemo poslednji i samo uvecamo id
 			if(sort.isEmpty()) {
 				brand.setKeyMS(1l);
 			} else {
