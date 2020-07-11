@@ -17,7 +17,7 @@ import rent.app.model.CarTransmissionType;
 public class CarTransmissionAspect {
     private final CarTransmissionClient carTransmissionClient;
 
-    @AfterReturning(value = "execution(* com.example.advertmanagerapp.service.impl.CarTranssmisionTypeServiceImpl.saveCarTranssmisionType(..))", returning = "transmission")
+    @AfterReturning(pointcut = "execution(* rent.app.service.impl.CarTranssmisionTypeServiceImpl.saveCarTranssmisionType(..))", returning = "transmission")
     public void afterSavedCarTransminssion(JoinPoint joinPoint, CarTransmissionType transmission){
         CarTransmissionRequest request=new CarTransmissionRequest();
         request.setId(transmission.getId());

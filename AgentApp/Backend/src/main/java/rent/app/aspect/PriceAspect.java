@@ -17,7 +17,7 @@ public class PriceAspect {
 
     private final PriceClient priceClient;
 
-    @AfterReturning(value = "execution(* com.example.advertmanagerapp.service.impl.PriceServiceImpl.createPrice(..))", returning = "price")
+    @AfterReturning(pointcut = "execution(* rent.app.service.impl.PriceServiceImpl.createPrice(..))", returning = "price")
     public void afterSavedPrice(JoinPoint joinPoint, Price price){
         PriceRequest request=new PriceRequest();
         request.setId(price.getId());

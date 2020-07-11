@@ -22,7 +22,7 @@ public class CaptureAspect {
     private final CaptureClient captureClient;
     private final ReservationRepository reservationRepository;
 
-    @AfterReturning(value = "execution(* com.example.advertmanagerapp.service.impl.ReservationServiceImpl.(..))", returning = "reservation")
+    @AfterReturning(pointcut = "execution(* rent.app.service.impl .ReservationServiceImpl.reservation(..))", returning = "reservation")
     public void afterSavedReservation(JoinPoint joinPoint, Reservation reservation) throws DatatypeConfigurationException {
         CaptureRequest request=new CaptureRequest();
         request.setId(reservation.getId());

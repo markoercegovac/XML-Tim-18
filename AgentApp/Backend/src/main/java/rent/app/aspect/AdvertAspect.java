@@ -26,7 +26,7 @@ public class AdvertAspect {
 
     private final AdvertClient advertClient;
 
-    @AfterReturning(value = "execution(* com.example.advertmanagerapp.service.impl.AdvertServiceImpl.saveAdvert(..))", returning = "advert")
+    @AfterReturning(pointcut = "execution(* rent.app.service.impl.AdvertServiceImpl.saveAdvert(..))", returning = "advert")
     public void afterSavedAdvert(JoinPoint joinPoint, Advert advert) throws DatatypeConfigurationException {
         AdvertRequest request=new AdvertRequest();
         request.setId(advert.getId());

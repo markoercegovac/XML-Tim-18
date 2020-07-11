@@ -19,7 +19,7 @@ public class PictureAspect {
     private final PictureClient pictureClient;
     private final PictureRepository pictureRepository;
 
-    @After(value = "execution(* com.example.advertmanagerapp.service.impl.PictureServiceImpl.saveProfilePicture(..)) && args(picture)")
+    @After(value = "execution(* rent.app.service.impl.PictureServiceImpl.saveProfilePicture(..)) && args(picture)")
     public void afterSavedPicture(JoinPoint joinPoint, PictureDto picture){
         PictureRequest request=new PictureRequest();
         request.setBase64(picture.getPicture());

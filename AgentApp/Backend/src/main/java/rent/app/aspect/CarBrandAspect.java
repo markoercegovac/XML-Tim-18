@@ -19,7 +19,7 @@ public class CarBrandAspect {
 
 	private final CarBrandClient carBrandClient;
 
-	@AfterReturning(value = "execution(* com.example.advertmanagerapp.service.impl.CarBrandServiceImpl.saveCarBrand(..))", returning = "carBrand")
+	@AfterReturning(pointcut = "execution(* rent.app.service.impl.CarBrandServiceImpl.saveCarBrand(..))", returning = "carBrand")
 	public void afterSavedCarBrand(JoinPoint joinPoint, CarBrand carBrand) {
 		CarBrandRequest request = new CarBrandRequest();
 		request.setId(carBrand.getId());
