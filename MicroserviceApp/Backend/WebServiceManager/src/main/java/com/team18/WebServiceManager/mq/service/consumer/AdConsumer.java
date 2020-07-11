@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.team18.WebServiceManager.model.*;
 import com.team18.WebServiceManager.mq.dto.*;
 import com.team18.WebServiceManager.repository.*;
-import com.team18.WebServiceManager.ws.client.CarBrandWSClient;
+import com.team18.WebServiceManager.ws.client.*;
 import com.team18.WebServiceManager.ws.endpoint.dto.*;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,30 +41,50 @@ public class AdConsumer {
 	//BEANOVI ZA SLANJE SOAP-A
 	@Autowired
 	private CarBrandWSClient carBrandWSClient;
+	@Autowired
+	private AdvertWSClient advertWSClient;
+	@Autowired
+	private CaptureWSClient captureWSClient;
+	@Autowired
+	private CarClassWSClient carClassWSClient;
+	@Autowired
+	private CarFuelTypeWSClient carFuelTypeWSClient;
+	@Autowired
+	private CarModelWSClient carModelWSClient;
+	@Autowired
+	private CarTransmissionWSClient carTransmissionWSClient;
+	@Autowired
+	private CarWSClient carWSClient;
+	@Autowired
+	private PictureWSClient pictureWSClient;
+	@Autowired
+	private PriceWSClient priceWSClient;
 
-	@RabbitListener(queues="${rabbitmq.queue.soap.ad.soap}")
-	public void createAgent(String msg) {
+	@RabbitListener(queues="${rabbitmq.queue.soap.ad.soap}") //primi poruku sa mq-a(preko njega idu svi oni entiteti)
+	public void createAgent(String msg) { //mq je samo string, prvi deo je naziv entiteta koji se salje, onda '-', pa u json formatu spakovan taj entitet
 
 		System.out.println(">MQ RECEIVED A NEW AD");
 
 		String[] message = msg.split("-");
 
 		if(message[0].equals("CarBrand")) {
-			CarBrandMQ mq = gson.fromJson(msg, CarBrandMQ.class);
+			CarBrandMQ mq = gson.fromJson(msg, CarBrandMQ.class); //konvert u mq model
 
-			List<Agent> agents = agentRepository.findAll();
+			List<Agent> agents = agentRepository.findAll(); //iz te liste uzimamo url-ove, i svakom agentu saljemo soap
 			agents.forEach(ag -> {
 				//SVAKOM AGENTU POSLATI SOAP
 				CarBrandRequest request = new CarBrandRequest();
-				CarBrand b = carBrandRepository.findByAgentAgentIdAndKeyMS(ag.getAgentId(), mq.getId());
+				CarBrand b = carBrandRepository.findByAgentAgentIdAndKeyMS(ag.getAgentId(), mq.getId()); //metodica iz repo.koja pomocu kljuceva(ili jednog ili drugog(2 smera)) vraca CarBrand
+				//ako smo uspeli da nadjemo po id od MS,to znaci da je on vec bio poslat(ili ga je MS poslao ili ga je agent kreirao), znaci da vec postoji na agentu, tad se vrsi update
+				//u suprotnom se vrsi kreiranje i saljemo 0 ne null
 				request.setId(b!=null?b.getKeyAG():0);
 				request.setName(mq.getName());
 				request.setToken(ag.getAgentEmail());
-				request.setDeleted(mq.isDeleted());
+				request.setDeleted(mq.isDeleted()); //sve dovde ide konverzija(mapiranje) iz mq tipa u request(taj request se salje preko soap-a)
 
 				//POZOVE SE ODGOVARAJUCI KLIENT DA SE POSALJE SOAP
 				carBrandWSClient.setDefaultUri(ag.getAgentUrl());
-				SoapResponse response = carBrandWSClient.handleCarBrand(request);
+				SoapResponse response = carBrandWSClient.handleCarBrand(request); //request iz mq namapiran gore
 
 				if(b==null) {
 					//TREBA DA SE KREIRA
@@ -91,6 +111,9 @@ public class AdConsumer {
 				request.setDeleted(mq.isDeleted());
 
 				//POZOVE SE ODGOVARAJUCI KLIENT DA SE POSALJE SOAP
+				carModelWSClient.setDefaultUri(ag.getAgentUrl());
+				SoapResponse response = carModelWSClient.handleCarModel(request); //request iz mq namapiran gore
+
 				if(b==null) {
 					//TREBA DA SE KREIRA
 					b = new CarModel();
@@ -116,6 +139,9 @@ public class AdConsumer {
 				request.setDeleted(mq.isDeleted());
 
 				//POZOVE SE ODGOVARAJUCI KLIENT DA SE POSALJE SOAP
+				carClassWSClient.setDefaultUri(ag.getAgentUrl());
+				SoapResponse response = carClassWSClient.handleCarClass(request); //request iz mq namapiran gore
+
 				if(b==null) {
 					//TREBA DA SE KREIRA
 					b = new CarClass();
@@ -141,6 +167,9 @@ public class AdConsumer {
 				request.setDeleted(mq.isDeleted());
 
 				//POZOVE SE ODGOVARAJUCI KLIENT DA SE POSALJE SOAP
+				carFuelTypeWSClient.setDefaultUri(ag.getAgentUrl());
+				SoapResponse response = carFuelTypeWSClient.handleCarFuelType(request); //request iz mq namapiran gore
+
 				if(b==null) {
 					//TREBA DA SE KREIRA
 					b = new CarFuelType();
@@ -166,6 +195,9 @@ public class AdConsumer {
 				request.setDeleted(mq.isDeleted());
 
 				//POZOVE SE ODGOVARAJUCI KLIENT DA SE POSALJE SOAP
+				carTransmissionWSClient.setDefaultUri(ag.getAgentUrl());
+				SoapResponse response = carTransmissionWSClient.handleCarTransmission(request); //request iz mq namapiran gore
+
 				if(b==null) {
 					//TREBA DA SE KREIRA
 					b = new CarTransmission();
@@ -204,6 +236,9 @@ public class AdConsumer {
 				request.setDeleted(mq.isDeleted());
 
 				//POZOVE SE ODGOVARAJUCI KLIENT DA SE POSALJE SOAP
+				carWSClient.setDefaultUri(ag.getAgentUrl());
+				SoapResponse response = carWSClient.handleCar(request); //request iz mq namapiran gore
+
 				if(b==null) {
 					//TREBA DA SE KREIRA
 					b = new Car();
@@ -233,6 +268,9 @@ public class AdConsumer {
 				request.setDeleted(mq.isDeleted());
 
 				//POZOVE SE ODGOVARAJUCI KLIENT DA SE POSALJE SOAP
+				priceWSClient.setDefaultUri(ag.getAgentUrl());
+				SoapResponse response = priceWSClient.handlePrice(request); //request iz mq namapiran gore
+
 				if(b==null) {
 					//TREBA DA SE KREIRA
 					b = new Price();
@@ -259,6 +297,9 @@ public class AdConsumer {
 				request.setDeleted(mq.isDeleted());
 
 				//POZOVE SE ODGOVARAJUCI KLIENT DA SE POSALJE SOAP
+				pictureWSClient.setDefaultUri(ag.getAgentUrl());
+				SoapResponse response = pictureWSClient.handlePicture(request); //request iz mq namapiran gore
+
 				if(b==null) {
 					//TREBA DA SE KREIRA
 					b = new Picture();
@@ -284,6 +325,9 @@ public class AdConsumer {
 				request.setToken(ag.getAgentEmail());
 
 				//POZOVE SE ODGOVARAJUCI KLIENT DA SE POSALJE SOAP
+				captureWSClient.setDefaultUri(ag.getAgentUrl());
+				SoapResponse response = captureWSClient.handleCapture(request); //request iz mq namapiran gore
+
 				if(b==null) {
 					//TREBA DA SE KREIRA
 					b = new Capture();
@@ -325,6 +369,9 @@ public class AdConsumer {
 				request.setDeleted(mq.isDeleted());
 
 				//POZOVE SE ODGOVARAJUCI KLIENT DA SE POSALJE SOAP
+				advertWSClient.setDefaultUri(ag.getAgentUrl());
+				SoapResponse response = advertWSClient.handleAdvert(request); //request iz mq namapiran gore
+
 				if(b==null) {
 					//TREBA DA SE KREIRA
 					b = new Advert();

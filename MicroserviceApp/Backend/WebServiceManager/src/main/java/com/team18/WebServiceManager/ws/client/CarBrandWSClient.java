@@ -11,7 +11,7 @@ public class CarBrandWSClient extends WebServiceGatewaySupport {
 		try {
 
 			JAXBElement<SoapResponse> jax = (JAXBElement<SoapResponse>) getWebServiceTemplate()
-					.marshalSendAndReceive(request);
+					.marshalSendAndReceive(request); //za ovo mapiranje koristi se ObjectFactory
 
 			SoapResponse response = jax.getValue();
 			return response;
