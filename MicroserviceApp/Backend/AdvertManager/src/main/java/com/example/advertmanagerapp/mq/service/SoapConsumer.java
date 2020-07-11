@@ -1,17 +1,14 @@
 package com.example.advertmanagerapp.mq.service;
 
+import com.example.advertmanagerapp.dto.PictureDto;
 import com.example.advertmanagerapp.model.*;
 import com.example.advertmanagerapp.mq.dto.*;
 import com.example.advertmanagerapp.repository.*;
 import com.example.advertmanagerapp.service.PictureService;
 import com.google.gson.Gson;
-import jdk.javadoc.doclet.Reporter;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.HashSet;
-import java.util.Set;
 
 
 @Component
@@ -132,8 +129,10 @@ public class SoapConsumer {
 				b.setId(mq.getId()==0?null:mq.getId());
 				b.setDeleted(mq.isDeleted());
 				b.setPath(mq.getName());
-
-				pictureService.saveSoapPicture(mq.getBase64(), mq.getName());
+				PictureDto dto = new PictureDto();
+				dto.setPath(mq.getName());
+				dto.setPicture(mq.getBase64());
+				pictureService.savePicture(dto);
 				pictureRepository.save(b);
 			} else if(message[0].equals("Capture")) {
 				CaptureMQ mq = gson.fromJson(msg, CaptureMQ.class);
@@ -163,23 +162,18 @@ public class SoapConsumer {
 				advertRepository.save(b);
 			} else if(message[0].equals("DriveReport")) {
 				DriveReportMQ mq = gson.fromJson(msg, DriveReportMQ.class);
-				DriveReport b = new DriveReport();
-				b.setId(mq.getId()==0?null:mq.getId());
-				b.setDateOfReport(mq.getDateOfReport());
-				b.setDescribe(mq.getDescription());
-				b.setTraveledDistance(mq.getTraveledDistance());
 
-				OwnersCar car = ownersCarRepository.findByConcreteCarId(mq.getCarId());
-				if(car.getReports() == null) {
-					Set<DriveReport> set = new HashSet<>();
-					set.add(b);
-					car.setReports(set);
-				} else {
-					car.getReports().add(b);
-				}
+				DriveReport report = new DriveReport();
+				ConcreteCar car = this.concreteCarRepository.findAllById(mq.getCarId());
+				report.setId(mq.getId());
+				report.setDateOfReport(mq.getDateOfReport());
+				report.setDescribe(mq.getDescription());
+				report.setTraveledDistance(mq.getTraveledDistance());
 
-				driveReportRepository.save(b);
-				ownersCarRepository.save(car);
+				car.getReports().add(report);
+				concreteCarRepository.save(car);
+
+//				driveReportRepository.save(report);
 			}
 
 		} catch(Exception e) {

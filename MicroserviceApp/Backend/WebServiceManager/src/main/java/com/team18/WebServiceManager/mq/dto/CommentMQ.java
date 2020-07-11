@@ -15,6 +15,9 @@ public class CommentMQ {
 		this.id = id;
 	}
 
+	public CommentMQ() {
+	}
+
 	public CommentMQ(Long id, Long advertId, String content, String header, Date creationDate, String userEmail) {
 		this.id = id;
 		this.advertId = advertId;

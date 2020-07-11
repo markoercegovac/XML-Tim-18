@@ -1,4 +1,4 @@
-package com.team18.WebServiceManager.ws.endpoint.dto;;
+package com.team18.WebServiceManager.ws.endpoint.dto;
 
 import com.team18.WebServiceManager.ws.WsNameSpace;
 

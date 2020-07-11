@@ -1,1 +1,67 @@
-<p>basic-search works!</p>
+<div class="container">
+  <div>
+    <h4>Search adverts</h4>
+    <form  [formGroup] = "form" (ngSubmit) = "onSubmit(form.value)">
+      <div >
+        <label>City * </label>
+        <input class="form-control"   type="text"
+               placeholder="Enter the city name " formControlName="city" required="required">
+      </div>
+
+      <div >
+        <label>  Start Of Advert * </label>
+        <input class="form-control" required="required" formControlName="startOfAdvert" type="date" >
+      </div>
+      <div>
+        <label> End Of Advert *</label>
+        <input class="form-control" required="required" formControlName="endOfAdvert" type="date" >
+      </div>
+
+      <br/>
+      <br/>
+      <div >
+        <input class="form-control" type = "submit" [disabled]="!form.valid" value ="Search">
+      </div>
+
+    </form>
+  </div>
+
+  <div *ngIf=" oglasi?.length > 0 ">
+
+    <hr/>
+    <table class="table table-bordered table-hover">
+      <thead>
+      <th>City: </th>
+      <th>Car Mark: </th>
+      <th>Car Model: </th>
+      <th>Car Fuel Type: </th>
+      <th>Car Transmission Type: </th>
+      <th>Car Class: </th>
+      <th>Price: </th>
+      </thead>
+
+      <tbody>
+      <tr *ngFor=" let dr of oglasi ">
+        <td>{{dr.city }}</td>
+        <td>{{dr.carMark }}</td>
+        <td>{{dr.modelMark }}</td>
+        <td>{{dr.carFuelType }}</td>
+        <td>{{dr.carTransmissionType }}</td>
+        <td>{{dr.carClass }}</td>
+        <td>{{dr.price }}</td>
+
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <div>
+    <br/>
+    Price sort: &nbsp; Ascending <input type="radio" name = "sortCene" id="cenaRastuce" (click)="sortirajCeneRastuce()"/> &nbsp; &nbsp;
+    Descending <input type="radio" id="cenaOpadajuce"  name = "sortCene" (click)="sortirajCeneOpadajuce()"/>
+    <br/>
+  </div>
+
+</div>
+

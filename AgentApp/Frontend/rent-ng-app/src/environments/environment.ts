@@ -10,8 +10,10 @@ export const environment = {
   grade: 'http://localhost:9090/grades',
   comm: 'http://localhost:9090/comment/',
   report: 'http://localhost:9090/crud',
+  searchUrl: 'http://localhost:9090/',
   message: 'http://localhost:9090/api/message',
   registration: 'http://localhost:9090/admin',
+  statistics: 'http://localhost:9090/',
   client: 'http://localhost:9090/api/client',
   advert_request: 'http://localhost:9090/advert-request'
 };

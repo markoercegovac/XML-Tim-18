@@ -128,6 +128,7 @@ class DbInit implements CommandLineRunner {
         user3.setUsername("firm@com");
         user3.setPassword(passwordEncoder.encode("firm123"));
         user3.setRoles(roleList1);
+        user3.setCity("Sabac");
 
         userRepository.save(user1);
         userRepository.save(user2);

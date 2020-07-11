@@ -33,8 +33,7 @@ public class AdvertConsumer {
 				carReservationDate.add(new CarReservedDate(
 					reservation.getCarReservedDateId(),
 					reservation.getStartOfAdvert(),
-					reservation.getEndOfAdvert(),
-					null));
+					reservation.getEndOfAdvert()));
 			});
 
 			AdvertCopy ad = new AdvertCopy();
@@ -47,7 +46,7 @@ public class AdvertConsumer {
 			ad.setCarTransmissionType(recived.getCarTransmissionType());
 			ad.setCarClass(recived.getCarClass());
 			ad.setTraveledKm(recived.getTraveledKm());
-			ad.setInsurance(recived.isInsurance());
+			ad.setInsurance(recived.isInsurance()?"YES":"NO");
 			ad.setNumberOfSeats(recived.getNumberOfSeats());
 			ad.setPrice(recived.getPrice());
 			ad.setProfilePicture(recived.getProfilePicture());;

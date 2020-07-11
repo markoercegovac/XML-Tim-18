@@ -6,6 +6,7 @@ import com.example.advertmanagerapp.model.Price;
 import java.util.List;
 
 public interface PriceService  {
-    Price savePrice(PriceDto priceDto);
-    List<PriceDto> allPrices();
+
+    Price savePrice(PriceDto priceDto,String ownerEmail);
+    List<PriceDto> allPrices(String ownerEmail);
 }

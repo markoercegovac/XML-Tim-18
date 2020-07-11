@@ -37,11 +37,14 @@ export class NavOwnerComponent implements OnInit {
   }
 
   onChat() {
-    this.router.navigate(['/inbox']);
+    this.router.navigate(['/chat']);
   }
 
   onLogout() {
     this.auth.logout();
   }
 
+  onStatistic() {
+    this.router.navigate(['/statistics']);
+  }
 }

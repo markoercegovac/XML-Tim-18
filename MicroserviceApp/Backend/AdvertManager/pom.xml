@@ -17,15 +17,15 @@
     <properties>
         <java.version>11</java.version>
         <spring-cloud.version>Hoxton.SR4</spring-cloud.version>
-        <name>user-manager</name>
+        <name>advert-manager</name>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-            <version>2.2.2.RELEASE</version>
-        </dependency>
+       <dependency>
+           <groupId>org.springframework.cloud</groupId>
+           <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+           <version>2.2.2.RELEASE</version>
+       </dependency>
         <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-data-jdbc</artifactId>
@@ -160,55 +160,55 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
             <!--SOAP:END POINT-->
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>jaxb2-maven-plugin</artifactId>
-                <version>2.5.0</version>
-                <executions>
-                    <execution>
-                        <id>schemagen</id>
-                        <goals>
-                            <goal>schemagen</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <sources>
-                        <source>${project.basedir}/src/main/java/com/example/advertmanagerapp/controller/ws</source>
-                    </sources>
-                    <outputDirectory>${project.build.directory}/classes</outputDirectory>
-                    <transformSchemas>
-                        <transformSchema>
-                            <uri>http://uns.ac.rs/xml/team18</uri>
-                            <toPrefix>t</toPrefix>
-                            <toFile>team18.xsd</toFile>
-                        </transformSchema>
-                    </transformSchemas>
-                </configuration>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.codehaus.mojo</groupId>-->
+<!--                <artifactId>jaxb2-maven-plugin</artifactId>-->
+<!--                <version>2.5.0</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>schemagen</id>-->
+<!--                        <goals>-->
+<!--                            <goal>schemagen</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--                <configuration>-->
+<!--                    <sources>-->
+<!--                        <source>${project.basedir}/src/main/java/com/example/advertmanagerapp/controller/ws</source>-->
+<!--                    </sources>-->
+<!--                    <outputDirectory>${project.build.directory}/classes</outputDirectory>-->
+<!--                    <transformSchemas>-->
+<!--                        <transformSchema>-->
+<!--                            <uri>http://uns.ac.rs/xml/team18</uri>-->
+<!--                            <toPrefix>t</toPrefix>-->
+<!--                            <toFile>team18.xsd</toFile>-->
+<!--                        </transformSchema>-->
+<!--                    </transformSchemas>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
 
             <!--WSDL GENERATOR JAVA CLASSES-->
-            <plugin>
-                <groupId>org.jvnet.jaxb2.maven2</groupId>
-                <artifactId>maven-jaxb2-plugin</artifactId>
-                <version>0.14.0</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <schemaLanguage>WSDL</schemaLanguage>
-                    <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
-                    <generatePackage>com.example.advertmanagerapp.generate</generatePackage>
-                    <schemaDirectory>${project.basedir}/src/main/resources</schemaDirectory>
-                    <schemaIncludes>
-                        <include>team18-agent.wsdl.wsdl</include>
-                    </schemaIncludes>
-                </configuration>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.jvnet.jaxb2.maven2</groupId>-->
+<!--                <artifactId>maven-jaxb2-plugin</artifactId>-->
+<!--                <version>0.14.0</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <goals>-->
+<!--                            <goal>generate</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--                <configuration>-->
+<!--                    <schemaLanguage>WSDL</schemaLanguage>-->
+<!--                    <generateDirectory>${project.basedir}/src/main/java</generateDirectory>-->
+<!--                    <generatePackage>com.example.advertmanagerapp.generate</generatePackage>-->
+<!--                    <schemaDirectory>${project.basedir}/src/main/resources</schemaDirectory>-->
+<!--                    <schemaIncludes>-->
+<!--                        <include>team18-agent.wsdl.wsdl</include>-->
+<!--                    </schemaIncludes>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
 
         </plugins>
         <finalName>advert-manager</finalName>

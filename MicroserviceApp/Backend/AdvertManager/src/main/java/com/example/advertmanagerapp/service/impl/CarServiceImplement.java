@@ -24,7 +24,7 @@ public class CarServiceImplement implements CarService {
     private final CarTransmissionTypeRepository carTransmissionTypeRepository;
     private final DtoUtils dtoUtils;
     private final ConcreteCarRepository concreteCarRepository;
-
+    private final ClientCopyRepository clientCopyRepository;
 
     @Override
     public List<DtoEntity> getCarBrands() {
@@ -54,7 +54,8 @@ public class CarServiceImplement implements CarService {
     }
 
     @Override
-    public void createCar(CarDto carDto) {
+    public void createCar(CarDto carDto,String ownerEmail) {
+        ClientCopy clientCopy=clientCopyRepository.findByEmail(ownerEmail);
         CarBrand carBrand=carBrandRepository.findById(carDto.getCarBrandId()).get();
         CarFuelType carFuelType=carFuelTypeRepository.findById(carDto.getCarFuelTypeId()).get();
         CarModel carModel=carModelRepository.findById(carDto.getCarModelId()).get();
@@ -67,11 +68,27 @@ public class CarServiceImplement implements CarService {
         car.setCarModel(carModel);
         car.setCarTransmissionType(carTransmissionType);
         car.setNameOfCar(carBrand.getName()+":"+carModel.getModelName());
+        car.setId(null);
+        clientCopy.getCars().add(car);
         concreteCarRepository.save(car);
+        clientCopyRepository.save(clientCopy);
     }
 
     @Override
-    public List<DtoEntity> getAllCars() {
-        return concreteCarRepository.findAll().stream().map(c->dtoUtils.convertToDto(c,new CarDto())).collect(Collectors.toList());
+    public List<DtoEntity> getAllCars(String ownerEmail) {
+        return clientCopyRepository.findByEmail(ownerEmail).getCars().stream().map(c->dtoUtils.convertToDto(c,new CarDto())).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<CarDto> getAllConcreteCar() {
+        List<ConcreteCar> cars = this.concreteCarRepository.findAll();
+        List<CarDto> konacna = new ArrayList<>();
+        for (ConcreteCar c: cars) {
+            CarDto carDto = new CarDto();
+            carDto.setId(c.getId());
+            carDto.setNameOfCar(c.getNameOfCar());
+            konacna.add(carDto);
+        }
+        return konacna;
     }
 }

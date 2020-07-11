@@ -18,8 +18,7 @@ public class Comment {
     @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Client client;
 
-    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private Advert advert;
+
 
     @Column
     private String author;

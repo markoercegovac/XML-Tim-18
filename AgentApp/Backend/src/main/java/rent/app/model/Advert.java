@@ -41,6 +41,12 @@ public class Advert {
     @Column(name="isActive")
     private boolean isActive;
 
+    @Column
+    private String city;
+
+    @Column
+    private String owner;
+
     @OneToOne(fetch = FetchType.LAZY)
     private Price price;
 
@@ -48,9 +54,11 @@ public class Advert {
     @JoinColumn(name = "current_driver", referencedColumnName = "email")
     private Client currentDriver;
 
-    @OneToMany(mappedBy = "advert",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private Set<Comment> comments;
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    private List<Comment> comments;
 
     @OneToMany
     private List<Reservation> reservations;
+
+
 }

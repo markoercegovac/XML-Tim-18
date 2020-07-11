@@ -15,7 +15,6 @@ import javax.persistence.Column;
 @SpringBootApplication
 @EnableAspectJAutoProxy
 @EnableResourceServer
-
 public class ManagerApplication {
 
     public static void main(String[] args) {

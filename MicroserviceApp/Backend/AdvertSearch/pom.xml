@@ -20,11 +20,11 @@
 
     <dependencies>
 
- <!--       <dependency>
+       <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
             <version>2.2.2.RELEASE</version>
-        </dependency> -->
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -71,6 +71,12 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!--OATUH2-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-oauth2</artifactId>
+        </dependency>
+
         <!--GENERICKI MAPPER-->
         <dependency>
             <groupId>org.modelmapper</groupId>
@@ -103,7 +109,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
-        <finalName>advert-search</finalName>
+        <finalName>search-manager</finalName>
     </build>
 
 </project>

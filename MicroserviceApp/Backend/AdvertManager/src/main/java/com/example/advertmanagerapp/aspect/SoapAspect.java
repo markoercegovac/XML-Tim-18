@@ -1,6 +1,7 @@
 package com.example.advertmanagerapp.aspect;
 
 import com.example.advertmanagerapp.dto.CaptureDto;
+import com.example.advertmanagerapp.dto.DriveReportDto;
 import com.example.advertmanagerapp.dto.PictureDto;
 import com.example.advertmanagerapp.generate.CreateCarBrandResponse;
 import com.example.advertmanagerapp.model.*;
@@ -111,7 +112,10 @@ public class SoapAspect {
 		soapProducer.produceAdvert(advertRepository.getOne(captureDto.getAdvertId()));
 	}
 	//Drive REPORT
-
+	@AfterReturning(value = "execution(* com.example.advertmanagerapp.service.impl.DriveReportServiceImpl.addNewReport(..))", returning = "report")
+	public void afterDriveReport(JoinPoint joinPoint, DriveReport report) {
+		soapProducer.produceDriveReport(report);
+	}
 
 }
 

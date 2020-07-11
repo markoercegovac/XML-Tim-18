@@ -42,7 +42,7 @@ public class PictureServiceImplementation implements PictureService {
 
     @Override
     public void saveSoapPicture(String base, String name) throws IOException {
-        String base64Image = base;
+        String base64Image = base;//ZAREZs
         byte[] imgBytes = DatatypeConverter.parseBase64Binary(base64Image);
         BufferedImage img = ImageIO.read(new ByteArrayInputStream(imgBytes));
         String path = filePath + name;

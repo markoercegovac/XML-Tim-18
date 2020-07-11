@@ -9,6 +9,7 @@ import {CommentService} from '../../../services/commentService';
 })
 export class CommentsComponent implements OnInit {
 
+  // tslint:disable-next-line:no-input-rename
   @Input('ad-id') adId: number;
   showAddCommentModal: boolean;
   comments: CommentModel[] = [];

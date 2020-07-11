@@ -6,6 +6,7 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 import rent.app.controller.ws.WsNameSpace;
+import rent.app.controller.ws.generate.AdvertRequest;
 import rent.app.controller.ws.generate.CarBrandRequest;
 import rent.app.controller.ws.generate.SoapResponse;
 import rent.app.model.CarBrand;
@@ -35,6 +36,9 @@ public class CarBrandWSService {
 			response.setAgId(saved.getId());
 			response.setStatus("UPDATED");
 		}
+
+		AdvertRequest a = new AdvertRequest();
+
 
 		return response;
 	}

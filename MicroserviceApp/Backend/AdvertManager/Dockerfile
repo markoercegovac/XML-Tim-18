@@ -7,5 +7,5 @@ RUN ["mvn", "package", "-DskipTests"]
 FROM openjdk:11
 COPY --from=requestMaven /usr/src/servers/request/target/advert-manager.jar ./
 COPY --from=requestMaven /usr/src/servers/request/images ./images
-EXPOSE 8080
+EXPOSE 9090
 CMD ["java", "-jar", "advert-manager.jar"]

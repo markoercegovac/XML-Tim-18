@@ -35,7 +35,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 
 import { RegisterCarComponent } from './register-car/register-car.component';
 import { DefinePriceComponent } from './define-price/define-price.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ReservedCarComponent } from './reserved-car/reserved-car.component';
 import { MyAdvertComponent } from './my-advert/my-advert.component';
 import { ChatComponent } from './chat/chat.component';
@@ -57,12 +57,15 @@ import { NavAdminComponent } from './navigation/nav-admin/nav-admin.component';
 import { NavUserComponent } from './navigation/nav-user/nav-user.component';
 import { NavOwnerComponent } from './navigation/nav-owner/nav-owner.component';
 import { NavNoComponent } from './navigation/nav-no/nav-no.component';
+import { StatisticsComponent } from './statistics/statistics.component';
+import {ChartsModule} from 'ng2-charts';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SignInComponent,
+    SearchComponent,
     RegisterComponent,
     NotFoundComponent,
     HomeComponent,
@@ -101,13 +104,19 @@ import { NavNoComponent } from './navigation/nav-no/nav-no.component';
     NavAdminComponent,
     NavUserComponent,
     NavOwnerComponent,
-    NavNoComponent
+    NavNoComponent,
+    RegisterApprovedComponent,
+    StatisticsComponent,
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
+    MDBBootstrapModule,
+    ReactiveFormsModule,
+    ChartsModule,
     MatFormFieldModule,
     MatDialogModule,
     MDBBootstrapModule,

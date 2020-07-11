@@ -1,0 +1,167 @@
+<div class="container">
+  <div>
+    <h4>Search adverts</h4>
+    <form  [formGroup] = "form2" (ngSubmit) = "onSubmit(form2.value)">
+      <div >
+        <label>City * </label>
+        <input class="form-control"   type="text"
+               placeholder="Enter the city name " formControlName="city" required="required">
+      </div>
+
+      <div >
+        <label>  Start Of Advert * </label>
+        <input class="form-control" required="required" formControlName="startOfAdvert" type="date" >
+      </div>
+      <div>
+        <label> End Of Advert *</label>
+        <input class="form-control" required="required" formControlName="endOfAdvert" type="date" >
+      </div>
+
+      <div >
+        <label>  Car mark: </label>
+        <select   class="form-control" name = "carMark" formControlName="carMark" >
+          <option *ngFor="let mark of allMarks" value={{mark.name}} >{{mark.name}} </option>
+        </select>
+      </div>
+
+
+      <div >
+        <label>  Car model </label>
+        <select   class="form-control" name = "carModel" formControlName="carModel" >
+          <option *ngFor="let model of allModels" value={{model.modelName}}>{{model.modelName}} </option>
+        </select>
+      </div>
+
+
+      <div >
+        <label>  Car Fuel Type </label>
+        <select   class="form-control" name = "carFuelType" formControlName="carFuelType" >
+          <option *ngFor="let fuel of allFuelType" value={{fuel.fuelType}}>{{fuel.fuelType}} </option>
+        </select>
+      </div>
+
+
+      <div >
+        <label>  Car Transmission Type </label>
+        <select   class="form-control" name = "carTransmissionType" formControlName="carTransmissionType" >
+          <option *ngFor="let t of allTransmissionType" value={{t.transmissionType}}>{{t.transmissionType}} </option>
+        </select>
+      </div>
+
+      <div >
+        <label>  Car Class </label>
+        <select   class="form-control" name = "carClass" formControlName="carClass" >
+          <option *ngFor="let class of allClasses" value={{class.className}}>{{class.className}} </option>
+        </select>
+      </div>
+      <br>
+      <div >
+        <table >
+        <tr>
+          <td><label>  Price From </label></td>
+          <td ><input class="form-control" name = "priceFrom" formControlName="priceFrom" type="text" ></td><td>  </td><td>  </td>
+          <td><label>  Price To </label></td><td>  </td><td>  </td>
+          <td><input class="form-control" name="priceTo" formControlName="priceTo" type="text" ></td>
+        </tr>
+        </table>
+      </div>
+      <br>
+      <div>
+        <table>
+        <tr>
+          <td><label>  Traveled Km</label></td>
+          <td><input class="form-control" name = "traveledKm" formControlName="traveledKm" type="text" ></td>
+          <td><label>  Planned Km </label></td>
+          <td><input class="form-control" name="plannedKm" formControlName="plannedKm" type="text" ></td>
+        </tr>
+        </table>
+      </div>
+      <br>
+
+      <div >
+        <label>  Insurance </label>
+        <select   class="form-control" name = "insurance" formControlName="insurance" >
+          <option value = "YES">YES</option>
+          <option value = "NO">NO</option>
+
+        </select>
+      </div>
+
+      <div >
+        <label>  Number of Seats </label>
+        <input class="form-control" name = "numberOfSeats" formControlName="numberOfSeats" type="text" >
+      </div>
+
+      <div >
+        <label>  Mark: </label>
+        <input class="form-control" name = "mark" formControlName="mark" type="text" >
+      </div>
+
+      <br/>
+      <br/>
+      <div >
+        <input class="form-control" type = "submit" [disabled]="!form2.valid" value ="Search">
+      </div>
+
+    </form>
+  </div>
+  <div *ngIf=" oglasi2?.length > 0 ">
+
+
+
+    <hr/>
+    <table class="table table-bordered table-hover">
+      <thead>
+      <th>City: </th>
+      <th>Car Mark: </th>
+      <th>Car Model: </th>
+      <th>Car Fuel Type: </th>
+      <th>Car Transmission Type: </th>
+      <th>Car Class: </th>
+      <th>Traveled Km: </th>
+      <th>Planned Km: </th>
+      <th>Insurance: </th>
+      <th>Number Of Seats: </th>
+      <th>Mark: </th>
+      <th>Price: </th>
+      </thead>
+
+      <tbody>
+      <tr *ngFor=" let dr of oglasi2 ">
+        <td>{{dr.city }}</td>
+        <td>{{dr.carMark }}</td>
+        <td>{{dr.modelMark }}</td>
+        <td>{{dr.carFuelType }}</td>
+        <td>{{dr.carTransmissionType }}</td>
+        <td>{{dr.carClass }}</td>
+        <td>{{dr.traveledKm }}</td>
+        <td>{{dr.plannedKm }}</td>
+        <td>{{dr.insurance }}</td>
+        <td>{{dr.numberOfSeats }}</td>
+        <td>{{dr.mark }}</td>
+        <td>{{dr.price }}</td>
+
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <div>
+    <br/>
+    <table>
+    PRICE SORT: &nbsp; Ascending <input type="radio" name = "sortCene" id="cenaRastuce" (click)="sortirajCeneRastuce()"/> &nbsp; &nbsp;
+    Descending <input type="radio" id="cenaOpadajuce"  name = "sortCene" (click)="sortirajCeneOpadajuce()"/>
+    <br/>
+    MARK SORT: &nbsp; Ascending <input type="radio" name = "sortOcene" id="oceneRastuce" (click)="sortirajOceneRastuce()"/> &nbsp; &nbsp;
+    Descending <input type="radio" id="oceneOpadajuce"  name = "sortOcene" (click)="sortirajOceneOpadajuce()"/>
+    <br/>
+    TRAVELED KM SORT: &nbsp; Ascending <input type="radio" name = "sortKil" id="kilometrazaRastuce" (click)="sortirajKilometrazuRastuce()"/> &nbsp; &nbsp;
+    Descending <input type="radio" id="kilometrazaOpadajuce"  name = "sortKil" (click)="sortirajKilometrazuOpadajuce()"/>
+    <br/>
+    </table>
+  </div>
+
+
+</div>
+
