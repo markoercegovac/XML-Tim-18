@@ -22,6 +22,26 @@ export class NavAdminComponent implements OnInit {
     this.router.navigate(['/admin/comment']);
   }
 
+  onAdminBrand() {
+    this.router.navigate(['/admin/brand']);
+  }
+
+  onAdminModel() {
+    this.router.navigate(['/admin/model']);
+  }
+
+  onAdminClass() {
+    this.router.navigate(['/admin/class']);
+  }
+
+  onAdminTran() {
+    this.router.navigate(['/admin/transmission']);
+  }
+
+  onAdminF() {
+    this.router.navigate(['/admin/fuel-type']);
+  }
+
   onRegister() {
     this.router.navigate(['/register/aprove']);
   }
