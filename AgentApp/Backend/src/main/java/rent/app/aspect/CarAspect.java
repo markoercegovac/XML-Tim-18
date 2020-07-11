@@ -19,7 +19,7 @@ import rent.app.model.Car;
 public class CarAspect {
     private final CarClient carClient;
 
-    @AfterReturning(value = "execution(* com.example.advertmanagerapp.service.impl.CarServiceImpl.createCar(..))", returning = "car")
+    @AfterReturning(pointcut = "execution(* rent.app.service.impl.CarServiceImpl.createCar(..))", returning = "car")
     public void  afterSavedCar(JoinPoint joinPoint, Car car){
         CarRequest request=new CarRequest();
         request.setId(car.getId());

@@ -19,7 +19,7 @@ public class CommentAspect {
     private final CommentClient commentClient;
     private final AdvertRepository advertRepository;
 
-    @AfterReturning(value = "execution(* com.example.advertmanagerapp.service.impl.CommentServiceImpl.addNewComment(..))", returning = "comment")
+    @AfterReturning(pointcut = "execution(* rent.app.service.impl.CommentServiceImpl.addNewComment(..))", returning = "comment")
     public void afterSavedComment(JoinPoint joinPoint, Comment comment){
         CommentRequest request=new CommentRequest();
         request.setId(comment.getId());

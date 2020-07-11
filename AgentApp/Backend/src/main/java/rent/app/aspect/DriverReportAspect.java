@@ -24,7 +24,7 @@ public class DriverReportAspect {
     private final DriverReportClient driverReportClient;
     private final CarRepository carRepository;
 
-    @AfterReturning(value = "execution(* com.example.advertmanagerapp.service.impl.DriveReportImpl.addNewReport(..))", returning = "driveReport")
+    @AfterReturning(pointcut = "execution(* rent.app.service.impl.DriveReportImpl.addNewReport(..))", returning = "driveReport")
     public void afterSavedDriveReport(JoinPoint joinPoint, DriveReport driveReport) throws DatatypeConfigurationException {
         DriveReportRequest request=new DriveReportRequest();
         request.setId(driveReport.getId());
