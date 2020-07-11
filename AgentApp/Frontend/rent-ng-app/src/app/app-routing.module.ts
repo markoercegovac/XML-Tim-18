@@ -23,6 +23,11 @@ import {DriveReportCreateComponent} from './drive-report-create/drive-report-cre
 import {DriveReportListComponent} from './drive-report-list/drive-report-list.component';
 import {DriveReportUpdateComponent} from './drive-report-update/drive-report-update.component';
 import {AllRegistrationRequestComponent} from "./all-registration-request/all-registration-request.component";
+import {CarBrandComponent} from './car-brand/car-brand.component';
+import {CarClassComponent} from './car-class/car-class.component';
+import {CarModelComponent} from './car-model/car-model.component';
+import {CarFuelTypeComponent} from './car-fuel-type/car-fuel-type.component';
+import {CarTranssmisionTypeComponent} from './car-transsmision-type/car-transsmision-type.component';
 
 
 
@@ -71,6 +76,11 @@ const routes: Routes = [
     path: 'my/adverts',
     component: MyAdvertComponent
   },
+  { path: 'brand', component: CarBrandComponent},
+  { path: 'class', component: CarClassComponent},
+  { path: 'model', component: CarModelComponent},
+  { path: 'fuel-type', component: CarFuelTypeComponent},
+  { path: 'transmission', component: CarTranssmisionTypeComponent},
 
   {
     path: 'chat',

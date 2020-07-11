@@ -47,6 +47,32 @@ import { DriveReportListComponent } from './drive-report-list/drive-report-list.
 import { DriveReportUpdateComponent } from './drive-report-update/drive-report-update.component';
 import { AllRegistrationRequestComponent } from './all-registration-request/all-registration-request.component';
 
+import { CarBrandComponent } from './car-brand/car-brand.component';
+import { CarClassComponent } from './car-class/car-class.component';
+import { CarFuelTypeComponent } from './car-fuel-type/car-fuel-type.component';
+import { CarModelComponent } from './car-model/car-model.component';
+import { CarTranssmisionTypeComponent } from './car-transsmision-type/car-transsmision-type.component';
+import { CreateCarBrandComponent } from './car-brand/create-car-brand/create-car-brand.component';
+import { CreateCarClassComponent } from './car-class/create-car-class/create-car-class.component';
+import { CreateFuelTypeComponent } from './car-fuel-type/create-fuel-type/create-fuel-type.component';
+import { CreateCarModelComponent } from './car-model/create-car-model/create-car-model.component';
+import { CreateTranssmisionTypeComponent } from './car-transsmision-type/create-transsmision-type/create-transsmision-type.component';
+import { UpdateCarBrandComponent } from './car-brand/update-car-brand/update-car-brand.component';
+import { UpdateCarClassComponent } from './car-class/update-car-class/update-car-class.component';
+import { UpdateFuelTypeComponent } from './car-fuel-type/update-fuel-type/update-fuel-type.component';
+import { UpdateCarModelComponent } from './car-model/update-car-model/update-car-model.component';
+import { UpdateCarTransmissionComponent } from './car-transsmision-type/update-car-transmission/update-car-transmission.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatTableModule} from '@angular/material/table';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -84,14 +110,40 @@ import { AllRegistrationRequestComponent } from './all-registration-request/all-
     ChatHeaderComponent,
     InboxComponent,
     MesagesComponent,
-    AllRegistrationRequestComponent
+    AllRegistrationRequestComponent,
+    CarBrandComponent,
+    CarClassComponent,
+    CarFuelTypeComponent,
+    CarModelComponent,
+    CarTranssmisionTypeComponent,
+    CreateCarBrandComponent,
+    CreateCarClassComponent,
+    CreateFuelTypeComponent,
+    CreateCarModelComponent,
+    CreateTranssmisionTypeComponent,
+    UpdateCarBrandComponent,
+    UpdateCarClassComponent,
+    UpdateFuelTypeComponent,
+    UpdateCarModelComponent,
+    UpdateCarTransmissionComponent,
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    MDBBootstrapModule
+    MDBBootstrapModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTableModule,
+    MatIconModule,
+    MatPaginatorModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -15,8 +15,6 @@ public class CarTransmissionType {
     private Long id;
 
     @Column
-    @Min(2)
-    @Max(32)
     private String transmissionType;
 
     @Column

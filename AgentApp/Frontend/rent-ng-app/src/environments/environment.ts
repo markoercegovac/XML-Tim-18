@@ -11,7 +11,12 @@ export const environment = {
   comm: 'http://localhost:9090/comment/',
   report: 'http://localhost:9090/crud',
   message: 'http://localhost:9090/api/message',
-  registration: 'http://localhost:9090/admin'
+  registration: 'http://localhost:9090/admin',
+  car_brand: 'http://localhost:9090/car-brand',
+  car_class: 'http://localhost:9090/car-class',
+  car_fuel_type: 'http://localhost:9090/car-fuel-type',
+  car_transsmision_type: 'http://localhost:9090/car-transsmision-type',
+  car_model: 'http://localhost:9090/car-model'
 };
 
 /*
