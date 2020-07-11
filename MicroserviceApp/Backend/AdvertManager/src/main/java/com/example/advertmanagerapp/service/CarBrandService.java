@@ -9,7 +9,7 @@ public interface CarBrandService {
 
     public void updateCarBrand(CarBrand carBrand);
     public void deleteCarBrand(Long id);
-    public void saveCarBrand(CarBrand carBrand);
+    public CarBrand saveCarBrand(CarBrand carBrand);
     public List<CarBrand> getAllCarBrand();
     List<DtoEntity> getAllBrands();
 }

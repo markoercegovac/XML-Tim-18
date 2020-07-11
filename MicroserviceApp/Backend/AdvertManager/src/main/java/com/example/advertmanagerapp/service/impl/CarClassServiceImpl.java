@@ -30,8 +30,8 @@ public class CarClassServiceImpl implements CarClassService {
     }
 
     @Override
-    public void saveCarClass(CarClass carClass) {
-        repository.save(carClass);
+    public CarClass saveCarClass(CarClass carClass) {
+        return repository.save(carClass);
     }
 
     @Override

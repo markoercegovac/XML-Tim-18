@@ -9,6 +9,6 @@ public interface CarClassService {
     List<DtoEntity> getAllCarClasses();
 
     public void deleteCarClass(Long id);
-    public void saveCarClass(CarClass carClass);
+    public CarClass saveCarClass(CarClass carClass);
     public List<CarClass> getAllCarClass();
 }

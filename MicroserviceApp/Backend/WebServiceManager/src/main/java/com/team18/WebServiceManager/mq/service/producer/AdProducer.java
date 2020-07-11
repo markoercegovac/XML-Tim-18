@@ -15,59 +15,79 @@ public class AdProducer {
 	@Autowired
 	private AmqpTemplate amqpTemplate;
 
-	@Value("${rabbitmq.direct.soap.ad.soap}")
+	@Value("${rabbitmq.direct.soap.soap.ad}")
 	private String exchange;
 
-	@Value("${rabbitmq.key.soap.ad.soap}")
+	@Value("${rabbitmq.key.soap.soap.ad}")
 	private String routingKey;
 
 	public void produceCarBrand(CarBrandMQ msg){
-		amqpTemplate.convertAndSend(exchange, routingKey, gson.toJson(msg));
+		String ms = "CarBrand-";
+		ms += gson.toJson(msg);
+		amqpTemplate.convertAndSend(exchange, routingKey, ms);
 		System.out.println("MQ>> sending car brand "+ msg);
 	}
 
 	public void produceCarModel(CarModelMQ msg){
-		amqpTemplate.convertAndSend(exchange, routingKey, gson.toJson(msg));
+		String ms = "CarModel-";
+		ms += gson.toJson(msg);
+		amqpTemplate.convertAndSend(exchange, routingKey, ms);
 		System.out.println("MQ>> sending car model "+ msg);
 	}
 
 	public void produceCarClass(CarClassMQ msg){
-		amqpTemplate.convertAndSend(exchange, routingKey, gson.toJson(msg));
+		String ms = "CarClass-";
+		ms += gson.toJson(msg);
+		amqpTemplate.convertAndSend(exchange, routingKey, ms);
 		System.out.println("MQ>> sending car class "+ msg);
 	}
 
 	public void produceCarFuelType(CarFuelTypeMQ msg){
-		amqpTemplate.convertAndSend(exchange, routingKey, gson.toJson(msg));
+		String ms = "CarFuelType-";
+		ms += gson.toJson(msg);
+		amqpTemplate.convertAndSend(exchange, routingKey, ms);
 		System.out.println("MQ>> sending car fuel type "+ msg);
 	}
 
 	public void produceCarTransmission(CarTransmissionMQ msg){
-		amqpTemplate.convertAndSend(exchange, routingKey, gson.toJson(msg));
+		String ms = "CarTransmission-";
+		ms += gson.toJson(msg);
+		amqpTemplate.convertAndSend(exchange, routingKey, ms);
 		System.out.println("MQ>> sending car transmission "+ msg);
 	}
 
 	public void produceCar(CarMQ msg){
-		amqpTemplate.convertAndSend(exchange, routingKey, gson.toJson(msg));
+		String ms = "Car-";
+		ms += gson.toJson(msg);
+		amqpTemplate.convertAndSend(exchange, routingKey, ms);
 		System.out.println("MQ>> sending car "+ msg);
 	}
 
 	public void producePrice(PriceMQ msg){
-		amqpTemplate.convertAndSend(exchange, routingKey, gson.toJson(msg));
+		String ms = "Price-";
+		ms += gson.toJson(msg);
+		amqpTemplate.convertAndSend(exchange, routingKey, ms);;
 		System.out.println("MQ>> sending price "+ msg);
 	}
 
 	public void producePicture(PictureMQ msg){
-		amqpTemplate.convertAndSend(exchange, routingKey, gson.toJson(msg));
+		String ms = "Picture-";
+		ms += gson.toJson(msg);
+		amqpTemplate.convertAndSend(exchange, routingKey, ms);
 		System.out.println("MQ>> sending picture ");
 	}
 
 	public void produceCapture(CaptureMQ msg){
-		amqpTemplate.convertAndSend(exchange, routingKey, gson.toJson(msg));
+		String ms = "Capture-";
+		ms += gson.toJson(msg);
+		amqpTemplate.convertAndSend(exchange, routingKey, ms);
 		System.out.println("MQ>> sending capture ");
 	}
 
 	public void produceAdvert(AdvertMQ msg){
-		amqpTemplate.convertAndSend(exchange, routingKey, gson.toJson(msg));
+		String ms = "Advert-";
+		ms += gson.toJson(msg);
+		amqpTemplate.convertAndSend(exchange, routingKey, ms);
 		System.out.println("MQ>> sending advert ");
 	}
 }

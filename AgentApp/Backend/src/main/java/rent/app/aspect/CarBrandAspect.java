@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import rent.app.controller.ws.client.CarBrandClient;
 import rent.app.controller.ws.generate.CarBrandRequest;
 import rent.app.controller.ws.generate.SoapResponse;
+import rent.app.dto.AdvertDto;
 import rent.app.model.CarBrand;
 
 @Component
@@ -31,3 +32,4 @@ public class CarBrandAspect {
 
 	}
 }
+

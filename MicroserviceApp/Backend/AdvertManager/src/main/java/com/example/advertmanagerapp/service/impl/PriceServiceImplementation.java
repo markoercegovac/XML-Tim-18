@@ -22,9 +22,9 @@ public class PriceServiceImplementation implements PriceService {
     private final DtoUtils dtoUtils;
 
     @Override
-    public void savePrice(PriceDto priceDto) {
+    public Price savePrice(PriceDto priceDto) {
         Price price = (Price) dtoUtils.convertToEntity(new Price(),priceDto);
-        priceRepository.save(price);
+        return priceRepository.save(price);
     }
 
     @Override

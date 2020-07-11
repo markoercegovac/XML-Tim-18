@@ -7,6 +7,6 @@ import java.util.List;
 public interface CarModelService  {
     List<DtoEntity> getModelForBrand(Long idBrand);
     public void deleteCarModel(Long id);
-    public void saveCarModel(CarModel carModel);
+    public CarModel saveCarModel(CarModel carModel);
     public List<CarModel> getAllCarModel();
 }

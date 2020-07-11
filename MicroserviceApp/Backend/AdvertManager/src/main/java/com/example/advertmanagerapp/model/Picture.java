@@ -17,10 +17,8 @@ public class Picture {
     @Column
     private String picture;
 
-
     @Column
     private String path;
-
 
     @Column
     private boolean isDeleted;

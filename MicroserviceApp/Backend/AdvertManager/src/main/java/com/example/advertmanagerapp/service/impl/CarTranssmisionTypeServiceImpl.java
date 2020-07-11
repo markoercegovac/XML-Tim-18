@@ -32,9 +32,9 @@ public class CarTranssmisionTypeServiceImpl implements CarTranssmisionTypeServic
     }
 
     @Override
-    public void saveCarTranssmisionType(CarTransmissionType carTransmissionType) {
+    public CarTransmissionType saveCarTranssmisionType(CarTransmissionType carTransmissionType) {
 
-        repository.save(carTransmissionType);
+        return repository.save(carTransmissionType);
     }
 
     @Override

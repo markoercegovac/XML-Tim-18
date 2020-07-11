@@ -1,78 +1,78 @@
 version: "3.7"
 services:
 
-  eureka:
-    build: ./Eureka
-    image: eureka
-    container_name: eureka
-    networks:
-      - demo
-    ports:
-      - 8761:8761
-
-  zuul:
-    build: ./GatewayService
-    image: zuul
-    container_name: zuul
-    networks:
-      - demo
-    ports:
-      - 8662:8662
-    environment:
-      REGISTRY_HOST: eureka
-      REGISTRY_PORT: 8761
-      AUTH_ADR: user-manager
-      AUTH_PORT: 8097
-    depends_on:
-      - eureka
-      - user-manager
-      - advert-manager
-      - request-manager
-      - chat-manager
+#  eureka:
+#    build: ./Eureka
+#    image: eureka
+#    container_name: eureka
+#    networks:
+#      - demo
+#    ports:
+#      - 8761:8761
+#
+#  zuul:
+#    build: ./GatewayService
+#    image: zuul
+#    container_name: zuul
+#    networks:
+#      - demo
+#    ports:
+#      - 8662:8662
+#    environment:
+#      REGISTRY_HOST: eureka
+#      REGISTRY_PORT: 8761
+#      AUTH_ADR: user-manager
+#      AUTH_PORT: 8097
+#    depends_on:
+#      - eureka
+#      - user-manager
+#      - advert-manager
+#      - request-manager
+#      - chat-manager
 #      - comment-manager
 #      - search-manager
-
-  chat-manager:
-    build: ./ChatManager
-    image: chat-manager
-    container_name: chat-manager
-    restart: on-failure
-    networks:
-      - demo
-    ports:
-      - 8092:8080
-    environment:
-      RABBITMQ: rabbitmq
-      REGISTRY_HOST: eureka
-      DATABASE_USERNAME: us_chat
-      DATABASE_PASSWORD: password-chat
-      DATABASE_DOMAIN: mysql-db
-      DATABASE_SCHEMA: chat_db
-    depends_on: 
-      - mysql-db
-      - eureka
-      - rabbitmq
-
-  request-manager:
-    build: ./AdRequestManager
-    image: request-manager
-    container_name: request-manager
-    restart: on-failure
-    networks:
-      - demo
-    ports:
-      - 8093:8080
-    environment:
-      REGISTRY_HOST: eureka
-      RABBITMQ: rabbitmq
-      DATABASE_USERNAME: us_request
-      DATABASE_PASSWORD: password-request
-      DATABASE_DOMAIN: mysql-db
-      DATABASE_SCHEMA: request_db
-    depends_on: 
-      - mysql-db
-      - eureka
-      - rabbitmq
+#
+#  chat-manager:
+#    build: ./ChatManager
+#    image: chat-manager
+#    container_name: chat-manager
+#    restart: on-failure
+#    networks:
+#      - demo
+#    ports:
+#      - 8092:8080
+#    environment:
+#      RABBITMQ: rabbitmq
+#      REGISTRY_HOST: eureka
+#      DATABASE_USERNAME: us_chat
+#      DATABASE_PASSWORD: password-chat
+#      DATABASE_DOMAIN: mysql-db
+#      DATABASE_SCHEMA: chat_db
+#    depends_on: 
+#      - mysql-db
+#      - eureka
+#      - rabbitmq
+#
+#  request-manager:
+#    build: ./AdRequestManager
+#    image: request-manager
+#    container_name: request-manager
+#    restart: on-failure
+#    networks:
+#      - demo
+#    ports:
+#      - 8093:8080
+#    environment:
+#      REGISTRY_HOST: eureka
+#      RABBITMQ: rabbitmq
+#      DATABASE_USERNAME: us_request
+#      DATABASE_PASSWORD: password-request
+#      DATABASE_DOMAIN: mysql-db
+#      DATABASE_SCHEMA: request_db
+#    depends_on: 
+#      - mysql-db
+#      - eureka
+#      - rabbitmq
 
 #  comment-manager:
 #    build: ./CommentManager
@@ -116,63 +116,63 @@ services:
 #        - eureka
 #        - rabbitmq
 
-  advert-manager:
-    build: ./AdvertManager
-    image: advert-manager
-    container_name: advert-manager
-    restart: on-failure
-    networks:
-        - demo
-    ports:
-      - 8096:9090
-    environment:
-      REGISTRY_HOST: eureka
-      RABBITMQ: rabbitmq
-      DATABASE_USERNAME: us_advert
-      DATABASE_PASSWORD: password-advert
-      DATABASE_DOMAIN: mysql-db
-      DATABASE_SCHEMA: advert_db
-    depends_on:
-        - mysql-db
-        - eureka
-        - rabbitmq
-
-  user-manager:
-    build: ./UserManager
-    image: user-manager
-    container_name: user-manager
-    restart: on-failure
-    networks:
-        - demo
-    ports:
-      - 8097:8081
-    environment:
-      REGISTRY_HOST: eureka
-      RABBITMQ: rabbitmq
-      DATABASE_USERNAME: us_user
-      DATABASE_PASSWORD: password-user
-      DATABASE_DOMAIN: mysql-db
-      DATABASE_SCHEMA: user_db
-    depends_on:
-        - mysql-db
-        - eureka
-        - rabbitmq
-
-  mail-manager:
-    build: ./MailManager
-    image: mail-manager
-    container_name: mail-manager
-    restart: on-failure
-    networks:
-        - demo
-    ports:
-      - 9090:8080
-    environment:
-      REGISTRY_HOST: eureka
-      RABBITMQ: rabbitmq
-    depends_on:
-        - eureka
-        - rabbitmq
+#  advert-manager:
+#    build: ./AdvertManager
+#    image: advert-manager
+#    container_name: advert-manager
+#    restart: on-failure
+#    networks:
+#        - demo
+#    ports:
+#      - 8096:9090
+#    environment:
+#      REGISTRY_HOST: eureka
+#      RABBITMQ: rabbitmq
+#      DATABASE_USERNAME: us_advert
+#      DATABASE_PASSWORD: password-advert
+#      DATABASE_DOMAIN: mysql-db
+#      DATABASE_SCHEMA: advert_db
+#    depends_on:
+#        - mysql-db
+#        - eureka
+#        - rabbitmq
+#
+#  user-manager:
+#    build: ./UserManager
+#    image: user-manager
+#    container_name: user-manager
+#    restart: on-failure
+#    networks:
+#        - demo
+#    ports:
+#      - 8097:8081
+#    environment:
+#      REGISTRY_HOST: eureka
+#      RABBITMQ: rabbitmq
+#      DATABASE_USERNAME: us_user
+#      DATABASE_PASSWORD: password-user
+#      DATABASE_DOMAIN: mysql-db
+#      DATABASE_SCHEMA: user_db
+#    depends_on:
+#        - mysql-db
+#        - eureka
+#        - rabbitmq
+#
+#  mail-manager:
+#    build: ./MailManager
+#    image: mail-manager
+#    container_name: mail-manager
+#    restart: on-failure
+#    networks:
+#        - demo
+#    ports:
+#      - 9090:8080
+#    environment:
+#      REGISTRY_HOST: eureka
+#      RABBITMQ: rabbitmq
+#    depends_on:
+#        - eureka
+#        - rabbitmq
 
   rabbitmq:
     build: ./RabbitMQ
@@ -188,41 +188,41 @@ services:
     networks:
       - demo
 
-  soap:
-    build: ./WebServiceManager
-    image: soap
-    container_name: soap
-    restart: on-failure
-    networks:
-        - demo
-    environment:
-      RABBITMQ: rabbitmq
-      DATABASE_USERNAME: us_soap
-      DATABASE_PASSWORD: password-soap
-      DATABASE_DOMAIN: mysql-db
-      DATABASE_SCHEMA: soap_db
-    depends_on:
-        - mysql-db
-        - rabbitmq
-
-  mysql-db:
-    image: mysql:8.0.19
-    command: --default-authentication-plugin=mysql_native_password
-    container_name: mysql-db
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: SuperRootPassword1
-      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
-      MYSQL_DATABASE: main
-      MYSQL_USER: admin
-      MYSQL_PASSWOR: AdminPassword1
-    ports:
-      - 3307:3306
-    networks:
-      - demo
-    volumes:
-      - ./dockerScript/init.sql:/docker-entrypoint-initdb.d/init.sql
-      - mysql-db-data:/var/lib/mysql-db
+#  soap:
+#    build: ./WebServiceManager
+#    image: soap
+#    container_name: soap
+#    restart: on-failure
+#    networks:
+#        - demo
+#    environment:
+#      RABBITMQ: rabbitmq
+#      DATABASE_USERNAME: us_soap
+#      DATABASE_PASSWORD: password-soap
+#      DATABASE_DOMAIN: mysql-db
+#      DATABASE_SCHEMA: soap_db
+#    depends_on:
+#        - mysql-db
+#        - rabbitmq
+#
+#  mysql-db:
+#    image: mysql:8.0.19
+#    command: --default-authentication-plugin=mysql_native_password
+#    container_name: mysql-db
+#    restart: always
+#    environment:
+#      MYSQL_ROOT_PASSWORD: SuperRootPassword1
+#      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+#      MYSQL_DATABASE: main
+#      MYSQL_USER: admin
+#      MYSQL_PASSWOR: AdminPassword1
+#    ports:
+#      - 3307:3306
+#    networks:
+#      - demo
+#    volumes:
+#      - ./dockerScript/init.sql:/docker-entrypoint-initdb.d/init.sql
+#      - mysql-db-data:/var/lib/mysql-db
 
 volumes:
   mysql-db-data:

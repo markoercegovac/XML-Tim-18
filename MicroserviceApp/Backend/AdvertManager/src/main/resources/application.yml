@@ -10,14 +10,23 @@ rabbitmq:
     comment: direct.ad.comment
     request: direct.ad.request
     search: direct.ad.search
+    soap:
+      ad:
+        soap: direct.soap.ad.soap
   routingkey:
     comment: key.ad.comment
     request: key.ad.request
     search: key.ad.search
+    soap:
+      ad:
+        soap: key.soap.ad.soap
   queue:
     from:
       request: queue.reques.ad # CRVENA VEZA NA SLICI
       user: queue.user.ad
+    soap:
+      soap:
+        ad: queue.soap.soap.ad
 
 spring:
   rabbitmq:

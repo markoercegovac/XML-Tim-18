@@ -28,11 +28,13 @@ public class CaptureServiceImplementation implements CaptureService {
     }
 
     @Override
-    public void createNewCapture(CaptureDto captureDto) {
+    public Capture createNewCapture(CaptureDto captureDto) {
         Advert advert=advertRepository.findById(captureDto.getAdvertId()).orElse(null);
         Capture capture=(Capture)dtoUtils.convertToEntity(new Capture(), captureDto);
-        captureRepository.save(capture);
+        Capture retCap = captureRepository.save(capture);
         advert.getCaptures().add(capture);
         advertRepository.save(advert);
+
+        return retCap;
     }
 }

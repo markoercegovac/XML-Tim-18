@@ -39,8 +39,8 @@ public class CarBrandServiceImpl implements CarBrandService {
     }
 
     @Override
-    public void saveCarBrand(CarBrand carBrand) {
-        repository.save(carBrand);
+    public CarBrand saveCarBrand(CarBrand carBrand) {
+        return repository.save(carBrand);
     }
 
     @Override

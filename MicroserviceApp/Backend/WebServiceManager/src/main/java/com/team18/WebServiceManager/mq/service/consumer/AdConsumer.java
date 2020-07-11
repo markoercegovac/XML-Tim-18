@@ -91,6 +91,7 @@ public class AdConsumer {
 				request.setDeleted(mq.isDeleted());
 
 				//POZOVE SE ODGOVARAJUCI KLIENT DA SE POSALJE SOAP
+
 				if(b==null) {
 					//TREBA DA SE KREIRA
 					b = new CarModel();

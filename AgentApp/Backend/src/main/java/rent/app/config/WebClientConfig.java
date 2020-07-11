@@ -20,7 +20,7 @@ public class WebClientConfig {
 	@Bean
 	public CarBrandClient courseClient(Jaxb2Marshaller marshaller) {
 		CarBrandClient client = new CarBrandClient();
-		client.setDefaultUri("http://localhost:8099");
+		client.setDefaultUri("http://localhost:8099/ws");
 		client.setMarshaller(marshaller);
 		client.setUnmarshaller(marshaller);
 		return client;

@@ -17,7 +17,7 @@ public class CarBrandWSService {
 	@Autowired
 	private CarBrandRepository carBrandRepository;
 
-	@PayloadRoot(namespace = WsNameSpace.namespace, localPart = "carBrandRequest")
+	@PayloadRoot(namespace = WsNameSpace.namespace, localPart = "carBrandRequest") //SA MALIM POCETNIM SLOVOM
 	@ResponsePayload
 	public SoapResponse handleCarBrand(@RequestPayload CarBrandRequest request) {
 		CarBrand brand = new CarBrand();

@@ -25,7 +25,7 @@ public class CarBrandWSService {
 	@Autowired
 	private AgentRepository agentRepository;
 
-	@PayloadRoot(namespace = WsNameSpace.namespace, localPart = "carBrandRequest")
+	@PayloadRoot(namespace = WsNameSpace.namespace, localPart = "carBrandRequest") //MORA MALO POCETNO SLOVO iz ARGUMENTA METODE
 	@ResponsePayload
 	public SoapResponse handleCarBrand(@RequestPayload CarBrandRequest request) {
 		Agent ag = agentRepository.findByAgentEmail(request.getToken());

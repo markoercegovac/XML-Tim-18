@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface CaptureService {
     List<DtoEntity> getAdvertCaptures(Long idAdvert);
-    void createNewCapture(CaptureDto captureDto);
+    Capture createNewCapture(CaptureDto captureDto);
 }
