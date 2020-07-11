@@ -37,7 +37,7 @@ public class SoapAspect {
 	private AdvertRepository advertRepository;
 
 	//BRAND
-	@AfterReturning(value = "execution(* com.example.advertmanagerapp.service.impl.CarBrandServiceImpl.saveCarBrand(..))", returning = "carBrand")
+	@AfterReturning(pointcut = "execution(* com.example.advertmanagerapp.service.impl.CarBrandServiceImpl.saveCarBrand(..))", returning = "carBrand")
 	public void afterSavedCarBrand(JoinPoint joinPoint, CarBrand carBrand) {
 		soapProducer.produceCarBrand(carBrand);
 	}
@@ -50,7 +50,7 @@ public class SoapAspect {
 		soapProducer.produceCarBrand(carBrandRepository.getOne(id));
 	}
 	//CLASS
-	@AfterReturning(value = "execution(* com.example.advertmanagerapp.service.impl.CarClassServiceImpl.saveCarClass(..))", returning = "carClass")
+	@AfterReturning(pointcut = "execution(* com.example.advertmanagerapp.service.impl.CarClassServiceImpl.saveCarClass(..))", returning = "carClass")
 	public void afterSavedCarClass(JoinPoint joinPoint, CarClass carClass) {
 		soapProducer.produceCarClass(carClass);
 	}
@@ -59,7 +59,7 @@ public class SoapAspect {
 		soapProducer.produceCarClass(carClassRepository.getOne(id));
 	}
 	//FUEL TYPE
-	@AfterReturning(value = "execution(* com.example.advertmanagerapp.service.impl.CarFuelTypeServiceImpl.saveFuelType(..))", returning = "carFuelType")
+	@AfterReturning(pointcut = "execution(* com.example.advertmanagerapp.service.impl.CarFuelTypeServiceImpl.saveFuelType(..))", returning = "carFuelType")
 	public void afterSavedCarFuel(JoinPoint joinPoint, CarFuelType carFuelType) {
 		soapProducer.produceCarFuelType(carFuelType);
 	}
@@ -68,7 +68,7 @@ public class SoapAspect {
 		soapProducer.produceCarFuelType(carFuelTypeRepository.getOne(id));
 	}
 	//MODEL
-	@AfterReturning(value = "execution(* com.example.advertmanagerapp.service.impl.CarModelServiceImpl.saveCarModel(..))", returning = "carModel")
+	@AfterReturning(pointcut = "execution(* com.example.advertmanagerapp.service.impl.CarModelServiceImpl.saveCarModel(..))", returning = "carModel")
 	public void afterSavedCarModel(JoinPoint joinPoint, CarModel carModel) {
 		soapProducer.produceCarModel(carModel);
 	}
@@ -77,7 +77,7 @@ public class SoapAspect {
 		soapProducer.produceCarModel(carModelRepository.getOne(id));
 	}
 	//TRANSMISSIOM
-	@AfterReturning(value = "execution(* com.example.advertmanagerapp.service.impl.CarTranssmisionTypeServiceImpl.saveCarTranssmisionType(..))", returning = "carTransmissionType")
+	@AfterReturning(pointcut = "execution(* com.example.advertmanagerapp.service.impl.CarTranssmisionTypeServiceImpl.saveCarTranssmisionType(..))", returning = "carTransmissionType")
 	public void afterSavedCarTransmission(JoinPoint joinPoint, CarTransmissionType carTransmissionType) {
 		soapProducer.produceCarTransmission(carTransmissionType);
 	}
@@ -86,22 +86,22 @@ public class SoapAspect {
 		soapProducer.produceCarTransmission(carTransmissionTypeRepository.getOne(id));
 	}
 	//Picture
-	@AfterReturning(value = "execution(* com.example.advertmanagerapp.service.impl.PictureServiceImplementation.savePicture(..)) and args(picture)")
+	@After(value = "execution(* com.example.advertmanagerapp.service.impl.PictureServiceImplementation.savePicture(..)) && args(picture)")
 	public void afterSavedCarPicture(JoinPoint joinPoint, PictureDto picture) {
 		soapProducer.producePicture(pictureRepository.findByPath(picture.getPath()));
 	}
 	//PRICE
-	@AfterReturning(value = "execution(* com.example.advertmanagerapp.service.impl.PriceServiceImplementation.savePrice(..)", returning = "price")
+	@AfterReturning(pointcut = "execution(* com.example.advertmanagerapp.service.impl.PriceServiceImplementation.savePrice(..))", returning = "price")
 	public void afterSavedPrice(JoinPoint joinPoint, Price price) {
 		soapProducer.producePrice(price);
 	}
 	//ADVERT
-	@AfterReturning(value = "execution(* com.example.advertmanagerapp.service.impl.AdvertServiceImpl.createAdvert(..)) and args(ad)")
+	@AfterReturning(pointcut = "execution(* com.example.advertmanagerapp.service.impl.AdvertServiceImpl.createAdvert(..)) and args(ad)")
 	public void afterSavedAdvert(JoinPoint joinPoint, Advert ad) {
 		soapProducer.produceAdvert(ad);
 	}
 	//CAPTURE
-	@AfterReturning(value = "execution(* com.example.advertmanagerapp.service.impl.CaptureServiceImplementation.createNewCapture(..)) and args(captureDto)", returning = "capture")
+	@AfterReturning(pointcut = "execution(* com.example.advertmanagerapp.service.impl.CaptureServiceImplementation.createNewCapture(..)) and args(captureDto)", returning = "capture")
 	public void afterCreateCapture(JoinPoint joinPoint, CaptureDto captureDto, Capture capture) {
 
 		soapProducer.produceCapture(capture);
@@ -112,7 +112,7 @@ public class SoapAspect {
 		soapProducer.produceAdvert(advertRepository.getOne(captureDto.getAdvertId()));
 	}
 	//Drive REPORT
-	@AfterReturning(value = "execution(* com.example.advertmanagerapp.service.impl.DriveReportServiceImpl.addNewReport(..))", returning = "report")
+	@AfterReturning(pointcut = "execution(* com.example.advertmanagerapp.service.impl.DriveReportServiceImpl.addNewReport(..))", returning = "report")
 	public void afterDriveReport(JoinPoint joinPoint, DriveReport report) {
 		soapProducer.produceDriveReport(report);
 	}
