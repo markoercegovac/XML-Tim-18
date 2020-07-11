@@ -14,6 +14,7 @@ public class AdvertRequestServiceImp  implements AdvertRequestService {
 
     @Override
     public void saveAdvertRequest(AdvertRequest advertRequest) {
+        advertRequest.setApproved(true);
         advertRequestRepository.save(advertRequest);
     }
 }

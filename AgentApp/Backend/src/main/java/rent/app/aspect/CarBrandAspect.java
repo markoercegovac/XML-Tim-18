@@ -22,14 +22,16 @@ public class CarBrandAspect {
 
 	@AfterReturning(pointcut = "execution(* rent.app.service.impl.CarBrandServiceImpl.saveCarBrand(..))", returning = "carBrand")
 	public void afterSavedCarBrand(JoinPoint joinPoint, CarBrand carBrand) {
-		CarBrandRequest request = new CarBrandRequest();
-		request.setId(carBrand.getId());
-		request.setName(carBrand.getName());
-		request.setDeleted(carBrand.isRemoved());
-		request.setToken("firm@com");
+		try {
+			CarBrandRequest request = new CarBrandRequest();
+			request.setId(carBrand.getId());
+			request.setName(carBrand.getName());
+			request.setDeleted(carBrand.isRemoved());
+			request.setToken("firm@com");
 
-		SoapResponse response = carBrandClient.handleCarBrand(request);
-		System.out.println("STATUS: "+ response.getStatus());
+			SoapResponse response = carBrandClient.handleCarBrand(request);
+			System.out.println("STATUS: " + response.getStatus());
+		} catch (Exception e) {}
 	}
 }
 

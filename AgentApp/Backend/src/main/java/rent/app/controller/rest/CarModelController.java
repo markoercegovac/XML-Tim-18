@@ -12,7 +12,7 @@ import rent.app.service.CarModelService;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
 @RequestMapping("/car-model")
 @CrossOrigin()

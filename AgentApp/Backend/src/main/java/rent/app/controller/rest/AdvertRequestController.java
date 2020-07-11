@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import rent.app.model.AdvertRequest;
 import rent.app.service.AdvertRequestService;
 
+import java.security.Principal;
+
 @RequestMapping("/advert-request")
 @RequiredArgsConstructor
 @RestController
@@ -15,8 +17,9 @@ public class AdvertRequestController {
     private final AdvertRequestService advertRequestService;
 
     @PostMapping
-    public void saveAdvertRequest (@RequestBody AdvertRequest advertRequest) {
+    public void saveAdvertRequest (@RequestBody AdvertRequest advertRequest, Principal p) {
 
+        advertRequest.setUserEmail(p.getName());
         advertRequestService.saveAdvertRequest(advertRequest);
     }
 }

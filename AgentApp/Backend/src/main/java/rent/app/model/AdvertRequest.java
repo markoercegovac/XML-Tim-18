@@ -24,6 +24,9 @@ public class AdvertRequest {
     private Date dateStart;
 
     @Column
+    private boolean approved;
+
+    @Column
     Date dateEnd;
 
 

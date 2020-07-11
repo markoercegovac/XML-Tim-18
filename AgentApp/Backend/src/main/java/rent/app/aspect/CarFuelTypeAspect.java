@@ -18,14 +18,16 @@ public class CarFuelTypeAspect {
 
     @AfterReturning(pointcut = "execution(* rent.app.service.impl.CarFuelTypeServiceImpl.saveFuelType(..))", returning = "carFuelType")
     public void afterSavedCarFuel(JoinPoint joinPoint, CarFuelType carFuelType){
-        CarFuelTypeRequest request=new CarFuelTypeRequest();
-        request.setDeleted(request.isDeleted());
-        request.setId(request.getId());
-        request.setName(request.getName());
-        request.setToken("firm@com");
+        try {
+            CarFuelTypeRequest request = new CarFuelTypeRequest();
+            request.setDeleted(request.isDeleted());
+            request.setId(request.getId());
+            request.setName(request.getName());
+            request.setToken("firm@com");
 
-        SoapResponse response=carFuelTypeClient.handleCarFuelType(request);
-        System.out.println("STATUS: "+ response.getStatus());
+            SoapResponse response = carFuelTypeClient.handleCarFuelType(request);
+            System.out.println("STATUS: " + response.getStatus());
+        } catch (Exception e) {}
 
     }
 }

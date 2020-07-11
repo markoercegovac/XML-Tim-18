@@ -22,6 +22,7 @@ import rent.app.repository.ClientRepository;
 import rent.app.repository.PermissionRepository;
 import rent.app.repository.RoleRepository;
 import rent.app.service.ClientService;
+import rent.app.repository.AdvertRequestRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +39,7 @@ public class ClientServiceImpl implements ClientService {
     private final PermissionRepository permissionRepository;
     private final PasswordEncoder passwordEncoder;
     private final ReservationRequestRepository reservationRequestRepository;
+    private final AdvertRequestRepository advertRequestRepository;
 
     @Override
     public void createClientFromRegistration(RegistrationRequest rq) {
@@ -92,7 +94,7 @@ public class ClientServiceImpl implements ClientService {
         List<ReservationRequest> emailList= new ArrayList<>();
         List<String> emailsForFinds=new ArrayList<>();
 
-        if(reservationRequestRepository.findAllByCustomerEmailAndIsAccepted(customerEmail,true).isEmpty()){
+        if(advertRequestRepository.findByAndApprovedTrue().isEmpty()){
             emailList=reservationRequestRepository.findAllByOwnerEmailAndIsAccepted(customerEmail,true);
             emailList.forEach(r->{emailsForFinds.add(r.getCustomerEmail()); });
         }

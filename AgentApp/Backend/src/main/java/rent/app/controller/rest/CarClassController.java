@@ -11,7 +11,7 @@ import rent.app.service.CarClassService;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
 @RequestMapping("/car-class")
 @CrossOrigin()

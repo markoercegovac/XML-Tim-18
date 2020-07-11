@@ -10,7 +10,7 @@ import rent.app.service.GradeService;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
 @RequestMapping("/grades")
 @CrossOrigin

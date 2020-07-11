@@ -19,13 +19,15 @@ public class CarTransmissionAspect {
 
     @AfterReturning(pointcut = "execution(* rent.app.service.impl.CarTranssmisionTypeServiceImpl.saveCarTranssmisionType(..))", returning = "transmission")
     public void afterSavedCarTransminssion(JoinPoint joinPoint, CarTransmissionType transmission){
-        CarTransmissionRequest request=new CarTransmissionRequest();
-        request.setId(transmission.getId());
-        request.setName(transmission.getTransmissionType());
-        request.setToken("firm@com");
+        try {
+            CarTransmissionRequest request = new CarTransmissionRequest();
+            request.setId(transmission.getId());
+            request.setName(transmission.getTransmissionType());
+            request.setToken("firm@com");
 
-        SoapResponse response=carTransmissionClient.handleCarTransmission(request);
-        System.out.println("STATUS: "+ response.getStatus());
+            SoapResponse response = carTransmissionClient.handleCarTransmission(request);
+            System.out.println("STATUS: " + response.getStatus());
+        } catch (Exception e) {}
 
     }
 }

@@ -26,16 +26,18 @@ public class DriverReportAspect {
 
     @AfterReturning(pointcut = "execution(* rent.app.service.impl.DriveReportImpl.addNewReport(..))", returning = "driveReport")
     public void afterSavedDriveReport(JoinPoint joinPoint, DriveReport driveReport) throws DatatypeConfigurationException {
-        DriveReportRequest request=new DriveReportRequest();
-        request.setId(driveReport.getId());
-        request.setToken("firm@com");
-        String dateTimeString = driveReport.getDateOfReport().toString();
-        request.setDateOfReport(DatatypeFactory.newInstance().newXMLGregorianCalendar(dateTimeString));
-        request.setDescription(driveReport.getDescribe());
-        request.setTraveledDistance(driveReport.getTraveledDistance());
-        request.setCarId(carRepository.findByReportsId(driveReport.getId()).getId());
-        SoapResponse response= driverReportClient.handleDriverReport(request);
-        System.out.println("STATUS: "+ response.getStatus());
+        try {
+            DriveReportRequest request = new DriveReportRequest();
+            request.setId(driveReport.getId());
+            request.setToken("firm@com");
+            String dateTimeString = driveReport.getDateOfReport().toString();
+            request.setDateOfReport(DatatypeFactory.newInstance().newXMLGregorianCalendar(dateTimeString));
+            request.setDescription(driveReport.getDescribe());
+            request.setTraveledDistance(driveReport.getTraveledDistance());
+            request.setCarId(carRepository.findByReportsId(driveReport.getId()).getId());
+            SoapResponse response = driverReportClient.handleDriverReport(request);
+            System.out.println("STATUS: " + response.getStatus());
+        } catch (Exception e) {}
 
     }
 }

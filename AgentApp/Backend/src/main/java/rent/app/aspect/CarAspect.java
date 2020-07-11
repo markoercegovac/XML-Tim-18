@@ -21,21 +21,23 @@ public class CarAspect {
 
     @AfterReturning(pointcut = "execution(* rent.app.service.impl.CarServiceImpl.createCar(..))", returning = "car")
     public void  afterSavedCar(JoinPoint joinPoint, Car car){
-        CarRequest request=new CarRequest();
-        request.setId(car.getId());
-        request.setCarBrandId(car.getCarBrand().getId());
-        request.setCarClassId(car.getCarClass().getId());
-        request.setCarFuelTypeId(car.getCarFuelType().getId());
-        request.setCarModelId(car.getCarModel().getId());
-        request.setCarTransmissionId(car.getCarTransmissionType().getId());
-        request.setChildrenSitNumber(car.getChildrenSitNumber());
-        request.setTraveledDistance(car.getTravelDistanceConstraint());
-        request.setDeleted(false);
-        request.setInsurance(true);
-        request.setToken("firm@com");
+        try {
+            CarRequest request = new CarRequest();
+            request.setId(car.getId());
+            request.setCarBrandId(car.getCarBrand().getId());
+            request.setCarClassId(car.getCarClass().getId());
+            request.setCarFuelTypeId(car.getCarFuelType().getId());
+            request.setCarModelId(car.getCarModel().getId());
+            request.setCarTransmissionId(car.getCarTransmissionType().getId());
+            request.setChildrenSitNumber(car.getChildrenSitNumber());
+            request.setTraveledDistance(car.getTravelDistanceConstraint());
+            request.setDeleted(false);
+            request.setInsurance(true);
+            request.setToken("firm@com");
 
-        SoapResponse response = carClient.handleCar(request);
-        System.out.println("STATUS: "+ response.getStatus());
+            SoapResponse response = carClient.handleCar(request);
+            System.out.println("STATUS: " + response.getStatus());
+        }catch (Exception e) {}
     }
 
 

@@ -24,7 +24,7 @@ public class CarBrandWSService {
 	private CarBrandRepository carBrandRepository;
 	@Autowired
 	private AgentRepository agentRepository;
-	
+
 	@PayloadRoot(namespace = WsNameSpace.namespace, localPart = "carBrandRequest") //ime klase iz argumenta metode ali obavezno ide MALO pocetno slovo
 	@ResponsePayload //ove dve anotacije jako bitne
 	public SoapResponse handleCarBrand(@RequestPayload CarBrandRequest request) {

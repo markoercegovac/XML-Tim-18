@@ -24,17 +24,18 @@ public class CaptureAspect {
 
     @AfterReturning(pointcut = "execution(* rent.app.service.impl .ReservationServiceImpl.reservation(..))", returning = "reservation")
     public void afterSavedReservation(JoinPoint joinPoint, Reservation reservation) throws DatatypeConfigurationException {
-        CaptureRequest request=new CaptureRequest();
-        request.setId(reservation.getId());
-        String end=reservation.getLeaveDate().toString();
-        request.setEnd(DatatypeFactory.newInstance().newXMLGregorianCalendar(end));
-        String start=reservation.getTakeDate().toString();
-        request.setStart(DatatypeFactory.newInstance().newXMLGregorianCalendar(start));
-        request.setToken("firm@com");
+        try {
+            CaptureRequest request = new CaptureRequest();
+            request.setId(reservation.getId());
+            String end = reservation.getLeaveDate().toString();
+            request.setEnd(DatatypeFactory.newInstance().newXMLGregorianCalendar(end));
+            String start = reservation.getTakeDate().toString();
+            request.setStart(DatatypeFactory.newInstance().newXMLGregorianCalendar(start));
+            request.setToken("firm@com");
 
-        SoapResponse response=captureClient.handleCapture(request);
-        System.out.println("STATUS: "+ response.getStatus());
-
+            SoapResponse response = captureClient.handleCapture(request);
+            System.out.println("STATUS: " + response.getStatus());
+        } catch (Exception e) {}
     }
 
 }

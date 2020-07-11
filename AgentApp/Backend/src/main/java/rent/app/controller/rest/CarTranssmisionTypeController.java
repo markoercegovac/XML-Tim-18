@@ -11,7 +11,7 @@ import rent.app.service.CarTranssmisionTypeService;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
 @RequestMapping("/car-transsmision-type")
 @CrossOrigin()
