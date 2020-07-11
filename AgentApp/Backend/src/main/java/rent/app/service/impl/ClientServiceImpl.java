@@ -94,7 +94,7 @@ public class ClientServiceImpl implements ClientService {
         List<ReservationRequest> emailList= new ArrayList<>();
         List<String> emailsForFinds=new ArrayList<>();
 
-        if(advertRequestRepository.findByAndApprovedTrue().isEmpty()){
+        if(reservationRequestRepository.findAllByCustomerEmailAndIsAccepted(customerEmail,true).isEmpty()){
             emailList=reservationRequestRepository.findAllByOwnerEmailAndIsAccepted(customerEmail,true);
             emailList.forEach(r->{emailsForFinds.add(r.getCustomerEmail()); });
         }
