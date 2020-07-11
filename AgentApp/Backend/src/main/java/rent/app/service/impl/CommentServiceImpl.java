@@ -40,7 +40,7 @@ public class CommentServiceImpl  implements CommentService {
     }
 
     @Override
-    public void addNewComment(CommentDTO newComment,String author) {
+    public Comment addNewComment(CommentDTO newComment,String author) {
 
         Comment comment = new Comment();
         Advert advert = advertRepository.findAllById(newComment.getAdvertId());
@@ -49,9 +49,9 @@ public class CommentServiceImpl  implements CommentService {
         comment.setAuthor(author);
         comment.setContent(newComment.getContent());
         advert.getComments().add(comment);
-        commentRepository.save(comment);
+        Comment retComm=commentRepository.save(comment);
         advertRepository.save(advert);
-
+        return retComm;
 
     }
 }

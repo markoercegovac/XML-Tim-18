@@ -50,7 +50,7 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public void createCar(CarDto carDto,String ownerEmail) {
+    public Car createCar(CarDto carDto, String ownerEmail) {
         Client owner=clientRepository.findById(ownerEmail).get();
         CarBrand carBrand=carBrandRepository.findById(carDto.getCarBrand()).get();
         CarFuelType carFuelType=carFuelRepository.findById(carDto.getCarFuelType()).get();
@@ -66,9 +66,10 @@ public class CarServiceImpl implements CarService {
         car.setCarModel(carModel);
         car.setCarTransmissionType(carTransmissionType);
         car.setTravelDistanceConstraint((long) carDto.getTravelDistance());
-        carRepository.save(car);
+        Car retCar=carRepository.save(car);
         owner.getCarList().add(car);
         clientRepository.save(owner);
+        return retCar;
 
     }
 

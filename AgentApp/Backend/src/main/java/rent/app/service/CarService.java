@@ -4,6 +4,7 @@ import rent.app.dto.CarDto;
 import rent.app.dto.CarDtoMini;
 import rent.app.dto.DTOEntity;
 import rent.app.dto.DtoUtils;
+import rent.app.model.Car;
 
 import java.util.List;
 
@@ -13,6 +14,6 @@ public interface CarService {
     List<DTOEntity> getFuelTypes();
     List<DTOEntity> getCarClasses();
     List<DTOEntity> getTransmissions();
-    void createCar(CarDto car,String ownerEmail);
+    Car createCar(CarDto car, String ownerEmail);
     List<CarDtoMini> allCars(String ownerEmail);
 }

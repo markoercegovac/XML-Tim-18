@@ -28,6 +28,5 @@ public class CarBrandAspect {
 
 		SoapResponse response = carBrandClient.handleCarBrand(request);
 		System.out.println("STATUS: "+ response.getStatus());
-
 	}
 }

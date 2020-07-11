@@ -22,13 +22,14 @@ public class PriceServiceImpl implements PriceService {
     private final DtoUtils dtoUtils;
 
     @Override
-    public void createPrice(PriceDto priceDto,String ownerEmail) {
+    public Price createPrice(PriceDto priceDto,String ownerEmail) {
         Client owner = clientRepository.findById(ownerEmail).get();
         Price price=(Price) dtoUtils.convertToEntity(new Price(),priceDto);
         price.setId(null);
-        priceRepository.save(price);
+        Price retPrice=priceRepository.save(price);
         owner.getPriceList().add(price);
         clientRepository.save(owner);
+        return retPrice;
     }
 
     @Override
