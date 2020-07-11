@@ -38,7 +38,7 @@ public class DriveReportImpl implements DriveReportService {
     }
 
     @Override
-    public void addNewReport(DriveReportDto newReport) {
+    public DriveReport addNewReport(DriveReportDto newReport) {
 
         DriveReport report = new DriveReport();
         Car car = this.carRepository.findAllById(newReport.getCarId());
@@ -49,7 +49,9 @@ public class DriveReportImpl implements DriveReportService {
         report.setTraveledDistance(newReport.getTraveledDistance());
 
         car.getReports().add(report);
+        DriveReport retReport =driveReportRepository.save(report);
         carRepository.save(car);
+        return retReport;
 
 
     }

@@ -60,6 +60,29 @@ import { NavNoComponent } from './navigation/nav-no/nav-no.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import {ChartsModule} from 'ng2-charts';
 
+import { CarBrandComponent } from './car-brand/car-brand.component';
+import { CarClassComponent } from './car-class/car-class.component';
+import { CarFuelTypeComponent } from './car-fuel-type/car-fuel-type.component';
+import { CarModelComponent } from './car-model/car-model.component';
+import { CarTranssmisionTypeComponent } from './car-transsmision-type/car-transsmision-type.component';
+import { CreateCarBrandComponent } from './car-brand/create-car-brand/create-car-brand.component';
+import { CreateCarClassComponent } from './car-class/create-car-class/create-car-class.component';
+import { CreateFuelTypeComponent } from './car-fuel-type/create-fuel-type/create-fuel-type.component';
+import { CreateCarModelComponent } from './car-model/create-car-model/create-car-model.component';
+import { CreateTranssmisionTypeComponent } from './car-transsmision-type/create-transsmision-type/create-transsmision-type.component';
+import { UpdateCarBrandComponent } from './car-brand/update-car-brand/update-car-brand.component';
+import { UpdateCarClassComponent } from './car-class/update-car-class/update-car-class.component';
+import { UpdateFuelTypeComponent } from './car-fuel-type/update-fuel-type/update-fuel-type.component';
+import { UpdateCarModelComponent } from './car-model/update-car-model/update-car-model.component';
+import { UpdateCarTransmissionComponent } from './car-transsmision-type/update-car-transmission/update-car-transmission.component';
+
+
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatTableModule} from '@angular/material/table';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -108,6 +131,23 @@ import {ChartsModule} from 'ng2-charts';
     RegisterApprovedComponent,
     StatisticsComponent,
 
+    AllRegistrationRequestComponent,
+    CarBrandComponent,
+    CarClassComponent,
+    CarFuelTypeComponent,
+    CarModelComponent,
+    CarTranssmisionTypeComponent,
+    CreateCarBrandComponent,
+    CreateCarClassComponent,
+    CreateFuelTypeComponent,
+    CreateCarModelComponent,
+    CreateTranssmisionTypeComponent,
+    UpdateCarBrandComponent,
+    UpdateCarClassComponent,
+    UpdateFuelTypeComponent,
+    UpdateCarModelComponent,
+    UpdateCarTransmissionComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -120,7 +160,18 @@ import {ChartsModule} from 'ng2-charts';
     MatFormFieldModule,
     MatDialogModule,
     MDBBootstrapModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MDBBootstrapModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTableModule,
+    MatIconModule,
+    MatPaginatorModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

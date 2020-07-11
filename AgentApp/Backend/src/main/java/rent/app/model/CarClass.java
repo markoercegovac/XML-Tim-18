@@ -16,8 +16,6 @@ public class CarClass {
     private Long id;
 
     @Column
-    @Min(2)
-    @Max(32)
     private String className;
     @Column
     private boolean isRemoved;

@@ -23,12 +23,13 @@ public class ReservationServiceImpl implements ReservationService {
     private final AdvertRepository advertRepository;
 
     @Override
-    public void reservation(ReservationDto reservationDto) {
+    public Reservation reservation(ReservationDto reservationDto) {
         Advert advert=advertRepository.findById(reservationDto.getAdvertId()).orElse(null);
         Reservation reservation=(Reservation) dtoUtils.convertToEntity(new Reservation(), reservationDto);
-        reservationRepository.save(reservation);
+        Reservation retReservation=reservationRepository.save(reservation);
         advert.getReservations().add(reservation);
         advertRepository.save(advert);
+        return retReservation;
     }
 
     @Override

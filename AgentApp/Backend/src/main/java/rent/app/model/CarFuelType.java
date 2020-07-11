@@ -15,8 +15,6 @@ public class CarFuelType {
     private Long id;
 
     @Column
-    @Min(2)
-    @Max(32)
     private String fuelType;
 
     @Column

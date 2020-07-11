@@ -25,6 +25,7 @@ public class CarBrandWSService {
 		brand.setId(request.getId()==0?null:request.getId());
 		brand.setRemoved(request.isDeleted());
 		brand.setName(request.getName());
+		request.setToken("firm@com");
 		System.out.println("WS RECEIVED CAR BRAND "+request);
 		CarBrand saved = carBrandRepository.save(brand);
 

@@ -30,7 +30,7 @@ public class AdvertServiceImpl implements AdvertService {
     private final GradeRepository gradeRepository;
 
     @Override
-    public void saveAdvert(AdvertDto advertDto,String ownerEmail) throws IOException {
+    public Advert saveAdvert(AdvertDto advertDto,String ownerEmail) throws IOException {
         Client owner=clientRepository.findByUsername(ownerEmail);
         pictureService.saveProfilePicture(advertDto.getProfilePicture());
         advertDto.getPictureSet().forEach(p-> {
@@ -50,8 +50,9 @@ public class AdvertServiceImpl implements AdvertService {
         advert.setProfilePicture(profilePicture);
         advert.setCity(owner.getCity());
 
-        Advert advert1=advertRepository.save(advert);
         advert.setOwner(ownerEmail);
+        Advert advert1=advertRepository.save(advert);
+
         owner.getAdvertList().add(advert);
 
         Grade grade=new Grade();
@@ -60,7 +61,7 @@ public class AdvertServiceImpl implements AdvertService {
         gradeRepository.save(grade);
 
         clientRepository.save(owner);
-
+        return advert1;
     }
 
     @Override

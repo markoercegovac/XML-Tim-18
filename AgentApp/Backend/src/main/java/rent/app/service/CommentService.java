@@ -2,6 +2,7 @@ package rent.app.service;
 
 import org.springframework.stereotype.Service;
 import rent.app.dto.CommentDTO;
+import rent.app.model.Comment;
 
 import java.util.List;
 
@@ -10,5 +11,5 @@ public interface CommentService {
 
     List<CommentDTO> getAllCommentsOfAd(Long adId);
 
-    void addNewComment(CommentDTO newComment,String author);
+    Comment addNewComment(CommentDTO newComment, String author);
 }

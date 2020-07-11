@@ -13,6 +13,11 @@ export const environment = {
   searchUrl: 'http://localhost:9090/',
   message: 'http://localhost:9090/api/message',
   registration: 'http://localhost:9090/admin',
+  car_brand: 'http://localhost:9090/car-brand',
+  car_class: 'http://localhost:9090/car-class',
+  car_fuel_type: 'http://localhost:9090/car-fuel-type',
+  car_transsmision_type: 'http://localhost:9090/car-transsmision-type',
+  car_model: 'http://localhost:9090/car-model',
   statistics: 'http://localhost:9090/',
   client: 'http://localhost:9090/api/client',
   advert_request: 'http://localhost:9090/advert-request'
