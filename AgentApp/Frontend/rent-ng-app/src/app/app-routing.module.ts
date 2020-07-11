@@ -27,6 +27,11 @@ import {RegisterApprovedComponent} from './register-approved/register-approved.c
 
 import {StatisticsComponent} from './statistics/statistics.component';
 
+import {CarBrandComponent} from './car-brand/car-brand.component';
+import {CarClassComponent} from './car-class/car-class.component';
+import {CarModelComponent} from './car-model/car-model.component';
+import {CarFuelTypeComponent} from './car-fuel-type/car-fuel-type.component';
+import {CarTranssmisionTypeComponent} from './car-transsmision-type/car-transsmision-type.component';
 
 
 
@@ -52,6 +57,11 @@ const routes: Routes = [
   { path: 'listaDR/:id', component: DriveReportListComponent },
   { path: 'updateDR/:id', component: DriveReportUpdateComponent },
   { path: 'my/adverts', component: MyAdvertComponent },
+  { path: 'brand', component: CarBrandComponent},
+  { path: 'class', component: CarClassComponent},
+  { path: 'model', component: CarModelComponent},
+  { path: 'fuel-type', component: CarFuelTypeComponent},
+  { path: 'transmission', component: CarTranssmisionTypeComponent},
 
   { path: 'car/reserved/:id', component: ReservedCarComponent },
   { path: 'chat', component: ChatComponent },
@@ -60,6 +70,14 @@ const routes: Routes = [
      path: 'statistics',
      component: StatisticsComponent
    },
+
+  { path: 'brand', component: CarBrandComponent},
+  { path: 'class', component: CarClassComponent},
+  { path: 'model', component: CarModelComponent},
+  { path: 'fuel-type', component: CarFuelTypeComponent},
+  { path: 'transmission', component: CarTranssmisionTypeComponent},
+
+
   { path: '**', component: NotFoundComponent }
 ];
 
