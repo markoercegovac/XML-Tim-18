@@ -38,7 +38,6 @@ public class AdvertConsumer {
 
 			AdvertCopy ad = new AdvertCopy();
 			ad.setAdvertCopyId(recived.getAdvertCopyId());
-			ad.setAdvertCopyId(recived.getAdvertCopyId());
 			ad.setCity(recived.getCity());
 			ad.setCarMark(recived.getCarMark());
 			ad.setModelMark(recived.getModelMark());

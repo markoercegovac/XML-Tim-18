@@ -35,7 +35,7 @@ public class CaptureWSService {
         Capture capture = captureRepository.findByAgentAgentIdAndKeyAG(ag.getAgentId(), request.getId());
         System.out.println("WS CAPTURE GOT"+request);
         CaptureMQ mq = new CaptureMQ();
-        mq.setId(capture!=null?capture.getKeyMS():null);
+        mq.setId(request.getId());
         mq.setStart(request.getEnd());
         mq.setEnd(request.getEnd());
 
@@ -43,6 +43,7 @@ public class CaptureWSService {
         adProducer.produceCapture(mq);
 
         SoapResponse response = new SoapResponse();
+
         response.setAgId(ag.getAgentId());
         if(capture==null) {
             Capture capture1 = new Capture();

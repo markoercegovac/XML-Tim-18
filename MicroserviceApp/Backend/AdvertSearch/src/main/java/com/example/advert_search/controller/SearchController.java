@@ -24,7 +24,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @RequestMapping("/search-manager")
 @RestController
-@CrossOrigin
+//@CrossOrigin
 public class SearchController {
 
     private final SearchService searchService;

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-navigation-user',
@@ -12,7 +13,8 @@ export class NavigationUserComponent implements OnInit {
   navbarCollapsed: boolean = false;
   constructor(
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private http: HttpClient
     ) { }
 
   ngOnInit(): void {
@@ -33,6 +35,35 @@ export class NavigationUserComponent implements OnInit {
 
   onMessages() {
     this.router.navigate(['/home/message', this.authService.getCurrentUserEmail()]);
+  }
+
+  onAdverts() {
+    this.router.navigate(['/home/my/adverts']);
+  }
+
+  onCreateAdvert() {
+    this.router.navigate(['/home/create/advert']);
+  }
+
+  onCars() {
+    this.router.navigate(['/home/my/cars']);
+  }
+
+  onSearch() {
+    this.router.navigate(['/searchAdvanced']);
+    this.http.get('http://localhost:8662/search-manager/objects').subscribe();
+  }
+
+  onRegisterCar() {
+    this.router.navigate(['/home/register/car']);
+  }
+
+  onPrices() {
+    this.router.navigate(['/home/my/price/list']);
+  }
+
+  onCreatePrices() {
+    this.router.navigate(['/home/define/price']);
   }
 
   onLogout() {

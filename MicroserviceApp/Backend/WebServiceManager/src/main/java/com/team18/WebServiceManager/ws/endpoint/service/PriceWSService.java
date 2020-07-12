@@ -35,15 +35,15 @@ public class PriceWSService {
         Price price = priceRepository.findByAgentAgentIdAndKeyAG(ag.getAgentId(), request.getId());
         System.out.println("WS PRICE GOT"+request);
         PriceMQ mq = new PriceMQ();
-        mq.setId(price!=null?price.getKeyMS():null);
+        mq.setId(request.getId());
         mq.setName(request.getName());
         mq.setPricePerDay(request.getPricePerDay());
         mq.setDiscount(request.getDiscount());
         mq.setInsurancePrice(request.getInsurancePrice());
         mq.setDistanceOverflowPrice(request.getDistanceOverflowPrice());
         mq.setDeleted(request.isDeleted());
+        mq.setOwner(request.getToken());
 
-//
         adProducer.producePrice(mq);
 
         SoapResponse response = new SoapResponse();

@@ -11,5 +11,6 @@ public class PriceMQ {
 	protected Float insurancePrice;
 	protected Float distanceOverflowPrice;
 	protected Float discount;
+	protected String owner;
 	protected boolean deleted;
 }

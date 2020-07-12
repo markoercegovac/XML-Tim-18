@@ -74,68 +74,68 @@ services:
       - eureka
       - rabbitmq
 
- comment-manager:
-   build: ./CommentManager
-   image: comment-manager
-   container_name: comment-manager
-   restart: on-failure
-   networks:
-     - demo
-   ports:
-     - 8094:8081
-   environment:
-     REGISTRY_HOST: eureka
-     RABBITMQ: rabbitm
-     DATABASE_USERNAME: us_comment
-     DATABASE_PASSWORD: password-comment
-     DATABASE_DOMAIN: mysql-db
-     DATABASE_SCHEMA: comment_db
-   depends_on:
-     - eureka
-     - mysql-db
-     - rabbitmq
+  comment-manager:
+    build: ./CommentManager
+    image: comment-manager
+    container_name: comment-manager
+    restart: on-failure
+    networks:
+      - demo
+    ports:
+      - 8094:8081
+    environment:
+      REGISTRY_HOST: eureka
+      RABBITMQ: rabbitmq
+      DATABASE_USERNAME: us_comment
+      DATABASE_PASSWORD: password-comment
+      DATABASE_DOMAIN: mysql-db
+      DATABASE_SCHEMA: comment_db
+    depends_on:
+      - eureka
+      - mysql-db
+      - rabbitmq
 
- search-manager:
-   build: ./AdvertSearch
-   image: search-manager
-   container_name: search-manager
-   restart: on-failure
-   networks:
-       - demo
-   ports:
-     - 8095:8080
-   environment:
-     REGISTRY_HOST: eureka
-     RABBITMQ: rabbitm
-     DATABASE_USERNAME: us_search
-     DATABASE_PASSWORD: password-search
-     DATABASE_DOMAIN: mysql-db
-     DATABASE_SCHEMA: search_db
-   depends_on:
-       - mysql-db
-       - eureka
-       - rabbitmq
+  search-manager:
+    build: ./AdvertSearch
+    image: search-manager
+    container_name: search-manager
+    restart: on-failure
+    networks:
+      - demo
+    ports:
+      - 8095:8080
+    environment:
+      REGISTRY_HOST: eureka
+      RABBITMQ: rabbitmq
+      DATABASE_USERNAME: us_search
+      DATABASE_PASSWORD: password-search
+      DATABASE_DOMAIN: mysql-db
+      DATABASE_SCHEMA: search_db
+    depends_on:
+      - mysql-db
+      - eureka
+      - rabbitmq
 
- advert-manager:
-   build: ./AdvertManager
-   image: advert-manager
-   container_name: advert-manager
-   restart: on-failure
-   networks:
-       - demo
-   ports:
-     - 8096:9090
-   environment:
-     REGISTRY_HOST: eureka
-     RABBITMQ: rabbitmq
-     DATABASE_USERNAME: us_advert
-     DATABASE_PASSWORD: password-advert
-     DATABASE_DOMAIN: mysql-db
-     DATABASE_SCHEMA: advert_db
-   depends_on:
-       - mysql-db
-       - eureka
-       - rabbitmq
+  advert-manager:
+    build: ./AdvertManager
+    image: advert-manager
+    container_name: advert-manager
+    restart: on-failure
+    networks:
+      - demo
+    ports:
+      - 8096:9090
+    environment:
+      REGISTRY_HOST: eureka
+      RABBITMQ: rabbitmq
+      DATABASE_USERNAME: us_advert
+      DATABASE_PASSWORD: password-advert
+      DATABASE_DOMAIN: mysql-db
+      DATABASE_SCHEMA: advert_db
+    depends_on:
+      - mysql-db
+      - eureka
+      - rabbitmq
 
   user-manager:
     build: ./UserManager
@@ -207,24 +207,24 @@ services:
       - mysql-db
       - rabbitmq
 
- mysql-db:
-   image: mysql:8.0.19
-   command: --default-authentication-plugin=mysql_native_password
-   container_name: mysql-db
-   restart: always
-   environment:
-     MYSQL_ROOT_PASSWORD: SuperRootPassword1
-     MYSQL_ALLOW_EMPTY_PASSWORD: "true"
-     MYSQL_DATABASE: main
-     MYSQL_USER: admin
-     MYSQL_PASSWOR: AdminPassword1
-   ports:
-     - 3307:3306
-   networks:
-     - demo
-   volumes:
-     - ./dockerScript/init.sql:/docker-entrypoint-initdb.d/init.sql
-     - mysql-db-data:/var/lib/mysql-db
+  mysql-db:
+    image: mysql:8.0.19
+    command: --default-authentication-plugin=mysql_native_password
+    container_name: mysql-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: SuperRootPassword1
+      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+      MYSQL_DATABASE: main
+      MYSQL_USER: admin
+      MYSQL_PASSWOR: AdminPassword1
+    ports:
+      - 3307:3306
+    networks:
+      - demo
+    volumes:
+      - ./dockerScript/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - mysql-db-data:/var/lib/mysql-db
 
 volumes:
   mysql-db-data:

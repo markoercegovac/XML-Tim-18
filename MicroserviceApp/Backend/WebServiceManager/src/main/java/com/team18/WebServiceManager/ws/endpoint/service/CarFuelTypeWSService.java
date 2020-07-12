@@ -34,7 +34,7 @@ public class CarFuelTypeWSService {
         CarFuelType fuelType = carFuelTypeRepository.findByAgentAgentIdAndKeyAG(ag.getAgentId(), request.getId());
         System.out.println("WS CAR FUEL TYPE GOT"+request);
         CarFuelTypeMQ mq = new CarFuelTypeMQ();
-        mq.setId(fuelType!=null?fuelType.getKeyMS():null);
+        mq.setId(request.getId());
         mq.setName(request.getName());
         mq.setDeleted(request.isDeleted());
 

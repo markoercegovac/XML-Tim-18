@@ -32,7 +32,7 @@ public class CarBrandWSService {
 		CarBrand b = carBrandRepository.findByAgentAgentIdAndKeyAG(ag.getAgentId(), request.getId()); //gledam da li imam kljuc agentski(da li je taj entitet vec bio razmenjivan)
 		System.out.println("WS CAR BRAND GOT"+request);
 		CarBrandMQ mq = new CarBrandMQ();
-		mq.setId(b!=null?b.getKeyMS():null); //ovde je null, a u Consumeru je 0
+		mq.setId(request.getId()); //ovde je null, a u Consumeru je 0
 		mq.setName(request.getName());
 		mq.setDeleted(request.isDeleted()); //sve dovde konverija iz requesta u mq
 

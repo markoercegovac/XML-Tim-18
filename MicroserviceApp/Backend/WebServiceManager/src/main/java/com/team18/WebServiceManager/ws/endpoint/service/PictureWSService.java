@@ -38,7 +38,7 @@ public class PictureWSService {
         Picture picture = pictureRepository.findByAgentAgentIdAndKeyAG(ag.getAgentId(), request.getId());
         System.out.println("WS PICTURE GOT"+request);
         PictureMQ mq = new PictureMQ();
-        mq.setId(picture!=null?picture.getKeyMS():null);
+        mq.setId(request.getId());
         mq.setName(request.getName());
         mq.setBase64(request.getBase64());
         mq.setDeleted(request.isDeleted());

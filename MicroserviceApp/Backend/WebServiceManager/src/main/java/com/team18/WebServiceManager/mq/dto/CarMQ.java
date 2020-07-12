@@ -13,6 +13,7 @@ public class CarMQ {
 	protected Long carTransmissionId;
 	protected Long traveledDistance;
 	protected Long traveledDistanceConstraint;
+	protected String owner;
 	protected boolean insurance;
 	protected int childrenSitNumber;
 	protected boolean deleted;
@@ -20,7 +21,7 @@ public class CarMQ {
 	public CarMQ() {
 	}
 
-	public CarMQ(Long id, Long carBrandId, Long carModelId, Long carClassId, Long carFuelTypeId, Long carTransmissionId, Long traveledDistance, Long traveledDistanceConstraint, boolean insurance, int childrenSitNumber, boolean deleted) {
+	public CarMQ(Long id, Long carBrandId, Long carModelId, Long carClassId, Long carFuelTypeId, Long carTransmissionId, Long traveledDistance, Long traveledDistanceConstraint, boolean insurance, int childrenSitNumber, boolean deleted, String owner) {
 		this.id = id;
 		this.carBrandId = carBrandId;
 		this.carModelId = carModelId;
@@ -32,6 +33,15 @@ public class CarMQ {
 		this.insurance = insurance;
 		this.childrenSitNumber = childrenSitNumber;
 		this.deleted = deleted;
+		this.owner = owner;
+	}
+
+	public String getOwner() {
+		return owner;
+	}
+
+	public void setOwner(String owner) {
+		this.owner = owner;
 	}
 
 	public void setId(Long id) {

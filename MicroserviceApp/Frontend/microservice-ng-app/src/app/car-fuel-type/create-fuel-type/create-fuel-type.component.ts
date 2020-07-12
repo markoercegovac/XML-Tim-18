@@ -31,7 +31,7 @@ export class CreateFuelTypeComponent implements OnInit {
 
   onYesClick() {
 
-    const urlPost = 'http://localhost:9090/advert-manager/car-fuel-type';
+    const urlPost = 'http://localhost:8662/advert-manager/car-fuel-type';
     console.log(this.carFuelType.fuelType);
 
     this.http.post(urlPost, this.carFuelType).subscribe(res => {

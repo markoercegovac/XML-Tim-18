@@ -41,7 +41,7 @@ export class CarFuelTypeComponent implements OnInit {
 
   delete(carFuelType: CarFuelType): void {
 
-    const urlDelete = 'http://localhost:9090/advert-manager/car-fuel-type/' + carFuelType.id;
+    const urlDelete = 'http://localhost:8662/advert-manager/car-fuel-type/' + carFuelType.id;
 
     this.http.delete(urlDelete).subscribe(res=>{
       this.getAllCarFuelType();

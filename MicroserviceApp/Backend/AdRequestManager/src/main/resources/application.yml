@@ -3,12 +3,12 @@ server:
 
 rabbitmq:
   exchange:
-    mail: direct.mail
+    mail: direct.request.mail
     chat: direct.request.chat
     search: direct.request.search
-    sopa: direct.soap.request.soap
+    soap: direct.soap.request.soap
   routingkey:
-    mail: key.mail
+    mail: key.request.mail
     chat: key.request.chat
     search: key.request.search
     soap: key.soap.request.soap

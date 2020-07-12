@@ -31,7 +31,7 @@ export class CreateCarModelComponent implements OnInit {
 
   onYesClick() {
 
-    const urlPost = 'http://localhost:9090/advert-manager/car-model';
+    const urlPost = 'http://localhost:8662/advert-manager/car-model';
 
     console.log(this.carModel.modelName);
 

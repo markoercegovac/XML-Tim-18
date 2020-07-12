@@ -8,6 +8,7 @@ import com.user.manager.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 
@@ -19,15 +20,14 @@ public class SentAgentAspect {
 	private final AgentProducer mqProducer;
 	private final UserRepository users;
 
-	@After(value = "execution(* com.user.manager.services.impl.AdminRegistrationServiceImpl.accept(..)) and args(email)")
-	public void sendMailAgentRegistered(JoinPoint joinPoint, String email) {
+	@AfterReturning(value = "execution(* com.user.manager.services.impl.AdminRegistrationServiceImpl.accept(..))", returning = "user")
+	public void sendMailAgentRegistered(JoinPoint joinPoint, User user) {
 
 		try {
-			User u = users.getOne(email);
-			if(u.getAgentUrl()!=null && !u.getAgentUrl().isEmpty()) {
+			if(user.getAgentUrl()!=null && !user.getAgentUrl().isEmpty()) {
 				AgentMQ msg = new AgentMQ();
-				msg.setEmail(email);
-				msg.setUrl(u.getAgentUrl());
+				msg.setEmail(user.getEmail());
+				msg.setUrl(user.getAgentUrl());
 
 				mqProducer.produceMsg(msg);
 			}

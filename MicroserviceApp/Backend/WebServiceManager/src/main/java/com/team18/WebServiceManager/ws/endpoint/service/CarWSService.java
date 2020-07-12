@@ -35,7 +35,7 @@ public class CarWSService {
         Car car = carRepository.findByAgentAgentIdAndKeyAG(ag.getAgentId(), request.getId());
         System.out.println("WS CAR GOT"+request);
         CarMQ mq = new CarMQ();
-        mq.setId(car!=null?car.getKeyMS():null);
+        mq.setId(request.getId());
         mq.setCarBrandId(request.getCarBrandId());
         mq.setCarClassId(request.getCarClassId());
         mq.setCarFuelTypeId(request.getCarFuelTypeId());
@@ -45,8 +45,9 @@ public class CarWSService {
         mq.setTraveledDistance(request.getTraveledDistance());
         mq.setTraveledDistanceConstraint(request.getTraveledDistanceConstraint());
         mq.setDeleted(request.isDeleted());
+        mq.setCarModelId(request.getCarModelId());
+        mq.setOwner(request.getToken());
 
-//
         adProducer.produceCar(mq);
 
         SoapResponse response = new SoapResponse();

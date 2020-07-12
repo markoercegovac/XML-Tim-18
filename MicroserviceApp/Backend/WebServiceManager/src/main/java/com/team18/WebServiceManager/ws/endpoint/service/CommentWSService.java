@@ -37,7 +37,7 @@ public class CommentWSService {
 		Comment b = commentRepository.findByAgentAgentIdAndKeyAG(ag.getAgentId(), request.getId());
 		System.out.println("WS COMMENT GOT"+request);
 		CommentMQ mq = new CommentMQ();
-		mq.setId(b!=null?b.getKeyMS():null);
+		mq.setId(request.getId());
 		mq.setAdvertId(advertRepository.findByAgentAgentIdAndKeyAG(ag.getAgentId(), request.getAdvertId()).getKeyMS());
 		mq.setContent(request.getContent());
 		mq.setHeader(request.getHeader());

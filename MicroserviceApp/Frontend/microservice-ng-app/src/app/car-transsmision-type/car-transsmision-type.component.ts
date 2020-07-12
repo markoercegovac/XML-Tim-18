@@ -72,7 +72,7 @@ export class CarTranssmisionTypeComponent implements OnInit {
   }
  delete(carTrans: CarTranssmisionType): void {
 
-    const urlDelete = 'http://localhost:9090/advert-manager/car-transmission-type/' + carTrans.id;
+    const urlDelete = 'http://localhost:8662/advert-manager/car-transmission-type/' + carTrans.id;
 
     this.http.delete(urlDelete).subscribe(res => {
       this.getAllCarTranssmisionType();

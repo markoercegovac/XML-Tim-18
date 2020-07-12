@@ -24,7 +24,7 @@ public class UserConsumer {
 		Agent a = new Agent();
 		a.setAgentEmail(ag.getEmail());
 		a.setAgentUrl(ag.getUrl());
-
+		System.out.println("*****WS: "+ag.getUrl());
 		agents.save(a);
 	}
 }

@@ -42,6 +42,8 @@ public class SoapConsumer {
 	private DriveReportRepository driveReportRepository;
 	@Autowired
 	private OwnersCarRepository ownersCarRepository;
+	@Autowired
+	private ClientCopyRepository clientCopyRepository;
 
 	@RabbitListener(queues="${rabbitmq.queue.soap.soap.ad}")
 	public void recievedMessage(String msg) {
@@ -51,15 +53,15 @@ public class SoapConsumer {
 
 		try {
 			if(message[0].equals("CarBrand")) {
-				CarBrandMQ mq = gson.fromJson(msg, CarBrandMQ.class);
+				CarBrandMQ mq = gson.fromJson(message[1], CarBrandMQ.class);
 				CarBrand b = new CarBrand();
-				b.setId(mq.getId()==0?null:mq.getId());
+				b.setId(mq.getId());
 				b.setName(mq.getName());
 				b.setRemoved(mq.isDeleted());
 
 				carBrandRepository.save(b);
 			} else if(message[0].equals("CarModel")) {
-				CarModelMQ mq = gson.fromJson(msg, CarModelMQ.class);
+				CarModelMQ mq = gson.fromJson(message[1], CarModelMQ.class);
 				CarModel m = new CarModel();
 				m.setId(mq.getId()==0?null:mq.getId());
 				m.setModelName(mq.getName());
@@ -67,7 +69,7 @@ public class SoapConsumer {
 
 				carModelRepository.save(m);
 			} else if(message[0].equals("CarClass")) {
-				CarClassMQ mq = gson.fromJson(msg, CarClassMQ.class);
+				CarClassMQ mq = gson.fromJson(message[1], CarClassMQ.class);
 				CarClass b = new CarClass();
 				b.setId(mq.getId()==0?null:mq.getId());
 				b.setClassName(mq.getName());
@@ -75,7 +77,7 @@ public class SoapConsumer {
 
 				carClassRepository.save(b);
 			} else if(message[0].equals("CarFuelType")) {
-				CarFuelTypeMQ mq = gson.fromJson(msg, CarFuelTypeMQ.class);
+				CarFuelTypeMQ mq = gson.fromJson(message[1], CarFuelTypeMQ.class);
 				CarFuelType b = new CarFuelType();
 				b.setId(mq.getId()==0?null:mq.getId());
 				b.setFuelType(mq.getName());
@@ -83,7 +85,7 @@ public class SoapConsumer {
 
 				carFuelTypeRepository.save(b);
 			} else if(message[0].equals("CarTransmission")) {
-				CarTransmissionMQ mq = gson.fromJson(msg, CarTransmissionMQ.class);
+				CarTransmissionMQ mq = gson.fromJson(message[1], CarTransmissionMQ.class);
 				CarTransmissionType b = new CarTransmissionType();
 				b.setId(mq.getId()==0?null:mq.getId());
 				b.setTransmissionType(mq.getName());
@@ -91,9 +93,9 @@ public class SoapConsumer {
 
 				carTransmissionTypeRepository.save(b);
 			} else if(message[0].equals("Car")) {
-				CarMQ mq = gson.fromJson(msg, CarMQ.class);
+				CarMQ mq = gson.fromJson(message[1], CarMQ.class);
 				ConcreteCar b = new ConcreteCar();
-				b.setId(mq.getId()==0?null:mq.getId());
+				b.setId(mq.getId());
 				b.setCarBrand(carBrandRepository.getOne(mq.getCarBrandId()));
 				b.setCarClass(carClassRepository.getOne(mq.getCarClassId()));
 				b.setCarFuelType(carFuelTypeRepository.getOne(mq.getCarFuelTypeId()));
@@ -101,9 +103,13 @@ public class SoapConsumer {
 				b.setCarTransmissionType(carTransmissionTypeRepository.getOne(mq.getCarTransmissionId()));
 				b.setTravelDistanceConstraint( mq.getTraveledDistanceConstraint().intValue());
 				b.setChildrenSitNumber(mq.getChildrenSitNumber());
+
 				concreteCarRepository.save(b);
+				ClientCopy c = clientCopyRepository.findByEmail(mq.getOwner());
+				clientCopyRepository.save(c);
+
 			} else if(message[0].equals("CarBrand")) {
-				CarBrandMQ mq = gson.fromJson(msg, CarBrandMQ.class);
+				CarBrandMQ mq = gson.fromJson(message[1], CarBrandMQ.class);
 				CarBrand b = new CarBrand();
 				b.setId(mq.getId()==0?null:mq.getId());
 				b.setName(mq.getName());
@@ -111,7 +117,7 @@ public class SoapConsumer {
 
 				carBrandRepository.save(b);
 			} else if(message[0].equals("Price")) {
-				PriceMQ mq = gson.fromJson(msg, PriceMQ.class);
+				PriceMQ mq = gson.fromJson(message[1], PriceMQ.class);
 				Price b = new Price();
 				b.setId(mq.getId()==0?null:mq.getId());
 				b.setName(mq.getName());
@@ -123,8 +129,10 @@ public class SoapConsumer {
 				b.setRemoved(mq.isDeleted());
 
 				priceRepository.save(b);
+				ClientCopy c = clientCopyRepository.findByEmail(mq.getOwner());
+				clientCopyRepository.save(c);
 			} else if(message[0].equals("Picture")) {
-				PictureMQ mq = gson.fromJson(msg, PictureMQ.class);
+				PictureMQ mq = gson.fromJson(message[1], PictureMQ.class);
 				Picture b = new Picture();
 				b.setId(mq.getId()==0?null:mq.getId());
 				b.setDeleted(mq.isDeleted());
@@ -135,7 +143,7 @@ public class SoapConsumer {
 				pictureService.savePicture(dto);
 				pictureRepository.save(b);
 			} else if(message[0].equals("Capture")) {
-				CaptureMQ mq = gson.fromJson(msg, CaptureMQ.class);
+				CaptureMQ mq = gson.fromJson(message[1], CaptureMQ.class);
 				Capture b = new Capture();
 				b.setId(mq.getId()==0?null:mq.getId());
 				b.setLeaveDate(mq.getEnd());
@@ -143,7 +151,7 @@ public class SoapConsumer {
 				//fali advert id
 				captureRepository.save(b);
 			} else if(message[0].equals("Advert")) {
-				AdvertMQ mq = gson.fromJson(msg, AdvertMQ.class);
+				AdvertMQ mq = gson.fromJson(message[1], AdvertMQ.class);
 				Advert b = new Advert();
 				b.setId(mq.getId()==0?null:mq.getId());
 				b.setConcreteCar(concreteCarRepository.getOne(mq.getCarId()));
@@ -161,7 +169,7 @@ public class SoapConsumer {
 
 				advertRepository.save(b);
 			} else if(message[0].equals("DriveReport")) {
-				DriveReportMQ mq = gson.fromJson(msg, DriveReportMQ.class);
+				DriveReportMQ mq = gson.fromJson(message[1], DriveReportMQ.class);
 
 				DriveReport report = new DriveReport();
 				ConcreteCar car = this.concreteCarRepository.findAllById(mq.getCarId());
@@ -177,7 +185,8 @@ public class SoapConsumer {
 			}
 
 		} catch(Exception e) {
-			System.out.println("MQ>> EXCEPTION");
+			e.printStackTrace();
+			System.out.println("MQ>> EXCEPTION "+ e.getMessage());
 		}
 	}
 }

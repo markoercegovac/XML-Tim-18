@@ -49,7 +49,8 @@ public class SendAdToRequestMaangerAspect {
 
 			requestProducer.produceMsg(msg);
 		} catch(Exception e) {
-			System.out.println("ASPECT ERROR");
+			e.printStackTrace();
+			System.out.println("ASPECT ERROR"+ e.getMessage());
 		}
 	}
 }

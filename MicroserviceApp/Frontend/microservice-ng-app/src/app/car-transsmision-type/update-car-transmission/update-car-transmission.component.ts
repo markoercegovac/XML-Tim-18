@@ -31,7 +31,7 @@ export class UpdateCarTransmissionComponent implements OnInit {
 
   onYesClick() {
 
-    const urlPost = 'http://localhost:9090//advert-manager/car-transmission';
+    const urlPost = 'http://localhost:8662/advert-manager/car-transmission';
 
     console.log(this.carTranss.transmissionType);
 

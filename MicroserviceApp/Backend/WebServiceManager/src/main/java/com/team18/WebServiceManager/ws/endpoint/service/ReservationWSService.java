@@ -40,7 +40,7 @@ public class ReservationWSService {
 		Reservation b = reservationRepository.findByAgentAgentIdAndKeyAG(ag.getAgentId(), request.getId());
 		System.out.println("WS RESERVATION GOT"+request);
 		ReservationMQ mq = new ReservationMQ();
-		mq.setId(b!=null?b.getKeyMS():null);
+		mq.setId(request.getId());
 		mq.setAdvertId(advertRepository.findByAgentAgentIdAndKeyAG(ag.getAgentId(), request.getAdvertId()).getKeyMS());
 		mq.setEnd(request.getEnd());
 		mq.setStart(request.getStart());

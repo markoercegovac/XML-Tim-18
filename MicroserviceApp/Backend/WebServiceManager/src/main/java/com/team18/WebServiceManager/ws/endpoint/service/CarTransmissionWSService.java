@@ -37,7 +37,7 @@ public class CarTransmissionWSService {
         CarTransmission carTransmission = carTransmissionRepository.findByAgentAgentIdAndKeyAG(ag.getAgentId(), request.getId());
         System.out.println("WS CAR BRAND GOT"+request);
         CarTransmissionMQ mq = new CarTransmissionMQ();
-        mq.setId(carTransmission!=null?carTransmission.getKeyMS():null);
+        mq.setId(request.getId());
         mq.setName(request.getName());
         mq.setDeleted(request.isDeleted());
 

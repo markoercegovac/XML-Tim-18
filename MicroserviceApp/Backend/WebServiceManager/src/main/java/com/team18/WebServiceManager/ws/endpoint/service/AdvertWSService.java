@@ -35,7 +35,7 @@ public class AdvertWSService {
         Advert advert = advertRepository.findByAgentAgentIdAndKeyAG(ag.getAgentId(), request.getId());
         System.out.println("WS ADVERT GOT"+request);
         AdvertMQ mq = new AdvertMQ();
-        mq.setId(advert!=null?advert.getKeyMS():null);
+        mq.setId(request.getId());
         mq.setCarId(request.getCarId());
         mq.setProfileImgId(request.getProfileImgId());
         mq.setGalleryImgIds(request.getGalleryImgIds());

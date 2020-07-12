@@ -9,11 +9,12 @@ public class PriceMQ {
 	protected Float distanceOverflowPrice;
 	protected Float discount;
 	protected boolean deleted;
+	protected String owner;
 
 	public PriceMQ() {
 	}
 
-	public PriceMQ(Long id, String name, Float pricePerDay, Float insurancePrice, Float distanceOverflowPrice, Float discount, boolean deleted) {
+	public PriceMQ(Long id, String name, Float pricePerDay, Float insurancePrice, Float distanceOverflowPrice, Float discount, boolean deleted, String owner) {
 		this.id = id;
 		this.name = name;
 		this.pricePerDay = pricePerDay;
@@ -21,6 +22,15 @@ public class PriceMQ {
 		this.distanceOverflowPrice = distanceOverflowPrice;
 		this.discount = discount;
 		this.deleted = deleted;
+		this.owner = owner;
+	}
+
+	public String getOwner() {
+		return owner;
+	}
+
+	public void setOwner(String owner) {
+		this.owner = owner;
 	}
 
 	public void setId(Long id) {

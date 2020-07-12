@@ -111,6 +111,12 @@ public class SoapAspect {
 
 		soapProducer.produceAdvert(advertRepository.getOne(captureDto.getAdvertId()));
 	}
+	//CAR
+	@AfterReturning(pointcut = "execution(* com.example.advertmanagerapp.service.impl.CarServiceImplement.createCar(..))", returning = "car")
+	public void afterCreateCar(JoinPoint joinPoint, ConcreteCar car) {
+
+		soapProducer.produceCar(car);
+	}
 	//Drive REPORT
 	@AfterReturning(pointcut = "execution(* com.example.advertmanagerapp.service.impl.DriveReportServiceImpl.addNewReport(..))", returning = "report")
 	public void afterDriveReport(JoinPoint joinPoint, DriveReport report) {

@@ -35,7 +35,7 @@ public class CarClassWSService {
         CarClass carClass = carClassRepository.findByAgentAgentIdAndKeyAG(ag.getAgentId(), request.getId());
         System.out.println("WS CAR CLASS GOT"+request);
         CarClassMQ mq = new CarClassMQ();
-        mq.setId(carClass!=null?carClass.getKeyMS():null);
+        mq.setId(request.getId());
         mq.setName(request.getName());
         mq.setDeleted(request.isDeleted());
 

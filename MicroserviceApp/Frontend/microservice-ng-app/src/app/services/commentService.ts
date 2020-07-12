@@ -8,7 +8,7 @@ import {Injectable} from '@angular/core';
 })
 export class CommentService {
 
-  private BASE_URL = 'http://localhost:8080/comment-manager/all/';
+  private BASE_URL = 'http://localhost:8662/comment-manager/all/';
 
   constructor(private http: HttpClient) { }
 

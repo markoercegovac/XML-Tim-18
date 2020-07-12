@@ -13,6 +13,7 @@ public class CarMQ {
 	protected Long carTransmissionId;
 	protected Long traveledDistance;
 	protected Long traveledDistanceConstraint;
+	protected String owner;
 	protected boolean insurance;
 	protected int childrenSitNumber;
 	protected boolean deleted;

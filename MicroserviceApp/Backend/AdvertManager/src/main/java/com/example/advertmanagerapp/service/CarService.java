@@ -12,7 +12,7 @@ public interface CarService {
     List<DtoEntity> getFuelTypes();
     List<DtoEntity> getCarClasses();
     List<DtoEntity> getTransmissions();
-    void createCar(CarDto carDto,String ownerEmail);
+    ConcreteCar createCar(CarDto carDto,String ownerEmail);
 
     //Prilagoditi za usere
     List<DtoEntity> getAllCars(String ownerEmail);
