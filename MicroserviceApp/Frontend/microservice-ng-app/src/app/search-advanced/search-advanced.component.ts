@@ -144,7 +144,7 @@ export class SearchAdvancedComponent implements OnInit {
         alert('NumberOfSeats must be positive!');
         return;
       }
-      if (pretrazi.mark <= 1 || pretrazi.mark >= 5  && pretrazi.mark !== null){
+      if (pretrazi.mark <= 0 || pretrazi.mark >= 6  && pretrazi.mark !== null){
         alert('Marks must be from 1 to 5!');
         return;
       }

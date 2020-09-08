@@ -4,13 +4,16 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import ch.qos.logback.core.net.server.Client;
 import com.example.advertmanagerapp.dto.AdvertDto;
 import com.example.advertmanagerapp.model.Advert;
+import com.example.advertmanagerapp.model.ClientCopy;
 import com.example.advertmanagerapp.mq.dto.AdRequestMQ;
 import com.example.advertmanagerapp.mq.dto.AdRequestReservationDateMQ;
 import com.example.advertmanagerapp.mq.service.RequestProducer;
 import com.example.advertmanagerapp.repository.AdvertRepository;
 
+import com.example.advertmanagerapp.repository.ClientCopyRepository;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +27,8 @@ public class SendAdToRequestMaangerAspect {
 	private RequestProducer requestProducer;
 	@Autowired
 	private AdvertRepository adRepo;
+	@Autowired
+	private ClientCopyRepository clientCopyRepository;
 
 	@After(value = "execution(* com.example.advertmanagerapp.service.impl.AdvertServiceImpl.createAdvert(..)) and args(advertDto)")
 	public void sendToRequestManager(AdvertDto advertDto) {
@@ -41,9 +46,10 @@ public class SendAdToRequestMaangerAspect {
 				));
 			});
 
+			ClientCopy c = clientCopyRepository.findByAdvertsId(a.getId());
 			AdRequestMQ msg = new AdRequestMQ();
 			msg.setAdvertCopyId(a.getId());
-//			msg.setOwnerEmail(a.getOwnersCar().getClient().getEmail());
+			msg.setOwnerEmail(c.getEmail());
 			msg.setAdvertEndDate((Date) a.getEndOfAdvert());
 			msg.setCarReservedDate(carReservedDate);
 

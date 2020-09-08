@@ -18,18 +18,20 @@ public class RequestService {
 	@RabbitListener(queues="${rabbitmq.queue.from.request}")
 	public void received(String msg) {
 
-		RequestMail request = (RequestMail) gson.fromJson(msg, RequestMail.class);
-		
-		if(!request.getBundleStatus().equals("PENDING")) {
-			String contentForUser = "Dear sir or madam,\nYoure requesting advert bundle has change state to ";
-			contentForUser +=  request.getBundleStatus()+ ".";
-	
-			mailSender.send(request.getUserEmail(), "ADVERT BUNDLE CHANGED STATUS", contentForUser);
-		} else {
-			String contentForOwner = "Dear sir or madam,\nYou have new advert request. Sign in to view request.";
+		try {
+			RequestMail request = (RequestMail) gson.fromJson(msg, RequestMail.class);
 
-			mailSender.send(request.getOwnerEmail(), "NEW REQUEST", contentForOwner);
-		}
+			if (!request.getBundleStatus().equals("PENDING")) {
+				String contentForUser = "Dear sir or madam,\nYoure requesting advert bundle has change state to ";
+				contentForUser += request.getBundleStatus() + ".";
+
+				mailSender.send(request.getUserEmail(), "ADVERT BUNDLE CHANGED STATUS", contentForUser);
+			} else {
+				String contentForOwner = "Dear sir or madam,\nYou have new advert request. Sign in to view request.";
+
+				mailSender.send(request.getOwnerEmail(), "NEW REQUEST", contentForOwner);
+			}
+		}catch (Exception e) {}
 
 	}
 }

@@ -19,7 +19,7 @@ public class WebClientConfig {
 
 	//ISPOD IDE PO JEDAN BEAN ZA SVAKOG CLIENTA
 	@Bean
-	public CarBrandClient carBrandSoapBean(Jaxb2Marshaller marshaller) {
+	public CarBrandClient carBrandClient(Jaxb2Marshaller marshaller) {
 		CarBrandClient client = new CarBrandClient();
 		client.setDefaultUri("http://localhost:8099/ws");
 		client.setMarshaller(marshaller);
@@ -28,7 +28,7 @@ public class WebClientConfig {
 	}
 
 	@Bean
-	public CarModelClient carModelSoapBean(Jaxb2Marshaller marshaller){
+	public CarModelClient carModelClient(Jaxb2Marshaller marshaller){
 		CarModelClient client=new CarModelClient();
 		client.setDefaultUri("http://localhost:8099/ws");
 		client.setMarshaller(marshaller);
@@ -37,7 +37,7 @@ public class WebClientConfig {
 	}
 
 	@Bean
-	public CarClient carSoapBean(Jaxb2Marshaller marshaller){
+	public CarClient carClient(Jaxb2Marshaller marshaller){
 		CarClient client=new CarClient();
 		client.setDefaultUri("http://localhost:8099/ws");
 		client.setMarshaller(marshaller);
@@ -46,7 +46,7 @@ public class WebClientConfig {
 	}
 
 	@Bean
-	public AdvertClient advertSoapBean(Jaxb2Marshaller marshaller){
+	public AdvertClient advertClient(Jaxb2Marshaller marshaller){
 		AdvertClient client=new AdvertClient();
 		client.setDefaultUri("http://localhost:8099/ws");
 		client.setMarshaller(marshaller);
@@ -55,7 +55,7 @@ public class WebClientConfig {
 	}
 
 	@Bean
-	public CarClassClient carClassSoapBean(Jaxb2Marshaller marshaller){
+	public CarClassClient carClassClient(Jaxb2Marshaller marshaller){
 		CarClassClient client=new CarClassClient();
 		client.setDefaultUri("http://localhost:8099/ws");
 		client.setMarshaller(marshaller);
@@ -63,7 +63,7 @@ public class WebClientConfig {
 		return client;
 	}
 	@Bean
-	public CarFuelTypeClient carFuelTypeSoapBean(Jaxb2Marshaller marshaller){
+	public CarFuelTypeClient carFuelTypeClient(Jaxb2Marshaller marshaller){
 		CarFuelTypeClient client=new CarFuelTypeClient();
 		client.setDefaultUri("http://localhost:8099/ws");
 		client.setMarshaller(marshaller);
@@ -71,7 +71,7 @@ public class WebClientConfig {
 		return client;
 	}
 	@Bean
-	public CarTransmissionClient carTransmissionSoapBean(Jaxb2Marshaller marshaller){
+	public CarTransmissionClient carTransmissionClient(Jaxb2Marshaller marshaller){
 		CarTransmissionClient client=new CarTransmissionClient();
 		client.setDefaultUri("http://localhost:8099/ws");
 		client.setMarshaller(marshaller);
@@ -79,7 +79,7 @@ public class WebClientConfig {
 		return client;
 	}
 	@Bean
-	public PictureClient pictureSoapBean(Jaxb2Marshaller marshaller){
+	public PictureClient pictureClient(Jaxb2Marshaller marshaller){
 		PictureClient client=new PictureClient();
 		client.setDefaultUri("http://localhost:8099/ws");
 		client.setMarshaller(marshaller);
@@ -87,7 +87,7 @@ public class WebClientConfig {
 		return client;
 	}
 	@Bean
-	public PriceClient priceSoapBean(Jaxb2Marshaller marshaller){
+	public PriceClient priceClient(Jaxb2Marshaller marshaller){
 		PriceClient client=new PriceClient();
 		client.setDefaultUri("http://localhost:8099/ws");
 		client.setMarshaller(marshaller);
@@ -96,7 +96,7 @@ public class WebClientConfig {
 	}
 
 	@Bean
-	public CommentClient commentSoapBean(Jaxb2Marshaller marshaller){
+	public CommentClient commentClient(Jaxb2Marshaller marshaller){
 		CommentClient client =new CommentClient();
 		client.setDefaultUri("http://localhost:8099/ws");
 		client.setMarshaller(marshaller);
@@ -105,7 +105,7 @@ public class WebClientConfig {
 	}
 
 	@Bean
-	 public DriverReportClient driverReportBean(Jaxb2Marshaller marshaller){
+	 public DriverReportClient driverReportClient(Jaxb2Marshaller marshaller){
 		DriverReportClient client=new DriverReportClient();
 		client.setDefaultUri("http://localhost:8099/ws");
 		client.setMarshaller(marshaller);
@@ -114,7 +114,7 @@ public class WebClientConfig {
 	}
 
 	@Bean
-	 public  CaptureClient captureSoapBean(Jaxb2Marshaller marshaller){
+	 public  CaptureClient captureClient(Jaxb2Marshaller marshaller){
 		CaptureClient client=new CaptureClient();
 		client.setDefaultUri("http://localhost:8099/ws");
 		client.setMarshaller(marshaller);

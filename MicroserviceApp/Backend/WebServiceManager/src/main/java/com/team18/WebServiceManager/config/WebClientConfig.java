@@ -21,7 +21,7 @@ public class WebClientConfig {
 	//ISPOD IDE PO JEDAN BEAN ZA SVAKOG CLIENTA
 
 	@Bean
-	public CarBrandWSClient carBrandWSClientBean(Jaxb2Marshaller marshaller) {
+	public CarBrandWSClient carBrandWSClient(Jaxb2Marshaller marshaller) {
 		CarBrandWSClient client = new CarBrandWSClient();
 		client.setMarshaller(marshaller); //marshaller prevodi iz jave u xml i obrnuto
 		client.setUnmarshaller(marshaller);
@@ -29,7 +29,7 @@ public class WebClientConfig {
 	}
 
 	@Bean
-	public AdvertWSClient course1Client(Jaxb2Marshaller marshaller) {
+	public AdvertWSClient advertWSClient(Jaxb2Marshaller marshaller) {
 		AdvertWSClient client = new AdvertWSClient();
 		client.setMarshaller(marshaller); //marshaller prevodi iz jave u xml i obrnuto
 		client.setUnmarshaller(marshaller);
@@ -37,7 +37,7 @@ public class WebClientConfig {
 	}
 
 	@Bean
-	public CaptureWSClient course2Client(Jaxb2Marshaller marshaller) {
+	public CaptureWSClient captureWSClient(Jaxb2Marshaller marshaller) {
 		CaptureWSClient client = new CaptureWSClient();
 		client.setMarshaller(marshaller); //marshaller prevodi iz jave u xml i obrnuto
 		client.setUnmarshaller(marshaller);
@@ -45,7 +45,7 @@ public class WebClientConfig {
 	}
 
 	@Bean
-	public CarClassWSClient course3Client(Jaxb2Marshaller marshaller) {
+	public CarClassWSClient carClassWSClient(Jaxb2Marshaller marshaller) {
 		CarClassWSClient client = new CarClassWSClient();
 		client.setMarshaller(marshaller); //marshaller prevodi iz jave u xml i obrnuto
 		client.setUnmarshaller(marshaller);
@@ -53,7 +53,7 @@ public class WebClientConfig {
 	}
 
 	@Bean
-	public CarFuelTypeWSClient course4Client(Jaxb2Marshaller marshaller) {
+	public CarFuelTypeWSClient carFuelTypeWSClient(Jaxb2Marshaller marshaller) {
 		CarFuelTypeWSClient client = new CarFuelTypeWSClient();
 		client.setMarshaller(marshaller); //marshaller prevodi iz jave u xml i obrnuto
 		client.setUnmarshaller(marshaller);
@@ -61,7 +61,7 @@ public class WebClientConfig {
 	}
 
 	@Bean
-	public CarModelWSClient course5Client(Jaxb2Marshaller marshaller) {
+	public CarModelWSClient CcrModelWSClient(Jaxb2Marshaller marshaller) {
 		CarModelWSClient client = new CarModelWSClient();
 		client.setMarshaller(marshaller); //marshaller prevodi iz jave u xml i obrnuto
 		client.setUnmarshaller(marshaller);
@@ -69,7 +69,7 @@ public class WebClientConfig {
 	}
 
 	@Bean
-	public CarTransmissionWSClient course6Client(Jaxb2Marshaller marshaller) {
+	public CarTransmissionWSClient carTransmissionWSClient(Jaxb2Marshaller marshaller) {
 		CarTransmissionWSClient client = new CarTransmissionWSClient();
 		client.setMarshaller(marshaller); //marshaller prevodi iz jave u xml i obrnuto
 		client.setUnmarshaller(marshaller);
@@ -77,7 +77,7 @@ public class WebClientConfig {
 	}
 
 	@Bean
-	public CarWSClient course7Client(Jaxb2Marshaller marshaller) {
+	public CarWSClient CcrWSClient(Jaxb2Marshaller marshaller) {
 		CarWSClient client = new CarWSClient();
 		client.setMarshaller(marshaller); //marshaller prevodi iz jave u xml i obrnuto
 		client.setUnmarshaller(marshaller);
@@ -85,7 +85,7 @@ public class WebClientConfig {
 	}
 
 	@Bean
-	public PictureWSClient course8Client(Jaxb2Marshaller marshaller) {
+	public PictureWSClient pictureWSClient(Jaxb2Marshaller marshaller) {
 		PictureWSClient client = new PictureWSClient();
 		client.setMarshaller(marshaller); //marshaller prevodi iz jave u xml i obrnuto
 		client.setUnmarshaller(marshaller);
@@ -93,21 +93,21 @@ public class WebClientConfig {
 	}
 
 	@Bean
-	public PriceWSClient course9Client(Jaxb2Marshaller marshaller) {
+	public PriceWSClient priceWSClient(Jaxb2Marshaller marshaller) {
 		PriceWSClient client = new PriceWSClient();
 		client.setMarshaller(marshaller); //marshaller prevodi iz jave u xml i obrnuto
 		client.setUnmarshaller(marshaller);
 		return client;
 	}
 	@Bean
-	public CommentWSClinet commentWSClinetBean(Jaxb2Marshaller marshaller) {
+	public CommentWSClinet commentWSClinet(Jaxb2Marshaller marshaller) {
 		CommentWSClinet client = new CommentWSClinet();
 		client.setMarshaller(marshaller);
 		client.setUnmarshaller(marshaller);
 		return client;
 	}
 	@Bean
-	public ReservationWSClinet reservationWSClinetBean(Jaxb2Marshaller marshaller) {
+	public ReservationWSClinet ReservationWSClinet(Jaxb2Marshaller marshaller) {
 		ReservationWSClinet client = new ReservationWSClinet();
 		client.setMarshaller(marshaller);
 		client.setUnmarshaller(marshaller);

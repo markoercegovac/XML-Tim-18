@@ -18,11 +18,13 @@ public class ChatService {
 	@RabbitListener(queues="${rabbitmq.queue.from.chat}")
 	public void received(String msg) {
 
-		ChatMail chat = (ChatMail) gson.fromJson(msg, ChatMail.class);
-		String content = "Dear sir or madam,\nYou have a new message from " +chat.getSender();
-		content += ".\nSign in to replay.\nMessage content:";
-		content += chat.getContent();
+		try {
+			ChatMail chat = (ChatMail) gson.fromJson(msg, ChatMail.class);
+			String content = "Dear sir or madam,\nYou have a new message from " + chat.getSender();
+			content += ".\nSign in to replay.\nMessage content:";
+			content += chat.getContent();
 
-		mailSender.send(chat.getReceiver(), chat.getHeader(), content);
+			mailSender.send(chat.getReceiver(), chat.getHeader(), content);
+		} catch (Exception e) {}
 	}
 }
