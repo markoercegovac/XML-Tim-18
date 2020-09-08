@@ -24,7 +24,3 @@ GRANT ALL PRIVILEGES ON user_db.* TO 'us_user'@'%';
 GRANT ALL PRIVILEGES ON soap_db.* TO 'us_soap'@'%';
 
 FLUSH PRIVILEGES;
-
--- SHOWS CREATED DATABASES
-SHOW DATABASES;
-SELECT * FROM mysql.user;

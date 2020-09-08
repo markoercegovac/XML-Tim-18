@@ -31,11 +31,20 @@ public class PictureServiceImplementation implements PictureService {
         Files.createDirectories(Paths.get("/images"));
         File file = new File(path);
         ImageIO.write(img, "jpeg", file);
+        System.out.println("--------------------------------------");
+        System.out.println("IMG PATH: "+ file.getAbsolutePath());
+        System.out.println("IMG PATH: "+ file.getCanonicalPath());
+        System.out.println("--------------------------------------");
     }
 
     @Override
     public String getPicture(Picture picture) throws IOException {
-        byte[] fileContent = FileUtils.readFileToByteArray(new File(filePath+picture.getPath()));
+        File file = new File(filePath+picture.getPath());
+        System.out.println("--------------------------------------");
+        System.out.println("IMG PATH: "+ file.getAbsolutePath());
+        System.out.println("IMG PATH: "+ file.getCanonicalPath());
+        System.out.println("--------------------------------------");
+        byte[] fileContent = FileUtils.readFileToByteArray(file);
         String encodedString = Base64.getEncoder().encodeToString(fileContent);
         return encodedString;
     }

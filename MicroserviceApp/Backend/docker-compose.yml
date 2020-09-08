@@ -1,61 +1,82 @@
 version: "3.7"
 services:
 
-  eureka:
+  service-registry:
     build: ./Eureka
-    image: tim-18/eureka
-    container_name: eureka
+    image: ttiberius/service-registry
+    container_name: service-registry
     networks:
       - demo
     ports:
       - 8761:8761
 
-  zuul:
+  gateway:
     build: ./GatewayService
-    image: tim-18/zuul
-    container_name: zuul
+    image: ttiberius/gateway
+    container_name: gateway
     networks:
       - demo
     ports:
       - 8662:8662
     environment:
-      REGISTRY_HOST: eureka
+      REGISTRY_HOST: service-registry
       REGISTRY_PORT: 8761
       AUTH_ADR: user-manager
       AUTH_PORT: 8097
     depends_on:
-      - eureka
-#      - user-manager
-#      - advert-manager
+      - service-registry
+      - user-manager
+      - advert-manager
       - request-manager
-#      - chat-manager
-#      - comment-manager
-#      - search-manager
+      - chat-manager
+      - comment-manager
+      - search-manager
 
-#  chat-manager:
-#    build: ./ChatManager
-#    image: chat-manager
-#    container_name: chat-manager
-#    restart: on-failure
-#    networks:
-#      - demo
-#    ports:
-#      - 8092:8080
-#    environment:
-#      RABBITMQ: rabbitmq
-#      REGISTRY_HOST: eureka
-#      DATABASE_USERNAME: us_chat
-#      DATABASE_PASSWORD: password-chat
-#      DATABASE_DOMAIN: mysql-db
-#      DATABASE_SCHEMA: chat_db
-#    depends_on: 
-#      - mysql-db
-#      - eureka
-#      - rabbitmq
+  user-manager:
+    build: ./UserManager
+    image: ttiberius/user-manager
+    container_name: user-manager
+    restart: on-failure
+    networks:
+      - demo
+    ports:
+      - 8091:8080
+    environment:
+      REGISTRY_HOST: service-registry
+      RABBITMQ: message-queue
+      DATABASE_USERNAME: us_user
+      DATABASE_PASSWORD: password-user
+      DATABASE_DOMAIN: mysql-db
+      DATABASE_SCHEMA: user_db
+    depends_on:
+      - mysql-db
+      - service-registry
+      - message-queue
+
+  chat-manager:
+    build: ./ChatManager
+    image: ttiberius/chat-manager
+    container_name: chat-manager
+    restart: on-failure
+    networks:
+      - demo
+    ports:
+      - 8092:8080
+    environment:
+      RABBITMQ: message-queue
+      REGISTRY_HOST: service-registry
+      DATABASE_USERNAME: us_chat
+      DATABASE_PASSWORD: password-chat
+      DATABASE_DOMAIN: mysql-db
+      DATABASE_SCHEMA: chat_db
+    depends_on: 
+      - mysql-db
+      - service-registry
+      - message-queue
 
   request-manager:
     build: ./AdRequestManager
-    image: tim-18/request-manager
+    image: ttiberius/request-manager
     container_name: request-manager
     restart: on-failure
     networks:
@@ -63,149 +84,125 @@ services:
     ports:
       - 8093:8080
     environment:
-      REGISTRY_HOST: eureka
-      RABBITMQ: rabbitmq
+      REGISTRY_HOST: service-registry
+      RABBITMQ: message-queue
       DATABASE_USERNAME: us_request
       DATABASE_PASSWORD: password-request
       DATABASE_DOMAIN: mysql-db
       DATABASE_SCHEMA: request_db
     depends_on: 
       - mysql-db
-      - eureka
-      - rabbitmq
+      - service-registry
+      - message-queue
 
-#  comment-manager:
-#    build: ./CommentManager
-#    image: comment-manager
-#    container_name: comment-manager
-#    restart: on-failure
-#    networks:
-#      - demo
-#    ports:
-#      - 8094:8081
-#    environment:
-#      REGISTRY_HOST: eureka
-#      RABBITMQ: rabbitmq
-#      DATABASE_USERNAME: us_comment
-#      DATABASE_PASSWORD: password-comment
-#      DATABASE_DOMAIN: mysql-db
-#      DATABASE_SCHEMA: comment_db
-#    depends_on:
-#      - eureka
-#      - mysql-db
-#      - rabbitmq
-#
-#  search-manager:
-#    build: ./AdvertSearch
-#    image: search-manager
-#    container_name: search-manager
-#    restart: on-failure
-#    networks:
-#      - demo
-#    ports:
-#      - 8095:8080
-#    environment:
-#      REGISTRY_HOST: eureka
-#      RABBITMQ: rabbitmq
-#      DATABASE_USERNAME: us_search
-#      DATABASE_PASSWORD: password-search
-#      DATABASE_DOMAIN: mysql-db
-#      DATABASE_SCHEMA: search_db
-#    depends_on:
-#      - mysql-db
-#      - eureka
-#      - rabbitmq
-#
-#  advert-manager:
-#    build: ./AdvertManager
-#    image: advert-manager
-#    container_name: advert-manager
-#    restart: on-failure
-#    networks:
-#      - demo
-#    ports:
-#      - 8096:9090
-#    environment:
-#      REGISTRY_HOST: eureka
-#      RABBITMQ: rabbitmq
-#      DATABASE_USERNAME: us_advert
-#      DATABASE_PASSWORD: password-advert
-#      DATABASE_DOMAIN: mysql-db
-#      DATABASE_SCHEMA: advert_db
-#    depends_on:
-#      - mysql-db
-#      - eureka
-#      - rabbitmq
-#
-#  user-manager:
-#    build: ./UserManager
-#    image: user-manager
-#    container_name: user-manager
-#    restart: on-failure
-#    networks:
-#      - demo
-#    ports:
-#      - 8097:8081
-#    environment:
-#      REGISTRY_HOST: eureka
-#      RABBITMQ: rabbitmq
-#      DATABASE_USERNAME: us_user
-#      DATABASE_PASSWORD: password-user
-#      DATABASE_DOMAIN: mysql-db
-#      DATABASE_SCHEMA: user_db
-#    depends_on:
-#      - mysql-db
-#      - eureka
-#      - rabbitmq
-#
-#  mail-manager:
-#    build: ./MailManager
-#    image: mail-manager
-#    container_name: mail-manager
-#    restart: on-failure
-#    networks:
-#      - demo
-#    ports:
-#      - 8081:8080
-#    environment:
-#      REGISTRY_HOST: eureka
-#      RABBITMQ: rabbitmq
-#    depends_on:
-#      - eureka
-#      - rabbitmq
-
-  rabbitmq:
-    build: ./RabbitMQ
-    image: tim-18/rabbitmq
-    container_name: rabbitmq
-    ports:
-      - 4369:4369
-      - 5671:5671
-      - 5672:5672
-      - 15671:15671
-      - 15672:15672
-      - 25672:25672
+  comment-manager:
+    build: ./CommentManager
+    image: ttiberius/comment-manager
+    container_name: comment-manager
+    restart: on-failure
     networks:
       - demo
+    ports:
+      - 8094:8080
+    environment:
+      REGISTRY_HOST: service-registry
+      RABBITMQ: message-queue
+      DATABASE_USERNAME: us_comment
+      DATABASE_PASSWORD: password-comment
+      DATABASE_DOMAIN: mysql-db
+      DATABASE_SCHEMA: comment_db
+    depends_on:
+      - service-registry
+      - mysql-db
+      - message-queue
 
-#  soap:
-#    build: ./WebServiceManager
-#    image: soap
-#    container_name: soap
-#    restart: on-failure
-#    networks:
-#      - demo
-#    ports:
-#      - 8099:8099
-#    environment:
-#      RABBITMQ: rabbitmq
-#      DATABASE_USERNAME: us_soap
-#      DATABASE_PASSWORD: password-soap
-#      DATABASE_DOMAIN: mysql-db
-#      DATABASE_SCHEMA: soap_db
-#    depends_on:
-#      - mysql-db
-#      - rabbitmq
+  search-manager:
+    build: ./AdvertSearch
+    image: ttiberius/search-manager
+    container_name: search-manager
+    restart: on-failure
+    networks:
+      - demo
+    ports:
+      - 8095:8080
+    environment:
+      REGISTRY_HOST: service-registry
+      RABBITMQ: message-queue
+      DATABASE_USERNAME: us_search
+      DATABASE_PASSWORD: password-search
+      DATABASE_DOMAIN: mysql-db
+      DATABASE_SCHEMA: search_db
+    depends_on:
+      - mysql-db
+      - service-registry
+      - message-queue
+
+  advert-manager:
+    build: ./AdvertManager
+    image: ttiberius/advert-manager
+    container_name: advert-manager
+    restart: on-failure
+    networks:
+      - demo
+    ports:
+      - 8096:8080
+    environment:
+      REGISTRY_HOST: service-registry
+      RABBITMQ: message-queue
+      DATABASE_USERNAME: us_advert
+      DATABASE_PASSWORD: password-advert
+      DATABASE_DOMAIN: mysql-db
+      DATABASE_SCHEMA: advert_db
+    depends_on:
+      - mysql-db
+      - service-registry
+      - message-queue
+    volumes:
+      - car-images:/images
+
+  mail-manager:
+    build: ./MailManager
+    image: ttiberius/mail-manager
+    container_name: mail-manager
+    restart: on-failure
+    networks:
+      - demo
+    ports:
+      - 8097:8080
+    environment:
+      REGISTRY_HOST: service-registry
+      RABBITMQ: message-queue
+    depends_on:
+      - service-registry
+      - message-queue
+
+  soap-manager:
+    build: ./WebServiceManager
+    image: ttiberius/soap-manager
+    container_name: soap-manager
+    restart: on-failure
+    networks:
+      - demo
+    ports:
+      - 8098:8099
+    environment:
+      RABBITMQ: message-queue
+      DATABASE_USERNAME: us_soap
+      DATABASE_PASSWORD: password-soap
+      DATABASE_DOMAIN: mysql-db
+      DATABASE_SCHEMA: soap_db
+    depends_on:
+      - mysql-db
+      - message-queue
+
+  message-queue:
+    build: ./RabbitMQ
+    image: ttiberius/message-queue
+    container_name: message-queue
+    ports:
+      - 15672:15672
+    networks:
+      - demo
 
   mysql-db:
     image: mysql:8.0.19
@@ -217,17 +214,22 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: "true"
       MYSQL_DATABASE: main
       MYSQL_USER: admin
-      MYSQL_PASSWOR: AdminPassword1
+      MYSQL_PASSWORD: AdminPassword1
     ports:
       - 3307:3306
     networks:
       - demo
     volumes:
       - ./dockerScript/init.sql:/docker-entrypoint-initdb.d/init.sql
-      - mysql-db-data:/var/lib/mysql-db
+      - mysql-db-data:/var/lib/mysql
 
 volumes:
   mysql-db-data:
+    external: true
+    name: backend_mysql-db-data
+  car-images:
+    external: true
+    name: backend_car-images
 
 networks:
   demo:

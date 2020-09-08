@@ -6,4 +6,3 @@ EXPOSE 8080
 CMD ["java", "-jar", "target/request-manager.jar"]
 
 LABEL author="tiberlas1997@gmail.com"
-
