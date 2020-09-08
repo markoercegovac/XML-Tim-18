@@ -3,6 +3,7 @@ package com.example.advertmanagerapp.service;
 import com.example.advertmanagerapp.dto.AdvertCartDTO;
 import com.example.advertmanagerapp.dto.AdvertDetailDTO;
 import com.example.advertmanagerapp.dto.AdvertMiniDto;
+import com.example.advertmanagerapp.model.Advert;
 import org.springframework.stereotype.Service;
 
 
@@ -15,7 +16,7 @@ import java.util.List;
 public interface AdvertService {
     AdvertDetailDTO detailAdForClient(Long advertId);
     String getProfileImg(Long advertId) throws Exception;
-    void createAdvert(AdvertDto advertDto) throws IOException;
+    Advert createAdvert(AdvertDto advertDto) throws IOException;
     List<DtoEntity> allAdverts();
     List<AdvertMiniDto> allAdvertsHome() throws IOException;
     AdvertCartDTO detailAdForCart(Long adId);

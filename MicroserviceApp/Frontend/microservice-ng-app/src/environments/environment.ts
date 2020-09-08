@@ -6,10 +6,10 @@ export const environment = {
   production: false,
   zuul: 'http://localhost:8662',
   localhost: 'http://localhost:8081',
-  requestManagerUrl: 'http://localhost:8080/advert-request',
-  advertManagerUrl: 'http://localhost:9090/advert-manager',
-  searchManagerUrl: 'http://localhost:9090/search-manager/',
-  chatManagerUrl: 'http://localhost:8080/chat-server',
+  requestManagerUrl: 'http://localhost:8662/advert-request',
+  advertManagerUrl: 'http://localhost:8662/advert-manager',
+  searchManagerUrl: 'http://localhost:8662/search-manager/',
+  chatManagerUrl: 'http://localhost:8662/chat-server',
   userManagerUrl : ''
 };
 

@@ -18,13 +18,15 @@ public class CommentService {
 	@RabbitListener(queues="${rabbitmq.queue.from.comment}")
 	public void received(String msg) {
 
-		CommentMail comment = (CommentMail) gson.fromJson(msg, CommentMail.class);
-		String content = "Dear sir or madam,\nUser "
-			+ comment.getUserEmail()
-			+ " has added comment to your advert./n"
-			+ "Comment: "
-			+comment.getComment();
+		try {
+			CommentMail comment = (CommentMail) gson.fromJson(msg, CommentMail.class);
+			String content = "Dear sir or madam,\nUser "
+					+ comment.getUserEmail()
+					+ " has added comment to your advert./n"
+					+ "Comment: "
+					+ comment.getComment();
 
-		mailSender.send(comment.getOwnerEmail(), "GOT COMMENT", content);
+			mailSender.send(comment.getOwnerEmail(), "GOT COMMENT", content);
+		}catch (Exception e) {}
 	}
 }

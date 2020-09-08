@@ -1,14 +1,7 @@
 package com.team18.WebServiceManager.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table
 public class CarBrand {
@@ -25,4 +18,36 @@ public class CarBrand {
 
 	@ManyToOne
 	private Agent agent;
+
+	public Long getId() {
+		return id;
+	}
+
+	public Long getKeyMS() {
+		return keyMS;
+	}
+
+	public Long getKeyAG() {
+		return keyAG;
+	}
+
+	public Agent getAgent() {
+		return agent;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setKeyMS(Long keyMS) {
+		this.keyMS = keyMS;
+	}
+
+	public void setKeyAG(Long keyAG) {
+		this.keyAG = keyAG;
+	}
+
+	public void setAgent(Agent agent) {
+		this.agent = agent;
+	}
 }

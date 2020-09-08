@@ -8,4 +8,5 @@ import java.io.IOException;
 public interface PictureService {
     void savePicture(PictureDto pictureDto) throws IOException;
     String getPicture(Picture picture) throws IOException;
+    void saveSoapPicture(String base, String name) throws IOException;
 }

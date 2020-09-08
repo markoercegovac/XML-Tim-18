@@ -30,7 +30,7 @@ public class OwnerServiceImpl implements OwnerService {
 		bundle.setAdvertState(AdvertStateEnum.PAID);
 		bundle.setApprovedDateAndTime(c.getTime());
 
-		bundleRepository.save(bundle);
+		 bundleRepository.save(bundle);
 	}
 
 	@Override

@@ -331,7 +331,7 @@ public class SearchServiceImpl implements SearchService {
 
         if(!priceFrom2.equals("") && priceTo2.equals("") && traveledKm2.equals("")){
             for (AdvertCopyDto a: list) {
-                if(a.getPrice() >= Float.parseFloat(priceFrom2) && a.getPrice() <= Float.parseFloat(priceTo2) && a.getTraveledKm() <= Float.parseFloat(traveledKm2)) {
+                if(a.getPrice() >= Float.parseFloat(priceFrom2)) {
                     if (a.getCarMark().contains(carMark) && a.getModelMark().contains(modelMark) && a.getCarFuelType().contains(carFuelType) && a.getCarTransmissionType().contains(carTransmissionType) && a.getCarClass().contains(carClass) && a.getInsurance().contains(insurance) && Float.toString(a.getMark()).contains(mark2) && Integer.toString(a.getNumberOfSeats()).contains(numberOfSeats2)) {
                         konacnaLista.add(a);
                     }

@@ -48,7 +48,7 @@ export class CarBrandComponent implements OnInit {
 
   delete(carBrand: CarBrand): void {
 
-    const urlDelete = 'http://localhost:9090/advert-manager/car-brand/' + carBrand.id;
+    const urlDelete = 'http://localhost:8662/advert-manager/car-brand/' + carBrand.id;
 
     this.http.delete(urlDelete).subscribe(res => {
       this.getAllCarBrand();

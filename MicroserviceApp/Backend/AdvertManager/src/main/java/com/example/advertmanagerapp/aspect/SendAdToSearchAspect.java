@@ -37,24 +37,24 @@ public class SendAdToSearchAspect {
 					capture.getTakeDate(),
 					capture.getLeaveDate()));
 			});
-
 			AdSearchMQ msg = new AdSearchMQ();
 			msg.setAdvertCopyId(ad.getId());
-//			msg.setCity(ad.getClient().getCity());
-//			msg.setCarMark(ad.getOwnersCar().getConcreteCar().getCarBrand().getName());
-//			msg.setModelMark(ad.getOwnersCar().getConcreteCar().getCarModel().getModelName());
-//			msg.setCarFuelType(ad.getOwnersCar().getConcreteCar().getCarFuelType().getFuelType());
-//			msg.setCarTransmissionType(ad.getOwnersCar().getConcreteCar().getCarTransmissionType().getTransmissionType());
-//			msg.setCarClass(ad.getOwnersCar().getConcreteCar().getCarClass().getClassName());
-//			msg.setTraveledKm(ad.getOwnersCar().getMileage());
-//			msg.setInsurance(ad.getOwnersCar().isInsurance());
-//			msg.setNumberOfSeats(ad.getOwnersCar().getChildrenSitNumber());
+			msg.setCity("Sabac");
+			msg.setCarMark(ad.getConcreteCar().getCarBrand().getName());
+			msg.setModelMark(ad.getConcreteCar().getCarModel().getModelName());
+			msg.setCarFuelType(ad.getConcreteCar().getCarFuelType().getFuelType());
+			msg.setCarTransmissionType(ad.getConcreteCar().getCarTransmissionType().getTransmissionType());
+			msg.setCarClass(ad.getConcreteCar().getCarClass().getClassName());
+			msg.setTraveledKm(ad.getConcreteCar().getTravelDistanceConstraint());
+			msg.setInsurance(true);
+			msg.setNumberOfSeats(ad.getConcreteCar().getChildrenSitNumber());
 			msg.setProfilePicture(null);
 			msg.setCarReservationDate(reserved);
 
 			searchProducer.produceMsg(msg);
 		} catch(Exception e) {
-			System.out.println("ASPECT EXCEPTION");
+			e.printStackTrace();
+			System.out.println("ASPECT EXCEPTION"+ e.getMessage());
 		}
     }
 }

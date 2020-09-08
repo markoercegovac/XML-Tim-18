@@ -1,14 +1,8 @@
 package com.team18.WebServiceManager.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table
 public class Car {
@@ -24,4 +18,36 @@ public class Car {
 
 	@ManyToOne
 	private Agent agent;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Long getKeyMS() {
+		return keyMS;
+	}
+
+	public void setKeyMS(Long keyMS) {
+		this.keyMS = keyMS;
+	}
+
+	public Long getKeyAG() {
+		return keyAG;
+	}
+
+	public void setKeyAG(Long keyAG) {
+		this.keyAG = keyAG;
+	}
+
+	public Agent getAgent() {
+		return agent;
+	}
+
+	public void setAgent(Agent agent) {
+		this.agent = agent;
+	}
 }

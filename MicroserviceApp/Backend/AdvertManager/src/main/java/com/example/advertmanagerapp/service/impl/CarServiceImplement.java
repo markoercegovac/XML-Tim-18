@@ -54,7 +54,7 @@ public class CarServiceImplement implements CarService {
     }
 
     @Override
-    public void createCar(CarDto carDto,String ownerEmail) {
+    public ConcreteCar createCar(CarDto carDto,String ownerEmail) {
         ClientCopy clientCopy=clientCopyRepository.findByEmail(ownerEmail);
         CarBrand carBrand=carBrandRepository.findById(carDto.getCarBrandId()).get();
         CarFuelType carFuelType=carFuelTypeRepository.findById(carDto.getCarFuelTypeId()).get();
@@ -70,8 +70,10 @@ public class CarServiceImplement implements CarService {
         car.setNameOfCar(carBrand.getName()+":"+carModel.getModelName());
         car.setId(null);
         clientCopy.getCars().add(car);
-        concreteCarRepository.save(car);
+        ConcreteCar ret = concreteCarRepository.save(car);
         clientCopyRepository.save(clientCopy);
+
+        return ret;
     }
 
     @Override

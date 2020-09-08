@@ -18,12 +18,14 @@ public class CarClassAspect {
 
     @AfterReturning(pointcut = "execution(* rent.app.service.impl.CarClassServiceImpl.saveCarClass(..))", returning = "carClass")
     public void afterSavedCarClass(JoinPoint joinPoint,CarClass carClass){
-        CarClassRequest request=new CarClassRequest();
-        request.setId(carClass.getId());
-        request.setDeleted(carClass.isRemoved());
-        request.setName(carClass.getClassName());
-        request.setToken("firm@com");
-        SoapResponse response= classClient.handleCarClass(request);
-        System.out.println("STATUS: "+ response.getStatus());
+        try {
+            CarClassRequest request = new CarClassRequest();
+            request.setId(carClass.getId());
+            request.setDeleted(carClass.isRemoved());
+            request.setName(carClass.getClassName());
+            request.setToken("firm@com");
+            SoapResponse response = classClient.handleCarClass(request);
+            System.out.println("STATUS: " + response.getStatus());
+        } catch (Exception e) {}
     }
 }

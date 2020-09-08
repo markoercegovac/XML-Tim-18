@@ -13,7 +13,7 @@ import java.util.List;
 
 @RequestMapping("/comment-manager")
 @RestController
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+//@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class CommentController {
 
     private final CommentService commentService;

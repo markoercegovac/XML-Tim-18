@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RequestMapping("/search-manager")
 @RestController
-@CrossOrigin
+//@CrossOrigin
 public class DataTransferController {
 
     @PostMapping("/advert-copy")

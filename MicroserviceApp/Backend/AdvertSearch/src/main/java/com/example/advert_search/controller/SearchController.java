@@ -4,11 +4,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Set;
+import java.util.List;
 
 import com.example.advert_search.dto.AdvertCopyDto;
 import com.example.advert_search.dto.*;
-import com.example.advert_search.repository.CarReservedDateRepository;
-import com.example.advert_search.repository.SearchRepository;
 import com.example.advert_search.service.SearchService;
 
 import org.springframework.http.HttpStatus;
@@ -25,7 +24,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @RequestMapping("/search-manager")
 @RestController
-@CrossOrigin
+//@CrossOrigin
 public class SearchController {
 
     private final SearchService searchService;

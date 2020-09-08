@@ -5,6 +5,6 @@ COPY . .
 RUN ["mvn", "package", "-DskipTests"]
 
 FROM openjdk:11
-COPY --from=searchMaven /usr/src/servers/search/target/advert-search.jar ./
+COPY --from=searchMaven /usr/src/servers/search/target/search-manager.jar ./
 EXPOSE 8080
-CMD ["java", "-jar", "advert-search.jar", "--spring.profiles.active=prod"]
+CMD ["java", "-jar", "search-manager.jar"]

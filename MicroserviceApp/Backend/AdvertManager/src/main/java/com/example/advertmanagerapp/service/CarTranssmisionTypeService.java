@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface CarTranssmisionTypeService {
     public void deleteCarTranssmision(Long id);
-    public void saveCarTranssmisionType(CarTransmissionType carTransmissionType);
+    public CarTransmissionType saveCarTranssmisionType(CarTransmissionType carTransmissionType);
     public List<CarTransmissionType> getAllCarTranssmisionType();
     List<DtoEntity> getAllTransmissionType();
 }

@@ -29,7 +29,7 @@ public class ClientRequestServiceImpl implements ClientRequestService {
     private final AdRequestDetailConverter adRequestDetailConverter;
 
     @Transactional(rollbackFor = Exception.class)
-    public void createNewRequestBundle(CreateAdBundleRequestDTO createBundle) throws RuntimeException, Exception {
+    public RequestBundle createNewRequestBundle(CreateAdBundleRequestDTO createBundle) throws RuntimeException, Exception {
 
         List<Request> requests = new ArrayList<>();
         createBundle.getRequestedAdverts().forEach(advert -> {
@@ -78,7 +78,7 @@ public class ClientRequestServiceImpl implements ClientRequestService {
         wishedBundle.setRequestingUserEmail(createBundle.getRequestingUserEmail());
         wishedBundle.setPriceWithDiscount(createBundle.getPriceWithDiscount());
         wishedBundle.setRequests(requests);
-        requestBundleRepository.save(wishedBundle);
+        return requestBundleRepository.save(wishedBundle);
     }
 
     public List<AdRequestDetailedDTO> findAllBundlesByStatus(String clientEmail, String status) {

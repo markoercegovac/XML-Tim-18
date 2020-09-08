@@ -48,7 +48,7 @@ import {SearchAdvancedComponent} from "./search-advanced/search-advanced.compone
 
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/login' },
+  { path: '', pathMatch: 'full', redirectTo: '/home/login' },
   { path: 'search',    component: SearchComponent},
   { path: 'searchAdvanced', component: SearchAdvancedComponent},
 
@@ -92,14 +92,14 @@ const routes: Routes = [
     { path: 'requests', component: RequestsComponent, canActivate: [UserGuard] },
     { path: 'comment/create', component: CreateCommentComponent, canActivate: [LoggedInGuard] },
     { path: 'message/:email', component: MessagesComponent, canActivate: [LoggedInGuard] },
-    { path: 'owner/requests', component: OwnerViewRequestsComponent, canActivate: [OwnerGuard] },
-    { path: 'my/adverts', component: MyAdvertsComponent, canActivate: [OwnerGuard] }, //OGLASI OD VLASNIKA
-    { path: 'my/advert/:id', component: CaptureComponent, canActivate: [OwnerGuard]}, //vlasnik daje termin zauzeca
-    { path: 'my/cars', component: MyCarsComponent, canActivate: [OwnerGuard]},
-    { path: 'my/price/list', component: MyPriceListComponent, canActivate: [OwnerGuard]},
-    { path: 'create/advert', component: CreateAdvertComponent, canActivate: [OwnerGuard]},
-    { path: 'register/car', component: RegisterCarComponent, canActivate: [OwnerGuard]},
-    { path: 'define/price', component: DefinePriceComponent, canActivate: [OwnerGuard]}
+    { path: 'owner/requests', component: OwnerViewRequestsComponent, canActivate: [LoggedInGuard] },
+    { path: 'my/adverts', component: MyAdvertsComponent, canActivate: [LoggedInGuard] }, //OGLASI OD VLASNIKA
+    { path: 'my/advert/:id', component: CaptureComponent, canActivate: [LoggedInGuard]}, //vlasnik daje termin zauzeca
+    { path: 'my/cars', component: MyCarsComponent, canActivate: [LoggedInGuard]},
+    { path: 'my/price/list', component: MyPriceListComponent, canActivate: [LoggedInGuard]},
+    { path: 'create/advert', component: CreateAdvertComponent, canActivate: [LoggedInGuard]},
+    { path: 'register/car', component: RegisterCarComponent, canActivate: [LoggedInGuard]},
+    { path: 'define/price', component: DefinePriceComponent, canActivate: [LoggedInGuard]}
 
   ]},
   { path: 'not-found', component: NotFoundComponent},

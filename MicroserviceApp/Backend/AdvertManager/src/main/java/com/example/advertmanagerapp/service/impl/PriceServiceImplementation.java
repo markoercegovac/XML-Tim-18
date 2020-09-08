@@ -25,14 +25,14 @@ public class PriceServiceImplementation implements PriceService {
     private final DtoUtils dtoUtils;
 
     @Override
-    public void savePrice(PriceDto priceDto,String ownerEmail) {
+    public Price savePrice(PriceDto priceDto,String ownerEmail) {
         ClientCopy clientCopy=clientCopyRepository.findByEmail(ownerEmail);
         Price price = (Price) dtoUtils.convertToEntity(new Price(),priceDto);
         price.setId(null);
         clientCopy.getPriceList().add(price);
-        priceRepository.save(price);
+        Price p = priceRepository.save(price);
         clientCopyRepository.save(clientCopy);
-
+        return p;
     }
 
     @Override

@@ -43,7 +43,8 @@ public class OwnersCar {
 //    @OneToMany(mappedBy = "ownersCar",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 //    private Set<Advert> adverts;
 
-    @OneToMany(mappedBy = "ownersCarReport",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+//    @OneToMany(mappedBy = "ownersCarReport",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<DriveReport> reports;
 
 }

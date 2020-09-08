@@ -14,7 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/comment-manager")
 @RestController
-@CrossOrigin
+//@CrossOrigin
 public class GradeController {
 
     private final GradeService gradeService;

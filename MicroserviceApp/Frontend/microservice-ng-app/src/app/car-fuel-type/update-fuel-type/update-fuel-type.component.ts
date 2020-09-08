@@ -33,7 +33,7 @@ export class UpdateFuelTypeComponent implements OnInit {
 
   onYesClick() {
 
-    const urlPost = 'http://localhost:9090/advert-manager/car-fuel-type';
+    const urlPost = 'http://localhost:8662/advert-manager/car-fuel-type';
     console.log(this.carFuelType.id);
     console.log(this.carFuelType.fuelType);
     this.http.put(urlPost, this.carFuelType).subscribe(res => {

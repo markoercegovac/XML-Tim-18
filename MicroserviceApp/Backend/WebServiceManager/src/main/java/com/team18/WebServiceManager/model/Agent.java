@@ -1,14 +1,9 @@
 package com.team18.WebServiceManager.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+
 @Entity
 @Table
 public class Agent {
@@ -22,4 +17,28 @@ public class Agent {
 
 	@Column(nullable = false)
 	private String agentUrl;
+
+	public Long getAgentId() {
+		return agentId;
+	}
+
+	public String getAgentEmail() {
+		return agentEmail;
+	}
+
+	public String getAgentUrl() {
+		return agentUrl;
+	}
+
+	public void setAgentId(Long agentId) {
+		this.agentId = agentId;
+	}
+
+	public void setAgentEmail(String agentEmail) {
+		this.agentEmail = agentEmail;
+	}
+
+	public void setAgentUrl(String agentUrl) {
+		this.agentUrl = agentUrl;
+	}
 }

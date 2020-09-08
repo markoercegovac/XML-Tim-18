@@ -2,6 +2,7 @@ package com.team18.WebServiceManager.mq.service.producer;
 
 import com.google.gson.Gson;
 import com.team18.WebServiceManager.mq.dto.*;
+import org.springframework.amqp.AmqpRejectAndDontRequeueException;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,59 +16,131 @@ public class AdProducer {
 	@Autowired
 	private AmqpTemplate amqpTemplate;
 
-	@Value("${rabbitmq.direct.soap.ad.soap}")
+	@Value("${rabbitmq.direct.soap.soap.ad}")
 	private String exchange;
 
-	@Value("${rabbitmq.key.soap.ad.soap}")
+	@Value("${rabbitmq.key.soap.soap.ad}")
 	private String routingKey;
 
 	public void produceCarBrand(CarBrandMQ msg){
-		amqpTemplate.convertAndSend(exchange, routingKey, gson.toJson(msg));
-		System.out.println("MQ>> sending car brand "+ msg);
+		try {
+			String ms = "CarBrand-";
+			ms += gson.toJson(msg);
+			amqpTemplate.convertAndSend(exchange, routingKey, ms);
+			System.out.println("MQ>> sending car brand " + msg);
+		} catch (Exception e) {
+			throw new AmqpRejectAndDontRequeueException(e.getMessage());
+		}
 	}
 
 	public void produceCarModel(CarModelMQ msg){
-		amqpTemplate.convertAndSend(exchange, routingKey, gson.toJson(msg));
-		System.out.println("MQ>> sending car model "+ msg);
+		try {
+			String ms = "CarModel-";
+			ms += gson.toJson(msg);
+			amqpTemplate.convertAndSend(exchange, routingKey, ms);
+			System.out.println("MQ>> sending car model " + msg);
+		} catch (Exception e) {
+			throw new AmqpRejectAndDontRequeueException(e.getMessage());
+		}
 	}
 
 	public void produceCarClass(CarClassMQ msg){
-		amqpTemplate.convertAndSend(exchange, routingKey, gson.toJson(msg));
-		System.out.println("MQ>> sending car class "+ msg);
+		try {
+			String ms = "CarClass-";
+			ms += gson.toJson(msg);
+			amqpTemplate.convertAndSend(exchange, routingKey, ms);
+			System.out.println("MQ>> sending car class " + msg);
+		} catch (Exception e) {
+			throw new AmqpRejectAndDontRequeueException(e.getMessage());
+		}
 	}
 
 	public void produceCarFuelType(CarFuelTypeMQ msg){
-		amqpTemplate.convertAndSend(exchange, routingKey, gson.toJson(msg));
-		System.out.println("MQ>> sending car fuel type "+ msg);
+		try {
+			String ms = "CarFuelType-";
+			ms += gson.toJson(msg);
+			amqpTemplate.convertAndSend(exchange, routingKey, ms);
+			System.out.println("MQ>> sending car fuel type " + msg);
+		}catch (Exception e) {
+			throw new AmqpRejectAndDontRequeueException(e.getMessage());
+		}
 	}
 
 	public void produceCarTransmission(CarTransmissionMQ msg){
-		amqpTemplate.convertAndSend(exchange, routingKey, gson.toJson(msg));
-		System.out.println("MQ>> sending car transmission "+ msg);
+		try {
+			String ms = "CarTransmission-";
+			ms += gson.toJson(msg);
+			amqpTemplate.convertAndSend(exchange, routingKey, ms);
+			System.out.println("MQ>> sending car transmission " + msg);
+		} catch (Exception e) {
+			throw new AmqpRejectAndDontRequeueException(e.getMessage());
+		}
 	}
 
 	public void produceCar(CarMQ msg){
-		amqpTemplate.convertAndSend(exchange, routingKey, gson.toJson(msg));
-		System.out.println("MQ>> sending car "+ msg);
+		try {
+			String ms = "Car-";
+			ms += gson.toJson(msg);
+			amqpTemplate.convertAndSend(exchange, routingKey, ms);
+			System.out.println("MQ>> sending car " + msg);
+		} catch (Exception e) {
+			throw new AmqpRejectAndDontRequeueException(e.getMessage());
+		}
 	}
 
 	public void producePrice(PriceMQ msg){
-		amqpTemplate.convertAndSend(exchange, routingKey, gson.toJson(msg));
-		System.out.println("MQ>> sending price "+ msg);
+		try {
+			String ms = "Price-";
+			ms += gson.toJson(msg);
+			amqpTemplate.convertAndSend(exchange, routingKey, ms);
+			;
+			System.out.println("MQ>> sending price " + msg);
+		} catch (Exception e) {
+			throw new AmqpRejectAndDontRequeueException(e.getMessage());
+		}
 	}
 
 	public void producePicture(PictureMQ msg){
-		amqpTemplate.convertAndSend(exchange, routingKey, gson.toJson(msg));
-		System.out.println("MQ>> sending picture ");
+		try {
+			String ms = "Picture-";
+			ms += gson.toJson(msg);
+			amqpTemplate.convertAndSend(exchange, routingKey, ms);
+			System.out.println("MQ>> sending picture ");
+		} catch (Exception e) {
+			throw new AmqpRejectAndDontRequeueException(e.getMessage());
+		}
 	}
 
 	public void produceCapture(CaptureMQ msg){
-		amqpTemplate.convertAndSend(exchange, routingKey, gson.toJson(msg));
-		System.out.println("MQ>> sending capture ");
+		try {
+			String ms = "Capture-";
+			ms += gson.toJson(msg);
+			amqpTemplate.convertAndSend(exchange, routingKey, ms);
+			System.out.println("MQ>> sending capture ");
+		} catch (Exception e) {
+			throw new AmqpRejectAndDontRequeueException(e.getMessage());
+		}
 	}
 
 	public void produceAdvert(AdvertMQ msg){
-		amqpTemplate.convertAndSend(exchange, routingKey, gson.toJson(msg));
-		System.out.println("MQ>> sending advert ");
+		try {
+			String ms = "Advert-";
+			ms += gson.toJson(msg);
+			amqpTemplate.convertAndSend(exchange, routingKey, ms);
+			System.out.println("MQ>> sending advert ");
+		} catch (Exception e) {
+			throw new AmqpRejectAndDontRequeueException(e.getMessage());
+		}
+	}
+
+	public void produceDriveReport(DriveReportMQ msg){
+		try {
+			String ms = "DriveReport-";
+			ms += gson.toJson(msg);
+			amqpTemplate.convertAndSend(exchange, routingKey, ms);
+			System.out.println("MQ>> sending drive report ");
+		} catch (Exception e) {
+			throw new AmqpRejectAndDontRequeueException(e.getMessage());
+		}
 	}
 }

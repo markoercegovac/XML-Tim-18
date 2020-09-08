@@ -13,7 +13,7 @@ export class GradeService {
   }
 
   public createGrade(grade: Grade) {
-    const url = 'http://localhost:8080/comment-manager/grade';
+    const url = 'http://localhost:8662/comment-manager/grade';
 
     return this.http.post(url, grade);
   }

@@ -18,7 +18,7 @@ export class AuthService {
       .subscribe((res: HttpResponse<any>) => {
         console.log('JWT ADDED');
         console.log(res.headers)
-        console.log('JWT TOKEN: ' , res.headers.get('Authorization'))
+        console.log('JWT TOKEN: ' , res.headers.get('authorization'))
         this.getPermissions();
 
         const token = res.headers.get('Authorization');

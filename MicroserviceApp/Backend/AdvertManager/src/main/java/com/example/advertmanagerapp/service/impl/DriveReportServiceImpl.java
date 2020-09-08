@@ -21,7 +21,7 @@ public class DriveReportServiceImpl implements DriveReportService {
 
 
     @Override
-    public void addNewReport(DriveReportDto newReport) {
+    public DriveReport addNewReport(DriveReportDto newReport) {
 
         DriveReport report = new DriveReport();
         ConcreteCar car = this.carRepository.findAllById(newReport.getCarId());
@@ -32,6 +32,8 @@ public class DriveReportServiceImpl implements DriveReportService {
 
         car.getReports().add(report);
         carRepository.save(car);
+
+        return report;
     }
 
     @Override

@@ -11,7 +11,7 @@ import rent.app.service.CarBrandService;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
 @RequestMapping("/car-brand")
 @CrossOrigin()
@@ -34,14 +34,14 @@ public class CarBrandController {
     }
 
     @PutMapping
-    public ResponseEntity<CarBrandDto> updateCarBrand(@RequestBody CarBrand carBrand){
+    public ResponseEntity updateCarBrand(@RequestBody CarBrand carBrand){
         carBrandService.saveCarBrand(carBrand);
-        return new ResponseEntity<CarBrandDto>(HttpStatus.OK);
+        return new ResponseEntity(HttpStatus.OK);
     }
 
     @DeleteMapping("/{brand_id}")
-    public ResponseEntity<CarBrandDto> deleteCarBrand(@PathVariable(value = "brand_id") Long id){
+    public ResponseEntity deleteCarBrand(@PathVariable(value = "brand_id") Long id){
         carBrandService.deleteCarBrand(id);
-        return new ResponseEntity<CarBrandDto>(HttpStatus.OK);
+        return new ResponseEntity(HttpStatus.OK);
     }
 }

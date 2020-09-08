@@ -50,6 +50,12 @@ const routes: Routes = [
     { path: 'home', component: AdminHomeComponent },
     { path: 'comment', component: AdminCommentsComponent },
     { path : 'register/aprove', component: AllRegistrationRequestComponent},
+
+    { path: 'brand', component: CarBrandComponent},
+    { path: 'class', component: CarClassComponent},
+    { path: 'model', component: CarModelComponent},
+    { path: 'fuel-type', component: CarFuelTypeComponent},
+    { path: 'transmission', component: CarTranssmisionTypeComponent},
   ]},
   { path: 'registerCar', component: RegisterCarComponent },
   { path: 'definePrice', component: DefinePriceComponent },
@@ -70,12 +76,6 @@ const routes: Routes = [
      path: 'statistics',
      component: StatisticsComponent
    },
-
-  { path: 'brand', component: CarBrandComponent},
-  { path: 'class', component: CarClassComponent},
-  { path: 'model', component: CarModelComponent},
-  { path: 'fuel-type', component: CarFuelTypeComponent},
-  { path: 'transmission', component: CarTranssmisionTypeComponent},
 
 
   { path: '**', component: NotFoundComponent }

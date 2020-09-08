@@ -12,7 +12,7 @@ import rent.app.service.CarFuelTypeService;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
 @RequestMapping("/car-fuel-type")
 @CrossOrigin()

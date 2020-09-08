@@ -6,4 +6,5 @@ RUN ["mvn", "package", "-DskipTests"]
 
 FROM openjdk:11
 COPY --from=commentMaven /usr/src/servers/comment/target/comment-manager.jar ./
-CMD ["java", "-jar", "comment-manager.jar", "--spring.profiles.active=prod"]
+EXPOSE 8081
+CMD ["java", "-jar", "comment-manager.jar"]

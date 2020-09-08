@@ -21,13 +21,15 @@ public class CommentAspect {
 
     @AfterReturning(pointcut = "execution(* rent.app.service.impl.CommentServiceImpl.addNewComment(..))", returning = "comment")
     public void afterSavedComment(JoinPoint joinPoint, Comment comment){
-        CommentRequest request=new CommentRequest();
-        request.setId(comment.getId());
-        request.setContent(comment.getContent());
-        request.setToken("firm@com");
-        request.setAdvertId(advertRepository.findByCommentsId(comment.getId()).getId());
-        SoapResponse response = commentClient.handleComment(request);
-        System.out.println("STATUS: "+ response.getStatus());
+        try {
+            CommentRequest request = new CommentRequest();
+            request.setId(comment.getId());
+            request.setContent(comment.getContent());
+            request.setToken("firm@com");
+            request.setAdvertId(advertRepository.findByCommentsId(comment.getId()).getId());
+            SoapResponse response = commentClient.handleComment(request);
+            System.out.println("STATUS: " + response.getStatus());
+        } catch (Exception e) {}
 
     }
 

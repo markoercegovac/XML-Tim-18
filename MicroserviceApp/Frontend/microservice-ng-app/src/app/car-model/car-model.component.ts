@@ -83,7 +83,7 @@ export class CarModelComponent implements OnInit {
 
   delete(carModel: CarModel): void {
 
-    const urlDelete = 'http://localhost:9090/advert-manager/car-model/' + carModel.id;
+    const urlDelete = 'http://localhost:8662/advert-manager/car-model/' + carModel.id;
 
     this.http.delete(urlDelete).subscribe(res=>{
       this.getAllCarModel();

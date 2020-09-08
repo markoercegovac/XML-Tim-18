@@ -55,7 +55,7 @@ public class AdvertServiceImpl implements AdvertService {
     }
 
     @Override
-    public void createAdvert(AdvertDto advertDto) throws IOException {
+    public Advert createAdvert(AdvertDto advertDto) throws IOException {
         Advert advert= (Advert) dtoUtils.convertToEntity(new Advert(),advertDto);
         pictureService.savePicture(advertDto.getProfilePicture());
         advertDto.getPictureSet().forEach(p->{
@@ -81,7 +81,7 @@ public class AdvertServiceImpl implements AdvertService {
         Picture profilePicture= new Picture();
         profilePicture.setPath(advertDto.getProfilePicture().getPath());
         pictureRepository.save(profilePicture);
-        advertRepository.save(advert);
+        Advert retAd = advertRepository.save(advert);
 
         ClientCopy clientCopy = clientCopyRepository.findByEmail(advertDto.getEmail());
         if(clientCopy.getAdverts() != null) {
@@ -94,6 +94,8 @@ public class AdvertServiceImpl implements AdvertService {
 
 
         clientCopyRepository.save(clientCopy);
+
+        return retAd;
     }
 
     @Override

@@ -21,14 +21,16 @@ public class PictureAspect {
 
     @After(value = "execution(* rent.app.service.impl.PictureServiceImpl.saveProfilePicture(..)) && args(picture)")
     public void afterSavedPicture(JoinPoint joinPoint, PictureDto picture){
-        PictureRequest request=new PictureRequest();
-        request.setBase64(picture.getPicture());
-        Picture p=pictureRepository.findByPath(picture.getPath());
-        request.setId(p.getId());
-        request.setToken("firm@com");
+        try {
+            PictureRequest request = new PictureRequest();
+            request.setBase64(picture.getPicture());
+            Picture p = pictureRepository.findByPath(picture.getPath());
+            request.setId(p.getId());
+            request.setToken("firm@com");
 
-        SoapResponse response= pictureClient.handlePicture(request);
-        System.out.println("STATUS: "+ response.getStatus());
+            SoapResponse response = pictureClient.handlePicture(request);
+            System.out.println("STATUS: " + response.getStatus());
+        }catch (Exception e) {}
 
     }
 

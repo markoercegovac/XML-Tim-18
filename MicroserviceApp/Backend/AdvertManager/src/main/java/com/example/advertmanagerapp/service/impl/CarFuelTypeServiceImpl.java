@@ -32,8 +32,8 @@ public class CarFuelTypeServiceImpl implements CarFuelTypeService {
     }
 
     @Override
-    public void saveFuelType(CarFuelType carFuelType) {
-        repository.save(carFuelType);
+    public CarFuelType saveFuelType(CarFuelType carFuelType) {
+        return repository.save(carFuelType);
     }
 
     @Override
