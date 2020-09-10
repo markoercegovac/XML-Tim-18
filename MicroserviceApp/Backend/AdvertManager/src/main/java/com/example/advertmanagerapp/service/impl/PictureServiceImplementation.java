@@ -20,7 +20,7 @@ import java.util.Base64;
 @Service
 public class PictureServiceImplementation implements PictureService {
 
-    static String filePath="/images/"; //root je u UserManageru
+    static String filePath = "images" + File.separator; //root je u UserManageru
 
     @Override
     public void savePicture(PictureDto picture) throws IOException {
@@ -28,7 +28,7 @@ public class PictureServiceImplementation implements PictureService {
         byte[] imgBytes = DatatypeConverter.parseBase64Binary(base64Image);
         BufferedImage img = ImageIO.read(new ByteArrayInputStream(imgBytes));
         String path = filePath + picture.getPath();
-        Files.createDirectories(Paths.get("/images"));
+//        Files.createDirectories(Paths.get("/images"));
         File file = new File(path);
         ImageIO.write(img, "jpeg", file);
         System.out.println("--------------------------------------");

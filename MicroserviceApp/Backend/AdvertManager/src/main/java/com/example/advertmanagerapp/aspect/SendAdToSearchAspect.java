@@ -12,6 +12,7 @@ import com.example.advertmanagerapp.repository.AdvertRepository;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -25,18 +26,21 @@ public class SendAdToSearchAspect {
 	@Autowired
 	private AdvertRepository adRepository;
 
-    @After(value = "execution(* com.example.advertmanagerapp.service.impl.AdvertServiceImpl.createAdvert(..)) and args(advertDto)")
-    public void afterSavedCarBrand(JoinPoint joinPoint, AdvertDto advertDto ) {
+    @AfterReturning(value = "execution(* com.example.advertmanagerapp.service.impl.AdvertServiceImpl.createAdvert(..))", returning = "advertModel")
+    public void afterSavedCarBrand(JoinPoint joinPoint, Advert advertModel) {
 
 		try {
-			Advert ad = adRepository.findById(advertDto.getId()).orElseThrow(NullPointerException::new);
+			Advert ad = adRepository.findById(advertModel.getId()).orElseThrow(NullPointerException::new);
+
 			List<AdSearchReservedDate> reserved = new ArrayList<>();
-			ad.getCaptures().forEach(capture -> {
-				reserved.add(new AdSearchReservedDate(
-					capture.getId(),
-					capture.getTakeDate(),
-					capture.getLeaveDate()));
-			});
+			if(ad.getCaptures()!=null && !ad.getCaptures().isEmpty()) {
+				ad.getCaptures().forEach(capture -> {
+					reserved.add(new AdSearchReservedDate(
+							capture.getId(),
+							capture.getTakeDate(),
+							capture.getLeaveDate()));
+				});
+			}
 			AdSearchMQ msg = new AdSearchMQ();
 			msg.setAdvertCopyId(ad.getId());
 			msg.setCity("Sabac");
@@ -54,7 +58,7 @@ public class SendAdToSearchAspect {
 			searchProducer.produceMsg(msg);
 		} catch(Exception e) {
 			e.printStackTrace();
-			System.out.println("ASPECT EXCEPTION"+ e.getMessage());
+			System.out.println("ASPECT EXCEPTION IN SEARCH"+ e.getMessage());
 		}
     }
 }

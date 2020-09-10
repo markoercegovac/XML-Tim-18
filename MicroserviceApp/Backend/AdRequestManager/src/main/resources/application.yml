@@ -26,7 +26,7 @@ spring:
   application:
     name: ${springboot.app.name:request-manager}
   datasource:
-    data: classpath:data.sql
+#    data: classpath:data.sql
     driver-class-name: com.mysql.cj.jdbc.Driver
     initialization-mode: always
     username: ${DATABASE_USERNAME:agentXML}

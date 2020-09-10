@@ -18,15 +18,26 @@ insert into car_brand(id, name, is_removed) values(8, "FIAT", FALSE);
 insert into car_brand(id, name, is_removed) values(9, "GOLF", FALSE);
 
 -- CAR MODEL
-insert into car_model(id, model_name, is_removed) values(1, "R8", FALSE);
-insert into car_model(id, model_name, is_removed) values(2, "MACAN", FALSE);
-insert into car_model(id, model_name, is_removed) values(3, "PUNTO", FALSE);
-insert into car_model(id, model_name, is_removed) values(4, "5", FALSE);
+insert into car_model(id, model_name, is_removed) values(1, "M3", FALSE);
+insert into car_model(id, model_name, is_removed) values(2, "R8", FALSE);
+insert into car_model(id, model_name, is_removed) values(3, "911", FALSE);
+insert into car_model(id, model_name, is_removed) values(4, "KORAL 55", FALSE);
+insert into car_model(id, model_name, is_removed) values(5, "HURRICANE", FALSE);
+insert into car_model(id, model_name, is_removed) values(6, "SUPRA", FALSE);
+insert into car_model(id, model_name, is_removed) values(7, "LaFerarri", FALSE);
+insert into car_model(id, model_name, is_removed) values(8, "PUNTO", FALSE);
+insert into car_model(id, model_name, is_removed) values(9, "5", FALSE);
 
 -- CAR MODEL_BRAND
-insert into car_brand_car_model_set(car_brand_id, car_model_set_id) values(8,3);
-insert into car_brand_car_model_set(car_brand_id, car_model_set_id) values(2,1);
-insert into car_brand_car_model_set(car_brand_id, car_model_set_id) values(9,4);
+insert into car_brand_car_model_set(car_brand_id, car_model_set_id) values(1,1);
+insert into car_brand_car_model_set(car_brand_id, car_model_set_id) values(2,2);
+insert into car_brand_car_model_set(car_brand_id, car_model_set_id) values(3,3);
+insert into car_brand_car_model_set(car_brand_id, car_model_set_id) values(4,4);
+insert into car_brand_car_model_set(car_brand_id, car_model_set_id) values(5,5);
+insert into car_brand_car_model_set(car_brand_id, car_model_set_id) values(5,6);
+insert into car_brand_car_model_set(car_brand_id, car_model_set_id) values(7,7);
+insert into car_brand_car_model_set(car_brand_id, car_model_set_id) values(8,8);
+insert into car_brand_car_model_set(car_brand_id, car_model_set_id) values(9,9);
 
 -- CAR FUEL
 insert into car_fuel_type(id, fuel_type,is_removed) values(1,"DIESEL",FALSE);
@@ -41,6 +52,8 @@ insert into car_fuel_type(id, fuel_type,is_removed) values(7,"OTHER",FALSE);
 insert into car_class(id, class_name, is_removed) values(1, "S", FALSE);
 insert into car_class(id, class_name, is_removed) values(2, "A", FALSE);
 insert into car_class(id, class_name, is_removed) values(3, "B", FALSE);
+insert into car_class(id, class_name, is_removed) values(4, "C", FALSE);
+insert into car_class(id, class_name, is_removed) values(5, "D", FALSE);
 
 -- CAR TRANSMISSION
 insert into car_transmission_type(id, transmission_type,is_removed) values(1,"MANUAL",FALSE);
@@ -49,9 +62,6 @@ insert into car_transmission_type(id, transmission_type,is_removed) values(2,"AU
 -- ADVERT
 --insert into concrete_car(id, children_sit_number, name_of_car, travel_distance_constraint, year, car_brand_id, car_class_id, car_fuel_type_id, car_model_id, car_transmission_type_id)
 --values(1, 0, "AUDI:R8", 0, "1993", 2, 1, 2, 1, 1);
---
---insert into price(id, discount, distance_overflow_price, insurance_price, is_removed, name, price_name, price_per_day)
---values(2, 0, 54634, 543, 0, "BEST", "BEST", 4254);
 ----
 --insert into picture(id, is_deleted, path, picture)
 --values(5, 0, "Fiat-Panda.jpg", null);

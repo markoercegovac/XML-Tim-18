@@ -22,7 +22,7 @@ services:
       REGISTRY_HOST: service-registry
       REGISTRY_PORT: 8761
       AUTH_ADR: user-manager
-      AUTH_PORT: 8097
+      AUTH_PORT: 8091
     depends_on:
       - service-registry
       - user-manager
@@ -205,22 +205,16 @@ services:
       - demo
 
   mysql-db:
-    image: mysql:8.0.19
+    build: ./MySQLImage
+    image: ttiberius/mysql-db
     command: --default-authentication-plugin=mysql_native_password
     container_name: mysql-db
     restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: SuperRootPassword1
-      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
-      MYSQL_DATABASE: main
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: AdminPassword1
     ports:
       - 3307:3306
     networks:
       - demo
     volumes:
-      - ./dockerScript/init.sql:/docker-entrypoint-initdb.d/init.sql
       - mysql-db-data:/var/lib/mysql
 
 volumes:

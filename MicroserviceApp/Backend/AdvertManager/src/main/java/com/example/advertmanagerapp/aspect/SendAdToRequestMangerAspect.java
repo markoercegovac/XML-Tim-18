@@ -14,14 +14,16 @@ import com.example.advertmanagerapp.mq.service.RequestProducer;
 import com.example.advertmanagerapp.repository.AdvertRepository;
 
 import com.example.advertmanagerapp.repository.ClientCopyRepository;
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
-public class SendAdToRequestMaangerAspect {
+public class SendAdToRequestMangerAspect {
 	
 	@Autowired
 	private RequestProducer requestProducer;
@@ -30,21 +32,23 @@ public class SendAdToRequestMaangerAspect {
 	@Autowired
 	private ClientCopyRepository clientCopyRepository;
 
-	@After(value = "execution(* com.example.advertmanagerapp.service.impl.AdvertServiceImpl.createAdvert(..)) and args(advertDto)")
-	public void sendToRequestManager(AdvertDto advertDto) {
+	@AfterReturning(value = "execution(* com.example.advertmanagerapp.service.impl.AdvertServiceImpl.createAdvert(..))", returning = "advertModel")
+	public void sendToRequestManager(JoinPoint joinPoint, Advert advertModel) {
 
 		try {
-			Advert a = adRepo.findById(advertDto.getCarId()).orElseThrow(NullPointerException::new);
+			Advert a = adRepo.findById(advertModel.getId()).orElseThrow(NullPointerException::new);
 
     		Set<AdRequestReservationDateMQ> carReservedDate = new HashSet<>();
 
-			a.getCaptures().forEach(capture -> {
-				carReservedDate.add(new AdRequestReservationDateMQ(
-					capture.getId(),
-					capture.getTakeDate(),
-					capture.getLeaveDate()
-				));
-			});
+			if(a.getCaptures()!=null && !a.getCaptures().isEmpty()) {
+				a.getCaptures().forEach(capture -> {
+					carReservedDate.add(new AdRequestReservationDateMQ(
+						capture.getId(),
+						capture.getTakeDate(),
+						capture.getLeaveDate()
+					));
+				});
+			}
 
 			ClientCopy c = clientCopyRepository.findByAdvertsId(a.getId());
 			AdRequestMQ msg = new AdRequestMQ();
@@ -56,7 +60,7 @@ public class SendAdToRequestMaangerAspect {
 			requestProducer.produceMsg(msg);
 		} catch(Exception e) {
 			e.printStackTrace();
-			System.out.println("ASPECT ERROR"+ e.getMessage());
+			System.out.println("ASPECT ERROR FOR REQUEST"+ e.getMessage());
 		}
 	}
 }

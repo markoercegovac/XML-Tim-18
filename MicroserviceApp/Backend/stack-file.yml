@@ -1,0 +1,198 @@
+version: "3.7"
+services:
+
+	visualizer:
+		image: dockersamples/visualizer:stable
+		ports:
+		  - 9090:8080
+		volumes:
+		  - /var/run/docker.sock:/var/run/docker.sock
+		deploy:
+		  placement:
+			constraints: [node.role == manager]
+
+  service-registry:
+    image: ttiberius/service-registry
+    networks:
+      - rent-a-car
+    ports:
+      - 8761:8761
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+
+  gateway:
+    image: ttiberius/gateway
+    networks:
+      - rent-a-car
+    ports:
+      - 8662:8662
+    environment:
+      REGISTRY_HOST: service-registry
+      REGISTRY_PORT: 8761
+      AUTH_ADR: user-manager
+      AUTH_PORT: 8091
+    depends_on:
+      - service-registry
+      - user-manager
+      - advert-manager
+      - request-manager
+      - chat-manager
+      - comment-manager
+      - search-manager
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+
+  user-manager:
+    image: ttiberius/user-manager
+    networks:
+      - rent-a-car
+    ports:
+      - 8091:8080
+    environment:
+      REGISTRY_HOST: service-registry
+      RABBITMQ: message-queue
+      DATABASE_USERNAME: us_user
+      DATABASE_PASSWORD: password-user
+      DATABASE_DOMAIN: mysql-db
+      DATABASE_SCHEMA: user_db
+    depends_on:
+      - mysql-db
+      - service-registry
+      - message-queue
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+
+  advert-manager:
+    image: ttiberius/advert-manager
+    networks:
+      - rent-a-car
+    ports:
+      - 8096:8080
+    environment:
+      REGISTRY_HOST: service-registry
+      RABBITMQ: message-queue
+      DATABASE_USERNAME: us_advert
+      DATABASE_PASSWORD: password-advert
+      DATABASE_DOMAIN: mysql-db
+      DATABASE_SCHEMA: advert_db
+    depends_on:
+      - mysql-db
+      - service-registry
+      - message-queue
+    volumes:
+      - car-images:/images
+    deploy:
+      replicas: 3
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+
+  request-manager:
+    image: ttiberius/request-manager
+    networks:
+      - rent-a-car
+    ports:
+      - 8093:8080
+    environment:
+      REGISTRY_HOST: service-registry
+      RABBITMQ: message-queue
+      DATABASE_USERNAME: us_request
+      DATABASE_PASSWORD: password-request
+      DATABASE_DOMAIN: mysql-db
+      DATABASE_SCHEMA: request_db
+    depends_on: 
+      - mysql-db
+      - service-registry
+      - message-queue
+    deploy:
+      replicas: 3
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+
+  mail-manager:
+    image: ttiberius/mail-manager
+    networks:
+      - rent-a-car
+    ports:
+      - 8097:8080
+    environment:
+      REGISTRY_HOST: service-registry
+      RABBITMQ: message-queue
+    depends_on:
+      - service-registry
+      - message-queue
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+
+  message-queue:
+    image: ttiberius/message-queue
+    ports:
+      - 15672:15672
+    networks:
+      - rent-a-car
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+
+  mysql-db:
+    image: mysql:8.0.19
+    command: --default-authentication-plugin=mysql_native_password
+    container_name: mysql-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: SuperRootPassword1
+      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+      MYSQL_DATABASE: main
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: AdminPassword1
+    ports:
+      - 3307:3306
+    networks:
+      - rent-a-car
+    volumes:
+      - ./dockerScript/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - mysql-db-data:/var/lib/mysql
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+
+volumes:
+  mysql-db-data:
+  car-images:
+
+networks:
+  rent-a-car:
+    name: rent-a-car
